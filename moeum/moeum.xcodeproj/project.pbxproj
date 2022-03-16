@@ -1,0 +1,612 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 55;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		709FAB6127E19ABA00C5B8A8 /* moeumApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709FAB6027E19ABA00C5B8A8 /* moeumApp.swift */; };
+		709FAB6327E19ABA00C5B8A8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709FAB6227E19ABA00C5B8A8 /* ContentView.swift */; };
+		709FAB6527E19ABB00C5B8A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 709FAB6427E19ABB00C5B8A8 /* Assets.xcassets */; };
+		709FAB6827E19ABB00C5B8A8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 709FAB6727E19ABB00C5B8A8 /* Preview Assets.xcassets */; };
+		709FAB7227E19ABB00C5B8A8 /* moeumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709FAB7127E19ABB00C5B8A8 /* moeumTests.swift */; };
+		709FAB7C27E19ABB00C5B8A8 /* moeumUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709FAB7B27E19ABB00C5B8A8 /* moeumUITests.swift */; };
+		709FAB7E27E19ABB00C5B8A8 /* moeumUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709FAB7D27E19ABB00C5B8A8 /* moeumUITestsLaunchTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		709FAB6E27E19ABB00C5B8A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 709FAB5527E19ABA00C5B8A8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 709FAB5C27E19ABA00C5B8A8;
+			remoteInfo = moeum;
+		};
+		709FAB7827E19ABB00C5B8A8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 709FAB5527E19ABA00C5B8A8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 709FAB5C27E19ABA00C5B8A8;
+			remoteInfo = moeum;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		709FAB5D27E19ABA00C5B8A8 /* moeum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moeum.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		709FAB6027E19ABA00C5B8A8 /* moeumApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moeumApp.swift; sourceTree = "<group>"; };
+		709FAB6227E19ABA00C5B8A8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		709FAB6427E19ABB00C5B8A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		709FAB6727E19ABB00C5B8A8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		709FAB6D27E19ABB00C5B8A8 /* moeumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = moeumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		709FAB7127E19ABB00C5B8A8 /* moeumTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moeumTests.swift; sourceTree = "<group>"; };
+		709FAB7727E19ABB00C5B8A8 /* moeumUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = moeumUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		709FAB7B27E19ABB00C5B8A8 /* moeumUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moeumUITests.swift; sourceTree = "<group>"; };
+		709FAB7D27E19ABB00C5B8A8 /* moeumUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moeumUITestsLaunchTests.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		709FAB5A27E19ABA00C5B8A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		709FAB6A27E19ABB00C5B8A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		709FAB7427E19ABB00C5B8A8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		709FAB5427E19ABA00C5B8A8 = {
+			isa = PBXGroup;
+			children = (
+				709FAB5F27E19ABA00C5B8A8 /* moeum */,
+				709FAB7027E19ABB00C5B8A8 /* moeumTests */,
+				709FAB7A27E19ABB00C5B8A8 /* moeumUITests */,
+				709FAB5E27E19ABA00C5B8A8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		709FAB5E27E19ABA00C5B8A8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				709FAB5D27E19ABA00C5B8A8 /* moeum.app */,
+				709FAB6D27E19ABB00C5B8A8 /* moeumTests.xctest */,
+				709FAB7727E19ABB00C5B8A8 /* moeumUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		709FAB5F27E19ABA00C5B8A8 /* moeum */ = {
+			isa = PBXGroup;
+			children = (
+				709FAB6027E19ABA00C5B8A8 /* moeumApp.swift */,
+				709FAB6227E19ABA00C5B8A8 /* ContentView.swift */,
+				709FAB6427E19ABB00C5B8A8 /* Assets.xcassets */,
+				709FAB6627E19ABB00C5B8A8 /* Preview Content */,
+			);
+			path = moeum;
+			sourceTree = "<group>";
+		};
+		709FAB6627E19ABB00C5B8A8 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				709FAB6727E19ABB00C5B8A8 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		709FAB7027E19ABB00C5B8A8 /* moeumTests */ = {
+			isa = PBXGroup;
+			children = (
+				709FAB7127E19ABB00C5B8A8 /* moeumTests.swift */,
+			);
+			path = moeumTests;
+			sourceTree = "<group>";
+		};
+		709FAB7A27E19ABB00C5B8A8 /* moeumUITests */ = {
+			isa = PBXGroup;
+			children = (
+				709FAB7B27E19ABB00C5B8A8 /* moeumUITests.swift */,
+				709FAB7D27E19ABB00C5B8A8 /* moeumUITestsLaunchTests.swift */,
+			);
+			path = moeumUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		709FAB5C27E19ABA00C5B8A8 /* moeum */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 709FAB8127E19ABB00C5B8A8 /* Build configuration list for PBXNativeTarget "moeum" */;
+			buildPhases = (
+				709FAB5927E19ABA00C5B8A8 /* Sources */,
+				709FAB5A27E19ABA00C5B8A8 /* Frameworks */,
+				709FAB5B27E19ABA00C5B8A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = moeum;
+			productName = moeum;
+			productReference = 709FAB5D27E19ABA00C5B8A8 /* moeum.app */;
+			productType = "com.apple.product-type.application";
+		};
+		709FAB6C27E19ABB00C5B8A8 /* moeumTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 709FAB8427E19ABB00C5B8A8 /* Build configuration list for PBXNativeTarget "moeumTests" */;
+			buildPhases = (
+				709FAB6927E19ABB00C5B8A8 /* Sources */,
+				709FAB6A27E19ABB00C5B8A8 /* Frameworks */,
+				709FAB6B27E19ABB00C5B8A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				709FAB6F27E19ABB00C5B8A8 /* PBXTargetDependency */,
+			);
+			name = moeumTests;
+			productName = moeumTests;
+			productReference = 709FAB6D27E19ABB00C5B8A8 /* moeumTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		709FAB7627E19ABB00C5B8A8 /* moeumUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 709FAB8727E19ABB00C5B8A8 /* Build configuration list for PBXNativeTarget "moeumUITests" */;
+			buildPhases = (
+				709FAB7327E19ABB00C5B8A8 /* Sources */,
+				709FAB7427E19ABB00C5B8A8 /* Frameworks */,
+				709FAB7527E19ABB00C5B8A8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				709FAB7927E19ABB00C5B8A8 /* PBXTargetDependency */,
+			);
+			name = moeumUITests;
+			productName = moeumUITests;
+			productReference = 709FAB7727E19ABB00C5B8A8 /* moeumUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		709FAB5527E19ABA00C5B8A8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1300;
+				LastUpgradeCheck = 1300;
+				TargetAttributes = {
+					709FAB5C27E19ABA00C5B8A8 = {
+						CreatedOnToolsVersion = 13.0;
+					};
+					709FAB6C27E19ABB00C5B8A8 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = 709FAB5C27E19ABA00C5B8A8;
+					};
+					709FAB7627E19ABB00C5B8A8 = {
+						CreatedOnToolsVersion = 13.0;
+						TestTargetID = 709FAB5C27E19ABA00C5B8A8;
+					};
+				};
+			};
+			buildConfigurationList = 709FAB5827E19ABA00C5B8A8 /* Build configuration list for PBXProject "moeum" */;
+			compatibilityVersion = "Xcode 13.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 709FAB5427E19ABA00C5B8A8;
+			productRefGroup = 709FAB5E27E19ABA00C5B8A8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				709FAB5C27E19ABA00C5B8A8 /* moeum */,
+				709FAB6C27E19ABB00C5B8A8 /* moeumTests */,
+				709FAB7627E19ABB00C5B8A8 /* moeumUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		709FAB5B27E19ABA00C5B8A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				709FAB6827E19ABB00C5B8A8 /* Preview Assets.xcassets in Resources */,
+				709FAB6527E19ABB00C5B8A8 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		709FAB6B27E19ABB00C5B8A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		709FAB7527E19ABB00C5B8A8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		709FAB5927E19ABA00C5B8A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				709FAB6327E19ABA00C5B8A8 /* ContentView.swift in Sources */,
+				709FAB6127E19ABA00C5B8A8 /* moeumApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		709FAB6927E19ABB00C5B8A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				709FAB7227E19ABB00C5B8A8 /* moeumTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		709FAB7327E19ABB00C5B8A8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				709FAB7E27E19ABB00C5B8A8 /* moeumUITestsLaunchTests.swift in Sources */,
+				709FAB7C27E19ABB00C5B8A8 /* moeumUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		709FAB6F27E19ABB00C5B8A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 709FAB5C27E19ABA00C5B8A8 /* moeum */;
+			targetProxy = 709FAB6E27E19ABB00C5B8A8 /* PBXContainerItemProxy */;
+		};
+		709FAB7927E19ABB00C5B8A8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 709FAB5C27E19ABA00C5B8A8 /* moeum */;
+			targetProxy = 709FAB7827E19ABB00C5B8A8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		709FAB7F27E19ABB00C5B8A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		709FAB8027E19ABB00C5B8A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++17";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		709FAB8227E19ABB00C5B8A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"moeum/Preview Content\"";
+				DEVELOPMENT_TEAM = X64MATB2CC;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.moeum;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		709FAB8327E19ABB00C5B8A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_ASSET_PATHS = "\"moeum/Preview Content\"";
+				DEVELOPMENT_TEAM = X64MATB2CC;
+				ENABLE_PREVIEWS = YES;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
+				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.moeum;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		709FAB8527E19ABB00C5B8A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X64MATB2CC;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.moeumTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/moeum.app/moeum";
+			};
+			name = Debug;
+		};
+		709FAB8627E19ABB00C5B8A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X64MATB2CC;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.moeumTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/moeum.app/moeum";
+			};
+			name = Release;
+		};
+		709FAB8827E19ABB00C5B8A8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X64MATB2CC;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.moeumUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = moeum;
+			};
+			name = Debug;
+		};
+		709FAB8927E19ABB00C5B8A8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = X64MATB2CC;
+				GENERATE_INFOPLIST_FILE = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.test.moeumUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = moeum;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		709FAB5827E19ABA00C5B8A8 /* Build configuration list for PBXProject "moeum" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				709FAB7F27E19ABB00C5B8A8 /* Debug */,
+				709FAB8027E19ABB00C5B8A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		709FAB8127E19ABB00C5B8A8 /* Build configuration list for PBXNativeTarget "moeum" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				709FAB8227E19ABB00C5B8A8 /* Debug */,
+				709FAB8327E19ABB00C5B8A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		709FAB8427E19ABB00C5B8A8 /* Build configuration list for PBXNativeTarget "moeumTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				709FAB8527E19ABB00C5B8A8 /* Debug */,
+				709FAB8627E19ABB00C5B8A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		709FAB8727E19ABB00C5B8A8 /* Build configuration list for PBXNativeTarget "moeumUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				709FAB8827E19ABB00C5B8A8 /* Debug */,
+				709FAB8927E19ABB00C5B8A8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 709FAB5527E19ABA00C5B8A8 /* Project object */;
+}
