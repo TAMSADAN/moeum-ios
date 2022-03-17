@@ -7,61 +7,64 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		709FAB6127E19ABA00C5B8A8 /* moeumApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709FAB6027E19ABA00C5B8A8 /* moeumApp.swift */; };
-		709FAB6327E19ABA00C5B8A8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709FAB6227E19ABA00C5B8A8 /* ContentView.swift */; };
-		709FAB6527E19ABB00C5B8A8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 709FAB6427E19ABB00C5B8A8 /* Assets.xcassets */; };
-		709FAB6827E19ABB00C5B8A8 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 709FAB6727E19ABB00C5B8A8 /* Preview Assets.xcassets */; };
-		709FAB7227E19ABB00C5B8A8 /* moeumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709FAB7127E19ABB00C5B8A8 /* moeumTests.swift */; };
-		709FAB7C27E19ABB00C5B8A8 /* moeumUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709FAB7B27E19ABB00C5B8A8 /* moeumUITests.swift */; };
-		709FAB7E27E19ABB00C5B8A8 /* moeumUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 709FAB7D27E19ABB00C5B8A8 /* moeumUITestsLaunchTests.swift */; };
+		70905D8D27E37D8E001CB7AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70905D8C27E37D8E001CB7AF /* AppDelegate.swift */; };
+		70905D8F27E37D8E001CB7AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70905D8E27E37D8E001CB7AF /* SceneDelegate.swift */; };
+		70905D9127E37D8E001CB7AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70905D9027E37D8E001CB7AF /* ViewController.swift */; };
+		70905D9627E37D8F001CB7AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70905D9527E37D8F001CB7AF /* Assets.xcassets */; };
+		70905D9927E37D8F001CB7AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70905D9727E37D8F001CB7AF /* LaunchScreen.storyboard */; };
+		70905DA427E37D8F001CB7AF /* moeumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70905DA327E37D8F001CB7AF /* moeumTests.swift */; };
+		70905DAE27E37D8F001CB7AF /* moeumUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70905DAD27E37D8F001CB7AF /* moeumUITests.swift */; };
+		70905DB027E37D8F001CB7AF /* moeumUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70905DAF27E37D8F001CB7AF /* moeumUITestsLaunchTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		709FAB6E27E19ABB00C5B8A8 /* PBXContainerItemProxy */ = {
+		70905DA027E37D8F001CB7AF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 709FAB5527E19ABA00C5B8A8 /* Project object */;
+			containerPortal = 70905D8127E37D8E001CB7AF /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 709FAB5C27E19ABA00C5B8A8;
+			remoteGlobalIDString = 70905D8827E37D8E001CB7AF;
 			remoteInfo = moeum;
 		};
-		709FAB7827E19ABB00C5B8A8 /* PBXContainerItemProxy */ = {
+		70905DAA27E37D8F001CB7AF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 709FAB5527E19ABA00C5B8A8 /* Project object */;
+			containerPortal = 70905D8127E37D8E001CB7AF /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 709FAB5C27E19ABA00C5B8A8;
+			remoteGlobalIDString = 70905D8827E37D8E001CB7AF;
 			remoteInfo = moeum;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		709FAB5D27E19ABA00C5B8A8 /* moeum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moeum.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		709FAB6027E19ABA00C5B8A8 /* moeumApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moeumApp.swift; sourceTree = "<group>"; };
-		709FAB6227E19ABA00C5B8A8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		709FAB6427E19ABB00C5B8A8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		709FAB6727E19ABB00C5B8A8 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		709FAB6D27E19ABB00C5B8A8 /* moeumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = moeumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		709FAB7127E19ABB00C5B8A8 /* moeumTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moeumTests.swift; sourceTree = "<group>"; };
-		709FAB7727E19ABB00C5B8A8 /* moeumUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = moeumUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		709FAB7B27E19ABB00C5B8A8 /* moeumUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moeumUITests.swift; sourceTree = "<group>"; };
-		709FAB7D27E19ABB00C5B8A8 /* moeumUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moeumUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		70905D8927E37D8E001CB7AF /* moeum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moeum.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		70905D8C27E37D8E001CB7AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		70905D8E27E37D8E001CB7AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		70905D9027E37D8E001CB7AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		70905D9527E37D8F001CB7AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		70905D9827E37D8F001CB7AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		70905D9A27E37D8F001CB7AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		70905D9F27E37D8F001CB7AF /* moeumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = moeumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		70905DA327E37D8F001CB7AF /* moeumTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moeumTests.swift; sourceTree = "<group>"; };
+		70905DA927E37D8F001CB7AF /* moeumUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = moeumUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		70905DAD27E37D8F001CB7AF /* moeumUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moeumUITests.swift; sourceTree = "<group>"; };
+		70905DAF27E37D8F001CB7AF /* moeumUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moeumUITestsLaunchTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		709FAB5A27E19ABA00C5B8A8 /* Frameworks */ = {
+		70905D8627E37D8E001CB7AF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		709FAB6A27E19ABB00C5B8A8 /* Frameworks */ = {
+		70905D9C27E37D8F001CB7AF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		709FAB7427E19ABB00C5B8A8 /* Frameworks */ = {
+		70905DA627E37D8F001CB7AF /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -71,58 +74,52 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		709FAB5427E19ABA00C5B8A8 = {
+		70905D8027E37D8E001CB7AF = {
 			isa = PBXGroup;
 			children = (
-				709FAB5F27E19ABA00C5B8A8 /* moeum */,
-				709FAB7027E19ABB00C5B8A8 /* moeumTests */,
-				709FAB7A27E19ABB00C5B8A8 /* moeumUITests */,
-				709FAB5E27E19ABA00C5B8A8 /* Products */,
+				70905D8B27E37D8E001CB7AF /* moeum */,
+				70905DA227E37D8F001CB7AF /* moeumTests */,
+				70905DAC27E37D8F001CB7AF /* moeumUITests */,
+				70905D8A27E37D8E001CB7AF /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		709FAB5E27E19ABA00C5B8A8 /* Products */ = {
+		70905D8A27E37D8E001CB7AF /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				709FAB5D27E19ABA00C5B8A8 /* moeum.app */,
-				709FAB6D27E19ABB00C5B8A8 /* moeumTests.xctest */,
-				709FAB7727E19ABB00C5B8A8 /* moeumUITests.xctest */,
+				70905D8927E37D8E001CB7AF /* moeum.app */,
+				70905D9F27E37D8F001CB7AF /* moeumTests.xctest */,
+				70905DA927E37D8F001CB7AF /* moeumUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		709FAB5F27E19ABA00C5B8A8 /* moeum */ = {
+		70905D8B27E37D8E001CB7AF /* moeum */ = {
 			isa = PBXGroup;
 			children = (
-				709FAB6027E19ABA00C5B8A8 /* moeumApp.swift */,
-				709FAB6227E19ABA00C5B8A8 /* ContentView.swift */,
-				709FAB6427E19ABB00C5B8A8 /* Assets.xcassets */,
-				709FAB6627E19ABB00C5B8A8 /* Preview Content */,
+				70905D8C27E37D8E001CB7AF /* AppDelegate.swift */,
+				70905D8E27E37D8E001CB7AF /* SceneDelegate.swift */,
+				70905D9027E37D8E001CB7AF /* ViewController.swift */,
+				70905D9527E37D8F001CB7AF /* Assets.xcassets */,
+				70905D9727E37D8F001CB7AF /* LaunchScreen.storyboard */,
+				70905D9A27E37D8F001CB7AF /* Info.plist */,
 			);
 			path = moeum;
 			sourceTree = "<group>";
 		};
-		709FAB6627E19ABB00C5B8A8 /* Preview Content */ = {
+		70905DA227E37D8F001CB7AF /* moeumTests */ = {
 			isa = PBXGroup;
 			children = (
-				709FAB6727E19ABB00C5B8A8 /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		709FAB7027E19ABB00C5B8A8 /* moeumTests */ = {
-			isa = PBXGroup;
-			children = (
-				709FAB7127E19ABB00C5B8A8 /* moeumTests.swift */,
+				70905DA327E37D8F001CB7AF /* moeumTests.swift */,
 			);
 			path = moeumTests;
 			sourceTree = "<group>";
 		};
-		709FAB7A27E19ABB00C5B8A8 /* moeumUITests */ = {
+		70905DAC27E37D8F001CB7AF /* moeumUITests */ = {
 			isa = PBXGroup;
 			children = (
-				709FAB7B27E19ABB00C5B8A8 /* moeumUITests.swift */,
-				709FAB7D27E19ABB00C5B8A8 /* moeumUITestsLaunchTests.swift */,
+				70905DAD27E37D8F001CB7AF /* moeumUITests.swift */,
+				70905DAF27E37D8F001CB7AF /* moeumUITestsLaunchTests.swift */,
 			);
 			path = moeumUITests;
 			sourceTree = "<group>";
@@ -130,13 +127,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		709FAB5C27E19ABA00C5B8A8 /* moeum */ = {
+		70905D8827E37D8E001CB7AF /* moeum */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 709FAB8127E19ABB00C5B8A8 /* Build configuration list for PBXNativeTarget "moeum" */;
+			buildConfigurationList = 70905DB327E37D8F001CB7AF /* Build configuration list for PBXNativeTarget "moeum" */;
 			buildPhases = (
-				709FAB5927E19ABA00C5B8A8 /* Sources */,
-				709FAB5A27E19ABA00C5B8A8 /* Frameworks */,
-				709FAB5B27E19ABA00C5B8A8 /* Resources */,
+				70905D8527E37D8E001CB7AF /* Sources */,
+				70905D8627E37D8E001CB7AF /* Frameworks */,
+				70905D8727E37D8E001CB7AF /* Resources */,
 			);
 			buildRules = (
 			);
@@ -144,69 +141,69 @@
 			);
 			name = moeum;
 			productName = moeum;
-			productReference = 709FAB5D27E19ABA00C5B8A8 /* moeum.app */;
+			productReference = 70905D8927E37D8E001CB7AF /* moeum.app */;
 			productType = "com.apple.product-type.application";
 		};
-		709FAB6C27E19ABB00C5B8A8 /* moeumTests */ = {
+		70905D9E27E37D8F001CB7AF /* moeumTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 709FAB8427E19ABB00C5B8A8 /* Build configuration list for PBXNativeTarget "moeumTests" */;
+			buildConfigurationList = 70905DB627E37D8F001CB7AF /* Build configuration list for PBXNativeTarget "moeumTests" */;
 			buildPhases = (
-				709FAB6927E19ABB00C5B8A8 /* Sources */,
-				709FAB6A27E19ABB00C5B8A8 /* Frameworks */,
-				709FAB6B27E19ABB00C5B8A8 /* Resources */,
+				70905D9B27E37D8F001CB7AF /* Sources */,
+				70905D9C27E37D8F001CB7AF /* Frameworks */,
+				70905D9D27E37D8F001CB7AF /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				709FAB6F27E19ABB00C5B8A8 /* PBXTargetDependency */,
+				70905DA127E37D8F001CB7AF /* PBXTargetDependency */,
 			);
 			name = moeumTests;
 			productName = moeumTests;
-			productReference = 709FAB6D27E19ABB00C5B8A8 /* moeumTests.xctest */;
+			productReference = 70905D9F27E37D8F001CB7AF /* moeumTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		709FAB7627E19ABB00C5B8A8 /* moeumUITests */ = {
+		70905DA827E37D8F001CB7AF /* moeumUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 709FAB8727E19ABB00C5B8A8 /* Build configuration list for PBXNativeTarget "moeumUITests" */;
+			buildConfigurationList = 70905DB927E37D8F001CB7AF /* Build configuration list for PBXNativeTarget "moeumUITests" */;
 			buildPhases = (
-				709FAB7327E19ABB00C5B8A8 /* Sources */,
-				709FAB7427E19ABB00C5B8A8 /* Frameworks */,
-				709FAB7527E19ABB00C5B8A8 /* Resources */,
+				70905DA527E37D8F001CB7AF /* Sources */,
+				70905DA627E37D8F001CB7AF /* Frameworks */,
+				70905DA727E37D8F001CB7AF /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				709FAB7927E19ABB00C5B8A8 /* PBXTargetDependency */,
+				70905DAB27E37D8F001CB7AF /* PBXTargetDependency */,
 			);
 			name = moeumUITests;
 			productName = moeumUITests;
-			productReference = 709FAB7727E19ABB00C5B8A8 /* moeumUITests.xctest */;
+			productReference = 70905DA927E37D8F001CB7AF /* moeumUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		709FAB5527E19ABA00C5B8A8 /* Project object */ = {
+		70905D8127E37D8E001CB7AF /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 1300;
 				LastUpgradeCheck = 1300;
 				TargetAttributes = {
-					709FAB5C27E19ABA00C5B8A8 = {
+					70905D8827E37D8E001CB7AF = {
 						CreatedOnToolsVersion = 13.0;
 					};
-					709FAB6C27E19ABB00C5B8A8 = {
+					70905D9E27E37D8F001CB7AF = {
 						CreatedOnToolsVersion = 13.0;
-						TestTargetID = 709FAB5C27E19ABA00C5B8A8;
+						TestTargetID = 70905D8827E37D8E001CB7AF;
 					};
-					709FAB7627E19ABB00C5B8A8 = {
+					70905DA827E37D8F001CB7AF = {
 						CreatedOnToolsVersion = 13.0;
-						TestTargetID = 709FAB5C27E19ABA00C5B8A8;
+						TestTargetID = 70905D8827E37D8E001CB7AF;
 					};
 				};
 			};
-			buildConfigurationList = 709FAB5827E19ABA00C5B8A8 /* Build configuration list for PBXProject "moeum" */;
+			buildConfigurationList = 70905D8427E37D8E001CB7AF /* Build configuration list for PBXProject "moeum" */;
 			compatibilityVersion = "Xcode 13.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -214,36 +211,36 @@
 				en,
 				Base,
 			);
-			mainGroup = 709FAB5427E19ABA00C5B8A8;
-			productRefGroup = 709FAB5E27E19ABA00C5B8A8 /* Products */;
+			mainGroup = 70905D8027E37D8E001CB7AF;
+			productRefGroup = 70905D8A27E37D8E001CB7AF /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				709FAB5C27E19ABA00C5B8A8 /* moeum */,
-				709FAB6C27E19ABB00C5B8A8 /* moeumTests */,
-				709FAB7627E19ABB00C5B8A8 /* moeumUITests */,
+				70905D8827E37D8E001CB7AF /* moeum */,
+				70905D9E27E37D8F001CB7AF /* moeumTests */,
+				70905DA827E37D8F001CB7AF /* moeumUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		709FAB5B27E19ABA00C5B8A8 /* Resources */ = {
+		70905D8727E37D8E001CB7AF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				709FAB6827E19ABB00C5B8A8 /* Preview Assets.xcassets in Resources */,
-				709FAB6527E19ABB00C5B8A8 /* Assets.xcassets in Resources */,
+				70905D9927E37D8F001CB7AF /* LaunchScreen.storyboard in Resources */,
+				70905D9627E37D8F001CB7AF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		709FAB6B27E19ABB00C5B8A8 /* Resources */ = {
+		70905D9D27E37D8F001CB7AF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		709FAB7527E19ABB00C5B8A8 /* Resources */ = {
+		70905DA727E37D8F001CB7AF /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -253,49 +250,61 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		709FAB5927E19ABA00C5B8A8 /* Sources */ = {
+		70905D8527E37D8E001CB7AF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				709FAB6327E19ABA00C5B8A8 /* ContentView.swift in Sources */,
-				709FAB6127E19ABA00C5B8A8 /* moeumApp.swift in Sources */,
+				70905D9127E37D8E001CB7AF /* ViewController.swift in Sources */,
+				70905D8D27E37D8E001CB7AF /* AppDelegate.swift in Sources */,
+				70905D8F27E37D8E001CB7AF /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		709FAB6927E19ABB00C5B8A8 /* Sources */ = {
+		70905D9B27E37D8F001CB7AF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				709FAB7227E19ABB00C5B8A8 /* moeumTests.swift in Sources */,
+				70905DA427E37D8F001CB7AF /* moeumTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		709FAB7327E19ABB00C5B8A8 /* Sources */ = {
+		70905DA527E37D8F001CB7AF /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				709FAB7E27E19ABB00C5B8A8 /* moeumUITestsLaunchTests.swift in Sources */,
-				709FAB7C27E19ABB00C5B8A8 /* moeumUITests.swift in Sources */,
+				70905DB027E37D8F001CB7AF /* moeumUITestsLaunchTests.swift in Sources */,
+				70905DAE27E37D8F001CB7AF /* moeumUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		709FAB6F27E19ABB00C5B8A8 /* PBXTargetDependency */ = {
+		70905DA127E37D8F001CB7AF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 709FAB5C27E19ABA00C5B8A8 /* moeum */;
-			targetProxy = 709FAB6E27E19ABB00C5B8A8 /* PBXContainerItemProxy */;
+			target = 70905D8827E37D8E001CB7AF /* moeum */;
+			targetProxy = 70905DA027E37D8F001CB7AF /* PBXContainerItemProxy */;
 		};
-		709FAB7927E19ABB00C5B8A8 /* PBXTargetDependency */ = {
+		70905DAB27E37D8F001CB7AF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 709FAB5C27E19ABA00C5B8A8 /* moeum */;
-			targetProxy = 709FAB7827E19ABB00C5B8A8 /* PBXContainerItemProxy */;
+			target = 70905D8827E37D8E001CB7AF /* moeum */;
+			targetProxy = 70905DAA27E37D8F001CB7AF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		70905D9727E37D8F001CB7AF /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				70905D9827E37D8F001CB7AF /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
-		709FAB7F27E19ABB00C5B8A8 /* Debug */ = {
+		70905DB127E37D8F001CB7AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -356,7 +365,7 @@
 			};
 			name = Debug;
 		};
-		709FAB8027E19ABB00C5B8A8 /* Release */ = {
+		70905DB227E37D8F001CB7AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -411,23 +420,20 @@
 			};
 			name = Release;
 		};
-		709FAB8227E19ABB00C5B8A8 /* Debug */ = {
+		70905DB427E37D8F001CB7AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"moeum/Preview Content\"";
 				DEVELOPMENT_TEAM = X64MATB2CC;
-				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = moeum/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -441,23 +447,20 @@
 			};
 			name = Debug;
 		};
-		709FAB8327E19ABB00C5B8A8 /* Release */ = {
+		70905DB527E37D8F001CB7AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_ASSET_PATHS = "\"moeum/Preview Content\"";
 				DEVELOPMENT_TEAM = X64MATB2CC;
-				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
-				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
+				INFOPLIST_FILE = moeum/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -471,7 +474,7 @@
 			};
 			name = Release;
 		};
-		709FAB8527E19ABB00C5B8A8 /* Debug */ = {
+		70905DB727E37D8F001CB7AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -480,7 +483,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = X64MATB2CC;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -496,7 +499,7 @@
 			};
 			name = Debug;
 		};
-		709FAB8627E19ABB00C5B8A8 /* Release */ = {
+		70905DB827E37D8F001CB7AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -505,7 +508,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = X64MATB2CC;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -521,7 +524,7 @@
 			};
 			name = Release;
 		};
-		709FAB8827E19ABB00C5B8A8 /* Debug */ = {
+		70905DBA27E37D8F001CB7AF /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -544,7 +547,7 @@
 			};
 			name = Debug;
 		};
-		709FAB8927E19ABB00C5B8A8 /* Release */ = {
+		70905DBB27E37D8F001CB7AF /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -570,43 +573,43 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		709FAB5827E19ABA00C5B8A8 /* Build configuration list for PBXProject "moeum" */ = {
+		70905D8427E37D8E001CB7AF /* Build configuration list for PBXProject "moeum" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				709FAB7F27E19ABB00C5B8A8 /* Debug */,
-				709FAB8027E19ABB00C5B8A8 /* Release */,
+				70905DB127E37D8F001CB7AF /* Debug */,
+				70905DB227E37D8F001CB7AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		709FAB8127E19ABB00C5B8A8 /* Build configuration list for PBXNativeTarget "moeum" */ = {
+		70905DB327E37D8F001CB7AF /* Build configuration list for PBXNativeTarget "moeum" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				709FAB8227E19ABB00C5B8A8 /* Debug */,
-				709FAB8327E19ABB00C5B8A8 /* Release */,
+				70905DB427E37D8F001CB7AF /* Debug */,
+				70905DB527E37D8F001CB7AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		709FAB8427E19ABB00C5B8A8 /* Build configuration list for PBXNativeTarget "moeumTests" */ = {
+		70905DB627E37D8F001CB7AF /* Build configuration list for PBXNativeTarget "moeumTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				709FAB8527E19ABB00C5B8A8 /* Debug */,
-				709FAB8627E19ABB00C5B8A8 /* Release */,
+				70905DB727E37D8F001CB7AF /* Debug */,
+				70905DB827E37D8F001CB7AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		709FAB8727E19ABB00C5B8A8 /* Build configuration list for PBXNativeTarget "moeumUITests" */ = {
+		70905DB927E37D8F001CB7AF /* Build configuration list for PBXNativeTarget "moeumUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				709FAB8827E19ABB00C5B8A8 /* Debug */,
-				709FAB8927E19ABB00C5B8A8 /* Release */,
+				70905DBA27E37D8F001CB7AF /* Debug */,
+				70905DBB27E37D8F001CB7AF /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 709FAB5527E19ABA00C5B8A8 /* Project object */;
+	rootObject = 70905D8127E37D8E001CB7AF /* Project object */;
 }
