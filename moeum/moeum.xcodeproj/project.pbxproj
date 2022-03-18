@@ -7,11 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		70102DC727E4DBF100472CC0 /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70102DC627E4DBF100472CC0 /* CalendarCollectionViewCell.swift */; };
 		70905D8D27E37D8E001CB7AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70905D8C27E37D8E001CB7AF /* AppDelegate.swift */; };
 		70905D8F27E37D8E001CB7AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70905D8E27E37D8E001CB7AF /* SceneDelegate.swift */; };
 		70905D9127E37D8E001CB7AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70905D9027E37D8E001CB7AF /* ViewController.swift */; };
 		70905D9627E37D8F001CB7AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70905D9527E37D8F001CB7AF /* Assets.xcassets */; };
-		70905D9927E37D8F001CB7AF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70905D9727E37D8F001CB7AF /* LaunchScreen.storyboard */; };
 		70905DA427E37D8F001CB7AF /* moeumTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70905DA327E37D8F001CB7AF /* moeumTests.swift */; };
 		70905DAE27E37D8F001CB7AF /* moeumUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70905DAD27E37D8F001CB7AF /* moeumUITests.swift */; };
 		70905DB027E37D8F001CB7AF /* moeumUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70905DAF27E37D8F001CB7AF /* moeumUITestsLaunchTests.swift */; };
@@ -35,12 +35,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		70102DC627E4DBF100472CC0 /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		70905D8927E37D8E001CB7AF /* moeum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moeum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70905D8C27E37D8E001CB7AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70905D8E27E37D8E001CB7AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		70905D9027E37D8E001CB7AF /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		70905D9527E37D8F001CB7AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		70905D9827E37D8F001CB7AF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		70905D9A27E37D8F001CB7AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		70905D9F27E37D8F001CB7AF /* moeumTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = moeumTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		70905DA327E37D8F001CB7AF /* moeumTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moeumTests.swift; sourceTree = "<group>"; };
@@ -101,8 +101,8 @@
 				70905D8E27E37D8E001CB7AF /* SceneDelegate.swift */,
 				70905D9027E37D8E001CB7AF /* ViewController.swift */,
 				70905D9527E37D8F001CB7AF /* Assets.xcassets */,
-				70905D9727E37D8F001CB7AF /* LaunchScreen.storyboard */,
 				70905D9A27E37D8F001CB7AF /* Info.plist */,
+				70102DC627E4DBF100472CC0 /* CalendarCollectionViewCell.swift */,
 			);
 			path = moeum;
 			sourceTree = "<group>";
@@ -228,7 +228,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				70905D9927E37D8F001CB7AF /* LaunchScreen.storyboard in Resources */,
 				70905D9627E37D8F001CB7AF /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -254,6 +253,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70102DC727E4DBF100472CC0 /* CalendarCollectionViewCell.swift in Sources */,
 				70905D9127E37D8E001CB7AF /* ViewController.swift in Sources */,
 				70905D8D27E37D8E001CB7AF /* AppDelegate.swift in Sources */,
 				70905D8F27E37D8E001CB7AF /* SceneDelegate.swift in Sources */,
@@ -291,17 +291,6 @@
 			targetProxy = 70905DAA27E37D8F001CB7AF /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
-
-/* Begin PBXVariantGroup section */
-		70905D9727E37D8F001CB7AF /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				70905D9827E37D8F001CB7AF /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
-/* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
 		70905DB127E37D8F001CB7AF /* Debug */ = {
