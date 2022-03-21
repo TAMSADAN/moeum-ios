@@ -10,6 +10,8 @@ import UIKit
 final class CalendarCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "CalendarCollectionViewCell"
+    private let calendar = Calendar.current
+    private let dateFormatter = DateFormatter()
     
     private lazy var cellView = UIView()
     private lazy var headerLine = UIView()
@@ -30,8 +32,19 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
 //        self.dayLabel.text = nil
 //    }
     
-    func update(day: String) {
-        self.dayLabel.text = day
+    func update(date: Date) {
+        if date == Date(timeIntervalSince1970: 0) {
+            self.headerLine.backgroundColor = .white
+           return
+        } else {
+            self.dayLabel.text = String(self.calendar.component(.day, from: date))
+            
+            if self.calendar.component(.weekday, from: date) == 1 {
+                self.dayLabel.textColor = .systemRed
+            } else if self.calendar.component(.weekday, from: date) == 7 {
+                self.dayLabel.textColor = .systemBlue
+            }
+        }
     }
     
     private func configure() {
@@ -67,7 +80,6 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
     private func configureDayLabel() {
         self.cellView.addSubview(self.dayLabel)
         self.dayLabel.font = .boldSystemFont(ofSize: 10)
-        self.dayLabel.text = "0"
         self.dayLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             self.dayLabel.topAnchor.constraint(equalTo: self.headerLine.topAnchor, constant: 5),

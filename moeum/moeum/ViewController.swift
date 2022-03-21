@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Foundation
 
 final class ViewController: UIViewController {
     private lazy var scrollView = UIScrollView()
@@ -15,7 +16,11 @@ final class ViewController: UIViewController {
     private lazy var weekStackView = UIStackView()
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     
-    private var collectionViewHeightConstraint: NSLayoutConstraint!
+    private let calendar = Calendar.current
+    private let dateFormatter = DateFormatter()
+    private var calendarDate = Date()
+    private var days = [String]()
+    private var dates = [Date()]
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,6 +35,7 @@ final class ViewController: UIViewController {
         self.configureDateButton()
         self.configureWeekStackView()
         self.configureCollectionView()
+        self.configureCalendar()
     }
     
     private func configureScrollView() {
@@ -131,19 +137,18 @@ final class ViewController: UIViewController {
 
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 32
+        return self.days.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarCollectionViewCell.identifier, for: indexPath) as? CalendarCollectionViewCell else { return UICollectionViewCell() }
-//        cell.backgroundColor = .cyan
+        cell.update(date: self.dates[indexPath.item])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = self.weekStackView.frame.width / 7
         let height = self.collectionView.frame.height / 5
-        print(collectionView.frame.height)
         
         return CGSize(width: width, height: height)
     }
@@ -156,6 +161,77 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
         return .zero
         }
     
+}
+
+extension ViewController {
+
+    private func configureCalendar() {
+        self.dateFormatter.dateFormat = "yyyy.M"
+        self.today()
+    }
+
+    private func startDayOfTheWeek() -> Int {
+        return self.calendar.component(.weekday, from: self.calendarDate) - 1
+    }
+
+    private func endDate() -> Int {
+        return self.calendar.range(of: .day, in: .month, for: self.calendarDate)?.count ?? Int()
+    }
+
+    private func updateCalendar() {
+        self.updateTitle()
+        self.updateDays()
+    }
+
+    private func updateTitle() {
+        let date = self.dateFormatter.string(from: self.calendarDate)
+        self.titleLabel.text = date
+    }
+    
+
+    private func updateDays() {
+        self.days.removeAll()
+        self.dates.removeAll()
+        let startDayOfTheWeek = self.startDayOfTheWeek()
+        let totalDays = startDayOfTheWeek + self.endDate()
+
+        for day in Int()..<totalDays {
+            if day < startDayOfTheWeek {
+                self.days.append(String())
+                self.dates.append(Date(timeIntervalSince1970: 0))
+                continue
+            }
+            var dateComponents = DateComponents()
+            dateComponents.year = self.calendar.component(.year, from: self.calendarDate)
+            dateComponents.month = self.calendar.component(.month, from: self.calendarDate)
+            dateComponents.day = day
+            dateComponents.hour = -10
+            dateComponents.timeZone = TimeZone(abbreviation: "UTC")
+            self.days.append("\(day - startDayOfTheWeek + 1)")
+            self.dates.append(self.calendar.date(from: dateComponents) ?? Date())
+            
+        }
+        print(days)
+        print(dates)
+        self.collectionView.reloadData()
+    }
+
+    private func minusMonth() {
+        self.calendarDate = self.calendar.date(byAdding: DateComponents(month: -1), to: self.calendarDate) ?? Date()
+        self.updateCalendar()
+    }
+
+    private func plusMonth() {
+        self.calendarDate = self.calendar.date(byAdding: DateComponents(month: 1), to: self.calendarDate) ?? Date()
+        self.updateCalendar()
+    }
+
+    private func today() {
+        let components = self.calendar.dateComponents([.year, .month], from: Date())
+        self.calendarDate = self.calendar.date(from: components) ?? Date()
+        self.updateCalendar()
+    }
+
 }
 
 //final class ViewController: UIViewController {
