@@ -15,8 +15,7 @@ final class ViewController: UIViewController {
     private lazy var dateButton = UIButton()
     private lazy var weekStackView = UIStackView()
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    private lazy var detailView = UIView()
-    
+    private lazy var calendarMemoView = UIView()
     private let calendar = Calendar.current
     private let dateFormatter = DateFormatter()
     private var calendarDate = Date()
@@ -26,7 +25,13 @@ final class ViewController: UIViewController {
     private var collectionViewMaxHeight: CGFloat = 100
     private var collectionViewMinHeight: CGFloat = 0
     private var collectionViewHeight: CGFloat = 100
-    var heightAnchor:NSLayoutConstraint!
+    private var calendarMemoViewMaxHeight = CGFloat()
+    private var calendarMemoViewMinHeight: CGFloat = 0
+    private var calendarMemoViewHeight = CGFloat()
+    
+    
+    private var heightAnchor: NSLayoutConstraint!
+    private var calendarMemoViewHeightAnchor: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,7 +43,19 @@ final class ViewController: UIViewController {
         self.collectionViewMaxHeight = self.collectionView.frame.height
         self.collectionViewMinHeight = self.collectionViewMaxHeight * 0.3
         self.collectionViewHeight = self.collectionViewMaxHeight
+        self.calendarMemoViewMaxHeight = self.collectionViewMaxHeight - self.collectionViewMinHeight
+        self.calendarMemoViewMinHeight = 0.0
         self.collectionView.performBatchUpdates(nil)
+    }
+    
+    private func testColor() {
+        self.scrollView.backgroundColor = .red
+        self.contentView.backgroundColor = .orange
+        self.titleLabel.backgroundColor = .yellow
+        self.dateButton.backgroundColor = .green
+        self.weekStackView.backgroundColor = .blue
+        self.collectionView.backgroundColor = .red
+        self.calendarMemoView.backgroundColor = .brown
     }
     
     private func configure() {
@@ -49,7 +66,8 @@ final class ViewController: UIViewController {
         self.configureWeekStackView()
         self.configureCollectionView()
         self.configureCalendar()
-        self.configureDetailView()
+        self.configureCalendarMemoView()
+        self.testColor()
     }
     
     private func configureScrollView() {
@@ -65,7 +83,7 @@ final class ViewController: UIViewController {
     
     private func configureContentView() {
         self.scrollView.addSubview(self.contentView)
-                self.contentView.backgroundColor = .brown
+//        self.contentView.backgroundColor = .brown
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             self.contentView.topAnchor.constraint(equalTo: self.scrollView.topAnchor),
@@ -79,7 +97,7 @@ final class ViewController: UIViewController {
     
     private func configureTitleLabel() {
         self.contentView.addSubview(self.titleLabel)
-                self.titleLabel.backgroundColor = .systemBlue
+//        self.titleLabel.backgroundColor = .systemBlue
         self.titleLabel.text = "2022.3"
         self.titleLabel.font = .systemFont(ofSize: 20, weight: .bold)
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -104,7 +122,7 @@ final class ViewController: UIViewController {
     
     private func configureWeekStackView() {
         self.contentView.addSubview(self.weekStackView)
-                self.weekStackView.backgroundColor = .green
+//        self.weekStackView.backgroundColor = .green
         self.weekStackView.distribution = .fillEqually
         self.weekStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -131,7 +149,7 @@ final class ViewController: UIViewController {
     
     private func configureCollectionView() {
         self.contentView.addSubview(self.collectionView)
-                self.collectionView.backgroundColor = .red
+//        self.collectionView.backgroundColor = .red
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         self.collectionView.register(CalendarCollectionViewCell.self, forCellWithReuseIdentifier: CalendarCollectionViewCell.identifier)
@@ -145,19 +163,20 @@ final class ViewController: UIViewController {
         ])
     }
     
-    private func configureDetailView() {
-        self.contentView.addSubview(self.detailView)
-        self.detailView.translatesAutoresizingMaskIntoConstraints = false
-        self.detailView.backgroundColor = .blue
+    private func configureCalendarMemoView() {
+        self.calendarMemoView = CalendarMemoView()
+        self.contentView.addSubview(self.calendarMemoView)
+        self.calendarMemoView.translatesAutoresizingMaskIntoConstraints = false
+        self.calendarMemoViewHeightAnchor = self.calendarMemoView.heightAnchor.constraint(equalToConstant: self.calendarMemoViewMinHeight)
+        self.calendarMemoViewHeightAnchor.isActive = true
         
         NSLayoutConstraint.activate([
-            self.detailView.topAnchor.constraint(equalTo: self.collectionView.bottomAnchor),
-            self.detailView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
-            self.detailView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
-            self.detailView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
+            self.calendarMemoView.topAnchor.constraint(equalTo: self.collectionView.bottomAnchor),
+            self.calendarMemoView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
+            self.calendarMemoView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
+            self.calendarMemoView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
         ])
     }
-    
 }
 
 extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
@@ -169,13 +188,28 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
         if collectionView.indexPathsForSelectedItems?.contains(indexPath) ?? false {
             collectionView.deselectItem(at: indexPath, animated: true)
             self.collectionViewHeight = self.collectionViewMaxHeight
+            self.calendarMemoViewHeight = self.calendarMemoViewMinHeight
+            UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseOut]) {
+                self.heightAnchor.constant = self.collectionViewHeight
+                self.heightAnchor.isActive = true
+                self.calendarMemoViewHeightAnchor.constant = self.calendarMemoViewHeight
+                self.calendarMemoViewHeightAnchor.isActive = true
+                self.collectionView.performBatchUpdates(nil)
+                self.calendarMemoView.layoutIfNeeded()
+            }
         } else {
             collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
             self.collectionViewHeight = self.collectionViewMinHeight
+            self.calendarMemoViewHeight = self.calendarMemoViewMaxHeight
+            UIView.animate(withDuration: 0.5, delay: 0, options: [.curveLinear]) {
+                self.heightAnchor.constant = self.collectionViewHeight
+                self.heightAnchor.isActive = true
+                self.calendarMemoViewHeightAnchor.constant = self.calendarMemoViewHeight
+                self.calendarMemoViewHeightAnchor.isActive = true
+                self.collectionView.performBatchUpdates(nil)
+                self.calendarMemoView.layoutIfNeeded()
+            }
         }
-        self.heightAnchor.constant = self.collectionViewHeight
-        self.heightAnchor.isActive = true
-        self.collectionView.performBatchUpdates(nil)
         return false
     }
     
@@ -249,8 +283,6 @@ extension ViewController {
             self.dates.append(self.calendar.date(from: dateComponents) ?? Date())
             
         }
-        print(days)
-        print(dates)
         self.collectionView.reloadData()
     }
     
