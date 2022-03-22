@@ -15,6 +15,7 @@ final class ViewController: UIViewController {
     private lazy var dateButton = UIButton()
     private lazy var weekStackView = UIStackView()
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    private lazy var detailView = UIView()
     
     private let calendar = Calendar.current
     private let dateFormatter = DateFormatter()
@@ -22,10 +23,22 @@ final class ViewController: UIViewController {
     private var days = [String]()
     private var dates = [Date()]
     
+    private var collectionViewMaxHeight: CGFloat = 100
+    private var collectionViewMinHeight: CGFloat = 0
+    private var collectionViewHeight: CGFloat = 100
+    var heightAnchor:NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
         self.configure()
+    }
+    
+    override func viewDidLayoutSubviews() {
+        self.collectionViewMaxHeight = self.collectionView.frame.height
+        self.collectionViewMinHeight = self.collectionViewMaxHeight * 0.3
+        self.collectionViewHeight = self.collectionViewMaxHeight
+        self.collectionView.performBatchUpdates(nil)
     }
     
     private func configure() {
@@ -36,6 +49,7 @@ final class ViewController: UIViewController {
         self.configureWeekStackView()
         self.configureCollectionView()
         self.configureCalendar()
+        self.configureDetailView()
     }
     
     private func configureScrollView() {
@@ -51,7 +65,7 @@ final class ViewController: UIViewController {
     
     private func configureContentView() {
         self.scrollView.addSubview(self.contentView)
-//        self.contentView.backgroundColor = .brown
+                self.contentView.backgroundColor = .brown
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             self.contentView.topAnchor.constraint(equalTo: self.scrollView.topAnchor),
@@ -65,7 +79,7 @@ final class ViewController: UIViewController {
     
     private func configureTitleLabel() {
         self.contentView.addSubview(self.titleLabel)
-//        self.titleLabel.backgroundColor = .systemBlue
+                self.titleLabel.backgroundColor = .systemBlue
         self.titleLabel.text = "2022.3"
         self.titleLabel.font = .systemFont(ofSize: 20, weight: .bold)
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -90,7 +104,7 @@ final class ViewController: UIViewController {
     
     private func configureWeekStackView() {
         self.contentView.addSubview(self.weekStackView)
-//        self.weekStackView.backgroundColor = .green
+                self.weekStackView.backgroundColor = .green
         self.weekStackView.distribution = .fillEqually
         self.weekStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -117,19 +131,30 @@ final class ViewController: UIViewController {
     
     private func configureCollectionView() {
         self.contentView.addSubview(self.collectionView)
-//        self.collectionView.backgroundColor = .red
+                self.collectionView.backgroundColor = .red
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         self.collectionView.register(CalendarCollectionViewCell.self, forCellWithReuseIdentifier: CalendarCollectionViewCell.identifier)
         self.collectionView.translatesAutoresizingMaskIntoConstraints = false
-        
-        
+        self.heightAnchor = self.collectionView.heightAnchor.constraint(equalToConstant: self.collectionViewMaxHeight)
+
         NSLayoutConstraint.activate([
             self.collectionView.topAnchor.constraint(equalTo: self.weekStackView.bottomAnchor, constant: 10),
             self.collectionView.leadingAnchor.constraint(equalTo: self.weekStackView.leadingAnchor),
             self.collectionView.trailingAnchor.constraint(equalTo: self.weekStackView.trailingAnchor),
-            //            self.collectionView.heightAnchor.constraint(equalTo: self.collectionView.widthAnchor, multiplier: 2),
-            self.collectionView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor, constant: -10)
+        ])
+    }
+    
+    private func configureDetailView() {
+        self.contentView.addSubview(self.detailView)
+        self.detailView.translatesAutoresizingMaskIntoConstraints = false
+        self.detailView.backgroundColor = .blue
+        
+        NSLayoutConstraint.activate([
+            self.detailView.topAnchor.constraint(equalTo: self.collectionView.bottomAnchor),
+            self.detailView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
+            self.detailView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
+            self.detailView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
         ])
     }
     
@@ -140,16 +165,29 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
         return self.days.count
     }
     
+    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+        if collectionView.indexPathsForSelectedItems?.contains(indexPath) ?? false {
+            collectionView.deselectItem(at: indexPath, animated: true)
+            self.collectionViewHeight = self.collectionViewMaxHeight
+        } else {
+            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
+            self.collectionViewHeight = self.collectionViewMinHeight
+        }
+        self.heightAnchor.constant = self.collectionViewHeight
+        self.heightAnchor.isActive = true
+        self.collectionView.performBatchUpdates(nil)
+        return false
+    }
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarCollectionViewCell.identifier, for: indexPath) as? CalendarCollectionViewCell else { return UICollectionViewCell() }
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarCollectionViewCell.identifier, for: indexPath) as? CalendarCollectionViewCell else { return UICollectionViewCell()}
         cell.update(date: self.dates[indexPath.item])
         return cell
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = self.weekStackView.frame.width / 7
-        let height = self.collectionView.frame.height / 5
-        
+        let height = self.collectionViewHeight / 5
         return CGSize(width: width, height: height)
     }
     
@@ -159,42 +197,42 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return .zero
-        }
+    }
     
 }
 
 extension ViewController {
-
+    
     private func configureCalendar() {
         self.dateFormatter.dateFormat = "yyyy.M"
         self.today()
     }
-
+    
     private func startDayOfTheWeek() -> Int {
         return self.calendar.component(.weekday, from: self.calendarDate) - 1
     }
-
+    
     private func endDate() -> Int {
         return self.calendar.range(of: .day, in: .month, for: self.calendarDate)?.count ?? Int()
     }
-
+    
     private func updateCalendar() {
         self.updateTitle()
         self.updateDays()
     }
-
+    
     private func updateTitle() {
         let date = self.dateFormatter.string(from: self.calendarDate)
         self.titleLabel.text = date
     }
     
-
+    
     private func updateDays() {
         self.days.removeAll()
         self.dates.removeAll()
         let startDayOfTheWeek = self.startDayOfTheWeek()
         let totalDays = startDayOfTheWeek + self.endDate()
-
+        
         for day in Int()..<totalDays {
             if day < startDayOfTheWeek {
                 self.days.append(String())
@@ -215,23 +253,23 @@ extension ViewController {
         print(dates)
         self.collectionView.reloadData()
     }
-
+    
     private func minusMonth() {
         self.calendarDate = self.calendar.date(byAdding: DateComponents(month: -1), to: self.calendarDate) ?? Date()
         self.updateCalendar()
     }
-
+    
     private func plusMonth() {
         self.calendarDate = self.calendar.date(byAdding: DateComponents(month: 1), to: self.calendarDate) ?? Date()
         self.updateCalendar()
     }
-
+    
     private func today() {
         let components = self.calendar.dateComponents([.year, .month], from: Date())
         self.calendarDate = self.calendar.date(from: components) ?? Date()
         self.updateCalendar()
     }
-
+    
 }
 
 //final class ViewController: UIViewController {
