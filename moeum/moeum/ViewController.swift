@@ -73,6 +73,7 @@ final class ViewController: UIViewController {
     private func configureScrollView() {
         self.view.addSubview(self.scrollView)
         self.scrollView.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             self.scrollView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             self.scrollView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
@@ -83,8 +84,9 @@ final class ViewController: UIViewController {
     
     private func configureContentView() {
         self.scrollView.addSubview(self.contentView)
-//        self.contentView.backgroundColor = .brown
+        //        self.contentView.backgroundColor = .brown
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             self.contentView.topAnchor.constraint(equalTo: self.scrollView.topAnchor),
             self.contentView.leadingAnchor.constraint(equalTo: self.scrollView.leadingAnchor),
@@ -97,10 +99,11 @@ final class ViewController: UIViewController {
     
     private func configureTitleLabel() {
         self.contentView.addSubview(self.titleLabel)
-//        self.titleLabel.backgroundColor = .systemBlue
+        //        self.titleLabel.backgroundColor = .systemBlue
         self.titleLabel.text = "2022.3"
         self.titleLabel.font = .systemFont(ofSize: 20, weight: .bold)
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
+        
         NSLayoutConstraint.activate([
             self.titleLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10),
             self.titleLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 20),
@@ -122,7 +125,7 @@ final class ViewController: UIViewController {
     
     private func configureWeekStackView() {
         self.contentView.addSubview(self.weekStackView)
-//        self.weekStackView.backgroundColor = .green
+        //        self.weekStackView.backgroundColor = .green
         self.weekStackView.distribution = .fillEqually
         self.weekStackView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
@@ -149,13 +152,13 @@ final class ViewController: UIViewController {
     
     private func configureCollectionView() {
         self.contentView.addSubview(self.collectionView)
-//        self.collectionView.backgroundColor = .red
+        //        self.collectionView.backgroundColor = .red
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
         self.collectionView.register(CalendarCollectionViewCell.self, forCellWithReuseIdentifier: CalendarCollectionViewCell.identifier)
         self.collectionView.translatesAutoresizingMaskIntoConstraints = false
         self.heightAnchor = self.collectionView.heightAnchor.constraint(equalToConstant: self.collectionViewMaxHeight)
-
+        
         NSLayoutConstraint.activate([
             self.collectionView.topAnchor.constraint(equalTo: self.weekStackView.bottomAnchor, constant: 10),
             self.collectionView.leadingAnchor.constraint(equalTo: self.weekStackView.leadingAnchor),
@@ -189,11 +192,11 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
             collectionView.deselectItem(at: indexPath, animated: true)
             self.collectionViewHeight = self.collectionViewMaxHeight
             self.calendarMemoViewHeight = self.calendarMemoViewMinHeight
-            UIView.animate(withDuration: 0.5, delay: 0, options: [.curveEaseOut]) {
+            UIView.animate(withDuration: 3, delay: 0, options: [.curveEaseInOut]) {
                 self.heightAnchor.constant = self.collectionViewHeight
                 self.heightAnchor.isActive = true
-                self.calendarMemoViewHeightAnchor.constant = self.calendarMemoViewHeight
-                self.calendarMemoViewHeightAnchor.isActive = true
+//                self.calendarMemoViewHeightAnchor.constant = self.calendarMemoViewHeight
+//                self.calendarMemoViewHeightAnchor.isActive = true
                 self.collectionView.performBatchUpdates(nil)
                 self.calendarMemoView.layoutIfNeeded()
             }
@@ -201,11 +204,11 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
             collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
             self.collectionViewHeight = self.collectionViewMinHeight
             self.calendarMemoViewHeight = self.calendarMemoViewMaxHeight
-            UIView.animate(withDuration: 0.5, delay: 0, options: [.curveLinear]) {
+            UIView.animate(withDuration: 3, delay: 0, options: [.curveLinear]) {
                 self.heightAnchor.constant = self.collectionViewHeight
                 self.heightAnchor.isActive = true
-                self.calendarMemoViewHeightAnchor.constant = self.calendarMemoViewHeight
-                self.calendarMemoViewHeightAnchor.isActive = true
+//                self.calendarMemoViewHeightAnchor.constant = self.calendarMemoViewHeight
+//                self.calendarMemoViewHeightAnchor.isActive = true
                 self.collectionView.performBatchUpdates(nil)
                 self.calendarMemoView.layoutIfNeeded()
             }
