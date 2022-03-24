@@ -18,6 +18,7 @@
 		70905DB027E37D8F001CB7AF /* moeumUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70905DAF27E37D8F001CB7AF /* moeumUITestsLaunchTests.swift */; };
 		70CF4DBD27EAD84B00046E92 /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CF4DBC27EAD84B00046E92 /* CalendarViewController.swift */; };
 		70CF4DBF27EAEFC400046E92 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CF4DBE27EAEFC400046E92 /* TestViewController.swift */; };
+		70CF4DC127EB000600046E92 /* lib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CF4DC027EB000600046E92 /* lib.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,7 @@
 		70905DAF27E37D8F001CB7AF /* moeumUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moeumUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		70CF4DBC27EAD84B00046E92 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		70CF4DBE27EAEFC400046E92 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		70CF4DC027EB000600046E92 /* lib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lib.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,6 +122,7 @@
 				70CF4DBE27EAEFC400046E92 /* TestViewController.swift */,
 				70905D9527E37D8F001CB7AF /* Assets.xcassets */,
 				70905D9A27E37D8F001CB7AF /* Info.plist */,
+				70CF4DC027EB000600046E92 /* lib.swift */,
 			);
 			path = moeum;
 			sourceTree = "<group>";
@@ -273,6 +276,7 @@
 				70CF4DBF27EAEFC400046E92 /* TestViewController.swift in Sources */,
 				70CF4DBD27EAD84B00046E92 /* CalendarViewController.swift in Sources */,
 				70102DC727E4DBF100472CC0 /* CalendarCollectionViewCell.swift in Sources */,
+				70CF4DC127EB000600046E92 /* lib.swift in Sources */,
 				7000B11427E9AED70067E0B4 /* CalendarMemoView.swift in Sources */,
 				70905D9127E37D8E001CB7AF /* ViewController.swift in Sources */,
 				70905D8D27E37D8E001CB7AF /* AppDelegate.swift in Sources */,

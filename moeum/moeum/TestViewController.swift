@@ -39,7 +39,6 @@ class TestViewController: UIViewController {
     
     private func configureContentView() {
         self.view.addSubview(self.contentView)
-        
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             self.contentView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),

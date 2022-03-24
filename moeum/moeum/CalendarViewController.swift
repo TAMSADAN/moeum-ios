@@ -35,6 +35,7 @@ final class CalendarViewController: UIViewController {
         super.viewDidLoad()
         self.view.backgroundColor = .systemBackground
         self.configure()
+
     }
     
     override func viewDidLayoutSubviews() {
@@ -151,7 +152,6 @@ final class CalendarViewController: UIViewController {
         self.collectionView.register(CalendarCollectionViewCell.self, forCellWithReuseIdentifier: CalendarCollectionViewCell.identifier)
         self.collectionView.translatesAutoresizingMaskIntoConstraints = false
         self.calendarCollectionViewHeightAnchor = self.collectionView.heightAnchor.constraint(equalToConstant: 0)
-        
         NSLayoutConstraint.activate([
             self.collectionView.topAnchor.constraint(equalTo: self.weekStackView.bottomAnchor, constant: 10),
             self.collectionView.leadingAnchor.constraint(equalTo: self.weekStackView.leadingAnchor),
@@ -186,10 +186,19 @@ extension CalendarViewController: UICollectionViewDataSource, UICollectionViewDe
             collectionView.deselectItem(at: indexPath, animated: true)
             self.calendarCollectionViewHeightAnchor.constant = self.collectionViewMaxHeight
             self.calendarMemoViewHeightAnchor.constant = self.calendarMemoViewMinHeight
+            
+            for collectionViewcell in collectionView.visibleCells {
+                let cell = collectionViewcell as! CalendarCollectionViewCell
+                cell.showMemoList()
+            }
         } else {
             collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
             self.calendarCollectionViewHeightAnchor.constant = self.collectionViewMinHeight
             self.calendarMemoViewHeightAnchor.constant = self.calendarMemoViewMaxHeight
+            for collectionViewcell in collectionView.visibleCells {
+                let cell = collectionViewcell as! CalendarCollectionViewCell
+                cell.hideMemoList()
+            }
         }
         UIView.animate(withDuration: 0.5) {
             self.contentView.layoutIfNeeded()
