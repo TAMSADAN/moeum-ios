@@ -91,7 +91,7 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
         NSLayoutConstraint.activate([
             self.topDividerView.topAnchor.constraint(equalTo: self.topAnchor),
             self.topDividerView.heightAnchor.constraint(equalToConstant: 0.2),
-            self.topDividerView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 1),
+            self.topDividerView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
             self.topDividerView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
         ])
     }
