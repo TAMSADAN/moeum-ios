@@ -14,7 +14,7 @@ final class CalendarViewController: UIViewController {
     private lazy var dateButton = UIButton()
     private lazy var weekStackView = UIStackView()
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    private lazy var calendarMemoView = UIView()
+    private lazy var calendarMemoView: CalendarMemoView = CalendarMemoView()
     private let calendar = Calendar.current
     private let dateFormatter = DateFormatter()
     private var calendarDate = Date()
@@ -161,6 +161,7 @@ final class CalendarViewController: UIViewController {
     
     private func configureCalendarMemoView() {
         self.calendarMemoView = CalendarMemoView()
+        self.calendarMemoView.update(today: "22.수")
         self.contentView.addSubview(self.calendarMemoView)
         self.calendarMemoView.translatesAutoresizingMaskIntoConstraints = false
         self.calendarMemoViewHeightAnchor = self.calendarMemoView.heightAnchor.constraint(equalToConstant: self.calendarMemoViewMinHeight)

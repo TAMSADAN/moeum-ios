@@ -14,6 +14,8 @@ class CalendarMemoView: UIView {
     private var titleLabel = UILabel()
     private var hideButton = UIButton()
     
+    private var today = String()
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         self.configure()
@@ -22,6 +24,12 @@ class CalendarMemoView: UIView {
     override init(frame: CGRect) {
         super.init(frame: frame)
         self.configure()
+    }
+    
+    func update(today: String) {
+        self.today = today
+        self.titleLabel.text = today
+        print(self.today)
     }
     
     private func configure() {
@@ -72,9 +80,9 @@ class CalendarMemoView: UIView {
     
     private func configureTitleLabel() {
         self.contentView.addSubview(self.titleLabel)
-        self.titleLabel.text = "22. 수"
+        self.titleLabel.text = self.today
         self.titleLabel.font = .systemFont(ofSize: 18, weight: .semibold)
-        
+        print(self.today)
         self.titleLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
             self.titleLabel.topAnchor.constraint(equalTo: self.topDividerView.bottomAnchor, constant: 10),
