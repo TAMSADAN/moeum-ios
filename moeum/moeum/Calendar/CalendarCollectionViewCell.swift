@@ -74,14 +74,6 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
             for memoSummaryViewHeightConstraint in self.memoSummaryViewHeightConstraints {
                 memoSummaryViewHeightConstraint.constant = 0
             }
-//            for memoSummaryView in self.memoSummaryStackView.arrangedSubviews {
-//                NSLayoutConstraint.activate([
-//                    memoSummaryView.heightAnchor.constraint(equalToConstant: 0)
-//                ])
-//            }
-//            NSLayoutConstraint.activate([
-//                self.memoSummaryStackView.heightAnchor.constraint(equalToConstant: 0)
-//            ])
             self.topDividerView.alpha = 0
         })
     }
@@ -130,7 +122,7 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
     
     private func configureMemoSummaryStackView() {
         self.memoSummaryStackView.axis = .vertical
-        self.memoSummaryStackView.spacing = 1
+        self.memoSummaryStackView.spacing = 3
         self.memoSummaryStackView.translatesAutoresizingMaskIntoConstraints = false
         self.addSubview(self.memoSummaryStackView)
         
@@ -139,9 +131,9 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
             self.memoSummaryStackView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
         ])
         self.memoSummaryViewMaxHeight = self.frame.height / 15
-        for i in (0...3) {
-            let memo = Memo(id: i, name:"테스트", price: -1 + i)
-            let memoSummaryView = MemoSummaryView()
+        for i in (0...Int.random(in: 0..<5)) {
+            let memo = Memo(id: i, name:"테스트", price: Int.random(in: -1..<2))
+            let memoSummaryView = MemoSummaryView(memo: memo)
             memoSummaryView.translatesAutoresizingMaskIntoConstraints = false
             let memoSummaryViewHeightConstraint = memoSummaryView.heightAnchor.constraint(equalToConstant: self.memoSummaryViewMaxHeight)
             memoSummaryViewHeightConstraint.isActive = true
