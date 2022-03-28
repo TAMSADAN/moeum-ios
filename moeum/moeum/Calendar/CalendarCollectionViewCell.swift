@@ -16,10 +16,14 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
     lazy var topDividerView = UIView()
     lazy var dayLabel = UILabel()
     lazy var memoLineView = UIView()
+    lazy var memoSummaryStackView = UIStackView()
     
     private var isLoaded = false
-    
     private var cellMemoLineViewHeightConstraint: NSLayoutConstraint!
+    private var memoSummaryStackViewHeightConstraint: NSLayoutConstraint!
+    private var memoSummaryStackViewMaxHeight = CGFloat()
+    private var memoSummaryViewMaxHeight = CGFloat()
+    private var memoSummaryViewHeightConstraints: [NSLayoutConstraint]! = []
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -30,10 +34,13 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
     }
     
     override func layoutSubviews() {
+        
+        super.layoutSubviews()
         if frame.width != 0.0 && self.isLoaded == false {
             self.configure()
             self.isLoaded = true
         }
+        self.memoSummaryStackViewMaxHeight = self.memoSummaryStackView.frame.height
     }
     
     private func testColor() {
@@ -61,9 +68,20 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
     public func hideMemoList() {
         UIView.animate(withDuration: 0.5,
                        delay: 0,
-                       options: .transitionCrossDissolve,
+                       options: .curveLinear,
                        animations: {
-            self.memoLineView.alpha = 0
+            self.memoSummaryStackView.alpha = 0
+            for memoSummaryViewHeightConstraint in self.memoSummaryViewHeightConstraints {
+                memoSummaryViewHeightConstraint.constant = 0
+            }
+//            for memoSummaryView in self.memoSummaryStackView.arrangedSubviews {
+//                NSLayoutConstraint.activate([
+//                    memoSummaryView.heightAnchor.constraint(equalToConstant: 0)
+//                ])
+//            }
+//            NSLayoutConstraint.activate([
+//                self.memoSummaryStackView.heightAnchor.constraint(equalToConstant: 0)
+//            ])
             self.topDividerView.alpha = 0
         })
     }
@@ -73,7 +91,10 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
                        delay: 0,
                        options: .transitionCrossDissolve,
                        animations: {
-            self.memoLineView.alpha = 1
+            self.memoSummaryStackView.alpha = 1
+            for memoSummaryViewHeightConstraint in self.memoSummaryViewHeightConstraints {
+                memoSummaryViewHeightConstraint.constant = self.memoSummaryViewMaxHeight
+            }
             self.topDividerView.alpha = 1
         })
     }
@@ -81,7 +102,7 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
     private func configure() {
         self.configureTopDividerView()
         self.configureDayLabel()
-        self.configureMemoLineView()
+        self.configureMemoSummaryStackView()
     }
     
     private func configureTopDividerView() {
@@ -107,43 +128,69 @@ final class CalendarCollectionViewCell: UICollectionViewCell {
         ])
     }
     
-    private func configureMemoLineView() {
-        self.addSubview(self.memoLineView)
-        self.memoLineView.backgroundColor = .init(red: 255/255, green: 218/255, blue: 68/255, alpha: 0.5)
+    private func configureMemoSummaryStackView() {
+        self.memoSummaryStackView.axis = .vertical
+        self.memoSummaryStackView.spacing = 1
+        self.memoSummaryStackView.translatesAutoresizingMaskIntoConstraints = false
+        self.addSubview(self.memoSummaryStackView)
         
-        self.memoLineView.translatesAutoresizingMaskIntoConstraints = false
-        self.cellMemoLineViewHeightConstraint = self.memoLineView.heightAnchor.constraint(equalToConstant: 10)
         NSLayoutConstraint.activate([
-            self.memoLineView.topAnchor.constraint(equalTo: self.dayLabel.bottomAnchor),
-            self.memoLineView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 1),
-            self.memoLineView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -1),
-            self.memoLineView.heightAnchor.constraint(equalToConstant: 10),
+            self.memoSummaryStackView.topAnchor.constraint(equalTo: self.dayLabel.bottomAnchor),
+            self.memoSummaryStackView.centerXAnchor.constraint(equalTo: self.centerXAnchor),
         ])
-        
-        let tagView = UIView()
-        self.memoLineView.addSubview(tagView)
-        tagView.backgroundColor = .init(red: 255/255, green: 218/255, blue: 68/255, alpha: 1)
-        
-        tagView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            tagView.topAnchor.constraint(equalTo: self.memoLineView.topAnchor),
-            tagView.leadingAnchor.constraint(equalTo: self.memoLineView.leadingAnchor),
-            tagView.bottomAnchor.constraint(equalTo: self.memoLineView.bottomAnchor),
-            tagView.widthAnchor.constraint(equalToConstant: 5),
-        ])
-        
-        let contextLabel = UILabel()
-        self.memoLineView.addSubview(contextLabel)
-
-        contextLabel.text = "테스트"
-        contextLabel.font = .systemFont(ofSize: 8)
-
-        contextLabel.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            contextLabel.topAnchor.constraint(equalTo: self.memoLineView.topAnchor),
-            contextLabel.leadingAnchor.constraint(equalTo: tagView.trailingAnchor, constant: 3),
-            contextLabel.trailingAnchor.constraint(equalTo: self.memoLineView.trailingAnchor),
-            contextLabel.bottomAnchor.constraint(equalTo: self.memoLineView.bottomAnchor),
-        ])
+        self.memoSummaryViewMaxHeight = self.frame.height / 15
+        for i in (0...3) {
+            let memo = Memo(id: i, name:"테스트", price: -1 + i)
+            let memoSummaryView = MemoSummaryView()
+            memoSummaryView.translatesAutoresizingMaskIntoConstraints = false
+            let memoSummaryViewHeightConstraint = memoSummaryView.heightAnchor.constraint(equalToConstant: self.memoSummaryViewMaxHeight)
+            memoSummaryViewHeightConstraint.isActive = true
+            self.memoSummaryViewHeightConstraints.append(memoSummaryViewHeightConstraint)
+            NSLayoutConstraint.activate([
+                memoSummaryView.widthAnchor.constraint(equalToConstant: self.frame.width * 0.9),
+//                memoSummaryView.heightAnchor.constraint(equalToConstant: self.frame.height / 15),
+            ])
+            self.memoSummaryStackView.addArrangedSubview(memoSummaryView)
+        }
     }
+    
+//    private func configureMemoLineView() {
+//        self.addSubview(self.memoLineView)
+//        self.memoLineView.backgroundColor = .init(red: 255/255, green: 218/255, blue: 68/255, alpha: 0.5)
+//
+//        self.memoLineView.translatesAutoresizingMaskIntoConstraints = false
+//        self.cellMemoLineViewHeightConstraint = self.memoLineView.heightAnchor.constraint(equalToConstant: 10)
+//        NSLayoutConstraint.activate([
+//            self.memoLineView.topAnchor.constraint(equalTo: self.dayLabel.bottomAnchor),
+//            self.memoLineView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 1),
+//            self.memoLineView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -1),
+//            self.memoLineView.heightAnchor.constraint(equalToConstant: 10),
+//        ])
+//
+//        let tagView = UIView()
+//        self.memoLineView.addSubview(tagView)
+//        tagView.backgroundColor = .init(red: 255/255, green: 218/255, blue: 68/255, alpha: 1)
+//
+//        tagView.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            tagView.topAnchor.constraint(equalTo: self.memoLineView.topAnchor),
+//            tagView.leadingAnchor.constraint(equalTo: self.memoLineView.leadingAnchor),
+//            tagView.bottomAnchor.constraint(equalTo: self.memoLineView.bottomAnchor),
+//            tagView.widthAnchor.constraint(equalToConstant: 5),
+//        ])
+//
+//        let contextLabel = UILabel()
+//        self.memoLineView.addSubview(contextLabel)
+//
+//        contextLabel.text = "테스트"
+//        contextLabel.font = .systemFont(ofSize: 8)
+//
+//        contextLabel.translatesAutoresizingMaskIntoConstraints = false
+//        NSLayoutConstraint.activate([
+//            contextLabel.topAnchor.constraint(equalTo: self.memoLineView.topAnchor),
+//            contextLabel.leadingAnchor.constraint(equalTo: tagView.trailingAnchor, constant: 3),
+//            contextLabel.trailingAnchor.constraint(equalTo: self.memoLineView.trailingAnchor),
+//            contextLabel.bottomAnchor.constraint(equalTo: self.memoLineView.bottomAnchor),
+//        ])
+//    }
 }
