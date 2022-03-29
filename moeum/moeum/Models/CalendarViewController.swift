@@ -297,5 +297,4 @@ extension CalendarViewController {
         self.calendarDate = self.calendar.date(from: components) ?? Date()
         self.updateCalendar()
     }
-    
 }

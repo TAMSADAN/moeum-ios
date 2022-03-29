@@ -11,6 +11,7 @@
 		70102DC727E4DBF100472CC0 /* MemoCalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70102DC627E4DBF100472CC0 /* MemoCalendarCollectionViewCell.swift */; };
 		7024250D27F16FB8007A914D /* MemoSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7024250C27F16FB8007A914D /* MemoSummaryView.swift */; };
 		7024251027F17197007A914D /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7024250F27F17197007A914D /* Memo.swift */; };
+		7046CB9D27F34391008ACE10 /* MemoCalendarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7046CB9C27F34391008ACE10 /* MemoCalendarView.swift */; };
 		70905D8D27E37D8E001CB7AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70905D8C27E37D8E001CB7AF /* AppDelegate.swift */; };
 		70905D8F27E37D8E001CB7AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70905D8E27E37D8E001CB7AF /* SceneDelegate.swift */; };
 		70905D9127E37D8E001CB7AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70905D9027E37D8E001CB7AF /* ViewController.swift */; };
@@ -48,6 +49,7 @@
 		70102DC627E4DBF100472CC0 /* MemoCalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		7024250C27F16FB8007A914D /* MemoSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoSummaryView.swift; sourceTree = "<group>"; };
 		7024250F27F17197007A914D /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
+		7046CB9C27F34391008ACE10 /* MemoCalendarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCalendarView.swift; sourceTree = "<group>"; };
 		70905D8927E37D8E001CB7AF /* moeum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moeum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70905D8C27E37D8E001CB7AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70905D8E27E37D8E001CB7AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +99,7 @@
 			children = (
 				70DAF00D27F2EA0C00EBD946 /* Components */,
 				70DAF00E27F2EAD000EBD946 /* MemoCalendarViewController.swift */,
+				7046CB9C27F34391008ACE10 /* MemoCalendarView.swift */,
 			);
 			path = MemoCalendar;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 				70102DC727E4DBF100472CC0 /* MemoCalendarCollectionViewCell.swift in Sources */,
 				70CF4DC127EB000600046E92 /* lib.swift in Sources */,
 				7000B11427E9AED70067E0B4 /* MemoBottomSheetView.swift in Sources */,
+				7046CB9D27F34391008ACE10 /* MemoCalendarView.swift in Sources */,
 				70905D9127E37D8E001CB7AF /* ViewController.swift in Sources */,
 				70905D8D27E37D8E001CB7AF /* AppDelegate.swift in Sources */,
 				70DAF00F27F2EAD000EBD946 /* MemoCalendarViewController.swift in Sources */,

@@ -8,9 +8,8 @@
 import UIKit
 
 class MemoCalendarViewController: UIViewController {
-    private var contentView = UIView()
-    private lazy var memoCalendarDatePickerView = MemoCalendarDatePickerView()
-    private lazy var memoCalendarWeekView = MemoCalendarWeekView()
+    private lazy var contentView = UIView()
+    private lazy var memoCalendarView = MemoCalendarView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -20,8 +19,7 @@ class MemoCalendarViewController: UIViewController {
     private func configure() {
         self.view.backgroundColor = .systemBackground
         self.configureContentView()
-        self.configureMemoCalendarDatePickerView()
-        self.configureMemoCalendarWeekView()
+        self.configureMemoCalendarView()
     }
     
     private func configureContentView() {
@@ -35,28 +33,16 @@ class MemoCalendarViewController: UIViewController {
         ])
     }
     
-    private func configureMemoCalendarDatePickerView() {
-        self.contentView.addSubview(self.memoCalendarDatePickerView)
+    private func configureMemoCalendarView() {
+        self.contentView.addSubview(self.memoCalendarView)
         
-        self.memoCalendarDatePickerView.dateLabel.text = "2023.3"
-        self.memoCalendarDatePickerView.backgroundColor = .red
-        
-        self.memoCalendarDatePickerView.translatesAutoresizingMaskIntoConstraints = false
+        self.memoCalendarView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.memoCalendarDatePickerView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
-            self.memoCalendarDatePickerView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
-//            self.memoCalendarDatePickerView.widthAnchor.constraint(equalTo: self.contentView.widthAnchor)
+            self.memoCalendarView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
+            self.memoCalendarView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
+            self.memoCalendarView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
+            self.memoCalendarView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
         ])
     }
     
-    private func configureMemoCalendarWeekView() {
-        self.contentView.addSubview(self.memoCalendarWeekView)
-        
-        self.memoCalendarWeekView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            self.memoCalendarWeekView.topAnchor.constraint(equalTo: self.memoCalendarDatePickerView.bottomAnchor),
-            self.memoCalendarWeekView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
-            self.memoCalendarWeekView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor)
-        ])
-    }
 }
