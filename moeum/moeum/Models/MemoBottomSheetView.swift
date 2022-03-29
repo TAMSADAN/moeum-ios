@@ -7,7 +7,7 @@
 //
 import UIKit
 
-class CalendarMemoView: UIView {
+class MemoBottomSheetView: UIView {
     
     private var contentView = UIView()
     private var topDividerView = UIView()

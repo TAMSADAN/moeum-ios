@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class CalendarCollectionViewCell: UICollectionViewCell {
+final class MemoCalendarCollectionViewCell: UICollectionViewCell {
     
     static let identifier = "CalendarCollectionViewCell"
     public let calendar = Calendar.current

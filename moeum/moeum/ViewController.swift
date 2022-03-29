@@ -155,7 +155,7 @@ final class ViewController: UIViewController {
         //        self.collectionView.backgroundColor = .red
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
-        self.collectionView.register(CalendarCollectionViewCell.self, forCellWithReuseIdentifier: CalendarCollectionViewCell.identifier)
+        self.collectionView.register(MemoCalendarCollectionViewCell.self, forCellWithReuseIdentifier: MemoCalendarCollectionViewCell.identifier)
         self.collectionView.translatesAutoresizingMaskIntoConstraints = false
         self.heightAnchor = self.collectionView.heightAnchor.constraint(equalToConstant: self.collectionViewMaxHeight)
         
@@ -167,7 +167,7 @@ final class ViewController: UIViewController {
     }
     
     private func configureCalendarMemoView() {
-        self.calendarMemoView = CalendarMemoView()
+        self.calendarMemoView = MemoBottomSheetView()
         self.contentView.addSubview(self.calendarMemoView)
         self.calendarMemoView.translatesAutoresizingMaskIntoConstraints = false
         self.calendarMemoViewHeightAnchor = self.calendarMemoView.heightAnchor.constraint(equalToConstant: self.calendarMemoViewMinHeight)
@@ -217,7 +217,7 @@ extension ViewController: UICollectionViewDataSource, UICollectionViewDelegate, 
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarCollectionViewCell.identifier, for: indexPath) as? CalendarCollectionViewCell else { return UICollectionViewCell()}
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MemoCalendarCollectionViewCell.identifier, for: indexPath) as? MemoCalendarCollectionViewCell else { return UICollectionViewCell()}
         cell.update(date: self.dates[indexPath.item])
         return cell
     }

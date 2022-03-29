@@ -14,7 +14,7 @@ final class CalendarViewController: UIViewController {
     private lazy var dateButton = UIButton()
     private lazy var weekStackView = UIStackView()
     private lazy var collectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    private lazy var calendarMemoView: CalendarMemoView = CalendarMemoView()
+    private lazy var calendarMemoView: MemoBottomSheetView = MemoBottomSheetView()
     private let calendar = Calendar.current
     private let dateFormatter = DateFormatter()
     private var calendarDate = Date()
@@ -149,7 +149,7 @@ final class CalendarViewController: UIViewController {
         self.contentView.addSubview(self.collectionView)
         self.collectionView.dataSource = self
         self.collectionView.delegate = self
-        self.collectionView.register(CalendarCollectionViewCell.self, forCellWithReuseIdentifier: CalendarCollectionViewCell.identifier)
+        self.collectionView.register(MemoCalendarCollectionViewCell.self, forCellWithReuseIdentifier: MemoCalendarCollectionViewCell.identifier)
         self.collectionView.translatesAutoresizingMaskIntoConstraints = false
         self.calendarCollectionViewHeightAnchor = self.collectionView.heightAnchor.constraint(equalToConstant: 0)
         NSLayoutConstraint.activate([
@@ -160,7 +160,7 @@ final class CalendarViewController: UIViewController {
     }
     
     private func configureCalendarMemoView() {
-        self.calendarMemoView = CalendarMemoView()
+        self.calendarMemoView = MemoBottomSheetView()
         self.calendarMemoView.update(today: "22.수")
         self.contentView.addSubview(self.calendarMemoView)
         self.calendarMemoView.translatesAutoresizingMaskIntoConstraints = false
@@ -189,7 +189,7 @@ extension CalendarViewController: UICollectionViewDataSource, UICollectionViewDe
             self.calendarMemoViewHeightAnchor.constant = self.calendarMemoViewMinHeight
             
             for collectionViewcell in collectionView.visibleCells {
-                let cell = collectionViewcell as! CalendarCollectionViewCell
+                let cell = collectionViewcell as! MemoCalendarCollectionViewCell
                 cell.showMemoList()
             }
         } else {
@@ -197,7 +197,7 @@ extension CalendarViewController: UICollectionViewDataSource, UICollectionViewDe
             self.calendarCollectionViewHeightAnchor.constant = self.collectionViewMinHeight
             self.calendarMemoViewHeightAnchor.constant = self.calendarMemoViewMaxHeight
             for collectionViewcell in collectionView.visibleCells {
-                let cell = collectionViewcell as! CalendarCollectionViewCell
+                let cell = collectionViewcell as! MemoCalendarCollectionViewCell
                 cell.hideMemoList()
             }
         }
@@ -209,7 +209,7 @@ extension CalendarViewController: UICollectionViewDataSource, UICollectionViewDe
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarCollectionViewCell.identifier, for: indexPath) as? CalendarCollectionViewCell else { return UICollectionViewCell()}
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MemoCalendarCollectionViewCell.identifier, for: indexPath) as? MemoCalendarCollectionViewCell else { return UICollectionViewCell()}
         cell.update(date: self.dates[indexPath.item])
         return cell
     }
