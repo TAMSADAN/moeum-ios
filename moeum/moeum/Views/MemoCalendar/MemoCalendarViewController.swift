@@ -13,7 +13,9 @@ class MemoCalendarViewController: UIViewController {
     lazy var monthPickerButton = UIButton()
     lazy var weekStackView = UIStackView()
     lazy var memoCalendarCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    lazy var memoCalendarBottomSheetView = UIView()
+    lazy var memoCalendarBottomSheetViewController = MemoCalendarBottomSheetViewController()
+    
+     
     
     let calendar = Calendar.current
     let dateFormatter = DateFormatter()
@@ -21,11 +23,20 @@ class MemoCalendarViewController: UIViewController {
     var days = [String]()
     var dates = [Date()]
     
+    let memoCalendarBottomSheetDefaultTopConstant = 400.0
+    var memoCalendarCollectionViewHideTopConstant: CGFloat!
+    var memoCalendarCollectionViewTopConstraint: NSLayoutConstraint!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
+        self.memoCalendarCollectionView.backgroundColor = .systemBlue
     }
     
+    override func viewDidLayoutSubviews() {
+        self.memoCalendarCollectionViewHideTopConstant = self.view.safeAreaLayoutGuide.layoutFrame.height - self.memoCalendarBottomSheetDefaultTopConstant
+    }
+
     
 }
 

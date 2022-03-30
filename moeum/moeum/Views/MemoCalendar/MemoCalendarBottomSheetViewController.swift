@@ -10,17 +10,26 @@ import UIKit
 class MemoCalendarBottomSheetViewController: UIViewController {
     
     lazy var contentView = UIView()
-    lazy var MemoCalendarBottomSheetView = UIView()
+    
+    var defaultHeightConstant = CGFloat()
+    var maxHeightConstant = CGFloat()
     
     var contentViewTopConstraint: NSLayoutConstraint!
+    
+    
+    convenience init(constant: CGFloat) {
+        self.init()
+        self.defaultHeightConstant = constant
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
     }
     
+    
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        self.showConentView()
+        self.showContentView()
     }
 }

@@ -107,10 +107,9 @@
 			children = (
 				70DAF00D27F2EA0C00EBD946 /* Components */,
 				70DAF00E27F2EAD000EBD946 /* MemoCalendarViewController.swift */,
-				7046CB9C27F34391008ACE10 /* MemoCalendarView.swift */,
+				7046CBA427F438EA008ACE10 /* MemoCalendarViewController+UI.swift */,
 				7046CB9E27F4194E008ACE10 /* MemoCalendarBottomSheetViewController.swift */,
 				7046CBA627F44504008ACE10 /* MemoCalendarBottomSheetViewController+UI.swift */,
-				7046CBA427F438EA008ACE10 /* MemoCalendarViewController+UI.swift */,
 			);
 			path = MemoCalendar;
 			sourceTree = "<group>";
@@ -122,6 +121,7 @@
 				70102DC627E4DBF100472CC0 /* MemoCalendarCollectionViewCell.swift */,
 				7000B11327E9AED70067E0B4 /* MemoBottomSheetView.swift */,
 				7024250C27F16FB8007A914D /* MemoSummaryView.swift */,
+				7046CB9C27F34391008ACE10 /* MemoCalendarView.swift */,
 				70CF4DBC27EAD84B00046E92 /* CalendarViewController.swift */,
 			);
 			path = Models;

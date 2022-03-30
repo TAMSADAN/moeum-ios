@@ -14,11 +14,22 @@ extension MemoCalendarBottomSheetViewController {
         self.setupLayouts()
     }
     
-    func showConentView() {
-        print(self.view.frame.height)
-        self.contentViewTopConstraint.constant = 300
+    func showContentView() {
+        self.contentViewTopConstraint.constant = self.defaultHeightConstant
+        
         UIView.animate(
-            withDuration: 0.25,
+            withDuration: 0.5,
+            animations: {
+                self.view.layoutIfNeeded()
+            }
+        )
+    }
+    
+    func hideContentView() {
+        self.contentViewTopConstraint.constant = self.maxHeightConstant
+        
+        UIView.animate(
+            withDuration: 0.5,
             animations: {
                 self.view.layoutIfNeeded()
             }
@@ -27,26 +38,26 @@ extension MemoCalendarBottomSheetViewController {
     
     private func setupViews() {
         self.setupContentView()
-        self.setupMemoCalendarBottomSheetView()
     }
     
     private func setupContentView() {
         self.view.addSubview(self.contentView)
-        self.contentView.backgroundColor = .cyan
+        self.contentView.backgroundColor = .white
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    private func setupMemoCalendarBottomSheetView() {
-        self.contentView.addSubview(self.MemoCalendarBottomSheetView)
-        self.MemoCalendarBottomSheetView.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
     private func setupLayouts() {
-        self.contentViewTopConstraint = self.contentView.topAnchor.constraint(equalTo: self.view.topAnchor, constant: self.view.frame.height)
+        let topConstant = view.safeAreaInsets.bottom + view.safeAreaLayoutGuide.layoutFrame.height - 47
+        print("dd")
+        print(view.safeAreaInsets.bottom)
+        print(view.safeAreaLayoutGuide.layoutFrame.height)
+        print("kk")
+//        self.maxHeightConstant = self.view.frame.height -
+        self.contentViewTopConstraint = self.contentView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: topConstant)
         NSLayoutConstraint.activate([
             self.contentViewTopConstraint,
-            self.contentView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
-            self.contentView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
+            self.contentView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+            self.contentView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
             self.contentView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
         ])
     }

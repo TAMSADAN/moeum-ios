@@ -119,7 +119,7 @@ class MemoCalendarView: UIView {
     @objc func openBottomSheet() {
         let memoCalendarBottomSheetViewController = MemoCalendarBottomSheetViewController()
         memoCalendarBottomSheetViewController.modalPresentationStyle = .overFullScreen
-        
+//        self.present(bottomSheetVC, animated: false, completion: nil)
         
         print("버튼 클릭됨")
     }

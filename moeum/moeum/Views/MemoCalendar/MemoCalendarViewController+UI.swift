@@ -14,6 +14,20 @@ extension MemoCalendarViewController {
         self.setupLayouts()
     }
     
+    func hideMemoCalendarCollectionView() {
+        self.memoCalendarCollectionViewTopConstraint.constant = self.memoCalendarCollectionViewHideTopConstant * -1
+        UIView.animate(withDuration: 0.5,
+                       animations: {
+            self.contentView.layoutIfNeeded()
+            self.memoCalendarCollectionView.performBatchUpdates(nil)
+            }
+        )
+    }
+    
+    func showMemoCalendarCollectionView() {
+        
+    }
+    
     private func setupViews() {
         self.view.backgroundColor = .white
         self.setupContentView()
@@ -71,12 +85,10 @@ extension MemoCalendarViewController {
         self.memoCalendarCollectionView.register(MemoCalendarCollectionViewCell.self, forCellWithReuseIdentifier: MemoCalendarCollectionViewCell.identifier)
     }
     
-    private func setupMemoCalendarBottomSheet() {
-        self.contentView.addSubview(self.memoCalendarBottomSheetView)
-        self.memoCalendarBottomSheetView.translatesAutoresizingMaskIntoConstraints = false
-    }
     
     private func setupLayouts() {
+        
+        self.memoCalendarCollectionViewTopConstraint = self.memoCalendarCollectionView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor)
         NSLayoutConstraint.activate([
             self.contentView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             self.contentView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
@@ -98,15 +110,20 @@ extension MemoCalendarViewController {
             self.memoCalendarCollectionView.topAnchor.constraint(equalTo: self.weekStackView.bottomAnchor),
             self.memoCalendarCollectionView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
             self.memoCalendarCollectionView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
-            self.memoCalendarCollectionView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
+            self.memoCalendarCollectionViewTopConstraint,
         ])
+        
     }
     
     @objc func openBottomSheet() {
-        let memoCalendarBottomSheetViewController = MemoCalendarBottomSheetViewController()
-        memoCalendarBottomSheetViewController.modalPresentationStyle = .overFullScreen
-        self.present(memoCalendarBottomSheetViewController, animated: false, completion: nil)
-        print("버튼 클릭됨")
+        self.memoCalendarBottomSheetViewController = MemoCalendarBottomSheetViewController(constant: self.memoCalendarBottomSheetDefaultTopConstant)
+        self.memoCalendarBottomSheetViewController.modalPresentationStyle = .overFullScreen
+        self.present(self.memoCalendarBottomSheetViewController, animated: false, completion: nil)
+        self.hideMemoCalendarCollectionView()
+        
+        print(self.view.frame.height)
+        print(self.memoCalendarCollectionView.frame.height)
+        print(self.memoCalendarBottomSheetViewController.contentView.frame.height)
     }
 }
 
