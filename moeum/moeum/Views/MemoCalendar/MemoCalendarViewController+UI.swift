@@ -1,70 +1,51 @@
 //
-//  MemoCalendarView.swift
+//  MemoCalendarViewController+UI.swift
 //  moeum
 //
-//  Created by 송영모 on 2022/03/29.
+//  Created by 송영모 on 2022/03/30.
 //
 
 import UIKit
 
-class MemoCalendarView: UIView {
+extension MemoCalendarViewController {
     
-    lazy var monthPickerLabel = UILabel()
-    lazy var monthPickerButton = UIButton()
-    lazy var weekStackView = UIStackView()
-    lazy var memoCalendarCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-    lazy var memoCalendarBottomSheetView = UIView()
-    
-    private let calendar = Calendar.current
-    private let dateFormatter = DateFormatter()
-    private var calendarDate = Date()
-    private var days = [String]()
-    private var dates = [Date()]
-    
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
+    func setup() {
+        self.setupViews()
+        self.setupLayouts()
     }
     
-    init() {
-        super.init(frame: .zero)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        self.setup()
-        
-        print(self.frame.width)
-        print(self.frame.height)
-    }
-    
-    private func setup() {
-        self.translatesAutoresizingMaskIntoConstraints = false
+    private func setupViews() {
+        self.view.backgroundColor = .white
+        self.setupContentView()
         self.setupMonthPickerLabel()
         self.setupMonthPickerButton()
         self.setupWeekStackView()
-        self.setupMemoCalendarCollectionView()
-        self.setupMemoCalendarBottomSheet()
         self.configureCalendar()
-        
-        self.setupLayout()
+        self.setupMemoCalendarCollectionView()
+    }
+    
+    private func setupContentView() {
+        self.view.addSubview(self.contentView)
+        self.contentView.backgroundColor = .white
+        self.contentView.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func setupMonthPickerLabel() {
-        self.addSubview(self.monthPickerLabel)
+        self.contentView.addSubview(self.monthPickerLabel)
         self.monthPickerLabel.text = "2022.3"
         self.monthPickerLabel.font = .systemFont(ofSize: 20, weight: .bold)
         self.monthPickerLabel.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func setupMonthPickerButton() {
-        self.addSubview(self.monthPickerButton)
+        self.contentView.addSubview(self.monthPickerButton)
         self.monthPickerButton.setBackgroundImage(UIImage(systemName: "chevron.down"), for: .normal)
         self.monthPickerButton.tintColor = .black
         self.monthPickerButton.translatesAutoresizingMaskIntoConstraints = false
     }
     
     private func setupWeekStackView() {
-        self.addSubview(self.weekStackView)
+        self.contentView.addSubview(self.weekStackView)
         self.weekStackView.distribution = .fillEqually
         self.weekStackView.translatesAutoresizingMaskIntoConstraints = false
         
@@ -83,7 +64,7 @@ class MemoCalendarView: UIView {
     }
     
     private func setupMemoCalendarCollectionView() {
-        self.addSubview(self.memoCalendarCollectionView)
+        self.contentView.addSubview(self.memoCalendarCollectionView)
         self.memoCalendarCollectionView.translatesAutoresizingMaskIntoConstraints = false
         self.memoCalendarCollectionView.dataSource = self
         self.memoCalendarCollectionView.delegate = self
@@ -91,49 +72,52 @@ class MemoCalendarView: UIView {
     }
     
     private func setupMemoCalendarBottomSheet() {
-        self.addSubview(self.memoCalendarBottomSheetView)
+        self.contentView.addSubview(self.memoCalendarBottomSheetView)
         self.memoCalendarBottomSheetView.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    private func setupLayout() {
+    private func setupLayouts() {
         NSLayoutConstraint.activate([
-            self.monthPickerLabel.topAnchor.constraint(equalTo: self.topAnchor),
-            self.monthPickerLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-            
+            self.contentView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
+            self.contentView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
+            self.contentView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
+            self.contentView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
+
+            self.monthPickerLabel.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10),
+            self.monthPickerLabel.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
+
             self.monthPickerButton.leadingAnchor.constraint(equalTo: self.monthPickerLabel.trailingAnchor, constant: 5),
             self.monthPickerButton.centerYAnchor.constraint(equalTo: self.monthPickerLabel.centerYAnchor),
             self.monthPickerButton.widthAnchor.constraint(equalToConstant: 20),
             self.monthPickerButton.heightAnchor.constraint(equalToConstant: 20),
-            
+
             self.weekStackView.topAnchor.constraint(equalTo: self.monthPickerLabel.bottomAnchor, constant: 10),
-            self.weekStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            self.weekStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            
+            self.weekStackView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
+            self.weekStackView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
+
             self.memoCalendarCollectionView.topAnchor.constraint(equalTo: self.weekStackView.bottomAnchor),
-            self.memoCalendarCollectionView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            self.memoCalendarCollectionView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            self.memoCalendarCollectionView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            self.memoCalendarCollectionView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
+            self.memoCalendarCollectionView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
+            self.memoCalendarCollectionView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
         ])
     }
-
+    
     @objc func openBottomSheet() {
         let memoCalendarBottomSheetViewController = MemoCalendarBottomSheetViewController()
         memoCalendarBottomSheetViewController.modalPresentationStyle = .overFullScreen
-        
-        
+        self.present(memoCalendarBottomSheetViewController, animated: false, completion: nil)
         print("버튼 클릭됨")
     }
 }
 
-
-extension MemoCalendarView: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+extension MemoCalendarViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.days.count
     }
     
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        self.openBottomSheet()
+        openBottomSheet()
         return false
     }
     
@@ -146,8 +130,8 @@ extension MemoCalendarView: UICollectionViewDataSource, UICollectionViewDelegate
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = self.weekStackView.frame.width / 7
-//        let height = self.collectionView.frame.height / 5
-        return CGSize(width: width, height: 100)
+        let height = self.memoCalendarCollectionView.frame.height / 5
+        return CGSize(width: width, height: height)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
@@ -159,7 +143,7 @@ extension MemoCalendarView: UICollectionViewDataSource, UICollectionViewDelegate
     }
 }
 
-extension MemoCalendarView {
+extension MemoCalendarViewController {
     
     private func configureCalendar() {
         self.dateFormatter.dateFormat = "yyyy.M"
@@ -224,3 +208,4 @@ extension MemoCalendarView {
         self.updateCalendar()
     }
 }
+

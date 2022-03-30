@@ -8,41 +8,24 @@
 import UIKit
 
 class MemoCalendarViewController: UIViewController {
-    private lazy var contentView = UIView()
-    private lazy var memoCalendarView = MemoCalendarView()
+    lazy var contentView = UIView()
+    lazy var monthPickerLabel = UILabel()
+    lazy var monthPickerButton = UIButton()
+    lazy var weekStackView = UIStackView()
+    lazy var memoCalendarCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+    lazy var memoCalendarBottomSheetView = UIView()
+    
+    let calendar = Calendar.current
+    let dateFormatter = DateFormatter()
+    var calendarDate = Date()
+    var days = [String]()
+    var dates = [Date()]
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.configure()
+        self.setup()
     }
     
-    private func configure() {
-        self.view.backgroundColor = .systemBackground
-        self.configureContentView()
-        self.configureMemoCalendarView()
-    }
-    
-    private func configureContentView() {
-        self.view.addSubview(self.contentView)
-        self.contentView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            self.contentView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-            self.contentView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
-            self.contentView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
-            self.contentView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
-        ])
-    }
-    
-    private func configureMemoCalendarView() {
-        self.contentView.addSubview(self.memoCalendarView)
-        
-        self.memoCalendarView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            self.memoCalendarView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
-            self.memoCalendarView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
-            self.memoCalendarView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
-            self.memoCalendarView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
-        ])
-    }
     
 }
+
