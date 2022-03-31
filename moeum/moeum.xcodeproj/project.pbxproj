@@ -17,6 +17,8 @@
 		7046CBA527F438EA008ACE10 /* MemoCalendarViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7046CBA427F438EA008ACE10 /* MemoCalendarViewController+UI.swift */; };
 		7046CBA727F44504008ACE10 /* MemoCalendarBottomSheetViewController+UI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7046CBA627F44504008ACE10 /* MemoCalendarBottomSheetViewController+UI.swift */; };
 		7048F8CD27F584A800BDA52A /* MemoCalendarBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7048F8CC27F584A800BDA52A /* MemoCalendarBottomSheetView.swift */; };
+		7048F8CF27F5968C00BDA52A /* MemoCalendarViewCellTagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7048F8CE27F5968C00BDA52A /* MemoCalendarViewCellTagView.swift */; };
+		7048F8D527F5BCD600BDA52A /* MemoCalendarCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7048F8D427F5BCD600BDA52A /* MemoCalendarCollectionView.swift */; };
 		70905D8D27E37D8E001CB7AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70905D8C27E37D8E001CB7AF /* AppDelegate.swift */; };
 		70905D8F27E37D8E001CB7AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70905D8E27E37D8E001CB7AF /* SceneDelegate.swift */; };
 		70905D9127E37D8E001CB7AF /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70905D9027E37D8E001CB7AF /* ViewController.swift */; };
@@ -60,6 +62,8 @@
 		7046CBA427F438EA008ACE10 /* MemoCalendarViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MemoCalendarViewController+UI.swift"; sourceTree = "<group>"; };
 		7046CBA627F44504008ACE10 /* MemoCalendarBottomSheetViewController+UI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "MemoCalendarBottomSheetViewController+UI.swift"; sourceTree = "<group>"; };
 		7048F8CC27F584A800BDA52A /* MemoCalendarBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCalendarBottomSheetView.swift; sourceTree = "<group>"; };
+		7048F8CE27F5968C00BDA52A /* MemoCalendarViewCellTagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCalendarViewCellTagView.swift; sourceTree = "<group>"; };
+		7048F8D427F5BCD600BDA52A /* MemoCalendarCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCalendarCollectionView.swift; sourceTree = "<group>"; };
 		70905D8927E37D8E001CB7AF /* moeum.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = moeum.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70905D8C27E37D8E001CB7AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70905D8E27E37D8E001CB7AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -120,7 +124,6 @@
 			isa = PBXGroup;
 			children = (
 				7024250F27F17197007A914D /* Memo.swift */,
-				70102DC627E4DBF100472CC0 /* MemoCalendarCollectionViewCell.swift */,
 				7000B11327E9AED70067E0B4 /* MemoBottomSheetView.swift */,
 				7024250C27F16FB8007A914D /* MemoSummaryView.swift */,
 				7046CB9C27F34391008ACE10 /* MemoCalendarView.swift */,
@@ -213,6 +216,9 @@
 				70DAF01227F2EF7500EBD946 /* MemoCalendarMonthPickerView.swift */,
 				70DAF01427F3043300EBD946 /* MemoCalendarWeekView.swift */,
 				7048F8CC27F584A800BDA52A /* MemoCalendarBottomSheetView.swift */,
+				70102DC627E4DBF100472CC0 /* MemoCalendarCollectionViewCell.swift */,
+				7048F8CE27F5968C00BDA52A /* MemoCalendarViewCellTagView.swift */,
+				7048F8D427F5BCD600BDA52A /* MemoCalendarCollectionView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -348,6 +354,7 @@
 			files = (
 				70DAF01527F3043300EBD946 /* MemoCalendarWeekView.swift in Sources */,
 				7048F8CD27F584A800BDA52A /* MemoCalendarBottomSheetView.swift in Sources */,
+				7048F8CF27F5968C00BDA52A /* MemoCalendarViewCellTagView.swift in Sources */,
 				7046CBA327F41CE0008ACE10 /* MemoCalendarViewModel.swift in Sources */,
 				7046CB9F27F4194E008ACE10 /* MemoCalendarBottomSheetViewController.swift in Sources */,
 				70CF4DBF27EAEFC400046E92 /* TestViewController.swift in Sources */,
@@ -356,6 +363,7 @@
 				7046CBA527F438EA008ACE10 /* MemoCalendarViewController+UI.swift in Sources */,
 				70CF4DC127EB000600046E92 /* lib.swift in Sources */,
 				7000B11427E9AED70067E0B4 /* MemoBottomSheetView.swift in Sources */,
+				7048F8D527F5BCD600BDA52A /* MemoCalendarCollectionView.swift in Sources */,
 				7046CB9D27F34391008ACE10 /* MemoCalendarView.swift in Sources */,
 				70905D9127E37D8E001CB7AF /* ViewController.swift in Sources */,
 				70905D8D27E37D8E001CB7AF /* AppDelegate.swift in Sources */,

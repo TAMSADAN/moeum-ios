@@ -11,6 +11,7 @@ class MemoCalendarBottomSheetView: UIView {
 
     lazy var contentView = UIView()
     lazy var dayLabel = UILabel()
+    lazy var hideButton = UIButton()
     
     func setup() {
         self.setupViews()
@@ -33,6 +34,11 @@ class MemoCalendarBottomSheetView: UIView {
         self.dayLabel.text = "3.31 수"
         self.dayLabel.font = .systemFont(ofSize: 18, weight: .semibold)
         self.dayLabel.translatesAutoresizingMaskIntoConstraints = false
+    }
+    
+    private func setupHideButton() {
+        self.contentView.addSubview(self.hideButton)
+        self.hideButton
     }
     
     private func setupLayouts() {

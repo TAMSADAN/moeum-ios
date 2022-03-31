@@ -121,13 +121,28 @@ extension MemoCalendarViewController: UICollectionViewDataSource, UICollectionVi
     }
     
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        openBottomSheet()
+        if collectionView.indexPathsForSelectedItems?.contains(indexPath) ?? false {
+            collectionView.deselectItem(at: indexPath, animated: true)
+            self.showMemoCalendarCollectionView()
+            for collectionViewcell in collectionView.visibleCells {
+                let cell = collectionViewcell as! MemoCalendarCollectionViewCell
+                cell.showMemoList()
+            }
+        } else {
+            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
+            self.hideMemoCalendarCollectionView()
+            for collectionViewcell in collectionView.visibleCells {
+                let cell = collectionViewcell as! MemoCalendarCollectionViewCell
+                cell.hideMemoList()
+            }
+        }
         return false
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
 
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MemoCalendarCollectionViewCell.identifier, for: indexPath) as? MemoCalendarCollectionViewCell else { return UICollectionViewCell()}
+        cell.setup()
         cell.update(date: self.dates[indexPath.item])
         return cell
     }

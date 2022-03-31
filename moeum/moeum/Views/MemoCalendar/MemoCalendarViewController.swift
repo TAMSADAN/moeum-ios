@@ -9,8 +9,6 @@ import UIKit
 
 class MemoCalendarViewController: UIViewController {
     lazy var contentView = UIView()
-    lazy var monthPickerLabel = UILabel()
-    lazy var monthPickerButton = UIButton()
     lazy var monthPickerView = MemoCalendarMonthPickerView()
     lazy var weekView = MemoCalendarWeekView()
     lazy var memoCalendarCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
@@ -30,7 +28,6 @@ class MemoCalendarViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
-//        self.memoCalendarCollectionView.backgroundColor = .red
     }
 }
 
