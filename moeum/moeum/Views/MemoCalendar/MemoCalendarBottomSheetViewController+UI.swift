@@ -15,7 +15,7 @@ extension MemoCalendarBottomSheetViewController {
     }
     
     func showContentView() {
-        self.contentViewTopConstraint.constant = self.defaultHeightConstant
+        self.contentViewHeightConstraint.constant = self.defaultHeightConstant
         
         UIView.animate(
             withDuration: 0.5,
@@ -26,7 +26,7 @@ extension MemoCalendarBottomSheetViewController {
     }
     
     func hideContentView() {
-        self.contentViewTopConstraint.constant = self.maxHeightConstant
+        self.contentViewHeightConstraint.constant = self.maxHeightConstant
         
         UIView.animate(
             withDuration: 0.5,
@@ -42,20 +42,14 @@ extension MemoCalendarBottomSheetViewController {
     
     private func setupContentView() {
         self.view.addSubview(self.contentView)
-        self.contentView.backgroundColor = .white
+        self.contentView.backgroundColor = .systemGray6
         self.contentView.translatesAutoresizingMaskIntoConstraints = false
     }
     
-    private func setupLayouts() {
-        let topConstant = view.safeAreaInsets.bottom + view.safeAreaLayoutGuide.layoutFrame.height - 47
-        print("dd")
-        print(view.safeAreaInsets.bottom)
-        print(view.safeAreaLayoutGuide.layoutFrame.height)
-        print("kk")
-//        self.maxHeightConstant = self.view.frame.height -
-        self.contentViewTopConstraint = self.contentView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor, constant: topConstant)
+    func setupLayouts() {
+        self.contentViewHeightConstraint = self.contentView.heightAnchor.constraint(equalToConstant: 0)
         NSLayoutConstraint.activate([
-            self.contentViewTopConstraint,
+            self.contentViewHeightConstraint,
             self.contentView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
             self.contentView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
             self.contentView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),

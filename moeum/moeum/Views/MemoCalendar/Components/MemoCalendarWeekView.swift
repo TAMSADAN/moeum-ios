@@ -11,31 +11,19 @@ class MemoCalendarWeekView: UIView {
     
     var weekStackView = UIStackView()
     
-    required init?(coder: NSCoder) {
-        super.init(coder: coder)
+    func setup() {
+        self.setupViews()
+        self.setupLayouts()
     }
     
-    init() {
-        super.init(frame: .zero)
-        self.configure()
+    private func setupViews() {
+        self.setupWeekStackView()
     }
     
-    private func configure() {
-        self.translatesAutoresizingMaskIntoConstraints = false
-        self.configureWeekStackView()
-    }
-    
-    private func configureWeekStackView() {
+    private func setupWeekStackView() {
         self.addSubview(self.weekStackView)
-        
         self.weekStackView.distribution = .fillEqually
-        
         self.weekStackView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            self.weekStackView.topAnchor.constraint(equalTo: self.topAnchor),
-            self.weekStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            self.weekStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-        ])
         
         let days = ["일", "월", "화", "수", "목", "금", "토"]
         
@@ -51,5 +39,14 @@ class MemoCalendarWeekView: UIView {
             label.textAlignment = .center
             self.weekStackView.addArrangedSubview(label)
         }
+    }
+    
+    private func setupLayouts() {
+        NSLayoutConstraint.activate([
+            self.weekStackView.topAnchor.constraint(equalTo: self.topAnchor),
+            self.weekStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
+            self.weekStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
+            self.weekStackView.bottomAnchor.constraint(equalTo: self.bottomAnchor)
+        ])
     }
 }
