@@ -23,6 +23,7 @@ extension MemoCalendarViewController {
             self.memoCalendarCollectionView.performBatchUpdates(nil)
             }
         )
+        self.memoCalendarBottomSheetView.setup()
     }
     
     func showMemoCalendarCollectionView() {
@@ -34,6 +35,7 @@ extension MemoCalendarViewController {
             self.memoCalendarCollectionView.performBatchUpdates(nil)
             }
         )
+//        self.memoCalendarBottomSheetView.setup()
     }
     
     private func setupViews() {
@@ -74,7 +76,7 @@ extension MemoCalendarViewController {
     
     private func setupMemoCalendarBottomSheetView() {
         self.contentView.addSubview(self.memoCalendarBottomSheetView)
-        self.memoCalendarBottomSheetView.setup()
+//        self.memoCalendarBottomSheetView.setup()
         self.memoCalendarBottomSheetView.translatesAutoresizingMaskIntoConstraints = false
     }
     
