@@ -54,13 +54,13 @@ class MemoCalendarBottomSheetView: UIView {
         self.lineStackView.spacing = 3
         
         for i in (0...Int.random(in: 0..<5)) {
-            let lineView = MemoCalendarBottomSheetLineView()
+            let lineView = MemoCalendarBottomSheetLineView(width: self.frame.width * 0.95)
             lineView.translatesAutoresizingMaskIntoConstraints = false
-            lineView.setup()
             NSLayoutConstraint.activate([
                 lineView.widthAnchor.constraint(equalToConstant: self.frame.width * 0.95),
                 lineView.heightAnchor.constraint(equalToConstant: self.frame.height / 30)
             ])
+            lineView.setup()
             self.lineViews.append(lineView)
             self.lineStackView.addArrangedSubview(lineView)
         }
