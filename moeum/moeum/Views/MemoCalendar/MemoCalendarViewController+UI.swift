@@ -42,10 +42,12 @@ extension MemoCalendarViewController {
         self.view.backgroundColor = .white
         self.setupContentView()
         self.setupMonthPickerView()
+        self.setupChartButton()
         self.setupWeekStackView()
         self.configureCalendar()
         self.setupMemoCalendarCollectionView()
         self.setupMemoCalendarBottomSheetView()
+        self.setupCreateMemoButton()
     }
     
     private func setupContentView() {
@@ -58,6 +60,20 @@ extension MemoCalendarViewController {
         self.contentView.addSubview(self.monthPickerView)
         self.monthPickerView.translatesAutoresizingMaskIntoConstraints = false
         self.monthPickerView.setup()
+    }
+    
+    private func setupChartButton() {
+        self.contentView.addSubview(self.chartButton)
+        self.chartButton.translatesAutoresizingMaskIntoConstraints = false
+        self.chartButton.setImage(UIImage(systemName: "chart.pie"), for: .normal)
+        self.chartButton.tintColor = .black
+    }
+    
+    private func setupCalendarButton() {
+        self.contentView.addSubview(self.calendarButton)
+        self.calendarButton.translatesAutoresizingMaskIntoConstraints = false
+        self.calendarButton.setImage(UIImage(systemName: "calendar"), for: .normal)
+        self.calendarButton.tintColor = .black
     }
     
     private func setupWeekStackView() {
@@ -80,6 +96,22 @@ extension MemoCalendarViewController {
         self.memoCalendarBottomSheetView.translatesAutoresizingMaskIntoConstraints = false
     }
     
+    private func setupCreateMemoButton() {
+        self.contentView.addSubview(self.createMemoButton)
+        self.createMemoButton.translatesAutoresizingMaskIntoConstraints = false
+        self.createMemoButton.tintColor = .white
+        self.createMemoButton.backgroundColor = .black
+        self.createMemoButton.layer.cornerRadius = 23
+        self.createMemoButton.setImage(UIImage(systemName: "plus"), for: .normal)
+        self.createMemoButton.contentHorizontalAlignment = .fill
+        self.createMemoButton.contentVerticalAlignment = .fill
+        self.createMemoButton.contentEdgeInsets = UIEdgeInsets(top: 10, left: 10, bottom: 10, right: 10)
+        self.createMemoButton.layer.shadowColor = UIColor.gray.cgColor
+        self.createMemoButton.layer.shadowOpacity = 1.0
+        self.createMemoButton.layer.shadowOffset = CGSize.zero
+        self.createMemoButton.layer.shadowRadius = 5
+    }
+    
     private func setupLayouts() {
         self.memoCalendarCollectionViewTopConstraint = self.memoCalendarCollectionView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor)
         self.memoCalendarBottomSheetViewHeightConstraint = self.memoCalendarBottomSheetView.heightAnchor.constraint(equalToConstant: 0)
@@ -93,6 +125,15 @@ extension MemoCalendarViewController {
             self.monthPickerView.topAnchor.constraint(equalTo: self.contentView.topAnchor, constant: 10),
             self.monthPickerView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor, constant: 10),
             self.monthPickerView.heightAnchor.constraint(equalToConstant: 20),
+            
+            self.chartButton.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
+            self.chartButton.centerYAnchor.constraint(equalTo: self.monthPickerView.centerYAnchor),
+            self.chartButton.widthAnchor.constraint(equalToConstant: 20),
+            self.chartButton.heightAnchor.constraint(equalToConstant: 20),
+            
+            self.calendarButton.trailingAnchor.constraint(equalTo: self.chartButton.leadingAnchor),
+            self.calendarButton.centerYAnchor.constraint(equalTo: self.monthPickerView.centerYAnchor),
+//            self.calen
 
             self.weekView.topAnchor.constraint(equalTo: self.monthPickerView.bottomAnchor, constant: 10),
             self.weekView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
@@ -107,8 +148,12 @@ extension MemoCalendarViewController {
             self.memoCalendarBottomSheetView.trailingAnchor.constraint(equalTo: self.contentView.trailingAnchor),
             self.memoCalendarBottomSheetView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
             self.memoCalendarBottomSheetViewHeightConstraint,
+            
+            self.createMemoButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            self.createMemoButton.trailingAnchor.constraint(equalTo: self.view.trailingAnchor, constant: -20),
+            self.createMemoButton.widthAnchor.constraint(equalToConstant: 45),
+            self.createMemoButton.heightAnchor.constraint(equalToConstant: 45),
         ])
-        
     }
     
     @objc func openBottomSheet() {

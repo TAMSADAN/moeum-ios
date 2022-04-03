@@ -14,6 +14,9 @@ class MemoCalendarViewController: UIViewController {
     lazy var memoCalendarCollectionView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
     lazy var memoCalendarBottomSheetViewController = MemoCalendarBottomSheetViewController()
     lazy var memoCalendarBottomSheetView = MemoCalendarBottomSheetView()
+    lazy var createMemoButton = UIButton()
+    lazy var calendarButton = UIButton()
+    lazy var chartButton = UIButton()
      
     let calendar = Calendar.current
     let dateFormatter = DateFormatter()

@@ -1,14 +1,14 @@
 //
-//  MemoCalendarBottomSheetLineView.swift
+//  MemoCalendarBottomSheetLineLabelView.swift
 //  moeum
 //
-//  Created by 송영모 on 2022/04/01.
+//  Created by 송영모 on 2022/04/03.
 //
 
 import UIKit
 
-class MemoCalendarBottomSheetLineView: UIView {
-    
+class MemoCalendarBottomSheetLineLabelView: UIView {
+
     lazy var contentView = UIView()
     lazy var tradingLabel = UILabel()
     lazy var tagLabel = UILabel()
@@ -64,8 +64,7 @@ class MemoCalendarBottomSheetLineView: UIView {
         self.contentView.addSubview(self.tradingLabel)
         self.tradingLabel.translatesAutoresizingMaskIntoConstraints = false
         self.tradingLabel.adjustsFontSizeToFitWidth = true
-        self.tradingLabel.text = "매수"
-        self.tradingLabel.textColor = .systemRed
+        self.tradingLabel.text = "종류"
         self.tradingLabel.textAlignment = .center
     }
     
@@ -73,7 +72,7 @@ class MemoCalendarBottomSheetLineView: UIView {
         self.contentView.addSubview(self.tagLabel)
         self.tagLabel.translatesAutoresizingMaskIntoConstraints = false
         self.tagLabel.adjustsFontSizeToFitWidth = true
-        self.tagLabel.text = "코인"
+        self.tagLabel.text = "태그"
         self.tagLabel.textAlignment = .center
     }
     
@@ -81,7 +80,7 @@ class MemoCalendarBottomSheetLineView: UIView {
         self.contentView.addSubview(self.nameLabel)
         self.nameLabel.translatesAutoresizingMaskIntoConstraints = false
         self.nameLabel.adjustsFontSizeToFitWidth = true
-        self.nameLabel.text = "비트코인"
+        self.nameLabel.text = "종목명"
         self.nameLabel.textAlignment = .center
     }
     
@@ -89,7 +88,7 @@ class MemoCalendarBottomSheetLineView: UIView {
         self.contentView.addSubview(self.volumeLabel)
         self.volumeLabel.translatesAutoresizingMaskIntoConstraints = false
         self.volumeLabel.adjustsFontSizeToFitWidth = true
-        self.volumeLabel.text = "123,405"
+        self.volumeLabel.text = "거래금액"
         self.volumeLabel.textAlignment = .right
     }
     
@@ -97,7 +96,7 @@ class MemoCalendarBottomSheetLineView: UIView {
         self.contentView.addSubview(self.memoLabel)
         self.memoLabel.translatesAutoresizingMaskIntoConstraints = false
         self.memoLabel.adjustsFontSizeToFitWidth = true
-        self.memoLabel.text = "메모😥"
+        self.memoLabel.text = "메모"
         self.memoLabel.textAlignment = .center
     }
     
@@ -138,4 +137,6 @@ class MemoCalendarBottomSheetLineView: UIView {
             self.memoLabel.widthAnchor.constraint(equalToConstant: self.memoLabelWidth),
         ])
     }
+
+
 }

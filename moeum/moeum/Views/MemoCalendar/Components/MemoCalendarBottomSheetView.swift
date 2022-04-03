@@ -12,8 +12,10 @@ class MemoCalendarBottomSheetView: UIView {
     lazy var contentView = UIView()
     lazy var dayLabel = UILabel()
     lazy var hideButton = UIButton()
+    
     lazy var lineStackView = UIStackView()
     lazy var lineViews: [MemoCalendarBottomSheetLineView] = []
+    var lineLabelView: MemoCalendarBottomSheetLineLabelView!
     
     func setup() {
         self.setupViews()
@@ -24,6 +26,7 @@ class MemoCalendarBottomSheetView: UIView {
         self.setupContentView()
         self.setupDayLabel()
         self.setupHideButton()
+        self.setupLineLabelView()
         self.setupLineStackView()
     }
     
@@ -47,12 +50,19 @@ class MemoCalendarBottomSheetView: UIView {
         self.hideButton.setBackgroundImage(UIImage(systemName: "minus"), for: .normal)
     }
     
+    private func setupLineLabelView() {
+        self.lineLabelView = MemoCalendarBottomSheetLineLabelView(width: self.frame.width * 0.95)
+        self.lineLabelView.translatesAutoresizingMaskIntoConstraints = false
+        self.contentView.addSubview(self.lineLabelView)
+        self.lineLabelView.setup()
+        
+    }
+    
     private func setupLineStackView() {
         self.contentView.addSubview(self.lineStackView)
         self.lineStackView.translatesAutoresizingMaskIntoConstraints = false
         self.lineStackView.axis = .vertical
         self.lineStackView.spacing = 3
-        
         for i in (0...Int.random(in: 0..<5)) {
             let lineView = MemoCalendarBottomSheetLineView(width: self.frame.width * 0.95)
             lineView.translatesAutoresizingMaskIntoConstraints = false
@@ -81,13 +91,14 @@ class MemoCalendarBottomSheetView: UIView {
             self.hideButton.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
             self.hideButton.widthAnchor.constraint(equalToConstant: 30),
             self.hideButton.heightAnchor.constraint(equalToConstant: 24),
-
-            self.lineStackView.topAnchor.constraint(equalTo: self.dayLabel.bottomAnchor, constant: 10),
-            self.lineStackView.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
-//            self.lineStackView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor)
-        ])
-        for lineView in self.lineViews {
             
-        }
+            self.lineLabelView.topAnchor.constraint(equalTo: self.dayLabel.bottomAnchor, constant: 10),
+            self.lineLabelView.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
+            self.lineLabelView.widthAnchor.constraint(equalToConstant: self.frame.width * 0.95),
+            self.lineLabelView.heightAnchor.constraint(equalToConstant: self.frame.height / 30),
+            
+            self.lineStackView.topAnchor.constraint(equalTo: self.lineLabelView.bottomAnchor, constant: 5),
+            self.lineStackView.centerXAnchor.constraint(equalTo: self.contentView.centerXAnchor),
+        ])
     }
 }
