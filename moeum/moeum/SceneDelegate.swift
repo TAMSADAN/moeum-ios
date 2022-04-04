@@ -18,7 +18,9 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 //        let mainViewController = ViewController() // 맨 처음 보여줄 ViewController
 //        let mainViewController = CalendarViewController() // 맨 처음 보여줄 ViewController
 //        let mainViewController = TestViewController() // 맨 처음 보여줄 ViewController
-        let mainViewController = MemoCalendarViewController()
+//        let mainViewController = MemoCalendarViewController()
+        
+        let mainViewController = MainViewController()
         window?.rootViewController = mainViewController
         window?.makeKeyAndVisible()
         

@@ -161,9 +161,9 @@ extension MemoCalendarViewController {
     }
     
     @objc func onClickChartButton() {
-        let memoChartViewController = MemoChartViewController()
-        memoChartViewController.modalPresentationStyle = .formSheet
-        self.present(memoChartViewController, animated: true, completion: nil)
+        let CalendarVC = CalendarViewController()
+        CalendarVC.modalPresentationStyle = .formSheet
+        self.present(CalendarVC, animated: true, completion: nil)
     }
     
     @objc func onClickCreateButton() {
