@@ -167,9 +167,9 @@ extension MemoCalendarViewController {
     }
     
     @objc func onClickCreateButton() {
-        let createMemoViewController = CreateMemoViewController()
-        createMemoViewController.modalPresentationStyle = .formSheet
-        self.present(createMemoViewController, animated: true, completion: nil)
+        let writingVC = WritingViewController()
+        writingVC.modalPresentationStyle = .formSheet
+        self.present(writingVC, animated: true, completion: nil)
     }
 }
 

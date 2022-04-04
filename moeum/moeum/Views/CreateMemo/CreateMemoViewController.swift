@@ -8,6 +8,8 @@
 import UIKit
 
 class CreateMemoViewController: UIViewController {
+    
+    lazy var titleLabel = UILabel()
 
     override func viewDidLoad() {
         super.viewDidLoad()
