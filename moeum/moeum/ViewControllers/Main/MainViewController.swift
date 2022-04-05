@@ -19,16 +19,21 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
         super.viewWillAppear(animated)
         
         let tabOne = CalendarViewController()
-        let tabOneBarItem = UITabBarItem(title: "Tab 1", image: UIImage(named: "defaultImage.png"), selectedImage: UIImage(named: "selectedImage.png"))
+        let tabOneBarItem = UITabBarItem(title: "캘린더", image: UIImage(systemName: "calendar"), selectedImage: UIImage(named: "selectedImage.png"))
         
         tabOne.tabBarItem = tabOneBarItem
         
-        let tabTwo = ChartViewController()
-        let tabTwoBarItem = UITabBarItem(title: "Tab 2", image: UIImage(named: "defaultImage2.png"), selectedImage: UIImage(named: "selectedImage2.png"))
+        let tabTwo = ListViewController()
+        let tabTwoBarItem = UITabBarItem(title: "리스트", image: UIImage(systemName: "list.bullet.rectangle.portrait"), selectedImage: UIImage(named: "selectedImage2.png"))
         
         tabTwo.tabBarItem = tabTwoBarItem
         
-        self.viewControllers = [tabOne, tabTwo]
+        let tabThree = ChartViewController()
+        let tabThreeBarItem = UITabBarItem(title: "분석", image: UIImage(systemName: "chart.pie"), selectedImage: UIImage(named: "selectedImage2.png"))
+        
+        tabThree.tabBarItem = tabThreeBarItem
+        
+        self.viewControllers = [tabOne, tabTwo, tabThree]
         
     }
 }

@@ -6,9 +6,12 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 extension CalendarViewController {
     func setup() {
+        self.configureCalendar()
         self.view.backgroundColor = .white
         self.view.addSubview(self.headerView)
         self.headerView.translatesAutoresizingMaskIntoConstraints = false
@@ -34,13 +37,30 @@ extension CalendarViewController {
             self.calendarView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
             self.calendarView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
         ])
+        
+        self.view.addSubview(self.writingButton)
+        self.writingButton.translatesAutoresizingMaskIntoConstraints = false
+        NSLayoutConstraint.activate([
+            self.writingButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            self.writingButton.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+        ])
+    }
+    
+    func binding() {
+        self.writingButton.rx.tap
+            .bind {
+                let writingVC = WritingViewController()
+                writingVC.modalPresentationStyle = .formSheet
+                self.present(writingVC, animated: true)
+            }
+            .disposed(by: disposeBag)
     }
 }
 
 extension CalendarViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 30
+        return self.days.count
     }
     
     func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
@@ -66,7 +86,7 @@ extension CalendarViewController: UICollectionViewDataSource, UICollectionViewDe
         
         guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MemoCalendarCollectionViewCell.identifier, for: indexPath) as? MemoCalendarCollectionViewCell else { return UICollectionViewCell()}
         cell.setup()
-//        cell.update(date: self.dates[indexPath.item])
+        cell.update(date: self.dates[indexPath.item])
         return cell
     }
     
@@ -85,7 +105,7 @@ extension CalendarViewController: UICollectionViewDataSource, UICollectionViewDe
     }
 }
 
-extension MemoCalendarViewController {
+extension CalendarViewController {
     private func configureCalendar() {
         self.dateFormatter.dateFormat = "yyyy.M"
         self.today()
@@ -130,7 +150,7 @@ extension MemoCalendarViewController {
             self.dates.append(self.calendar.date(from: dateComponents) ?? Date())
             
         }
-        self.memoCalendarCollectionView.reloadData()
+        self.calendarView.reloadData()
     }
     
     private func minusMonth() {

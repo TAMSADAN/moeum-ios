@@ -6,9 +6,13 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 import Then
 
 class CalendarViewController: UIViewController {
+    
+    var disposeBag = DisposeBag()
     
     let calendar = Calendar.current
     let dateFormatter = DateFormatter()
@@ -23,11 +27,14 @@ class CalendarViewController: UIViewController {
             $0.register(MemoCalendarCollectionViewCell.self, forCellWithReuseIdentifier: MemoCalendarCollectionViewCell.identifier)
         }
     
+    var writingButton = WritingButton()
+    
     var weekLabelView = WeekLabelView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
+        self.binding()
         self.calendarView.dataSource = self
         self.calendarView.delegate = self
     }
