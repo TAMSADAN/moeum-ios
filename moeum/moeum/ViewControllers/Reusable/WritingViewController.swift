@@ -6,9 +6,11 @@
 //
 
 import UIKit
+import RxSwift
 import Then
 
 class WritingViewController: UIViewController {
+    var diposeBag = DisposeBag()
     
     var headerView = WritingHeaderView()
     var writingView = WritingView()
@@ -16,5 +18,10 @@ class WritingViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setup()
+        self.binding()
+    }
+    
+    override func viewDidLayoutSubviews() {
+//        self.writingView.tagTextView.centerVertically()
     }
 }

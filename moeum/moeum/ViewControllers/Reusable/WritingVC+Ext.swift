@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 extension WritingViewController {
     func setup() {
@@ -24,6 +26,16 @@ extension WritingViewController {
             writingView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
             writingView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             writingView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            writingView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
+    }
+    
+    func binding() {
+        self.writingView.tagTextView.rx.text
+            .subscribe(onNext: {
+                s in
+                print(s)
+            })
+            .disposed(by: diposeBag)
     }
 }

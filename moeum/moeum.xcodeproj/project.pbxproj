@@ -37,6 +37,9 @@
 		70905DB027E37D8F001CB7AF /* moeumUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70905DAF27E37D8F001CB7AF /* moeumUITestsLaunchTests.swift */; };
 		70C05FBA27FBDF9D00093A2C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C05FB927FBDF9D00093A2C /* ListViewController.swift */; };
 		70C05FBD27FC0EA800093A2C /* WritingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C05FBC27FC0EA800093A2C /* WritingButton.swift */; };
+		70C05FC027FC377B00093A2C /* WritingBuyView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C05FBF27FC377B00093A2C /* WritingBuyView.swift */; };
+		70C05FC327FC37AC00093A2C /* WritingSellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C05FC227FC37AC00093A2C /* WritingSellView.swift */; };
+		70C05FC527FC37B800093A2C /* WritingMemoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C05FC427FC37B800093A2C /* WritingMemoView.swift */; };
 		70CF4DBF27EAEFC400046E92 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CF4DBE27EAEFC400046E92 /* TestViewController.swift */; };
 		70CF4DC127EB000600046E92 /* lib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CF4DC027EB000600046E92 /* lib.swift */; };
 		70DAF00F27F2EAD000EBD946 /* MemoCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DAF00E27F2EAD000EBD946 /* MemoCalendarViewController.swift */; };
@@ -109,6 +112,9 @@
 		70905DAF27E37D8F001CB7AF /* moeumUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = moeumUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		70C05FB927FBDF9D00093A2C /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		70C05FBC27FC0EA800093A2C /* WritingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingButton.swift; sourceTree = "<group>"; };
+		70C05FBF27FC377B00093A2C /* WritingBuyView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingBuyView.swift; sourceTree = "<group>"; };
+		70C05FC227FC37AC00093A2C /* WritingSellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingSellView.swift; sourceTree = "<group>"; };
+		70C05FC427FC37B800093A2C /* WritingMemoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingMemoView.swift; sourceTree = "<group>"; };
 		70CF4DBC27EAD84B00046E92 /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		70CF4DBE27EAEFC400046E92 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		70CF4DC027EB000600046E92 /* lib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lib.swift; sourceTree = "<group>"; };
@@ -188,6 +194,7 @@
 				7037B46227FAAFFA004F3828 /* Calendar */,
 				70C05FB827FBDF8B00093A2C /* List */,
 				70F7493827FB3C6E00B31791 /* Chart */,
+				70C05FBE27FC1D9D00093A2C /* Reusable */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -197,8 +204,6 @@
 			children = (
 				706D9B3727FAE3A400E0DD5F /* CalendarViewController.swift */,
 				706D9B3927FAE66700E0DD5F /* CalendarVC+Ext.swift */,
-				7037B46327FAB048004F3828 /* WritingViewController.swift */,
-				70E8B19E27FAB7BF0095B30E /* WritingVC+Ext.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -209,8 +214,6 @@
 				7037B46627FAB0C3004F3828 /* CalendarHeaderView.swift */,
 				70F7493D27FB454E00B31791 /* CalendarViewCell.swift */,
 				70F7493F27FB4B2500B31791 /* TagView.swift */,
-				7037B46827FAB0E0004F3828 /* WritingHeaderView.swift */,
-				70E8B1A027FAC1D40095B30E /* WritingView.swift */,
 				70F7493B27FB404C00B31791 /* WeekLabelView.swift */,
 			);
 			path = Calendar;
@@ -300,14 +303,36 @@
 		70C05FBB27FC0E7B00093A2C /* Reusable */ = {
 			isa = PBXGroup;
 			children = (
-				70C05FBC27FC0EA800093A2C /* WritingButton.swift */,
 			);
 			path = Reusable;
+			sourceTree = "<group>";
+		};
+		70C05FBE27FC1D9D00093A2C /* Reusable */ = {
+			isa = PBXGroup;
+			children = (
+				7037B46327FAB048004F3828 /* WritingViewController.swift */,
+				70E8B19E27FAB7BF0095B30E /* WritingVC+Ext.swift */,
+			);
+			path = Reusable;
+			sourceTree = "<group>";
+		};
+		70C05FC127FC378100093A2C /* Writing */ = {
+			isa = PBXGroup;
+			children = (
+				7037B46827FAB0E0004F3828 /* WritingHeaderView.swift */,
+				70E8B1A027FAC1D40095B30E /* WritingView.swift */,
+				70C05FBF27FC377B00093A2C /* WritingBuyView.swift */,
+				70C05FC227FC37AC00093A2C /* WritingSellView.swift */,
+				70C05FC427FC37B800093A2C /* WritingMemoView.swift */,
+				70C05FBC27FC0EA800093A2C /* WritingButton.swift */,
+			);
+			path = Writing;
 			sourceTree = "<group>";
 		};
 		70DAF00A27F2E37E00EBD946 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				70C05FC127FC378100093A2C /* Writing */,
 				7037B46527FAB087004F3828 /* Calendar */,
 				70C05FBB27FC0E7B00093A2C /* Reusable */,
 				704A9B6527F9FBEC00CA33DD /* MemoChart */,
@@ -646,6 +671,7 @@
 				7075B53A27F68C76002DBF8E /* MemoCalendarBottomSheetLineView.swift in Sources */,
 				70905D9127E37D8E001CB7AF /* ViewController.swift in Sources */,
 				70905D8D27E37D8E001CB7AF /* AppDelegate.swift in Sources */,
+				70C05FC027FC377B00093A2C /* WritingBuyView.swift in Sources */,
 				704A9B6727F9FC0D00CA33DD /* MemoChartViewController.swift in Sources */,
 				70DAF00F27F2EAD000EBD946 /* MemoCalendarViewController.swift in Sources */,
 				70DAF01327F2EF7500EBD946 /* MemoCalendarMonthPickerView.swift in Sources */,
@@ -658,9 +684,11 @@
 				7046CBA727F44504008ACE10 /* MemoCalendarBottomSheetViewController+UI.swift in Sources */,
 				7037B46727FAB0C3004F3828 /* CalendarHeaderView.swift in Sources */,
 				70F7493C27FB404C00B31791 /* WeekLabelView.swift in Sources */,
+				70C05FC527FC37B800093A2C /* WritingMemoView.swift in Sources */,
 				70C05FBD27FC0EA800093A2C /* WritingButton.swift in Sources */,
 				7037B46427FAB048004F3828 /* WritingViewController.swift in Sources */,
 				70F7494027FB4B2500B31791 /* TagView.swift in Sources */,
+				70C05FC327FC37AC00093A2C /* WritingSellView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
