@@ -15,6 +15,7 @@
 		702FA6E927FD454B004417D9 /* ImageLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702FA6E827FD454B004417D9 /* ImageLabel.swift */; };
 		702FA6EB27FD45EB004417D9 /* ImageTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702FA6EA27FD45EB004417D9 /* ImageTextView.swift */; };
 		702FA6ED27FD5EF9004417D9 /* TagLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702FA6EC27FD5EF9004417D9 /* TagLabel.swift */; };
+		702FA6EF27FD68E5004417D9 /* Trade.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702FA6EE27FD68E5004417D9 /* Trade.swift */; };
 		7037B46427FAB048004F3828 /* WritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7037B46327FAB048004F3828 /* WritingViewController.swift */; };
 		7037B46727FAB0C3004F3828 /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7037B46627FAB0C3004F3828 /* CalendarHeaderView.swift */; };
 		7037B46927FAB0E0004F3828 /* WritingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7037B46827FAB0E0004F3828 /* WritingHeaderView.swift */; };
@@ -86,6 +87,7 @@
 		702FA6E827FD454B004417D9 /* ImageLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageLabel.swift; sourceTree = "<group>"; };
 		702FA6EA27FD45EB004417D9 /* ImageTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextView.swift; sourceTree = "<group>"; };
 		702FA6EC27FD5EF9004417D9 /* TagLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagLabel.swift; sourceTree = "<group>"; };
+		702FA6EE27FD68E5004417D9 /* Trade.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trade.swift; sourceTree = "<group>"; };
 		7037B46327FAB048004F3828 /* WritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewController.swift; sourceTree = "<group>"; };
 		7037B46627FAB0C3004F3828 /* CalendarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
 		7037B46827FAB0E0004F3828 /* WritingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingHeaderView.swift; sourceTree = "<group>"; };
@@ -185,6 +187,7 @@
 				7024250C27F16FB8007A914D /* MemoSummaryView.swift */,
 				7046CB9C27F34391008ACE10 /* MemoCalendarView.swift */,
 				70CF4DBC27EAD84B00046E92 /* CalendarViewController.swift */,
+				702FA6EE27FD68E5004417D9 /* Trade.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -666,6 +669,7 @@
 				70CF4DC127EB000600046E92 /* lib.swift in Sources */,
 				706D9B3A27FAE66700E0DD5F /* CalendarVC+Ext.swift in Sources */,
 				7037B46927FAB0E0004F3828 /* WritingHeaderView.swift in Sources */,
+				702FA6EF27FD68E5004417D9 /* Trade.swift in Sources */,
 				70F7493727FB3B7800B31791 /* MainViewController.swift in Sources */,
 				704431BA27F9BC6B000C091E /* CreateMemoViewController.swift in Sources */,
 				706D9B3827FAE3A400E0DD5F /* CalendarViewController.swift in Sources */,
