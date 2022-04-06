@@ -1,5 +1,5 @@
 //
-//  Trade.swift
+//  Record.swift
 //  moeum
 //
 //  Created by 송영모 on 2022/04/06.
@@ -7,7 +7,7 @@
 
 import Foundation
 
-struct TradeRecord {
+struct Record {
     var tagName: String
     var itemName: String
     var buyPrice: Double

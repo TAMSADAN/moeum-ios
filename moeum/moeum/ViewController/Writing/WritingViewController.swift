@@ -15,10 +15,12 @@ class WritingViewController: UIViewController {
     var headerView = WritingHeaderView()
     var writingView = WritingView()
     
+    var viewModel = WritingViewModel()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setup()
-        self.binding()
+        self.setView()
+        self.bindView()
     }
     
     override func viewDidLayoutSubviews() {
