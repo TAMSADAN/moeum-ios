@@ -24,7 +24,7 @@ class CalendarViewController: UIViewController {
     
     var calendarView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         .then {
-            $0.register(MemoCalendarCollectionViewCell.self, forCellWithReuseIdentifier: MemoCalendarCollectionViewCell.identifier)
+            $0.register(CalendarViewCell.self, forCellWithReuseIdentifier: CalendarViewCell.identifier)
         }
     
     var writingButton = WritingButton()

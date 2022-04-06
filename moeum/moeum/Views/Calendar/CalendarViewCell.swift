@@ -10,65 +10,45 @@ import Then
 
 class CalendarViewCell: UICollectionViewCell {
     
-    var tagView = UIView()
+    static let identifier = "CalendarCollectionViewCell"
+    
+    var tagStackView = UIStackView()
         .then {
-            $0.backgroundColor = .systemRed
+            $0.axis = .vertical
+            $0.spacing = 3
         }
+    
     var tagLabel = UILabel()
     
-    var memo: Memo!
+    var tagLabelHeightConstraint: [NSLayoutConstraint] = []
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
+        self.setup()
     }
     
-    init(memo: Memo) {
-        super.init(frame: .zero)
-        self.memo = memo
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        self.setup()
     }
     
     func setup() {
-        self.setupViews()
-        self.setupLayouts()
-    }
-    
-    private func setupViews() {
-        self.setupContentView()
-        self.setupTagView()
-        self.setupTagLabel()
-    }
-    
-    private func setupContentView() {
-        self.addSubview(self.contentView)
-        self.contentView.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    private func setupTagView() {
-        self.contentView.addSubview(self.tagView)
-        self.tagView.translatesAutoresizingMaskIntoConstraints = false
-    }
-    
-    private func setupTagLabel() {
-        self.contentView.addSubview(self.tagLabel)
-        self.tagLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.tagLabel.text = self.memo.name
-        self.tagLabel.font = .systemFont(ofSize: 8)
-    }
-    
-    private func setupLayouts() {
+        self.addSubview(self.tagStackView)
+        
+        self.tagStackView.translatesAutoresizingMaskIntoConstraints = false
+        
+        for i in (0...Int.random(in: 0..<2)) {
+            let memo = Memo(id: i, name:"테스트", price: Int.random(in: -1..<2))
+            let tagLabel = TagLabel(memo: memo)
+            
+            
+            self.tagStackView.addArrangedSubview(tagLabel)
+        }
+        
         NSLayoutConstraint.activate([
-            self.contentView.topAnchor.constraint(equalTo: self.topAnchor),
-            self.contentView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            self.contentView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            self.contentView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
-            
-            self.tagView.topAnchor.constraint(equalTo: self.contentView.topAnchor),
-            self.tagView.leadingAnchor.constraint(equalTo: self.contentView.leadingAnchor),
-            self.tagView.bottomAnchor.constraint(equalTo: self.contentView.bottomAnchor),
-            self.tagView.widthAnchor.constraint(equalToConstant: self.frame.width * 0.05),
-            
-            self.tagLabel.leadingAnchor.constraint(equalTo: self.tagView.trailingAnchor, constant: 1),
-            self.tagLabel.centerYAnchor.constraint(equalTo: self.contentView.centerYAnchor)
+            self.tagStackView.topAnchor.constraint(equalTo: self.topAnchor),
+            self.tagStackView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5),
+            self.tagStackView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -5),
         ])
     }
 }

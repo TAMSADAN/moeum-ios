@@ -68,15 +68,15 @@ extension CalendarViewController: UICollectionViewDataSource, UICollectionViewDe
             collectionView.deselectItem(at: indexPath, animated: true)
 //            self.showMemoCalendarCollectionView()
             for collectionViewcell in collectionView.visibleCells {
-                let cell = collectionViewcell as! MemoCalendarCollectionViewCell
-                cell.showMemoList()
+                let cell = collectionViewcell as! CalendarViewCell
+//                cell.showMemoList()
             }
         } else {
             collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
 //            self.hideMemoCalendarCollectionView()
             for collectionViewcell in collectionView.visibleCells {
-                let cell = collectionViewcell as! MemoCalendarCollectionViewCell
-                cell.hideMemoList()
+                let cell = collectionViewcell as! CalendarViewCell
+//                cell.hideMemoList()
             }
         }
         return false
@@ -84,9 +84,9 @@ extension CalendarViewController: UICollectionViewDataSource, UICollectionViewDe
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: MemoCalendarCollectionViewCell.identifier, for: indexPath) as? MemoCalendarCollectionViewCell else { return UICollectionViewCell()}
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarViewCell.identifier, for: indexPath) as? CalendarViewCell else { return UICollectionViewCell()}
         cell.setup()
-        cell.update(date: self.dates[indexPath.item])
+//        cell.update(date: self.dates[indexPath.item])
         return cell
     }
     

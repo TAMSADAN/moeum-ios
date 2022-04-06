@@ -31,11 +31,32 @@ extension WritingViewController {
     }
     
     func binding() {
-        self.writingView.tagTextView.rx.text
+        self.writingView.tagTextField.textField.rx.text
             .subscribe(onNext: {
                 s in
                 print(s)
             })
-            .disposed(by: diposeBag)
+            .disposed(by: self.diposeBag)
+        
+        self.writingView.buyDateButton.tapGesture.rx.event.bind(onNext: { recognizer in
+            print("touches: \(recognizer.numberOfTouches)") //or whatever you like
+            self.writingView.hideDatePicker()
+        }).disposed(by: self.diposeBag)
+        
+        self.writingView.memoTextView.textView.rx.didBeginEditing
+            .subscribe(onNext: {
+                _ in if self.writingView.memoTextView.textView.text == self.writingView.memoTextView.textString {
+                        self.writingView.memoTextView.textView.text = nil
+                    }
+            })
+            .disposed(by: self.diposeBag)
+        
+        self.writingView.memoTextView.textView.rx.didEndEditing
+            .subscribe(onNext: {
+                _ in if self.writingView.memoTextView.textView.text == nil || self.writingView.memoTextView.textView.text == "" {
+                    self.writingView.memoTextView.textView.text = self.writingView.memoTextView.textString
+                }
+            })
+            .disposed(by: self.diposeBag)
     }
 }
