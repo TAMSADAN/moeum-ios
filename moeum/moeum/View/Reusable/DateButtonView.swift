@@ -46,32 +46,32 @@ class DateButtonView: UIView {
     }
     
     func setup() {
-        self.addGestureRecognizer(tapGesture)
+        addGestureRecognizer(tapGesture)
         
-        self.addSubview(self.contentImageView)
-        self.contentImageView.image = UIImage(systemName: self.contentImageString)
-        self.contentImageView.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(contentImageView)
+        contentImageView.image = UIImage(systemName: contentImageString)
+        contentImageView.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.contentImageView.topAnchor.constraint(equalTo: self.topAnchor),
-            self.contentImageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            self.contentImageView.widthAnchor.constraint(equalToConstant: 20),
-            self.contentImageView.heightAnchor.constraint(equalToConstant: 20),
+            contentImageView.topAnchor.constraint(equalTo: topAnchor),
+            contentImageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            contentImageView.widthAnchor.constraint(equalToConstant: 20),
+            contentImageView.heightAnchor.constraint(equalToConstant: 20),
         ])
         
-        self.addSubview(self.dateLabel)
-        self.dateLabel.text = "2022.04.05(화)"
-        self.dateLabel.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(dateLabel)
+        dateLabel.text = labelString
+        dateLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.dateLabel.leadingAnchor.constraint(equalTo: self.contentImageView.trailingAnchor, constant: 5),
-            self.dateLabel.centerYAnchor.constraint(equalTo: self.contentImageView.centerYAnchor),
+            dateLabel.leadingAnchor.constraint(equalTo: contentImageView.trailingAnchor, constant: 5),
+            dateLabel.centerYAnchor.constraint(equalTo: contentImageView.centerYAnchor),
         ])
         
-        self.addSubview(self.timeLabel)
-        self.timeLabel.text = "오후 08:30"
-        self.timeLabel.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(timeLabel)
+        timeLabel.text = ""
+        timeLabel.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([
-            self.timeLabel.topAnchor.constraint(equalTo: self.dateLabel.bottomAnchor),
-            self.timeLabel.leadingAnchor.constraint(equalTo: self.contentImageView.trailingAnchor, constant: 5),
+            timeLabel.topAnchor.constraint(equalTo: dateLabel.bottomAnchor),
+            timeLabel.leadingAnchor.constraint(equalTo: contentImageView.trailingAnchor, constant: 5),
         ])
     }
 }

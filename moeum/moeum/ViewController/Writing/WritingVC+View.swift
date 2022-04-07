@@ -11,26 +11,23 @@ import RxCocoa
 
 extension WritingViewController {
     func setView() {
-        view.backgroundColor = .white
         view.addSubview(headerView)
+        view.addSubview(writingView)
+        
         headerView.translatesAutoresizingMaskIntoConstraints = false
+        writingView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.backgroundColor = .white
+        
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             headerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-            headerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor)
-        ])
-        
-        view.addSubview(writingView)
-        writingView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
+            headerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            
             writingView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
             writingView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             writingView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             writingView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
         ])
-    }
-    
-    func goToBackVC() {
-        self.dismiss(animated: true, completion: nil)
     }
 }

@@ -45,16 +45,6 @@ extension CalendarViewController {
             self.writingButton.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
         ])
     }
-    
-    func binding() {
-        self.writingButton.rx.tap
-            .bind {
-                let writingVC = WritingViewController()
-                writingVC.modalPresentationStyle = .formSheet
-                self.present(writingVC, animated: true)
-            }
-            .disposed(by: disposeBag)
-    }
 }
 
 extension CalendarViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {

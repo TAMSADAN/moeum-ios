@@ -8,61 +8,54 @@
 import Foundation
 
 extension WritingViewController {
-    func bindView() {
+    func setBind() {
         writingView.tagTextField.textField.rx.text.orEmpty
             .bind(to: viewModel.input.tagName)
-            .disposed(by: diposeBag)
+            .disposed(by: disposeBag)
         
         writingView.nameTextField.textField.rx.text.orEmpty
             .bind(to: viewModel.input.itemName)
-            .disposed(by: diposeBag)
+            .disposed(by: disposeBag)
         
         writingView.buyDateButton.tapGesture.rx.event
-            .subscribe(onNext: {[weak self] _ in self?.viewModel.clickBuyDateButton()
-            })
-            .disposed(by: diposeBag)
+            .subscribe(onNext: { [weak self] _ in self?.viewModel.clickBuyDateButton() })
+            .disposed(by: disposeBag)
         
         writingView.sellDateButton.tapGesture.rx.event
-            .subscribe(onNext: {
-                [weak self] _ in self?.viewModel.clickSellDateButton()
-            })
-            .disposed(by: diposeBag)
+            .subscribe(onNext: { [weak self] _ in self?.viewModel.clickSellDateButton() })
+            .disposed(by: disposeBag)
         
         writingView.datePicker.rx.date
             .bind(to: viewModel.input.date)
-            .disposed(by: diposeBag)
+            .disposed(by: disposeBag)
         
         writingView.buyTextField.textField.rx.text.orEmpty
             .bind(to: viewModel.input.buyPrice)
-            .disposed(by: diposeBag)
+            .disposed(by: disposeBag)
         
         writingView.sellTextField.textField.rx.text.orEmpty
             .bind(to: viewModel.input.sellPrice)
-            .disposed(by: diposeBag)
+            .disposed(by: disposeBag)
         
         writingView.buyCountTextField.textField.rx.text.orEmpty
             .bind(to: viewModel.input.buyCount)
-            .disposed(by: diposeBag)
+            .disposed(by: disposeBag)
         
         writingView.sellCountTextField.textField.rx.text.orEmpty
             .bind(to: viewModel.input.sellCount)
-            .disposed(by: diposeBag)
+            .disposed(by: disposeBag)
         
         writingView.memoTextView.textView.rx.text.orEmpty
             .bind(to: viewModel.input.memo)
-            .disposed(by: diposeBag)
+            .disposed(by: disposeBag)
         
         headerView.noButton.rx.tap
-            .subscribe(onNext: { [weak self] _ in self?.viewModel.input.noBtnFlag.onNext(true)
-                print("noButton Tapped!")
-            })
-            .disposed(by: diposeBag)
+            .subscribe(onNext: { [weak self] _ in self?.viewModel.input.noBtnFlag.onNext(true) })
+            .disposed(by: disposeBag)
         
         headerView.yesButton.rx.tap
-            .subscribe(onNext: { [weak self] _ in self?.viewModel.input.yesBtnFlag.onNext(true)
-                print("yesButton Tapped!")
-            })
-            .disposed(by: diposeBag)
+            .subscribe(onNext: { [weak self] _ in self?.viewModel.input.yesBtnFlag.onNext(true) })
+            .disposed(by: disposeBag)
         
         viewModel.output.buyDate
             .withUnretained(self)
@@ -73,7 +66,7 @@ extension WritingViewController {
                     owner.viewModel.getTimeStringFromDate(date: date)
                 }
             }
-            .disposed(by: diposeBag)
+            .disposed(by: disposeBag)
         
         viewModel.output.sellDate
             .withUnretained(self)
@@ -84,21 +77,21 @@ extension WritingViewController {
                     owner.viewModel.getTimeStringFromDate(date: date)
                 }
             }
-            .disposed(by: diposeBag)
+            .disposed(by: disposeBag)
         
         self.viewModel.output.buySum
             .withUnretained(self)
             .bind { owner, sum in
                 owner.writingView.buySumLabel.label.text = sum
             }
-            .disposed(by: self.diposeBag)
+            .disposed(by: self.disposeBag)
         
         self.viewModel.output.sellSum
             .withUnretained(self)
             .bind { owner, sum in
                 owner.writingView.sellSumLabel.label.text = sum
             }
-            .disposed(by: self.diposeBag)
+            .disposed(by: self.disposeBag)
         
         self.viewModel.output.datePickerOpen
             .withUnretained(self)
@@ -111,13 +104,13 @@ extension WritingViewController {
                     owner.writingView.hideDatePicker()
                 }
             }
-            .disposed(by: self.diposeBag)
+            .disposed(by: self.disposeBag)
         
         self.viewModel.output.pageState
             .withUnretained(self)
             .bind { owner, state in
                 if state == PageState.defult {
-
+                    
                 } else if state == PageState.back {
                     owner.goToBackVC()
                 } else if state == PageState.next {
@@ -125,15 +118,16 @@ extension WritingViewController {
                 }
                 print(state)
             }
-            .disposed(by: self.diposeBag)
+            .disposed(by: self.disposeBag)
         
+        // TextView set placeholder
         self.writingView.memoTextView.textView.rx.didBeginEditing
             .subscribe(onNext: {
                 _ in if self.writingView.memoTextView.textView.text == self.writingView.memoTextView.textString {
                     self.writingView.memoTextView.textView.text = nil
                 }
             })
-            .disposed(by: self.diposeBag)
+            .disposed(by: self.disposeBag)
         
         self.writingView.memoTextView.textView.rx.didEndEditing
             .subscribe(onNext: {
@@ -141,6 +135,6 @@ extension WritingViewController {
                     self.writingView.memoTextView.textView.text = self.writingView.memoTextView.textString
                 }
             })
-            .disposed(by: self.diposeBag)
+            .disposed(by: self.disposeBag)
     }
 }
