@@ -26,6 +26,8 @@ class WritingViewModel: ViewModel {
         let buyCount = PublishSubject<String>()
         let sellCount = PublishSubject<String>()
         let memo = PublishSubject<String>()
+        let noBtnFlag = PublishSubject<Bool>()
+        let yesBtnFlag = PublishSubject<Bool>()
     }
     
     struct Output {
@@ -36,6 +38,7 @@ class WritingViewModel: ViewModel {
         let sellSum = PublishRelay<String>()
         let income = PublishRelay<Double>()
         let precent = PublishRelay<Double>()
+        let pageState = PublishRelay<PageState>()
     }
     
     init() {
@@ -82,7 +85,7 @@ extension WritingViewModel {
 extension WritingViewModel {
     func bind() {
         Observable.combineLatest(input.buyPrice, input.buyCount)
-            .map {[weak self] price, count in
+            .map { price, count in
                 if !(price.isEmpty) && !(count.isEmpty) {
                     return String((Double(price) ?? 0) * (Double(count) ?? 0))
                 }
@@ -92,7 +95,7 @@ extension WritingViewModel {
             .disposed(by: self.disposeBag)
         
         Observable.combineLatest(input.sellPrice, input.sellCount)
-            .map {[weak self] price, count in
+            .map { price, count in
                 if !(price.isEmpty) && !(count.isEmpty) {
                     return String((Double(price) ?? 0) * (Double(count) ?? 0))
                 }
@@ -102,7 +105,7 @@ extension WritingViewModel {
             .disposed(by: self.disposeBag)
         
         Observable.combineLatest(input.isClickedBuyDateButton, input.date)
-            .map {[weak self] flag, date in
+            .map { flag, date in
                 if flag {
                     return date
                 } else {
@@ -113,7 +116,7 @@ extension WritingViewModel {
             .disposed(by: self.disposeBag)
         
         Observable.combineLatest(input.isClickedSellDateButton, input.date)
-            .map {[weak self] flag, date in
+            .map { flag, date in
                 if flag {
                     return date
                 } else {
@@ -124,7 +127,7 @@ extension WritingViewModel {
             .disposed(by: self.disposeBag)
         
         Observable.combineLatest(input.isClickedBuyDateButton, input.isClickedSellDateButton)
-            .map { [weak self] flag1, flag2 in
+            .map { flag1, flag2 in
                 if flag1 && !flag2 {
                     return 1
                 } else if !flag1 && flag2 {
@@ -133,6 +136,33 @@ extension WritingViewModel {
                     return 0
                 }
             }
+            .bind(to: self.output.datePickerOpen)
+            .disposed(by: self.disposeBag)
+        
+        Observable.combineLatest(input.noBtnFlag, input.yesBtnFlag)
+            .map { no, yes in
+                if no {
+                    return PageState.back
+                } else if yes {
+                    return PageState.next
+                } else {
+                    return PageState.defult
+                }
+                print("변화감지")
+            }
+            .bind(to: self.output.pageState)
+            .disposed(by: self.disposeBag)
+        
+        input.noBtnFlag
+            .withUnretained(self)
+            .bind { owner, _ in
+                owner.output.pageState.accept(PageState.back)
+                print("noBtnFlag 바인딩 댐")
+            }
+            .disposed(by: disposeBag)
+        
+        Observable.combineLatest(input.tagName, input.itemName, input.buyPrice, input.sellPrice, input.buyCount, input.sellCount, input.memo)
+            .map { _ in return 0 }
             .bind(to: self.output.datePickerOpen)
             .disposed(by: self.disposeBag)
     }
