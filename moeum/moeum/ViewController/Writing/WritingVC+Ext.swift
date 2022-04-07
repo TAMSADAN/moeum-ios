@@ -41,13 +41,13 @@ extension WritingViewController {
         
         self.writingView.buyDateButton.tapGesture.rx.event
             .subscribe(onNext: {
-                _ in self.viewModel.input.isClickedBuyDateButton.onNext(true)
+                _ in self.viewModel.clickBuyDateButton()
             })
             .disposed(by: self.diposeBag)
         
         self.writingView.sellDateButton.tapGesture.rx.event
             .subscribe(onNext: {
-                _ in self.viewModel.input.isClickedSellDateButton.onNext(true)
+                _ in self.viewModel.clickSellDateButton()
             })
             .disposed(by: self.diposeBag)
         
@@ -71,21 +71,68 @@ extension WritingViewController {
             .bind(to: self.viewModel.input.sellCount)
             .disposed(by: self.diposeBag)
         
+        self.viewModel.output.buyDate
+            .withUnretained(self)
+            .bind { owner, date in
+                if date != Date(timeIntervalSince1970: 0) {
+                    owner.writingView.buyDateButton.dateLabel.text = self.viewModel.getDateStringFromDate(date: date)
+                    owner.writingView.buyDateButton.timeLabel.text =
+                    self.viewModel.getTimeStringFromDate(date: date)
+                }
+            }
+            .disposed(by: self.diposeBag)
+        
+        self.viewModel.output.sellDate
+            .withUnretained(self)
+            .bind { owner, date in
+                if date != Date(timeIntervalSince1970: 0) {
+                    owner.writingView.sellDateButton.dateLabel.text = self.viewModel.getDateStringFromDate(date: date)
+                    owner.writingView.sellDateButton.timeLabel.text =
+                    self.viewModel.getTimeStringFromDate(date: date)
+                }
+            }
+            .disposed(by: self.diposeBag)
+        
+        self.viewModel.output.buySum
+            .withUnretained(self)
+            .bind { owner, sum in
+                owner.writingView.buySumLabel.label.text = sum
+            }
+            .disposed(by: self.diposeBag)
+        
+        self.viewModel.output.sellSum
+            .withUnretained(self)
+            .bind { owner, sum in
+                owner.writingView.sellSumLabel.label.text = sum
+            }
+            .disposed(by: self.diposeBag)
+        
+        self.viewModel.output.datePickerOpen
+            .withUnretained(self)
+            .bind { owner, flagNum in
+                if flagNum == 1 {
+                    owner.writingView.showDatePicker(date: self.viewModel.output.buyDate.value)
+                } else if flagNum == 2 {
+                    owner.writingView.showDatePicker(date: self.viewModel.output.sellDate.value)
+                } else {
+                    owner.writingView.hideDatePicker()
+                }
+            }
+            .disposed(by: self.diposeBag)
+        
         self.writingView.memoTextView.textView.rx.didBeginEditing
             .subscribe(onNext: {
-                s in if self.writingView.memoTextView.textView.text == self.writingView.memoTextView.textString {
-                        self.writingView.memoTextView.textView.text = nil
-                    }
+                _ in if self.writingView.memoTextView.textView.text == self.writingView.memoTextView.textString {
+                    self.writingView.memoTextView.textView.text = nil
+                }
             })
             .disposed(by: self.diposeBag)
         
         self.writingView.memoTextView.textView.rx.didEndEditing
             .subscribe(onNext: {
-                s in if self.writingView.memoTextView.textView.text == nil || self.writingView.memoTextView.textView.text == "" {
+                _ in if self.writingView.memoTextView.textView.text == nil || self.writingView.memoTextView.textView.text == "" {
                     self.writingView.memoTextView.textView.text = self.writingView.memoTextView.textString
                 }
-                print(s)
-//                self.viewModel.input.memo.onNext(s)
             })
             .disposed(by: self.diposeBag)
     }

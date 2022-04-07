@@ -17,7 +17,7 @@ class WritingView: UIView {
     var buyCountTextField = ImageTextField(image: "c.circle", text: "매수량")
     var sellCountTextField = ImageTextField(image: "c.circle.fill", text: "매도량")
     var buySumLabel = ImageLabel(image: "equal.circle", label: "합계")
-    var sellSumLabel = ImageLabel(image: "equal.circle.fill", label: "매도 합계")
+    var sellSumLabel = ImageLabel(image: "equal.circle.fill", label: "합계")
     var incomeLabel = ImageLabel(image: "plusminus.circle.fill", label: "손익")
     var percentLabel = ImageLabel(image: "dollarsign.circle.fill", label: "수익률")
     var memoTextView = ImageTextView(image: "doc.plaintext", text: "메모")
@@ -57,17 +57,18 @@ class WritingView: UIView {
 
 // Animation
 extension WritingView {
-    func showDatePicker() {
+    func showDatePicker(date: Date) {
         self.datePickerHeightConstraint.constant = 216
-        UIView.animate(withDuration: 0.5,delay: 0, options: .curveLinear,animations: {
+        UIView.animate(withDuration: 0.25,delay: 0, options: .curveLinear,animations: {
             self.datePickerHeightConstraint.isActive = true
+            self.datePicker.setDate(date, animated: true)
             self.layoutIfNeeded()
         })
     }
     
     func hideDatePicker() {
         self.datePickerHeightConstraint.constant = 0
-        UIView.animate(withDuration: 0.5,delay: 0, options: .curveLinear,animations: {
+        UIView.animate(withDuration: 0.25,delay: 0, options: .curveLinear,animations: {
             self.datePickerHeightConstraint.isActive = true
             self.layoutIfNeeded()
         })
@@ -109,6 +110,7 @@ extension WritingView {
         self.memoTextView.translatesAutoresizingMaskIntoConstraints = false
         
         self.datePickerHeightConstraint = self.datePicker.heightAnchor.constraint(equalToConstant: 216)
+        self.hideDatePicker()
         
         NSLayoutConstraint.activate([
             self.tagTextField.topAnchor.constraint(equalTo: self.topAnchor, constant: 15),
