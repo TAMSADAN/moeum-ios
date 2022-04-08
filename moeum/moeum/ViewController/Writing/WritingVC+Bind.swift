@@ -106,14 +106,15 @@ extension WritingViewController {
             }
             .disposed(by: self.disposeBag)
         
-        self.viewModel.output.pageState
+        viewModel.output.pageState
             .withUnretained(self)
-            .bind { owner, state in
+            .bind { [weak self] owner, state in
                 if state == PageState.defult {
                     
                 } else if state == PageState.back {
                     owner.goToBackVC()
                 } else if state == PageState.next {
+                    self?.viewModel.saveRecord()
                     owner.goToBackVC()
                 }
                 print(state)

@@ -12,6 +12,7 @@ import Then
 
 class CalendarViewController: UIViewController {
     
+    let viewModel = CalendarViewModel()
     var disposeBag = DisposeBag()
     
     let calendar = Calendar.current
@@ -31,11 +32,13 @@ class CalendarViewController: UIViewController {
     
     var weekLabelView = WeekLabelView()
     
+    var dataSource = Observable<[String]>.of((1...30).map(String.init))
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setup()
-        self.binding()
-        self.calendarView.dataSource = self
-        self.calendarView.delegate = self
+        self.setView()
+        self.setBind()
+//        self.calendarView.dataSource = self
+//        self.calendarView.delegate = self
     }
 }

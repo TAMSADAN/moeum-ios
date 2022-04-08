@@ -6,9 +6,18 @@
 //
 
 extension CalendarViewController {
-    func binding() {
+    func setBind() {
         writingButton.rx.tap
             .bind { [weak self] in self?.goToWritingVC() }
+            .disposed(by: disposeBag)
+        
+        viewModel.output.records
+            .bind(onNext: <#T##([Record]) -> Void#>)
+        
+        dataSource
+            .bind(to : calendarView.rx.items(cellIdentifier: CalendarViewCell.identifier, cellType: CalendarViewCell.self)) {
+                index, text, cell in cell.backgroundColor = .red
+            }
             .disposed(by: disposeBag)
     }
 }

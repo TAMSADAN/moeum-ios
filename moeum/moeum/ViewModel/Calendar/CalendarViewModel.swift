@@ -1,23 +1,21 @@
 //
-//  WritingViewModel.swift
+//  CalendarViewModel.swift
 //  moeum
 //
-//  Created by 송영모 on 2022/04/06.
+//  Created by 송영모 on 2022/04/08.
 //
 
 import Foundation
 import RxSwift
 import RxCocoa
 
-class WritingViewModel: ViewModel {
-    
+class CalendarViewModel: ViewModel {
     let recordService = RecordService()
     
     var disposeBag = DisposeBag()
+    
     var input = Input()
     var output = Output()
-    
-    var record = Record()
     
     struct Input {
         let tagName = PublishSubject<String>()
@@ -35,6 +33,8 @@ class WritingViewModel: ViewModel {
     }
     
     struct Output {
+        var records = PublishRelay<[Record]>()
+        
         let datePickerOpen = PublishRelay<Int>()
         let buyDate = BehaviorRelay(value: Date(timeIntervalSince1970: 0))
         let sellDate = BehaviorRelay(value: Date(timeIntervalSince1970: 0))
@@ -46,6 +46,7 @@ class WritingViewModel: ViewModel {
     }
     
     init() {
-        self.bind()
+        self.recordService.getAllRecord()
+        //        self.bind()
     }
 }

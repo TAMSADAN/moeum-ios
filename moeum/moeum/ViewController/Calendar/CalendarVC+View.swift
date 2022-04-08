@@ -10,7 +10,7 @@ import RxSwift
 import RxCocoa
 
 extension CalendarViewController {
-    func setup() {
+    func setView() {
         self.configureCalendar()
         self.view.backgroundColor = .white
         self.view.addSubview(self.headerView)
@@ -47,53 +47,53 @@ extension CalendarViewController {
     }
 }
 
-extension CalendarViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return self.days.count
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-        if collectionView.indexPathsForSelectedItems?.contains(indexPath) ?? false {
-            collectionView.deselectItem(at: indexPath, animated: true)
-//            self.showMemoCalendarCollectionView()
-            for collectionViewcell in collectionView.visibleCells {
-                let cell = collectionViewcell as! CalendarViewCell
-//                cell.showMemoList()
-            }
-        } else {
-            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
-//            self.hideMemoCalendarCollectionView()
-            for collectionViewcell in collectionView.visibleCells {
-                let cell = collectionViewcell as! CalendarViewCell
-//                cell.hideMemoList()
-            }
-        }
-        return false
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        
-        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarViewCell.identifier, for: indexPath) as? CalendarViewCell else { return UICollectionViewCell()}
-        cell.setup()
-//        cell.update(date: self.dates[indexPath.item])
-        return cell
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        let width = self.calendarView.frame.width / 7
-        let height = self.calendarView.frame.height / 5
-        return CGSize(width: width, height: height)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return .zero
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return .zero
-    }
-}
+//extension CalendarViewController: UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+//    
+//    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+//        return self.days.count
+//    }
+//    
+//    func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
+//        if collectionView.indexPathsForSelectedItems?.contains(indexPath) ?? false {
+//            collectionView.deselectItem(at: indexPath, animated: true)
+////            self.showMemoCalendarCollectionView()
+//            for collectionViewcell in collectionView.visibleCells {
+//                let cell = collectionViewcell as! CalendarViewCell
+////                cell.showMemoList()
+//            }
+//        } else {
+//            collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
+////            self.hideMemoCalendarCollectionView()
+//            for collectionViewcell in collectionView.visibleCells {
+//                let cell = collectionViewcell as! CalendarViewCell
+////                cell.hideMemoList()
+//            }
+//        }
+//        return false
+//    }
+//    
+//    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+//        
+//        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: CalendarViewCell.identifier, for: indexPath) as? CalendarViewCell else { return UICollectionViewCell()}
+//        cell.setup()
+////        cell.update(date: self.dates[indexPath.item])
+//        return cell
+//    }
+//    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+//        let width = self.calendarView.frame.width / 7
+//        let height = self.calendarView.frame.height / 5
+//        return CGSize(width: width, height: height)
+//    }
+//    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+//        return .zero
+//    }
+//    
+//    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+//        return .zero
+//    }
+//}
 
 extension CalendarViewController {
     private func configureCalendar() {
