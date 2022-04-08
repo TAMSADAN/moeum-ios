@@ -11,38 +11,48 @@ import RxCocoa
 
 extension CalendarViewController {
     func setView() {
-        self.configureCalendar()
-        self.view.backgroundColor = .white
-        self.view.addSubview(self.headerView)
-        self.headerView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            self.headerView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
-            self.headerView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor, constant: 10),
-            self.headerView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
-        ])
+        configureCalendar()
         
-        self.view.addSubview(self.weekLabelView)
-        self.weekLabelView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            self.weekLabelView.topAnchor.constraint(equalTo: self.headerView.bottomAnchor, constant: 10),
-            self.weekLabelView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
-            self.weekLabelView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
-        ])
         
-        self.view.addSubview(self.calendarView)
-        self.calendarView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            self.calendarView.topAnchor.constraint(equalTo: self.weekLabelView.bottomAnchor, constant: 5),
-            self.calendarView.leadingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.leadingAnchor),
-            self.calendarView.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor),
-            self.calendarView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
-        ])
+        view.addSubview(weekLabelView)
+        view.addSubview(calendarView)
         
-        self.view.addSubview(self.writingButton)
-        self.writingButton.translatesAutoresizingMaskIntoConstraints = false
+        view.addSubview(writingButton)
+        view.addSubview(headerView)
+//        view.addSubview(datePicker)
+        
+        headerView.translatesAutoresizingMaskIntoConstraints = false
+        weekLabelView.translatesAutoresizingMaskIntoConstraints = false
+//        datePicker.translatesAutoresizingMaskIntoConstraints = false
+        calendarView.translatesAutoresizingMaskIntoConstraints = false
+        writingButton.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.backgroundColor = .white
+        
+//        datePickerHeightConstraint = datePicker.heightAnchor.constraint(equalToConstant: 0)
+//        headerView.backgroundColor = .red
         NSLayoutConstraint.activate([
-            self.writingButton.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
-            self.writingButton.trailingAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            headerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            headerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            headerView.heightAnchor.constraint(equalToConstant: 300),
+            
+//            datePicker.topAnchor.constraint(equalTo: headerView.bottomAnchor),
+//            datePicker.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+//            datePicker.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+//            datePickerHeightConstraint,
+            
+            weekLabelView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
+            weekLabelView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            weekLabelView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            
+            calendarView.topAnchor.constraint(equalTo: weekLabelView.bottomAnchor, constant: 5),
+            calendarView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            calendarView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            calendarView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            
+            writingButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
+            writingButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
         ])
     }
 }
