@@ -12,35 +12,24 @@ import RxCocoa
 extension CalendarViewController {
     func setView() {
         configureCalendar()
-        
-        
+
         view.addSubview(weekLabelView)
         view.addSubview(calendarView)
-        
         view.addSubview(writingButton)
         view.addSubview(headerView)
-//        view.addSubview(datePicker)
         
         headerView.translatesAutoresizingMaskIntoConstraints = false
         weekLabelView.translatesAutoresizingMaskIntoConstraints = false
-//        datePicker.translatesAutoresizingMaskIntoConstraints = false
         calendarView.translatesAutoresizingMaskIntoConstraints = false
         writingButton.translatesAutoresizingMaskIntoConstraints = false
         
         view.backgroundColor = .white
         
-//        datePickerHeightConstraint = datePicker.heightAnchor.constraint(equalToConstant: 0)
-//        headerView.backgroundColor = .red
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             headerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             headerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             headerView.heightAnchor.constraint(equalToConstant: 300),
-            
-//            datePicker.topAnchor.constraint(equalTo: headerView.bottomAnchor),
-//            datePicker.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-//            datePicker.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-//            datePickerHeightConstraint,
             
             weekLabelView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
             weekLabelView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),

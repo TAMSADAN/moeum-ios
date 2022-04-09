@@ -26,7 +26,7 @@ extension CalendarViewController {
     
     func goToWritingVC() {
         let writingVC = WritingViewController()
-        writingVC.modalPresentationStyle = .fullScreen
+        writingVC.modalPresentationStyle = .overFullScreen
         self.present(writingVC, animated: true)
     }
     

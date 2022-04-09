@@ -63,6 +63,7 @@
 		70DAF01527F3043300EBD946 /* MemoCalendarWeekView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70DAF01427F3043300EBD946 /* MemoCalendarWeekView.swift */; };
 		70E8B19F27FAB7BF0095B30E /* WritingVC+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E8B19E27FAB7BF0095B30E /* WritingVC+View.swift */; };
 		70E8B1A127FAC1D40095B30E /* WritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E8B1A027FAC1D40095B30E /* WritingView.swift */; };
+		70F3B80028014820007F891A /* Buy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F3B7FF28014820007F891A /* Buy.swift */; };
 		70F7493727FB3B7800B31791 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F7493627FB3B7800B31791 /* MainViewController.swift */; };
 		70F7493A27FB3CA700B31791 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F7493927FB3CA700B31791 /* ChartViewController.swift */; };
 		70F7493C27FB404C00B31791 /* WeekLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F7493B27FB404C00B31791 /* WeekLabelView.swift */; };
@@ -155,6 +156,7 @@
 		70DAF01427F3043300EBD946 /* MemoCalendarWeekView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCalendarWeekView.swift; sourceTree = "<group>"; };
 		70E8B19E27FAB7BF0095B30E /* WritingVC+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WritingVC+View.swift"; sourceTree = "<group>"; };
 		70E8B1A027FAC1D40095B30E /* WritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingView.swift; sourceTree = "<group>"; };
+		70F3B7FF28014820007F891A /* Buy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buy.swift; sourceTree = "<group>"; };
 		70F7493627FB3B7800B31791 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		70F7493927FB3CA700B31791 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		70F7493B27FB404C00B31791 /* WeekLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekLabelView.swift; sourceTree = "<group>"; };
@@ -212,6 +214,7 @@
 			children = (
 				7024250F27F17197007A914D /* Memo.swift */,
 				702FA6EE27FD68E5004417D9 /* Record.swift */,
+				70F3B7FF28014820007F891A /* Buy.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -790,6 +793,7 @@
 				70A788D027FCA7C900576034 /* ImageTextField.swift in Sources */,
 				7046CB9D27F34391008ACE10 /* MemoCalendarView.swift in Sources */,
 				70AE0FCE27FF3F7800E880A0 /* WritingVM+Bind.swift in Sources */,
+				70F3B80028014820007F891A /* Buy.swift in Sources */,
 				70E8B19F27FAB7BF0095B30E /* WritingVC+View.swift in Sources */,
 				7075B53A27F68C76002DBF8E /* MemoCalendarBottomSheetLineView.swift in Sources */,
 				70CB745828007CF000DA4A8E /* CalendarVM+Bind.swift in Sources */,

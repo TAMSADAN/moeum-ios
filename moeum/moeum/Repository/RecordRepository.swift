@@ -9,6 +9,8 @@ import Foundation
 import RealmSwift
 
 class RecordRepository {
+    
+    
     let instance = try! Realm()
     
     func getRecordEntity(recordId: Int) {

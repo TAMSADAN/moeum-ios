@@ -37,34 +37,25 @@ class RecordService {
     }
     
     private func parseToRecord(recordEntity: RecordEntity) -> Record {
-        let record = Record(
-            id: recordEntity.id,
-            tagName: recordEntity.tagName,
-            itemName: recordEntity.itemName,
-            buyPrice: String(recordEntity.buyPrice),
-            sellPrice: String(recordEntity.sellPrice),
-            buyCount: String(recordEntity.buyCount),
-            sellCount: String(recordEntity.sellCount),
-            buyDate: recordEntity.buyDate,
-            sellDate: recordEntity.sellDate,
-            memo: recordEntity.memo
-        )
+        let record = Record(id: recordEntity.id,
+                            tag: recordEntity.tag,
+                            item: recordEntity.item,
+                            price: recordEntity.price,
+                            count: recordEntity.count,
+                            date: recordEntity.date,
+                            memo: recordEntity.memo)
         
         return record
     }
     
     private func parseToRecordEntity(record: Record) -> RecordEntity {
-        let recordEntity = RecordEntity(
-            tagName: record.tagName,
-            itemName: record.itemName,
-            buyPrice: Double(record.buyPrice) ?? 0.0,
-            sellPrice: Double(record.sellPrice) ?? 0.0,
-            buyCount: Double(record.buyCount) ?? 0.0,
-            sellCount: Double(record.sellCount) ?? 0.0,
-            buyDate: record.buyDate,
-            sellDate: record.sellDate,
-            memo: record.memo
-        )
+        let recordEntity = RecordEntity(id: record.id,
+                                        tag: record.tag,
+                                        item: record.item,
+                                        price: record.price,
+                                        count: record.count,
+                                        date: record.date,
+                                        memo: record.memo)
         
         return recordEntity
     }

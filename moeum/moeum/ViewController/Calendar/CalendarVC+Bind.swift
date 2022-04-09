@@ -19,6 +19,10 @@ extension CalendarViewController {
             })
             .disposed(by: disposeBag)
         
+        headerView.datePicker.rx.date
+            .bind(to: viewModel.input.nowDate)
+            .disposed(by: disposeBag)
+        
         viewModel.output.datePickerOpen
             .subscribe(onNext: { [weak self] in
                 if $0 {
@@ -28,9 +32,12 @@ extension CalendarViewController {
                 }
             })
             .disposed(by: disposeBag)
-
         
-        //        viewModel.output.records
+        viewModel.output.dateLabel
+            .subscribe(onNext: {[weak self] in
+                self?.headerView.monthLabel.text = $0
+            })
+            .disposed(by: disposeBag)
         
         dataSource
             .bind(to : calendarView.rx.items(cellIdentifier: CalendarViewCell.identifier, cellType: CalendarViewCell.self)) {

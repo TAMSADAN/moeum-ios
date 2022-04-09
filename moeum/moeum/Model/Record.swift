@@ -9,25 +9,20 @@ import Foundation
 
 struct Record {
     var id: Int = 0
-    var tagName: String = ""
-    var itemName: String = ""
-    var buyPrice: String = ""
-    var sellPrice: String = ""
-    var buyCount: String = ""
-    var sellCount: String = ""
-    var buyDate: Date = Date(timeIntervalSince1970: 0)
-    var sellDate: Date = Date(timeIntervalSince1970: 0)
+    var tag: String = ""
+    var item: String = ""
+    var price: Double = 0.0
+    var count: Double = 0.0
+    var date: Date = Date()
     var memo: String = ""
     
-    mutating func update(tagName: String, itemName: String, buyPrice: String, sellPrice: String, buyCount: String, sellCount: String, buyDate: Date, sellDate: Date, memo: String) {
-        self.tagName = tagName
-        self.itemName = itemName
-        self.buyPrice = buyPrice
-        self.sellPrice = sellPrice
-        self.buyCount = buyCount
-        self.sellCount = sellCount
-        self.buyDate = buyDate
-        self.sellDate = sellDate
+    mutating func set(id: Int = 0, tag: String, item: String, price: Double, count: Double, date: Date, memo: String) {
+        self.id = id
+        self.tag = tag
+        self.item = item
+        self.price = price
+        self.count = count
+        self.date = date
         self.memo = memo
     }
 }

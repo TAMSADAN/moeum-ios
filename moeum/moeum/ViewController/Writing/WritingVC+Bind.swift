@@ -10,39 +10,33 @@ import Foundation
 extension WritingViewController {
     func setBind() {
         writingView.tagTextField.textField.rx.text.orEmpty
-            .bind(to: viewModel.input.tagName)
+            .bind(to: viewModel.input.tag)
             .disposed(by: disposeBag)
         
-        writingView.nameTextField.textField.rx.text.orEmpty
-            .bind(to: viewModel.input.itemName)
+        writingView.itemTextField.textField.rx.text.orEmpty
+            .bind(to: viewModel.input.item)
             .disposed(by: disposeBag)
         
-        writingView.buyDateButton.tapGesture.rx.event
-            .subscribe(onNext: { [weak self] _ in self?.viewModel.clickBuyDateButton() })
+        writingView.dateButton.tapGesture.rx.event
+            .subscribe(onNext: {[weak self] _ in self?.viewModel.input.dateButtonTap.onNext(())})
             .disposed(by: disposeBag)
-        
-        writingView.sellDateButton.tapGesture.rx.event
-            .subscribe(onNext: { [weak self] _ in self?.viewModel.clickSellDateButton() })
-            .disposed(by: disposeBag)
-        
+
         writingView.datePicker.rx.date
             .bind(to: viewModel.input.date)
             .disposed(by: disposeBag)
         
-        writingView.buyTextField.textField.rx.text.orEmpty
-            .bind(to: viewModel.input.buyPrice)
+        writingView.priceTextField.textField.rx.text.orEmpty
+            .map{ Double($0) ?? 0.0 }
+            .bind(to: viewModel.input.price)
             .disposed(by: disposeBag)
         
-        writingView.sellTextField.textField.rx.text.orEmpty
-            .bind(to: viewModel.input.sellPrice)
+        writingView.countTextField.textField.rx.text.orEmpty
+            .map{ Double($0) ?? 0.0 }
+            .bind(to: viewModel.input.count)
             .disposed(by: disposeBag)
         
-        writingView.buyCountTextField.textField.rx.text.orEmpty
-            .bind(to: viewModel.input.buyCount)
-            .disposed(by: disposeBag)
-        
-        writingView.sellCountTextField.textField.rx.text.orEmpty
-            .bind(to: viewModel.input.sellCount)
+        writingView.memoTextView.textView.rx.text.orEmpty
+            .bind(to: viewModel.input.memo)
             .disposed(by: disposeBag)
         
         writingView.memoTextView.textView.rx.text.orEmpty
@@ -57,54 +51,27 @@ extension WritingViewController {
             .subscribe(onNext: { [weak self] _ in self?.viewModel.input.yesBtnFlag.onNext(true) })
             .disposed(by: disposeBag)
         
-        viewModel.output.buyDate
+        viewModel.output.datePickerOpen
             .withUnretained(self)
-            .bind { owner, date in
-                if date != Date(timeIntervalSince1970: 0) {
-                    owner.writingView.buyDateButton.dateLabel.text = owner.viewModel.getDateStringFromDate(date: date)
-                    owner.writingView.buyDateButton.timeLabel.text =
-                    owner.viewModel.getTimeStringFromDate(date: date)
-                }
+            .bind { [weak self] owner, bool in
+                bool ? owner.writingView.showDatePicker(date: self?.viewModel.output.date.value ?? Date()) : owner.writingView.hideDatePicker()
             }
             .disposed(by: disposeBag)
         
-        viewModel.output.sellDate
+        viewModel.output.date
             .withUnretained(self)
-            .bind { owner, date in
-                if date != Date(timeIntervalSince1970: 0) {
-                    owner.writingView.sellDateButton.dateLabel.text = owner.viewModel.getDateStringFromDate(date: date)
-                    owner.writingView.sellDateButton.timeLabel.text =
-                    owner.viewModel.getTimeStringFromDate(date: date)
-                }
+            .bind { [weak self] owner, date in
+                owner.writingView.dateButton.dateLabel.text = self?.viewModel.getDateStringFromDate(date: date) ?? ""
+                owner.writingView.dateButton.timeLabel.text = self?.viewModel.getTimeStringFromDate(date: date) ?? ""
             }
             .disposed(by: disposeBag)
         
-        self.viewModel.output.buySum
+        viewModel.output.sum
             .withUnretained(self)
             .bind { owner, sum in
-                owner.writingView.buySumLabel.label.text = sum
+                owner.writingView.sumLabel.label.text = sum
             }
-            .disposed(by: self.disposeBag)
-        
-        self.viewModel.output.sellSum
-            .withUnretained(self)
-            .bind { owner, sum in
-                owner.writingView.sellSumLabel.label.text = sum
-            }
-            .disposed(by: self.disposeBag)
-        
-        self.viewModel.output.datePickerOpen
-            .withUnretained(self)
-            .bind { owner, flagNum in
-                if flagNum == 1 {
-                    owner.writingView.showDatePicker(date: self.viewModel.output.buyDate.value)
-                } else if flagNum == 2 {
-                    owner.writingView.showDatePicker(date: self.viewModel.output.sellDate.value)
-                } else {
-                    owner.writingView.hideDatePicker()
-                }
-            }
-            .disposed(by: self.disposeBag)
+            .disposed(by: disposeBag)
         
         viewModel.output.pageState
             .withUnretained(self)
@@ -117,7 +84,6 @@ extension WritingViewController {
                     self?.viewModel.saveRecord()
                     owner.goToBackVC()
                 }
-                print(state)
             }
             .disposed(by: self.disposeBag)
         
@@ -138,4 +104,17 @@ extension WritingViewController {
             })
             .disposed(by: self.disposeBag)
     }
+    
+//    self.viewModel.output.datePickerOpen
+//        .withUnretained(self)
+//        .bind { owner, flagNum in
+//            if flagNum == 1 {
+//                owner.writingView.showDatePicker(date: self.viewModel.output.buyDate.value)
+//            } else if flagNum == 2 {
+//                owner.writingView.showDatePicker(date: self.viewModel.output.sellDate.value)
+//            } else {
+//                owner.writingView.hideDatePicker()
+//            }
+//        }
+//        .disposed(by: self.disposeBag)
 }

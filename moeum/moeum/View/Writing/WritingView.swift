@@ -11,13 +11,10 @@ import Then
 class WritingView: UIView {
     
     var tagTextField = ImageTextField(image: "tag.circle", text: "태그")
-    var nameTextField = ImageTextField(image: "centsign.circle", text: "종목명")
-    var buyTextField = ImageTextField(image: "wonsign.circle", text: "매수가")
-    var sellTextField = ImageTextField(image: "wonsign.circle.fill", text: "매도가")
-    var buyCountTextField = ImageTextField(image: "c.circle", text: "매수량")
-    var sellCountTextField = ImageTextField(image: "c.circle.fill", text: "매도량")
-    var buySumLabel = ImageLabel(image: "equal.circle", label: "합계")
-    var sellSumLabel = ImageLabel(image: "equal.circle.fill", label: "합계")
+    var itemTextField = ImageTextField(image: "centsign.circle", text: "종목명")
+    var priceTextField = ImageTextField(image: "wonsign.circle", text: "매수가")
+    var countTextField = ImageTextField(image: "c.circle", text: "매수량")
+    var sumLabel = ImageLabel(image: "equal.circle", label: "합계")
     var incomeLabel = ImageLabel(image: "plusminus.circle.fill", label: "손익")
     var percentLabel = ImageLabel(image: "dollarsign.circle.fill", label: "수익률")
     var memoTextView = ImageTextView(image: "doc.plaintext", text: "메모")
@@ -27,8 +24,7 @@ class WritingView: UIView {
             $0.selectedSegmentIndex = 0
         }
     
-    var buyDateButton = DateButtonView(image: "cart.badge.plus", label: "매수일")
-    var sellDateButton = DateButtonView(image: "cart.badge.minus", label: "매도일")
+    var dateButton = DateButtonView(image: "cart.badge.plus", label: "매수일")
     
     var datePicker = UIDatePicker()
         .then {
@@ -78,33 +74,25 @@ extension WritingView {
 extension WritingView {
     func setup() {
         self.addSubview(self.tagTextField)
-        self.addSubview(self.nameTextField)
+        self.addSubview(self.itemTextField)
         self.addSubview(self.tradeSegment)
-        self.addSubview(self.buyDateButton)
-        self.addSubview(self.sellDateButton)
+        self.addSubview(self.dateButton)
         self.addSubview(self.datePicker)
-        self.addSubview(self.buyTextField)
-        self.addSubview(self.sellTextField)
-        self.addSubview(self.buyCountTextField)
-        self.addSubview(self.sellCountTextField)
-        self.addSubview(self.buySumLabel)
-        self.addSubview(self.sellSumLabel)
+        self.addSubview(self.priceTextField)
+        self.addSubview(self.countTextField)
+        self.addSubview(self.sumLabel)
         self.addSubview(self.incomeLabel)
         self.addSubview(self.percentLabel)
         self.addSubview(self.memoTextView)
         
         self.tagTextField.translatesAutoresizingMaskIntoConstraints = false
-        self.nameTextField.translatesAutoresizingMaskIntoConstraints = false
+        self.itemTextField.translatesAutoresizingMaskIntoConstraints = false
         self.tradeSegment.translatesAutoresizingMaskIntoConstraints = false
-        self.buyDateButton.translatesAutoresizingMaskIntoConstraints = false
-        self.sellDateButton.translatesAutoresizingMaskIntoConstraints = false
+        self.dateButton.translatesAutoresizingMaskIntoConstraints = false
         self.datePicker.translatesAutoresizingMaskIntoConstraints = false
-        self.buyTextField.translatesAutoresizingMaskIntoConstraints = false
-        self.sellTextField.translatesAutoresizingMaskIntoConstraints = false
-        self.buyCountTextField.translatesAutoresizingMaskIntoConstraints = false
-        self.sellCountTextField.translatesAutoresizingMaskIntoConstraints = false
-        self.buySumLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.sellSumLabel.translatesAutoresizingMaskIntoConstraints = false
+        self.priceTextField.translatesAutoresizingMaskIntoConstraints = false
+        self.countTextField.translatesAutoresizingMaskIntoConstraints = false
+        self.sumLabel.translatesAutoresizingMaskIntoConstraints = false
         self.incomeLabel.translatesAutoresizingMaskIntoConstraints = false
         self.percentLabel.translatesAutoresizingMaskIntoConstraints = false
         self.memoTextView.translatesAutoresizingMaskIntoConstraints = false
@@ -113,79 +101,59 @@ extension WritingView {
         self.hideDatePicker()
         
         NSLayoutConstraint.activate([
-            self.tagTextField.topAnchor.constraint(equalTo: self.topAnchor, constant: 15),
-            self.tagTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-            self.tagTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 10),
-            self.tagTextField.heightAnchor.constraint(equalToConstant: 20),
+            tagTextField.topAnchor.constraint(equalTo: topAnchor, constant: 15),
+            tagTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            tagTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 10),
+            tagTextField.heightAnchor.constraint(equalToConstant: 20),
             
-            self.nameTextField.topAnchor.constraint(equalTo: self.tagTextField.bottomAnchor, constant: 15),
-            self.nameTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-            self.nameTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 10),
-            self.nameTextField.heightAnchor.constraint(equalToConstant: 20),
+            itemTextField.topAnchor.constraint(equalTo: self.tagTextField.bottomAnchor, constant: 15),
+            itemTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
+            itemTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 10),
+            itemTextField.heightAnchor.constraint(equalToConstant: 20),
             
-            self.tradeSegment.topAnchor.constraint(equalTo: self.nameTextField.bottomAnchor, constant: 15),
-            self.tradeSegment.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-            self.tradeSegment.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
+            tradeSegment.topAnchor.constraint(equalTo: itemTextField.bottomAnchor, constant: 15),
+            tradeSegment.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            tradeSegment.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             
-            self.buyDateButton.topAnchor.constraint(equalTo: self.tradeSegment.bottomAnchor, constant: 15),
-            self.buyDateButton.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-            self.buyDateButton.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.5, constant: -10),
-            self.buyDateButton.bottomAnchor.constraint(equalTo: self.buyDateButton.timeLabel.bottomAnchor),
+            dateButton.topAnchor.constraint(equalTo: tradeSegment.bottomAnchor, constant: 15),
+            dateButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            dateButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5, constant: -10),
+            dateButton.bottomAnchor.constraint(equalTo: dateButton.timeLabel.bottomAnchor),
             
-            self.sellDateButton.topAnchor.constraint(equalTo: self.tradeSegment.bottomAnchor, constant: 15),
-            self.sellDateButton.leadingAnchor.constraint(equalTo: self.buyDateButton.trailingAnchor, constant: 10),
-            self.sellDateButton.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-            self.sellDateButton.bottomAnchor.constraint(equalTo: self.sellDateButton.timeLabel.bottomAnchor),
+            datePicker.topAnchor.constraint(equalTo: dateButton.bottomAnchor, constant: 15),
+            datePicker.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
+            datePicker.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
+            datePickerHeightConstraint,
             
-            self.datePicker.topAnchor.constraint(equalTo: self.sellDateButton.bottomAnchor, constant: 10),
-            self.datePicker.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 0),
-            self.datePicker.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 0),
-            self.datePickerHeightConstraint,
+            priceTextField.topAnchor.constraint(equalTo: datePicker.bottomAnchor, constant: 0),
+            priceTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            priceTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 10),
+            priceTextField.heightAnchor.constraint(equalToConstant: 20),
             
-            self.buyTextField.topAnchor.constraint(equalTo: self.datePicker.bottomAnchor, constant: 10),
-            self.buyTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-            self.buyTextField.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.5, constant: -10),
-            self.buyTextField.heightAnchor.constraint(equalToConstant: 20),
+            countTextField.topAnchor.constraint(equalTo: priceTextField.bottomAnchor, constant: 15),
+            countTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            countTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            countTextField.heightAnchor.constraint(equalToConstant: 20),
             
-            self.sellTextField.topAnchor.constraint(equalTo: self.datePicker.bottomAnchor, constant: 10),
-            self.sellTextField.leadingAnchor.constraint(equalTo: self.buyTextField.trailingAnchor, constant: 10),
-            self.sellTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-            self.sellTextField.heightAnchor.constraint(equalToConstant: 20),
+            sumLabel.topAnchor.constraint(equalTo: countTextField.bottomAnchor, constant: 15),
+            sumLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            sumLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5, constant: -10),
+            sumLabel.heightAnchor.constraint(equalToConstant: 20),
             
-            self.buyCountTextField.topAnchor.constraint(equalTo: self.buyTextField.bottomAnchor, constant: 15),
-            self.buyCountTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-            self.buyCountTextField.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.5 ,constant: -10),
-            self.buyCountTextField.heightAnchor.constraint(equalToConstant: 20),
+            incomeLabel.topAnchor.constraint(equalTo: sumLabel.bottomAnchor, constant: 15),
+            incomeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            incomeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            incomeLabel.heightAnchor.constraint(equalToConstant: 20),
             
-            self.sellCountTextField.topAnchor.constraint(equalTo: self.sellTextField.bottomAnchor, constant: 15),
-            self.sellCountTextField.leadingAnchor.constraint(equalTo: self.buyCountTextField.trailingAnchor, constant: 10),
-            self.sellCountTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-            self.sellCountTextField.heightAnchor.constraint(equalToConstant: 20),
+            percentLabel.topAnchor.constraint(equalTo: incomeLabel.bottomAnchor, constant: 15),
+            percentLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            percentLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            percentLabel.heightAnchor.constraint(equalToConstant: 20),
             
-            self.buySumLabel.topAnchor.constraint(equalTo: self.buyCountTextField.bottomAnchor, constant: 15),
-            self.buySumLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-            self.buySumLabel.widthAnchor.constraint(equalTo: self.widthAnchor, multiplier: 0.5, constant: -10),
-            self.buySumLabel.heightAnchor.constraint(equalToConstant: 20),
-            
-            self.sellSumLabel.topAnchor.constraint(equalTo: self.sellCountTextField.bottomAnchor, constant: 15),
-            self.sellSumLabel.leadingAnchor.constraint(equalTo: self.buySumLabel.trailingAnchor, constant: 10),
-            self.sellSumLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-            self.sellSumLabel.heightAnchor.constraint(equalToConstant: 20),
-            
-            self.incomeLabel.topAnchor.constraint(equalTo: self.buySumLabel.bottomAnchor, constant: 15),
-            self.incomeLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-            self.incomeLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-            self.incomeLabel.heightAnchor.constraint(equalToConstant: 20),
-            
-            self.percentLabel.topAnchor.constraint(equalTo: self.incomeLabel.bottomAnchor, constant: 15),
-            self.percentLabel.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-            self.percentLabel.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
-            self.percentLabel.heightAnchor.constraint(equalToConstant: 20),
-            
-            self.memoTextView.topAnchor.constraint(equalTo: self.percentLabel.bottomAnchor, constant: 15),
-            self.memoTextView.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-            self.memoTextView.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 10),
-            self.memoTextView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            memoTextView.topAnchor.constraint(equalTo: percentLabel.bottomAnchor, constant: 15),
+            memoTextView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            memoTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 10),
+            memoTextView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }
 }

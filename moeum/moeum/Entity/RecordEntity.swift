@@ -9,14 +9,11 @@ import RealmSwift
 
 class RecordEntity: Object {
     @objc dynamic var id: Int = 0
-    @objc dynamic var tagName: String = ""
-    @objc dynamic var itemName: String = ""
-    @objc dynamic var buyPrice: Double = 0.0
-    @objc dynamic var sellPrice: Double = 0.0
-    @objc dynamic var buyCount: Double = 0.0
-    @objc dynamic var sellCount: Double = 0.0
-    @objc dynamic var buyDate: Date = Date(timeIntervalSince1970: 0)
-    @objc dynamic var sellDate: Date = Date(timeIntervalSince1970: 0)
+    @objc dynamic var tag: String = ""
+    @objc dynamic var item: String = ""
+    @objc dynamic var price: Double = 0.0
+    @objc dynamic var count: Double = 0.0
+    @objc dynamic var date: Date = Date()
     @objc dynamic var memo: String = ""
     
     override static func primaryKey() -> String? {
@@ -24,16 +21,14 @@ class RecordEntity: Object {
     }
     
     
-    convenience init(tagName: String, itemName: String, buyPrice: Double, sellPrice: Double, buyCount: Double, sellCount: Double, buyDate: Date, sellDate: Date, memo: String) {
+    convenience init(id: Int = 0, tag: String, item: String, price: Double, count: Double, date: Date, memo: String) {
         self.init()
-        self.tagName = tagName
-        self.itemName = itemName
-        self.buyPrice = buyPrice
-        self.sellPrice = sellPrice
-        self.buyCount = buyCount
-        self.sellCount = sellCount
-        self.buyDate = buyDate
-        self.sellDate = sellDate
+        self.id = id
+        self.tag = tag
+        self.item = item
+        self.price = price
+        self.count = count
+        self.date = date
         self.memo = memo
     }
 }
