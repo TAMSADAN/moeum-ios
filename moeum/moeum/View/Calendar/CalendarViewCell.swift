@@ -19,31 +19,35 @@ class CalendarViewCell: UICollectionViewCell {
         }
     
     var tagLabel = UILabel()
-    
     var tagLabelHeightConstraint: [NSLayoutConstraint] = []
+    
+    var date: Date!
+    var records: [Record]!
 
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.setup()
+        self.setView()
     }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
-        self.setup()
+        self.setView()
     }
     
-    func setup() {
+    func update(date: Date, records: [Record]) {
+        self.date = date
+        self.records = records
+        
+        for record in records {
+            let tagLabel = TagLabel(record: record)
+            tagStackView.addArrangedSubview(tagLabel)
+        }
+    }
+    
+    func setView() {
         self.addSubview(self.tagStackView)
         
         self.tagStackView.translatesAutoresizingMaskIntoConstraints = false
-        
-        for i in (0...Int.random(in: 0..<2)) {
-            let memo = Memo(id: i, name:"테스트", price: Int.random(in: -1..<2))
-            let tagLabel = TagLabel(memo: memo)
-            
-            
-            self.tagStackView.addArrangedSubview(tagLabel)
-        }
         
         NSLayoutConstraint.activate([
             self.tagStackView.topAnchor.constraint(equalTo: self.topAnchor),

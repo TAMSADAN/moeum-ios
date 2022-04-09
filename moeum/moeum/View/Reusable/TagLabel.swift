@@ -10,7 +10,7 @@ import Then
 
 class TagLabel: UIView {
     
-    var memo: Memo!
+    var record: Record!
     
     var tagView = UIView()
         .then {
@@ -28,9 +28,9 @@ class TagLabel: UIView {
         self.setup()
     }
     
-    init(memo: Memo) {
+    init(record: Record) {
         super.init(frame: .zero)
-        self.memo = memo
+        self.record = record
         self.setup()
     }
     
@@ -41,7 +41,7 @@ class TagLabel: UIView {
         self.tagView.translatesAutoresizingMaskIntoConstraints = false
         self.label.translatesAutoresizingMaskIntoConstraints = false
         
-        self.label.text = self.memo.name
+        self.label.text = self.record.item
         
         NSLayoutConstraint.activate([
             self.tagView.topAnchor.constraint(equalTo: self.topAnchor),

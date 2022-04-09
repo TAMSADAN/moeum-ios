@@ -104,17 +104,4 @@ extension WritingViewController {
             })
             .disposed(by: self.disposeBag)
     }
-    
-//    self.viewModel.output.datePickerOpen
-//        .withUnretained(self)
-//        .bind { owner, flagNum in
-//            if flagNum == 1 {
-//                owner.writingView.showDatePicker(date: self.viewModel.output.buyDate.value)
-//            } else if flagNum == 2 {
-//                owner.writingView.showDatePicker(date: self.viewModel.output.sellDate.value)
-//            } else {
-//                owner.writingView.hideDatePicker()
-//            }
-//        }
-//        .disposed(by: self.disposeBag)
 }

@@ -21,15 +21,15 @@ class CalendarViewModel: ViewModel {
         let nowDate = BehaviorSubject<Date>(value: Date())
         let isClickedDatePickerButton = BehaviorRelay(value: false)
         let records = PublishRelay<[Record]>()
-        let dates = PublishRelay<[Date]>()
+        
     }
     
     struct Output {
-        
+        let dates = PublishRelay<[Date]>()
         let datePickerOpen = PublishRelay<Bool>()
         let dateLabel = PublishRelay<String>()
         
-        let cellDatas = PublishRelay<(Date, [Record])>()
+        let cellDatas = BehaviorRelay(value: [(Date(), [Record()])])
 
         let buyDate = BehaviorRelay(value: Date(timeIntervalSince1970: 0))
         let sellDate = BehaviorRelay(value: Date(timeIntervalSince1970: 0))
@@ -43,6 +43,6 @@ class CalendarViewModel: ViewModel {
     init() {
         setBind()
         input.records.accept(recordService.getAllRecord())
-        input.dates.accept(getDatesOfMonth(date: try! input.nowDate.value()))
+        output.dates.accept(getDatesOfMonth(date: try! input.nowDate.value()))
     }
 }

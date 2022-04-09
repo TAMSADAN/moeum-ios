@@ -11,7 +11,7 @@ extension CalendarViewController {
             .bind { [weak self] in self?.goToWritingVC() }
             .disposed(by: disposeBag)
         
-
+        
         headerView.pickerButton.rx.tap
             .subscribe(onNext: { [weak self] _ in
                 let bool = !(self?.viewModel.input.isClickedDatePickerButton.value ?? false)
@@ -39,9 +39,10 @@ extension CalendarViewController {
             })
             .disposed(by: disposeBag)
         
-        dataSource
+        viewModel.output.cellDatas
             .bind(to : calendarView.rx.items(cellIdentifier: CalendarViewCell.identifier, cellType: CalendarViewCell.self)) {
-                index, text, cell in cell.backgroundColor = .red
+                index, cellData, cell in 
+                cell.update(date: cellData.0, records: cellData.1)
             }
             .disposed(by: disposeBag)
     }

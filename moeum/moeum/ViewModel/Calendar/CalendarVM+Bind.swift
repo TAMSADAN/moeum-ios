@@ -20,18 +20,26 @@ extension CalendarViewModel {
                 let dateComponents = Calendar.current.dateComponents([.year, .month], from: date)
                 let dateStr = String(dateComponents.year!) + "." + String(dateComponents.month!)
                 self?.output.dateLabel.accept(dateStr)
+                self?.output.dates.accept(self?.getDatesOfMonth(date: date) ?? [])
             })
             .disposed(by: disposeBag)
         
-//        Observable.combineLatest(input.dates, input.records)
-//            .subscribe(onNext: { data in
-//                for date in data.0 {
-//                    for record in data.1 {
-//                        record.
-//                    }
-//                    print(date)
-//                }
-//            })
-//            .disposed(by: disposeBag)
+        Observable.combineLatest(output.dates, input.records)
+            .map { [weak self] dates, records in
+                var cellDatas: [(Date, [Record])] = []
+                for date in dates {
+                    var newRecords: [Record] = []
+                    for record in records {
+                        if self?.isEqualDate(date1: date, date2: record.date) ?? false {
+                            newRecords.append(record)
+                        }
+                    }
+                    cellDatas.append((date, newRecords))
+                }
+                print(cellDatas)
+                return cellDatas
+            }
+            .bind(to: output.cellDatas)
+            .disposed(by: disposeBag)
     }
 }
