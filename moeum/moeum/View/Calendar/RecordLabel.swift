@@ -11,9 +11,8 @@ class RecordLabel: UIView {
     
     var contentView = UIView()
     
-    var tradeLabel = UILabel()
+    var typeLabel = UILabel()
         .then {
-            $0.text = "매수"
             $0.font = Const.Font.footnote
             $0.textAlignment = .center
             $0.adjustsFontSizeToFitWidth = true
@@ -69,20 +68,21 @@ class RecordLabel: UIView {
     
     func setView() {
         addSubview(contentView)
-        contentView.addSubview(tradeLabel)
+        contentView.addSubview(typeLabel)
         contentView.addSubview(tagLabel)
         contentView.addSubview(itemLabel)
         contentView.addSubview(priceLabel)
         contentView.addSubview(countLabel)
         contentView.addSubview(incomeLabel)
         
+        typeLabel.text = record.type
         tagLabel.text = record.tag
         itemLabel.text = record.item
         priceLabel.text = String(record.price)
         countLabel.text = String(record.count)
         
         contentView.translatesAutoresizingMaskIntoConstraints = false
-        tradeLabel.translatesAutoresizingMaskIntoConstraints = false
+        typeLabel.translatesAutoresizingMaskIntoConstraints = false
         tagLabel.translatesAutoresizingMaskIntoConstraints = false
         itemLabel.translatesAutoresizingMaskIntoConstraints = false
         priceLabel.translatesAutoresizingMaskIntoConstraints = false
@@ -95,13 +95,13 @@ class RecordLabel: UIView {
             contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
             contentView.heightAnchor.constraint(equalToConstant: 20),
             
-            tradeLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
-            tradeLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            tradeLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
-            tradeLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.1),
+            typeLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
+            typeLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            typeLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            typeLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.1),
             
             tagLabel.topAnchor.constraint(equalTo: contentView.topAnchor),
-            tagLabel.leadingAnchor.constraint(equalTo: tradeLabel.trailingAnchor),
+            tagLabel.leadingAnchor.constraint(equalTo: typeLabel.trailingAnchor),
             tagLabel.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
             tagLabel.widthAnchor.constraint(equalTo: contentView.widthAnchor, multiplier: 0.15),
             

@@ -23,7 +23,6 @@ class RecordService {
     }
     
     func postRecord(record: Record) {
-        print("postRecord")
         let recordEntity = parseToRecordEntity(record: record)
         recordRepository.postRecordEntity(recordEntity: recordEntity)
     }
@@ -38,6 +37,7 @@ class RecordService {
     
     private func parseToRecord(recordEntity: RecordEntity) -> Record {
         let record = Record(id: recordEntity.id,
+                            type: recordEntity.type,
                             tag: recordEntity.tag,
                             item: recordEntity.item,
                             price: recordEntity.price,
@@ -50,6 +50,7 @@ class RecordService {
     
     private func parseToRecordEntity(record: Record) -> RecordEntity {
         let recordEntity = RecordEntity(id: record.id,
+                                        type: record.type,
                                         tag: record.tag,
                                         item: record.item,
                                         price: record.price,

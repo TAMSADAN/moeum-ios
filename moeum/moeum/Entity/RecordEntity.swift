@@ -9,6 +9,7 @@ import RealmSwift
 
 class RecordEntity: Object {
     @objc dynamic var id: Int = 0
+    @objc dynamic var type: String = ""
     @objc dynamic var tag: String = ""
     @objc dynamic var item: String = ""
     @objc dynamic var price: Double = 0.0
@@ -21,9 +22,10 @@ class RecordEntity: Object {
     }
     
     
-    convenience init(id: Int = 0, tag: String, item: String, price: Double, count: Double, date: Date, memo: String) {
+    convenience init(id: Int = 0, type: String, tag: String, item: String, price: Double, count: Double, date: Date, memo: String) {
         self.init()
         self.id = id
+        self.type = type
         self.tag = tag
         self.item = item
         self.price = price

@@ -17,6 +17,10 @@ extension WritingViewController {
             .bind(to: viewModel.input.item)
             .disposed(by: disposeBag)
         
+        writingView.typeSegment.rx.selectedSegmentIndex
+            .bind(to: viewModel.input.typeIndex)
+            .disposed(by: disposeBag)
+        
         writingView.dateButton.tapGesture.rx.event
             .subscribe(onNext: {[weak self] _ in self?.viewModel.input.dateButtonTap.onNext(())})
             .disposed(by: disposeBag)

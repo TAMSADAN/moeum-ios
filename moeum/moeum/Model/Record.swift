@@ -9,6 +9,7 @@ import Foundation
 
 struct Record {
     var id: Int = 0
+    var type: String = ""
     var tag: String = ""
     var item: String = ""
     var price: Double = 0.0
@@ -16,8 +17,9 @@ struct Record {
     var date: Date = Date()
     var memo: String = ""
     
-    mutating func set(id: Int = 0, tag: String, item: String, price: Double, count: Double, date: Date, memo: String) {
+    mutating func set(id: Int = 0, tag: String, type: String, item: String, price: Double, count: Double, date: Date, memo: String) {
         self.id = id
+        self.type = type
         self.tag = tag
         self.item = item
         self.price = price

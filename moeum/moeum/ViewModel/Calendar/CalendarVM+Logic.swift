@@ -40,10 +40,9 @@ extension CalendarViewModel {
     }
     
     func isEqualDate(date1: Date, date2: Date) -> Bool {
-        let c1 = Calendar.current.dateComponents(in: TimeZone(identifier: "UTC")!, from: date1)
-        let c2 = Calendar.current.dateComponents(in: TimeZone(identifier: "UTC")!, from: date2)
+        let c1 = Calendar.current.dateComponents(in: TimeZone(abbreviation: "KST")!, from: date1)
+        let c2 = Calendar.current.dateComponents(in: TimeZone(abbreviation: "KST")!, from: date2)
         
-//        print(c1, c2)
         if c1.year == c2.year && c1.month == c2.month && c1.day == c2.day {
             return true
         } else {

@@ -12,14 +12,14 @@ class WritingView: UIView {
     
     var tagTextField = ImageTextField(image: "tag.circle", text: "태그")
     var itemTextField = ImageTextField(image: "centsign.circle", text: "종목명")
-    var priceTextField = ImageTextField(image: "wonsign.circle", text: "매수가")
-    var countTextField = ImageTextField(image: "c.circle", text: "매수량")
+    var priceTextField = ImageTextField(image: "wonsign.circle", text: "가격")
+    var countTextField = ImageTextField(image: "c.circle", text: "수량")
     var sumLabel = ImageLabel(image: "equal.circle", label: "합계")
-    var incomeLabel = ImageLabel(image: "plusminus.circle.fill", label: "손익")
-    var percentLabel = ImageLabel(image: "dollarsign.circle.fill", label: "수익률")
+//    var incomeLabel = ImageLabel(image: "plusminus.circle.fill", label: "손익")
+//    var percentLabel = ImageLabel(image: "dollarsign.circle.fill", label: "수익률")
     var memoTextView = ImageTextView(image: "doc.plaintext", text: "메모")
     
-    var tradeSegment = UISegmentedControl(items: ["매매", "매수", "매도"])
+    var typeSegment = UISegmentedControl(items: ["매수", "매도", "메모"])
         .then {
             $0.selectedSegmentIndex = 0
         }
@@ -73,32 +73,32 @@ extension WritingView {
 
 extension WritingView {
     func setup() {
-        self.addSubview(self.tagTextField)
-        self.addSubview(self.itemTextField)
-        self.addSubview(self.tradeSegment)
-        self.addSubview(self.dateButton)
-        self.addSubview(self.datePicker)
-        self.addSubview(self.priceTextField)
-        self.addSubview(self.countTextField)
-        self.addSubview(self.sumLabel)
-        self.addSubview(self.incomeLabel)
-        self.addSubview(self.percentLabel)
-        self.addSubview(self.memoTextView)
+        addSubview(tagTextField)
+        addSubview(itemTextField)
+        addSubview(typeSegment)
+        addSubview(dateButton)
+        addSubview(datePicker)
+        addSubview(priceTextField)
+        addSubview(countTextField)
+        addSubview(sumLabel)
+//        addSubview(incomeLabel)
+//        addSubview(percentLabel)
+        addSubview(memoTextView)
         
-        self.tagTextField.translatesAutoresizingMaskIntoConstraints = false
-        self.itemTextField.translatesAutoresizingMaskIntoConstraints = false
-        self.tradeSegment.translatesAutoresizingMaskIntoConstraints = false
-        self.dateButton.translatesAutoresizingMaskIntoConstraints = false
-        self.datePicker.translatesAutoresizingMaskIntoConstraints = false
-        self.priceTextField.translatesAutoresizingMaskIntoConstraints = false
-        self.countTextField.translatesAutoresizingMaskIntoConstraints = false
-        self.sumLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.incomeLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.percentLabel.translatesAutoresizingMaskIntoConstraints = false
-        self.memoTextView.translatesAutoresizingMaskIntoConstraints = false
+        tagTextField.translatesAutoresizingMaskIntoConstraints = false
+        itemTextField.translatesAutoresizingMaskIntoConstraints = false
+        typeSegment.translatesAutoresizingMaskIntoConstraints = false
+        dateButton.translatesAutoresizingMaskIntoConstraints = false
+        datePicker.translatesAutoresizingMaskIntoConstraints = false
+        priceTextField.translatesAutoresizingMaskIntoConstraints = false
+        countTextField.translatesAutoresizingMaskIntoConstraints = false
+        sumLabel.translatesAutoresizingMaskIntoConstraints = false
+//        incomeLabel.translatesAutoresizingMaskIntoConstraints = false
+//        percentLabel.translatesAutoresizingMaskIntoConstraints = false
+        memoTextView.translatesAutoresizingMaskIntoConstraints = false
         
-        self.datePickerHeightConstraint = self.datePicker.heightAnchor.constraint(equalToConstant: 216)
-        self.hideDatePicker()
+        datePickerHeightConstraint = datePicker.heightAnchor.constraint(equalToConstant: 216)
+        hideDatePicker()
         
         NSLayoutConstraint.activate([
             tagTextField.topAnchor.constraint(equalTo: topAnchor, constant: 15),
@@ -111,11 +111,11 @@ extension WritingView {
             itemTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 10),
             itemTextField.heightAnchor.constraint(equalToConstant: 20),
             
-            tradeSegment.topAnchor.constraint(equalTo: itemTextField.bottomAnchor, constant: 15),
-            tradeSegment.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            tradeSegment.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            typeSegment.topAnchor.constraint(equalTo: itemTextField.bottomAnchor, constant: 15),
+            typeSegment.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            typeSegment.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             
-            dateButton.topAnchor.constraint(equalTo: tradeSegment.bottomAnchor, constant: 15),
+            dateButton.topAnchor.constraint(equalTo: typeSegment.bottomAnchor, constant: 15),
             dateButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             dateButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5, constant: -10),
             dateButton.bottomAnchor.constraint(equalTo: dateButton.timeLabel.bottomAnchor),
@@ -139,18 +139,18 @@ extension WritingView {
             sumLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             sumLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5, constant: -10),
             sumLabel.heightAnchor.constraint(equalToConstant: 20),
+//
+//            incomeLabel.topAnchor.constraint(equalTo: sumLabel.bottomAnchor, constant: 15),
+//            incomeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+//            incomeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+//            incomeLabel.heightAnchor.constraint(equalToConstant: 20),
+//
+//            percentLabel.topAnchor.constraint(equalTo: incomeLabel.bottomAnchor, constant: 15),
+//            percentLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+//            percentLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+//            percentLabel.heightAnchor.constraint(equalToConstant: 20),
             
-            incomeLabel.topAnchor.constraint(equalTo: sumLabel.bottomAnchor, constant: 15),
-            incomeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            incomeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            incomeLabel.heightAnchor.constraint(equalToConstant: 20),
-            
-            percentLabel.topAnchor.constraint(equalTo: incomeLabel.bottomAnchor, constant: 15),
-            percentLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            percentLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            percentLabel.heightAnchor.constraint(equalToConstant: 20),
-            
-            memoTextView.topAnchor.constraint(equalTo: percentLabel.bottomAnchor, constant: 15),
+            memoTextView.topAnchor.constraint(equalTo: sumLabel.bottomAnchor, constant: 15),
             memoTextView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             memoTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 10),
             memoTextView.bottomAnchor.constraint(equalTo: bottomAnchor),

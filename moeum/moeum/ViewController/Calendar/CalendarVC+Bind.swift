@@ -55,7 +55,6 @@ extension CalendarViewController {
             })
             .disposed(by: disposeBag)
         
-        
         viewModel.output.datePickerOpen
             .subscribe(onNext: { [weak self] in
                 if $0 {

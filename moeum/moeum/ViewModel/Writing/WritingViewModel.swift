@@ -11,6 +11,8 @@ import RxCocoa
 
 class WritingViewModel: ViewModel {
     
+    let types = ["매수", "매도", "메모"]
+    
     let recordService = RecordService()
     
     var disposeBag = DisposeBag()
@@ -22,6 +24,7 @@ class WritingViewModel: ViewModel {
     struct Input {
         let tag = PublishSubject<String>()
         let item = PublishSubject<String>()
+        let typeIndex = PublishSubject<Int>()
         let typeButtonTap = PublishSubject<Void>()
         let dateButtonTap = PublishSubject<Void>()
         let date = PublishSubject<Date>()

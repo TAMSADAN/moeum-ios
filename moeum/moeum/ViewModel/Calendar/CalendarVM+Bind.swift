@@ -24,12 +24,7 @@ extension CalendarViewModel {
             })
             .disposed(by: disposeBag)
         
-//        input.indexPath
-//            .map([weak self] indexPath in
-//                 let cell =
-//            )
-        
-        Observable.combineLatest(output.dates, input.records)
+        Observable.combineLatest(output.dates, output.records)
             .map { [weak self] dates, records in
                 var cellDatas: [(Date, [Record])] = []
                 for date in dates {

@@ -12,3 +12,9 @@ enum PageState {
     case back
     case next
 }
+
+enum RecordType: String {
+    case buy = "매수"
+    case sell = "매도"
+    case memo = "메모"
+}

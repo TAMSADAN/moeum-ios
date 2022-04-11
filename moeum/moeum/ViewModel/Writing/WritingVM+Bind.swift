@@ -11,10 +11,11 @@ import RxCocoa
 
 extension WritingViewModel {
     func bind() {
-        Observable.combineLatest(input.tag, input.item, input.date, input.price, input.count, input.memo)
-            .subscribe(onNext: { [weak self] tag, item, date, price, count, memo in
+        Observable.combineLatest(input.tag, input.item, input.typeIndex, input.date, input.price, input.count, input.memo)
+            .subscribe(onNext: { [weak self] tag, item, typeIndex, date, price, count, memo in
                 self?.record.tag = tag
                 self?.record.item = item
+                self?.record.type = self?.types[typeIndex] ?? "매수"
                 self?.record.date = date
                 self?.record.price = price
                 self?.record.count = count
