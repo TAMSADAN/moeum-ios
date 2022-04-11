@@ -24,6 +24,11 @@ extension CalendarViewModel {
             })
             .disposed(by: disposeBag)
         
+//        input.indexPath
+//            .map([weak self] indexPath in
+//                 let cell =
+//            )
+        
         Observable.combineLatest(output.dates, input.records)
             .map { [weak self] dates, records in
                 var cellDatas: [(Date, [Record])] = []
@@ -36,7 +41,6 @@ extension CalendarViewModel {
                     }
                     cellDatas.append((date, newRecords))
                 }
-                print(cellDatas)
                 return cellDatas
             }
             .bind(to: output.cellDatas)

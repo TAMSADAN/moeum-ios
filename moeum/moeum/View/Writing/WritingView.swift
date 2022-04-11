@@ -28,7 +28,7 @@ class WritingView: UIView {
     
     var datePicker = UIDatePicker()
         .then {
-            $0.timeZone = NSTimeZone.local
+            $0.timeZone = TimeZone(abbreviation: "KST")
             $0.locale = Locale(identifier: "ko_KR")
             $0.minuteInterval = 10
             if #available(iOS 13.4, *) {

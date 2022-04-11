@@ -19,15 +19,16 @@ class CalendarViewModel: ViewModel {
     
     struct Input {
         let nowDate = BehaviorSubject<Date>(value: Date())
-        let isClickedDatePickerButton = BehaviorRelay(value: false)
+        let isClickedDatePickerButton = BehaviorSubject(value: false)
         let records = PublishRelay<[Record]>()
-        
+        let cellData = PublishSubject<(Date, [Record])>()
+        let indexPath = BehaviorRelay(value: IndexPath())
     }
     
     struct Output {
         let dates = PublishRelay<[Date]>()
         let datePickerOpen = PublishRelay<Bool>()
-        let dateLabel = PublishRelay<String>()
+        let dateLabel = BehaviorRelay(value: "")
         
         let cellDatas = BehaviorRelay(value: [(Date(), [Record()])])
 

@@ -9,25 +9,41 @@ import Foundation
 
 extension CalendarViewModel {
     func getDatesOfMonth(date: Date) -> [Date] {
-        var date = date.startOfMonth
-        let endDate = date.endOfMonth
+        var calendar = Calendar.current
+        calendar.timeZone = TimeZone(abbreviation: "KST")!
+        
+        var dateComponents = calendar.dateComponents(in: TimeZone(abbreviation: "KST")!, from: date)
+        
+        dateComponents.day = 1
+        var date = dateComponents.date!
+        
+        dateComponents.month = dateComponents.month! + 1
+        let endDate = calendar.date(byAdding: .day, value: -1, to: dateComponents.date!)!
+        
+        print(date, endDate)
+        
+        
         
         var dates: [Date] = []
-        let weekOfStartDate = Int(Calendar.current.dateComponents([.weekday], from: date).weekday ?? 0)
         
-        date = Calendar.current.date(byAdding: .day, value: -weekOfStartDate + 1, to: date)!
         
-        while date <= endDate {
-            date = Calendar.current.date(byAdding: .day, value: 1, to: date)!
+        var weekOfStartDate = Int(calendar.dateComponents([.weekday], from: date).weekday ?? 0)
+        weekOfStartDate = weekOfStartDate == 1 ? 2 : weekOfStartDate
+        
+        date = calendar.date(byAdding: .day, value: -weekOfStartDate, to: date)!
+        
+        while date < endDate {
+            date = calendar.date(byAdding: .day, value: 1, to: date)!
             dates.append(date)
         }
         return dates
     }
     
     func isEqualDate(date1: Date, date2: Date) -> Bool {
-        let c1 = Calendar.current.dateComponents([.year, .month, .day], from: date1)
-        let c2 = Calendar.current.dateComponents([.year, .month, .day], from: date2)
+        let c1 = Calendar.current.dateComponents(in: TimeZone(identifier: "UTC")!, from: date1)
+        let c2 = Calendar.current.dateComponents(in: TimeZone(identifier: "UTC")!, from: date2)
         
+//        print(c1, c2)
         if c1.year == c2.year && c1.month == c2.month && c1.day == c2.day {
             return true
         } else {

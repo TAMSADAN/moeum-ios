@@ -12,16 +12,24 @@ class TagLabel: UIView {
     
     var record: Record!
     
+    var contentView = UIView()
+        .then {
+            $0.backgroundColor = .systemYellow
+            $0.layer.cornerRadius = 3
+        }
+    
     var tagView = UIView()
         .then {
             $0.backgroundColor = .red
+            $0.layer.cornerRadius = 3
         }
     
     var label = UILabel()
         .then {
-            $0.backgroundColor = .systemYellow
             $0.font = .systemFont(ofSize: 8)
         }
+    
+    var ContentViewHeightConstraint = NSLayoutConstraint()
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -34,25 +42,50 @@ class TagLabel: UIView {
         self.setup()
     }
     
+    func show() {
+        ContentViewHeightConstraint.constant = 12
+        UIView.animate(withDuration: 0.25, animations: {
+            self.ContentViewHeightConstraint.isActive = true
+            self.layoutIfNeeded()
+        })
+    }
+    
+    func hide() {
+        ContentViewHeightConstraint.constant = 0
+        UIView.animate(withDuration: 0.25, animations: {
+            self.ContentViewHeightConstraint.isActive = true
+            self.layoutIfNeeded()
+        })
+    }
+    
     func setup() {
-        self.addSubview(self.tagView)
-        self.addSubview(self.label)
+        addSubview(contentView)
+        contentView.addSubview(tagView)
+        contentView.addSubview(label)
         
-        self.tagView.translatesAutoresizingMaskIntoConstraints = false
-        self.label.translatesAutoresizingMaskIntoConstraints = false
+        contentView.translatesAutoresizingMaskIntoConstraints = false
+        tagView.translatesAutoresizingMaskIntoConstraints = false
+        label.translatesAutoresizingMaskIntoConstraints = false
         
-        self.label.text = self.record.item
+        label.text = record.item
+        
+        ContentViewHeightConstraint = contentView.heightAnchor.constraint(equalToConstant: 12)
         
         NSLayoutConstraint.activate([
-            self.tagView.topAnchor.constraint(equalTo: self.topAnchor),
-            self.tagView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            self.tagView.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            self.tagView.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            contentView.topAnchor.constraint(equalTo: topAnchor),
+            contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            ContentViewHeightConstraint,
             
-            self.label.topAnchor.constraint(equalTo: self.topAnchor),
-            self.label.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 5),
-            self.label.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 5),
-            self.label.bottomAnchor.constraint(equalTo: self.bottomAnchor),
+            tagView.topAnchor.constraint(equalTo: contentView.topAnchor),
+            tagView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+            tagView.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
+            tagView.widthAnchor.constraint(equalToConstant: 3),
+            
+            label.topAnchor.constraint(equalTo: contentView.topAnchor),
+            label.leadingAnchor.constraint(equalTo: tagView.trailingAnchor, constant: 2),
+            label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+            label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor),
         ])
     }
 }

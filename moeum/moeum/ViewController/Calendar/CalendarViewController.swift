@@ -11,7 +11,7 @@ import RxCocoa
 import Then
 import RealmSwift
 
-class CalendarViewController: UIViewController {
+class CalendarViewController: UIViewController, UICollectionViewDelegateFlowLayout {
     
     let viewModel = CalendarViewModel()
     var disposeBag = DisposeBag()
@@ -33,12 +33,15 @@ class CalendarViewController: UIViewController {
     
     var weekLabelView = WeekLabelView()
     
-    var dataSource = Observable<[String]>.of((1...30).map(String.init))
+    var bottomSheet = CalendarBottomSheet()
+    
+    var calendarViewBottomConstraint = NSLayoutConstraint()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setView()
         self.setBind()
+        self.setView()
+//        calendarView.delegate = self
 //        self.calendarView.dataSource = self
 //        self.calendarView.delegate = self
     }
