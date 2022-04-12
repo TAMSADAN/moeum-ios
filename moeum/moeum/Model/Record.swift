@@ -7,6 +7,37 @@
 
 import Foundation
 
+struct RecordZip {
+    var type: String = ""
+    var item: String = ""
+    var records: [Record] = []
+    
+    mutating func addRecord(record: Record) {
+        records.append(record)
+    }
+    
+    func getPriceAvg() -> Double {
+        var priceTotal = 0.0
+        var countSum = 0.0
+        
+        for record in records {
+            priceTotal += record.price * record.count
+            countSum += record.count
+        }
+        return priceTotal / countSum
+    }
+    
+    func getCountSum() -> Double {
+        var countSum = 0.0
+        
+        for record in records {
+            countSum += record.count
+        }
+        
+        return countSum
+    }
+}
+
 struct Record {
     var id: Int = 0
     var type: String = ""

@@ -20,6 +20,7 @@ extension WritingViewModel {
                 self?.record.price = price
                 self?.record.count = count
                 self?.record.memo = memo
+                self?.output.datePickerOpen.accept(false)
             })
             .disposed(by: disposeBag)
         
@@ -28,11 +29,25 @@ extension WritingViewModel {
             .bind(to: output.sum)
             .disposed(by: disposeBag)
         
-        input.dateButtonTap
-            .map{ [weak self] in !(self?.output.datePickerOpen.value ?? false) }
-            .bind(to: output.datePickerOpen)
+        input.item
+            .subscribe(onNext: { [weak self] text in
+                if text.count > 0 {
+                    self?.output.itemHistoryRecordZips.accept(self?.getRecordZips(text: text) ?? [])
+//                    self?.output.itemHistoryOpen.accept(true)
+                } else {
+                    self?.output.itemHistoryRecordZips.accept([])
+//                    self?.output.itemHistoryOpen.accept(false)
+                }
+            })
             .disposed(by: disposeBag)
         
+
+        
+        input.dateButtonTap
+            .map { [weak self] in !(self?.output.datePickerOpen.value ?? false) }
+            .bind(to: output.datePickerOpen)
+            .disposed(by: disposeBag)
+
         input.date
             .bind(to: output.date)
             .disposed(by: disposeBag)

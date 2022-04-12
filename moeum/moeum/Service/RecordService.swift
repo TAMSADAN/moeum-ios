@@ -11,7 +11,7 @@ class RecordService {
     
     let recordRepository = RecordRepository()
     
-    func getAllRecord() -> [Record] {
+    func getRecords() -> [Record] {
         let recordEntities = recordRepository.getAllRecordEntity()
         var records: [Record] = []
         
@@ -21,6 +21,31 @@ class RecordService {
         
         return records
     }
+    
+    func getRecordZips() -> [RecordZip] {
+        let records: [Record] = getRecords()
+        var recordZips: [RecordZip] = []
+        
+        for record in records {
+            if let recordZipIndex = recordZips.firstIndex(where: { $0.item == record.item && $0.type == record.type }) {
+                recordZips[recordZipIndex].addRecord(record: record)
+            } else {
+                let newRecordZip = RecordZip(type: record.type, item: record.item, records: [record])
+                recordZips.append(newRecordZip)
+            }
+        }
+        
+        return recordZips
+    }
+    
+//    func getRecordZip(type: String, item: String) -> RecordZip? {
+//        let recordZips = getRecordZips()
+//        
+//        if let recordZipIndex = recordZips.firstIndex(where: { $0.item == item && }) {
+//            return recordZips[recordZipIndex]
+//        }
+//        return nil
+//    }
     
     func postRecord(record: Record) {
         let recordEntity = parseToRecordEntity(record: record)

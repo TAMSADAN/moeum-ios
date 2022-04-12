@@ -36,6 +36,10 @@ class WritingViewModel: ViewModel {
     }
     
     struct Output {
+        let recordZips = BehaviorRelay(value: [])
+        let itemHistoryOpen = BehaviorRelay(value: false)
+        let itemHistoryRecordZips = BehaviorRelay(value: [RecordZip()])
+        
         let datePickerOpen = BehaviorRelay(value: false)
         let date = BehaviorRelay(value: Date())
         let sum = PublishRelay<String>()
@@ -45,5 +49,11 @@ class WritingViewModel: ViewModel {
     
     init() {
         self.bind()
+        self.output.recordZips.accept(recordService.getRecordZips())
+
+        
+//        let tmp = self.recordService.getRecordZip(type: "매수", item: "B")
+//        print(tmp?.records)
+//        print(tmp?.item)
     }
 }

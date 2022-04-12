@@ -75,6 +75,14 @@ class RecordLabel: UIView {
         contentView.addSubview(countLabel)
         contentView.addSubview(incomeLabel)
         
+        if record.type == "매수" {
+            typeLabel.textColor = .systemRed
+        } else if record.type == "매도" {
+            typeLabel.textColor = .systemBlue
+        } else {
+            typeLabel.textColor = .black
+        }
+        
         typeLabel.text = record.type
         tagLabel.text = record.tag
         itemLabel.text = record.item

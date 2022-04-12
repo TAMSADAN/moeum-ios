@@ -8,6 +8,7 @@ target 'moeum' do
   pod 'RxSwift'
   pod 'RxCocoa'
   pod 'RealmSwift'
+  pod 'Charts'
 
   # Pods for moeum
 

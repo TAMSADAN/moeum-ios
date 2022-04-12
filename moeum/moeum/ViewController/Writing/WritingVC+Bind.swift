@@ -55,6 +55,21 @@ extension WritingViewController {
             .subscribe(onNext: { [weak self] _ in self?.viewModel.input.yesBtnFlag.onNext(true) })
             .disposed(by: disposeBag)
         
+        viewModel.output.itemHistoryOpen
+            .withUnretained(self)
+            .bind { owner, bool in
+                bool ? owner.writingView.showItemHistoryView() : owner.writingView.hideItemHistoryView()
+            }
+            .disposed(by: disposeBag)
+        
+        viewModel.output.itemHistoryRecordZips
+            .withUnretained(self)
+            .subscribe(onNext: {
+                [weak self] owner, recordZips in
+                owner.writingView.itemHistoryView.update(recordZips: recordZips)
+            })
+            .disposed(by: disposeBag)
+        
         viewModel.output.datePickerOpen
             .withUnretained(self)
             .bind { [weak self] owner, bool in

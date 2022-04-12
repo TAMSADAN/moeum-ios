@@ -32,4 +32,9 @@ extension WritingViewModel {
     func saveRecord() {
         recordService.postRecord(record: record)
     }
+    
+    func getRecordZips(text: String) -> [RecordZip] {
+        let recordZips = output.recordZips.value as! [RecordZip]
+        return recordZips.filter({ $0.item.lowercased().contains(text.lowercased()) })
+    }
 }

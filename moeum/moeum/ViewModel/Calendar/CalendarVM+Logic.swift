@@ -20,10 +20,6 @@ extension CalendarViewModel {
         dateComponents.month = dateComponents.month! + 1
         let endDate = calendar.date(byAdding: .day, value: -1, to: dateComponents.date!)!
         
-        print(date, endDate)
-        
-        
-        
         var dates: [Date] = []
         
         

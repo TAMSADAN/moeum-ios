@@ -44,12 +44,19 @@ class CalendarBottomSheet: UIView {
         for record in records {
             let recordLabel = RecordLabel(record: record)
             recordStackView.addArrangedSubview(recordLabel)
+            
+        }
+        
+        UIView.performWithoutAnimation {
+            recordStackView.setNeedsLayout()
+            recordStackView.layoutIfNeeded()
         }
         
         dateFormatter.dateFormat = "M.d"
         dateFormatter.locale = Locale(identifier: "ko_kr")
         dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
         titleLabel.text = dateFormatter.string(from: date) + " (" + weekOfDays[Calendar.current.dateComponents([.weekday], from: date).weekday! - 1] + ")"
+        
     }
     
     func setView() {
@@ -78,7 +85,7 @@ class CalendarBottomSheet: UIView {
             contentView.topAnchor.constraint(equalTo: topAnchor),
             contentView.leadingAnchor.constraint(equalTo: leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: trailingAnchor),
-//            contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            //            contentView.bottomAnchor.constraint(equalTo: bottomAnchor),
             
             topDividerView.topAnchor.constraint(equalTo: contentView.topAnchor),
             topDividerView.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),

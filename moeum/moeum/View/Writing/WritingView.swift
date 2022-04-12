@@ -25,6 +25,7 @@ class WritingView: UIView {
         }
     
     var dateButton = DateButtonView(image: "cart.badge.plus", label: "매수일")
+    var itemHistoryView = BuyHistoryView()
     
     var datePicker = UIDatePicker()
         .then {
@@ -33,12 +34,11 @@ class WritingView: UIView {
             $0.minuteInterval = 10
             if #available(iOS 13.4, *) {
                 $0.preferredDatePickerStyle = .wheels
-            } else {
-                
             }
         }
     
     var datePickerHeightConstraint = NSLayoutConstraint()
+    var itemHistoryViewHeightConstraint = NSLayoutConstraint()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -69,6 +69,22 @@ extension WritingView {
             self.layoutIfNeeded()
         })
     }
+    
+    func showItemHistoryView() {
+//        itemHistoryViewHeightConstraint.constant = 100
+        UIView.animate(withDuration: 0.25, animations: {
+//            self.itemHistoryViewHeightConstraint.isActive = true
+            self.layoutIfNeeded()
+        })
+    }
+    
+    func hideItemHistoryView() {
+//        itemHistoryViewHeightConstraint.constant = 0
+        UIView.animate(withDuration: 0.25, animations: {
+//            self.itemHistoryViewHeightConstraint.isActive = true
+            self.layoutIfNeeded()
+        })
+    }
 }
 
 extension WritingView {
@@ -85,6 +101,8 @@ extension WritingView {
 //        addSubview(percentLabel)
         addSubview(memoTextView)
         
+        addSubview(itemHistoryView)
+        
         tagTextField.translatesAutoresizingMaskIntoConstraints = false
         itemTextField.translatesAutoresizingMaskIntoConstraints = false
         typeSegment.translatesAutoresizingMaskIntoConstraints = false
@@ -96,20 +114,28 @@ extension WritingView {
 //        incomeLabel.translatesAutoresizingMaskIntoConstraints = false
 //        percentLabel.translatesAutoresizingMaskIntoConstraints = false
         memoTextView.translatesAutoresizingMaskIntoConstraints = false
+        itemHistoryView.translatesAutoresizingMaskIntoConstraints = false
         
         datePickerHeightConstraint = datePicker.heightAnchor.constraint(equalToConstant: 216)
+        itemHistoryViewHeightConstraint = itemHistoryView.heightAnchor.constraint(equalToConstant: 0)
         hideDatePicker()
+        
+//        itemHistoryView.backgroundColor = .systemGray5
         
         NSLayoutConstraint.activate([
             tagTextField.topAnchor.constraint(equalTo: topAnchor, constant: 15),
             tagTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            tagTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 10),
+            tagTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             tagTextField.heightAnchor.constraint(equalToConstant: 20),
             
             itemTextField.topAnchor.constraint(equalTo: self.tagTextField.bottomAnchor, constant: 15),
             itemTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
-            itemTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: 10),
+            itemTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
             itemTextField.heightAnchor.constraint(equalToConstant: 20),
+            
+            itemHistoryView.topAnchor.constraint(equalTo: itemTextField.bottomAnchor),
+            itemHistoryView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            itemHistoryView.trailingAnchor.constraint(equalTo: trailingAnchor),
             
             typeSegment.topAnchor.constraint(equalTo: itemTextField.bottomAnchor, constant: 15),
             typeSegment.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
@@ -127,7 +153,7 @@ extension WritingView {
             
             priceTextField.topAnchor.constraint(equalTo: datePicker.bottomAnchor, constant: 0),
             priceTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            priceTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 10),
+            priceTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             priceTextField.heightAnchor.constraint(equalToConstant: 20),
             
             countTextField.topAnchor.constraint(equalTo: priceTextField.bottomAnchor, constant: 15),
@@ -152,7 +178,7 @@ extension WritingView {
             
             memoTextView.topAnchor.constraint(equalTo: sumLabel.bottomAnchor, constant: 15),
             memoTextView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            memoTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 10),
+            memoTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             memoTextView.bottomAnchor.constraint(equalTo: bottomAnchor),
         ])
     }

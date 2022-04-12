@@ -10,6 +10,8 @@
 		4978DFCBD214C06E5E96E8FA /* Pods_moeum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0507833FD4AF2640E68E328E /* Pods_moeum.framework */; };
 		7000B11427E9AED70067E0B4 /* MemoBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000B11327E9AED70067E0B4 /* MemoBottomSheetView.swift */; };
 		70102DC727E4DBF100472CC0 /* MemoCalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70102DC627E4DBF100472CC0 /* MemoCalendarCollectionViewCell.swift */; };
+		701A0A162805355F0070F310 /* BuyHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701A0A152805355F0070F310 /* BuyHistoryView.swift */; };
+		701A0A18280537D00070F310 /* BuyHistoryLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701A0A17280537D00070F310 /* BuyHistoryLabel.swift */; };
 		7024250D27F16FB8007A914D /* MemoSummaryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7024250C27F16FB8007A914D /* MemoSummaryView.swift */; };
 		7024251027F17197007A914D /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7024250F27F17197007A914D /* Memo.swift */; };
 		702E907D27FEC1CD00FF237B /* Enum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702E907C27FEC1CD00FF237B /* Enum.swift */; };
@@ -101,6 +103,8 @@
 		62133CC2A280F78D1165B717 /* Pods-moeum-moeumUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moeum-moeumUITests.debug.xcconfig"; path = "Target Support Files/Pods-moeum-moeumUITests/Pods-moeum-moeumUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		7000B11327E9AED70067E0B4 /* MemoBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoBottomSheetView.swift; sourceTree = "<group>"; };
 		70102DC627E4DBF100472CC0 /* MemoCalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCalendarCollectionViewCell.swift; sourceTree = "<group>"; };
+		701A0A152805355F0070F310 /* BuyHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyHistoryView.swift; sourceTree = "<group>"; };
+		701A0A17280537D00070F310 /* BuyHistoryLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyHistoryLabel.swift; sourceTree = "<group>"; };
 		7024250C27F16FB8007A914D /* MemoSummaryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoSummaryView.swift; sourceTree = "<group>"; };
 		7024250F27F17197007A914D /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
 		702E907C27FEC1CD00FF237B /* Enum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Enum.swift; sourceTree = "<group>"; };
@@ -453,6 +457,8 @@
 				7037B46827FAB0E0004F3828 /* WritingHeaderView.swift */,
 				70E8B1A027FAC1D40095B30E /* WritingView.swift */,
 				70C05FBC27FC0EA800093A2C /* WritingButton.swift */,
+				701A0A152805355F0070F310 /* BuyHistoryView.swift */,
+				701A0A17280537D00070F310 /* BuyHistoryLabel.swift */,
 			);
 			path = Writing;
 			sourceTree = "<group>";
@@ -782,6 +788,7 @@
 				70AE0FCC27FF3F6300E880A0 /* WritingVM+Logic.swift in Sources */,
 				7048F8CF27F5968C00BDA52A /* MemoCalendarViewCellTagView.swift in Sources */,
 				7046CB9F27F4194E008ACE10 /* MemoCalendarBottomSheetViewController.swift in Sources */,
+				701A0A162805355F0070F310 /* BuyHistoryView.swift in Sources */,
 				70CB74562800716C00DA4A8E /* CalendarVM+Logic.swift in Sources */,
 				70F7493E27FB454E00B31791 /* CalendarViewCell.swift in Sources */,
 				70CF4DBF27EAEFC400046E92 /* TestViewController.swift in Sources */,
@@ -837,6 +844,7 @@
 				70C05FBD27FC0EA800093A2C /* WritingButton.swift in Sources */,
 				70592BAF2803D30300106A34 /* CalendarBottomSheet.swift in Sources */,
 				7037B46427FAB048004F3828 /* WritingViewController.swift in Sources */,
+				701A0A18280537D00070F310 /* BuyHistoryLabel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
