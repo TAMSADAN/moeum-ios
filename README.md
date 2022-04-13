@@ -9,10 +9,6 @@
   * [Detail](#detail)
 - [Library](#library)
 - [Feature](#feature)
-- [Version](#version)
-- [Team](#team)
-    + [mooyoung2309](https://github.com/mooyoung2309)
-    + [yjyoon.dev](https://github.com/yjyoon-dev)
 
 
 ## UI
@@ -33,7 +29,7 @@
 
 ## Feature
 |분류|기능|설명|
-|---|---|
+|---|---|---|
 |calendar|캘린더 뷰|매매 일지 캘린더|
 |list|리스트 뷰|매매 일지 리스트|
 |chart|차트 뷰|매매 차트|
