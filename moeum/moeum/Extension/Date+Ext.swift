@@ -33,4 +33,39 @@ extension Date {
         components.second = -1
         return Calendar(identifier: .gregorian).date(byAdding: components, to: startOfMonth)!
     }
+    
+    func getDatesOfMonth() -> [Date] {
+        var calendar = Calendar.current
+        calendar.timeZone = TimeZone(abbreviation: "KST")!
+        
+        var dateComponents = calendar.dateComponents(in: TimeZone(abbreviation: "KST")!, from: self)
+        
+        dateComponents.timeZone = TimeZone(abbreviation: "KST")!
+        
+        dateComponents.day = 0
+        var date = dateComponents.date!
+        
+        dateComponents.month = dateComponents.month! + 1
+        dateComponents.day = 1
+        let endDate = calendar.date(byAdding: .day, value: -1, to: dateComponents.date!)!
+        
+        var dates: [Date] = []
+        
+        while date < endDate {
+            date = calendar.date(byAdding: .day, value: 1, to: date)!
+            dates.append(date)
+        }
+        return dates
+    }
+    
+    func isEqualDate(date: Date) -> Bool {
+        let c1 = Calendar.current.dateComponents(in: TimeZone(abbreviation: "KST")!, from: self)
+        let c2 = Calendar.current.dateComponents(in: TimeZone(abbreviation: "KST")!, from: date)
+        
+        if c1.year == c2.year && c1.month == c2.month && c1.day == c2.day {
+            return true
+        } else {
+            return false
+        }
+    }
 }

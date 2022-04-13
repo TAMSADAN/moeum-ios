@@ -52,8 +52,9 @@ class WritingViewModel: ViewModel {
         self.output.recordZips.accept(recordService.getRecordZips())
 
         
-//        let tmp = self.recordService.getRecordZip(type: "매수", item: "B")
-//        print(tmp?.records)
-//        print(tmp?.item)
+        let tmp = self.recordService.getRecordZips()
+        for t in tmp {
+            print(t.getRecordChartDatas())
+        }
     }
 }

@@ -27,10 +27,10 @@ class RecordService {
         var recordZips: [RecordZip] = []
         
         for record in records {
-            if let recordZipIndex = recordZips.firstIndex(where: { $0.item == record.item && $0.type == record.type }) {
+            if let recordZipIndex = recordZips.firstIndex(where: { $0.item == record.item }) {
                 recordZips[recordZipIndex].addRecord(record: record)
             } else {
-                let newRecordZip = RecordZip(type: record.type, item: record.item, records: [record])
+                let newRecordZip = RecordZip(item: record.item, records: [record])
                 recordZips.append(newRecordZip)
             }
         }

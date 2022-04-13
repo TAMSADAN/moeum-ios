@@ -7,37 +7,6 @@
 
 import Foundation
 
-struct RecordZip {
-    var type: String = ""
-    var item: String = ""
-    var records: [Record] = []
-    
-    mutating func addRecord(record: Record) {
-        records.append(record)
-    }
-    
-    func getPriceAvg() -> Double {
-        var priceTotal = 0.0
-        var countSum = 0.0
-        
-        for record in records {
-            priceTotal += record.price * record.count
-            countSum += record.count
-        }
-        return priceTotal / countSum
-    }
-    
-    func getCountSum() -> Double {
-        var countSum = 0.0
-        
-        for record in records {
-            countSum += record.count
-        }
-        
-        return countSum
-    }
-}
-
 struct Record {
     var id: Int = 0
     var type: String = ""
@@ -57,5 +26,84 @@ struct Record {
         self.count = count
         self.date = date
         self.memo = memo
+    }
+}
+
+struct RecordChartData {
+    var item: String = String()
+    var date: Date = Date()
+    var income: Double = Double()
+    var rate: Double = Double()
+}
+
+struct RecordZip {
+    var item: String = ""
+    var records: [Record] = []
+    
+    mutating func addRecord(record: Record) {
+        records.append(record)
+    }
+    
+    func getRecordChartDatas() -> [RecordChartData] {
+        let records = records.filter({ $0.type == "매도" })
+        var recordChartDatas: [RecordChartData] = []
+        
+        for record in records {
+            recordChartDatas.append(getRecordChartData(record: record))
+        }
+        
+        return recordChartDatas
+    }
+    
+    func getRecordChartData(record: Record) -> RecordChartData {
+        var recordChartData = RecordChartData()
+        let nowPriceAvg = getPriceAvg(date: record.date)
+        
+        recordChartData.item = record.item
+        recordChartData.date = record.date
+        recordChartData.income = (record.price - nowPriceAvg) * record.count
+        recordChartData.rate = (record.price - nowPriceAvg) / nowPriceAvg * 100
+        
+        if recordChartData.income.isNaN {
+            recordChartData.income = 0.0
+        }
+        
+        if recordChartData.rate.isNaN {
+            recordChartData.rate = 0.0
+        }
+        
+        return recordChartData
+    }
+    
+    func getPriceAvg(date: Date) -> Double {
+        return getPriceSum(date: date) / getCountSum(date: date)
+    }
+    
+    func getPriceSum(date: Date) -> Double {
+        let records = records.filter({ $0.date < date})
+        var priceSum = 0.0
+        
+        for record in records {
+            if record.type == "매수" {
+                priceSum += record.price * record.count
+            } else {
+                priceSum -= record.price * record.count
+            }
+        }
+        return priceSum
+    }
+    
+    func getCountSum(date: Date) -> Double {
+        let records = records.filter({ $0.date < date })
+        var countSum = 0.0
+        
+        for record in records {
+            if record.type == "매수" {
+                countSum += record.count
+            } else {
+                countSum -= record.count
+            }
+        }
+        return countSum
     }
 }

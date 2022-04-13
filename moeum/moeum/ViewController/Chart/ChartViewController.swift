@@ -8,31 +8,21 @@
 import UIKit
 import Charts
 import Then
+import RxSwift
 
 class ChartViewController: UIViewController {
-
+    
+    let viewModel = ChartViewModel()
+    var disposBag = DisposeBag()
+    
     var combinedChartView = CombinedChartView()
+    var barChartView = BarChartView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
+        
         setView()
-    }
-    
-    func setChart() {
-        var y: [ChartDataEntry] = [ChartDataEntry]
-    }
-    
-    func setView() {
-        view.addSubview(combinedChartView)
-        
-        combinedChartView.translatesAutoresizingMaskIntoConstraints = false
-        
-        NSLayoutConstraint.activate([
-            combinedChartView.topAnchor.constraint(equalTo: view.topAnchor),
-            combinedChartView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            combinedChartView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            combinedChartView.bottomAnchor.constraint(equalTo: view.bottomAnchor),
-        ])
+        setBind()
     }
 }
