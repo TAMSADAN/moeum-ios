@@ -102,7 +102,7 @@ extension WritingView {
         addSubview(memoTextView)
         
         addSubview(itemHistoryView)
-        
+
         tagTextField.translatesAutoresizingMaskIntoConstraints = false
         itemTextField.translatesAutoresizingMaskIntoConstraints = false
         typeSegment.translatesAutoresizingMaskIntoConstraints = false

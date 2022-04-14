@@ -12,7 +12,7 @@ extension ChartViewController {
         viewModel.output.recordChartDatas
             .bind { [weak self] recordChartdatas in
                 let data = self?.viewModel.getThisMonthChartData() ?? ([Date()], [Double()])
-                self?.setChart(dataPoints: data.0, values: data.1)
+                self?.setBarChartView(dates: data.0, values: data.1)
 
             }
             .disposed(by: disposBag)
