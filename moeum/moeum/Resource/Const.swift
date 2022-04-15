@@ -21,6 +21,9 @@ struct Const {
         static let footnote = UIFont.systemFont(ofSize: 13)
         static let caption1 = UIFont.systemFont(ofSize: 12)
         static let caption2 = UIFont.systemFont(ofSize: 11)
+        static let caption3 = UIFont.systemFont(ofSize: 10)
+        static let caption4 = UIFont.systemFont(ofSize: 9)
+        static let caption5 = UIFont.systemFont(ofSize: 8)
         
     }
 }

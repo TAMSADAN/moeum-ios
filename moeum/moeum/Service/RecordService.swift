@@ -22,30 +22,39 @@ class RecordService {
         return records
     }
     
-    func getRecordZips() -> [RecordZip] {
+    func getRecordZips(tag: Bool, item: Bool) -> [RecordZip] {
         let records: [Record] = getRecords()
         var recordZips: [RecordZip] = []
         
         for record in records {
-            if let recordZipIndex = recordZips.firstIndex(where: { $0.item == record.item }) {
-                recordZips[recordZipIndex].addRecord(record: record)
+            var recordZipIndex: Int?
+            
+            if tag && item {
+                recordZipIndex = recordZips.firstIndex(where: { $0.item == record.item && $0.tag == record.tag })
+            } else if tag && !item {
+                recordZipIndex = recordZips.firstIndex(where: { $0.tag == record.tag })
+            } else if !tag && item {
+                recordZipIndex = recordZips.firstIndex(where: { $0.item == record.item })
+            }
+            
+            if recordZipIndex != nil {
+                recordZips[recordZipIndex!].addRecord(record: record)
             } else {
-                let newRecordZip = RecordZip(item: record.item, records: [record])
+                let newRecordZip = RecordZip(tag: record.tag, item: record.item, records: [record])
                 recordZips.append(newRecordZip)
             }
         }
         
         return recordZips
     }
-    
-//    func getRecordZip(type: String, item: String) -> RecordZip? {
-//        let recordZips = getRecordZips()
-//        
-//        if let recordZipIndex = recordZips.firstIndex(where: { $0.item == item && }) {
-//            return recordZips[recordZipIndex]
-//        }
-//        return nil
-//    }
+    //    func getRecordZip(type: String, item: String) -> RecordZip? {
+    //        let recordZips = getRecordZips()
+    //
+    //        if let recordZipIndex = recordZips.firstIndex(where: { $0.item == item && }) {
+    //            return recordZips[recordZipIndex]
+    //        }
+    //        return nil
+    //    }
     
     func postRecord(record: Record) {
         let recordEntity = parseToRecordEntity(record: record)

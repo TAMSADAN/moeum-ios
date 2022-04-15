@@ -10,62 +10,48 @@ import RxSwift
 import RxCocoa
 
 class ChartViewModel: ViewModel {
-    let types = ["매수", "매도", "메모"]
-    
     let recordService = RecordService()
     
     var disposeBag = DisposeBag()
     var input = Input()
     var output = Output()
     
-    var record = Record()
-    
     struct Input {
         let recordZips = BehaviorSubject(value: [RecordZip()])
-        let tag = PublishSubject<String>()
+        let tagRecordZips = BehaviorSubject(value: [RecordZip()])
+        let itemRecordZips = BehaviorSubject(value: [RecordZip()])
     }
     
     struct Output {
         let recordChartDatas = BehaviorRelay(value: [RecordChartData()])
-        let itemHistoryOpen = BehaviorRelay(value: false)
-        let itemHistoryRecordZips = BehaviorRelay(value: [RecordZip()])
-        
-        let datePickerOpen = BehaviorRelay(value: false)
-        let date = BehaviorRelay(value: Date())
-        let sum = PublishRelay<String>()
-        
-        let pageState = PublishRelay<PageState>()
+        let priceSumChartData = BehaviorRelay(value: ([String()], [Double()]))
+        let incomeChartData = BehaviorRelay(value: ([Date()], [Double()]))
     }
     
     init() {
-        self.input.recordZips.onNext(recordService.getRecordZips())
+        input.recordZips.onNext(recordService.getRecordZips(tag: true, item: true))
+        input.tagRecordZips.onNext(recordService.getRecordZips(tag: true, item: false))
+        input.itemRecordZips.onNext(recordService.getRecordZips(tag: false, item: true))
         
-        
-        input.recordZips
-            .subscribe(onNext: { [weak self] recordZips in
-                var recordChartDatas: [RecordChartData] = []
-                for recordZip in recordZips {
-                    recordChartDatas.append(contentsOf: recordZip.getRecordChartDatas())
-                }
-                self?.output.recordChartDatas.accept(recordChartDatas)
-        })
+        input.itemRecordZips
+            .bind { [weak self] recordZips in
+                self?.output.incomeChartData.accept(self?.getIncomeBarChartData(date: Date(), recordZips: recordZips) ?? ([Date()], [Double()]))
+                self?.output.priceSumChartData.accept(self?.getBuyPriceSumPieChartData(date: Date(), recordZips: recordZips) ?? ([String()], [Double()]))
+            }
             .disposed(by: disposeBag)
-    }
-    
-    func getThisMonthChartData() -> ([Date], [Double]){
-        let dates: [Date] = Date().getDatesOfMonth()
-        let recordChartDatas = output.recordChartDatas.value
+//            .subscribe(onNext: {
+//                [weak self] recordZips in
+//                self?.output.incomeChartData.accept(self?.getIncomeBarChartData(date: Date(), recordZips: recordZips) ?? ([Date(), [Double()]]))
+//            })
         
-        var chartDatas: [Double] = []
-        
-        for date in dates {
-            var income = 0.0
-            recordChartDatas.filter({ $0.date.isEqualDate(date: date) }).forEach({
-                income += $0.income
-            })
-            chartDatas.append(income)
-        }
-        
-        return (dates, chartDatas)
+//        input.recordZips
+//            .subscribe(onNext: { [weak self] recordZips in
+//                var recordChartDatas: [RecordChartData] = []
+//                for recordZip in recordZips {
+//                    recordChartDatas.append(contentsOf: recordZip.getRecordChartDatas())
+//                }
+//                self?.output.recordChartDatas.accept(recordChartDatas)
+//        })
+//            .disposed(by: disposeBag)
     }
 }

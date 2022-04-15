@@ -49,12 +49,6 @@ class WritingViewModel: ViewModel {
     
     init() {
         self.bind()
-        self.output.recordZips.accept(recordService.getRecordZips())
-
-        
-        let tmp = self.recordService.getRecordZips()
-        for t in tmp {
-            print(t.getRecordChartDatas())
-        }
+        self.output.recordZips.accept(recordService.getRecordZips(tag: false, item: true))
     }
 }

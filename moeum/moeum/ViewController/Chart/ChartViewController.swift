@@ -15,28 +15,46 @@ class ChartViewController: UIViewController {
     let viewModel = ChartViewModel()
     var disposBag = DisposeBag()
     
-    var combinedChartView = CombinedChartView()
-    var pieChartLabel = UILabel()
+    var scrollView = UIScrollView()
         .then {
-            $0.text = "종목별 매수 그래프"
-            $0.font = Const.Font.title3
+            $0.scrollsToTop = true
+            $0.showsVerticalScrollIndicator = false
         }
     
-    var barChartLabel = UILabel()
+    var stackView = UIStackView()
         .then {
-            $0.text = "월 수익 그래프"
-            $0.font = Const.Font.title3
+            $0.axis = .vertical
+            $0.alignment = .fill
+            $0.distribution = .equalSpacing
+            $0.spacing = 15
         }
     
-    var barChartView = BarChartView()
-    var pieChartView = PieChartView()
+    var itemPieChartLabel = UILabel()
+        .then {
+            $0.text = "현재 투자 비율 (종목별)"
+            $0.font = Const.Font.headline
+        }
+    
+    var tagPieChartLabel = UILabel()
+        .then {
+            $0.text = "현재 투자 비율 (태그별)"
+            $0.font = Const.Font.headline
+        }
+    
+    var incomeBarChartLabel = UILabel()
+        .then {
+            $0.text = "이번달 수익"
+            $0.font = Const.Font.headline
+        }
+    
+    var itemPieChartView = ItemPieChartView()
+    var tagPieChartView = TagPieChartView()
+    var incomeBarChartView = IncomeBarChartView()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.view.backgroundColor = .white
         
-        setView()
         setBind()
-        setPieChartView(dataPoints: ["1","2", "3"], values: [30, 30, 40])
+        setView()
     }
 }
