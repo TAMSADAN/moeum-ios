@@ -32,6 +32,7 @@ class WritingView: UIView {
             $0.timeZone = TimeZone(abbreviation: "KST")
             $0.locale = Locale(identifier: "ko_KR")
             $0.minuteInterval = 10
+            $0.maximumDate = Date()
             if #available(iOS 13.4, *) {
                 $0.preferredDatePickerStyle = .wheels
             }

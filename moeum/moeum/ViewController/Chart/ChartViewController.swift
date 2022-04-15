@@ -31,19 +31,19 @@ class ChartViewController: UIViewController {
     
     var itemPieChartLabel = UILabel()
         .then {
-            $0.text = "현재 투자 비율 (종목별)"
+            $0.text = "종목별 현재 매수 비율"
             $0.font = Const.Font.headline
         }
     
     var tagPieChartLabel = UILabel()
         .then {
-            $0.text = "현재 투자 비율 (태그별)"
+            $0.text = "태그별 누적 매수 비율"
             $0.font = Const.Font.headline
         }
     
     var incomeBarChartLabel = UILabel()
         .then {
-            $0.text = "이번달 수익"
+            $0.text = "일별 수익"
             $0.font = Const.Font.headline
         }
     

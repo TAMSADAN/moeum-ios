@@ -72,6 +72,7 @@
 		70E185C528091A8800236BC2 /* ItemPieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E185C428091A8800236BC2 /* ItemPieChartView.swift */; };
 		70E185C728091FAF00236BC2 /* IncomeBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E185C628091FAF00236BC2 /* IncomeBarChartView.swift */; };
 		70E185C928093F5F00236BC2 /* TagPieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E185C828093F5F00236BC2 /* TagPieChartView.swift */; };
+		70E185CB28096C9600236BC2 /* UIColor+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E185CA28096C9600236BC2 /* UIColor+Ext.swift */; };
 		70E491F428081755006DB3D3 /* ChartVM+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E491F328081755006DB3D3 /* ChartVM+Ext.swift */; };
 		70E8B19F27FAB7BF0095B30E /* WritingVC+View.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E8B19E27FAB7BF0095B30E /* WritingVC+View.swift */; };
 		70E8B1A127FAC1D40095B30E /* WritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E8B1A027FAC1D40095B30E /* WritingView.swift */; };
@@ -177,6 +178,7 @@
 		70E185C428091A8800236BC2 /* ItemPieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemPieChartView.swift; sourceTree = "<group>"; };
 		70E185C628091FAF00236BC2 /* IncomeBarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeBarChartView.swift; sourceTree = "<group>"; };
 		70E185C828093F5F00236BC2 /* TagPieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagPieChartView.swift; sourceTree = "<group>"; };
+		70E185CA28096C9600236BC2 /* UIColor+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Ext.swift"; sourceTree = "<group>"; };
 		70E491F328081755006DB3D3 /* ChartVM+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChartVM+Ext.swift"; sourceTree = "<group>"; };
 		70E8B19E27FAB7BF0095B30E /* WritingVC+View.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WritingVC+View.swift"; sourceTree = "<group>"; };
 		70E8B1A027FAC1D40095B30E /* WritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingView.swift; sourceTree = "<group>"; };
@@ -488,6 +490,7 @@
 			isa = PBXGroup;
 			children = (
 				70CB745328006DE000DA4A8E /* Date+Ext.swift */,
+				70E185CA28096C9600236BC2 /* UIColor+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -842,6 +845,7 @@
 				702FA6F927FD7428004417D9 /* RecordService.swift in Sources */,
 				706D9B3827FAE3A400E0DD5F /* CalendarViewController.swift in Sources */,
 				70278B542806773D0013FE9F /* ChartViewModel.swift in Sources */,
+				70E185CB28096C9600236BC2 /* UIColor+Ext.swift in Sources */,
 				7000B11427E9AED70067E0B4 /* MemoBottomSheetView.swift in Sources */,
 				702FA6F527FD7402004417D9 /* RecordEntity.swift in Sources */,
 				703052DD28001D8900ED9C90 /* CalendarViewModel.swift in Sources */,

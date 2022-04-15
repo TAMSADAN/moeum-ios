@@ -26,6 +26,7 @@ class ChartViewModel: ViewModel {
         let recordChartDatas = BehaviorRelay(value: [RecordChartData()])
         let priceSumChartData = BehaviorRelay(value: ([String()], [Double()]))
         let incomeChartData = BehaviorRelay(value: ([Date()], [Double()]))
+        let tagBuyPriceSumData = BehaviorRelay(value: ([String()], [Double()]))
     }
     
     init() {
@@ -37,6 +38,7 @@ class ChartViewModel: ViewModel {
             .bind { [weak self] recordZips in
                 self?.output.incomeChartData.accept(self?.getIncomeBarChartData(date: Date(), recordZips: recordZips) ?? ([Date()], [Double()]))
                 self?.output.priceSumChartData.accept(self?.getBuyPriceSumPieChartData(date: Date(), recordZips: recordZips) ?? ([String()], [Double()]))
+                self?.output.tagBuyPriceSumData.accept(self?.getTagBuyPriceTotalChartData(recordZips: recordZips) ?? ([String()], [Double()]))
             }
             .disposed(by: disposeBag)
 //            .subscribe(onNext: {

@@ -66,5 +66,12 @@ extension ChartViewController {
                 owner.itemPieChartView.update(items: data.0, values: data.1)
             }
             .disposed(by: disposBag)
+        
+        viewModel.output.tagBuyPriceSumData
+            .withUnretained(self)
+            .bind { owner, data in
+                owner.tagPieChartView.update(items: data.0, values: data.1)
+            }
+            .disposed(by: disposBag)
     }
 }

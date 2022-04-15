@@ -23,7 +23,26 @@ extension ChartViewModel {
             items.append(item)
             priceSums.append(buyPriceAvg * buyCount)
         }
+        print(items, priceSums)
         return (items, priceSums)
+    }
+    
+    func getTagBuyPriceTotalChartData(recordZips: [RecordZip]) -> ([String], [Double]) {
+        var tags: [String] = []
+        var buyPriceSums: [Double] = []
+        
+        for recordZip in recordZips {
+            let tag = recordZip.tag
+            var buyPriceSum = 0.0
+            
+            for record in recordZip.records.filter({ $0.type == "매수" }) {
+                buyPriceSum += record.price * record.count
+            }
+            tags.append(tag)
+            buyPriceSums.append(buyPriceSum)
+        }
+        
+        return (tags, buyPriceSums)
     }
     
     

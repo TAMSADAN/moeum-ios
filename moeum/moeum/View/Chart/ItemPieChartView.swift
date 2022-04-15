@@ -33,15 +33,16 @@ class ItemPieChartView: UIView {
     
     func setChart(dataPoints: [String], values: [Double]) {
         var dataEntries: [ChartDataEntry] = []
-        
+        var colors: [UIColor] = []
         for i in 0..<dataPoints.count {
             let dataEntry = PieChartDataEntry(value: values[i], label: dataPoints[i])
             dataEntries.append(dataEntry)
+            colors.append(UIColor.random)
         }
         
         let chartDataSet = PieChartDataSet(entries: dataEntries, label: "")
             .then {
-                $0.colors = [.systemPink, .systemOrange, .systemPurple, .systemYellow, .systemGreen, .systemTeal]
+                $0.colors = colors
             }
         
         let format = NumberFormatter()

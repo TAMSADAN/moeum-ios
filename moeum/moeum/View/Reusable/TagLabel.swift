@@ -14,13 +14,11 @@ class TagLabel: UIView {
     
     var contentView = UIView()
         .then {
-            $0.backgroundColor = .systemYellow
             $0.layer.cornerRadius = 3
         }
     
     var tagView = UIView()
         .then {
-            $0.backgroundColor = .red
             $0.layer.cornerRadius = 3
         }
     
@@ -66,6 +64,14 @@ class TagLabel: UIView {
         contentView.translatesAutoresizingMaskIntoConstraints = false
         tagView.translatesAutoresizingMaskIntoConstraints = false
         label.translatesAutoresizingMaskIntoConstraints = false
+        
+        if record.type == "매수" {
+            contentView.backgroundColor = .systemYellow
+            tagView.backgroundColor = .systemRed
+        } else if record.type == "매도" {
+            contentView.backgroundColor = .systemYellow
+            tagView.backgroundColor = .systemBlue
+        }
         
         label.text = record.item
         
