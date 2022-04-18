@@ -8,6 +8,7 @@
 import UIKit
 
 class RecordLabel: UIView {
+    let tapGesture = UITapGestureRecognizer()
     
     var contentView = UIView()
     
@@ -67,6 +68,8 @@ class RecordLabel: UIView {
     }
     
     func setView() {
+        addGestureRecognizer(tapGesture)
+        
         addSubview(contentView)
         contentView.addSubview(typeLabel)
         contentView.addSubview(tagLabel)

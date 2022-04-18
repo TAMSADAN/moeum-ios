@@ -33,12 +33,18 @@ class WritingViewModel: ViewModel {
         let memo = PublishSubject<String>()
         let noBtnFlag = PublishSubject<Bool>()
         let yesBtnFlag = PublishSubject<Bool>()
+        
+        let recordZips = BehaviorSubject(value: [])
     }
     
     struct Output {
-        let recordZips = BehaviorRelay(value: [])
         let itemHistoryOpen = BehaviorRelay(value: false)
         let itemHistoryRecordZips = BehaviorRelay(value: [RecordZip()])
+
+        let recordZip = BehaviorRelay(value: RecordZip())
+        
+        let itemCaption = BehaviorRelay(value: ("", 1))
+        let countCaption = BehaviorRelay(value: ("", 1))
         
         let datePickerOpen = BehaviorRelay(value: false)
         let date = BehaviorRelay(value: Date())
@@ -49,6 +55,6 @@ class WritingViewModel: ViewModel {
     
     init() {
         self.bind()
-        self.output.recordZips.accept(recordService.getRecordZips(tag: false, item: true))
+        self.input.recordZips.onNext(recordService.getRecordZips(tag: false, item: true))
     }
 }

@@ -10,6 +10,8 @@ import RxSwift
 import Then
 
 class WritingViewController: UIViewController {
+    let types = ["매수", "매도", "메모"]
+    
     var viewModel = WritingViewModel()
     var disposeBag = DisposeBag()
     

@@ -23,17 +23,18 @@ class MainViewController: UITabBarController, UITabBarControllerDelegate {
         
         tabOne.tabBarItem = tabOneBarItem
         
-        let tabTwo = ListViewController()
-        let tabTwoBarItem = UITabBarItem(title: "리스트", image: UIImage(systemName: "list.bullet.rectangle.portrait"), selectedImage: UIImage(named: "selectedImage2.png"))
+//        let tabTwo = ListViewController()
+//        let tabTwoBarItem = UITabBarItem(title: "리스트", image: UIImage(systemName: "list.bullet.rectangle.portrait"), selectedImage: UIImage(named: "selectedImage2.png"))
         
-        tabTwo.tabBarItem = tabTwoBarItem
+//        tabTwo.tabBarItem = tabTwoBarItem
         
         let tabThree = ChartViewController()
         let tabThreeBarItem = UITabBarItem(title: "분석", image: UIImage(systemName: "chart.pie"), selectedImage: UIImage(named: "selectedImage2.png"))
         
         tabThree.tabBarItem = tabThreeBarItem
         
-        self.viewControllers = [tabOne, tabTwo, tabThree]
+//        self.viewControllers = [tabOne, tabTwo, tabThree]
+        self.viewControllers = [tabOne, tabThree]
         
     }
 }

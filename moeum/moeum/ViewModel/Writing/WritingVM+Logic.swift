@@ -34,7 +34,7 @@ extension WritingViewModel {
     }
     
     func getRecordZips(text: String) -> [RecordZip] {
-        let recordZips = output.recordZips.value as! [RecordZip]
+        let recordZips = try! input.recordZips.value() as! [RecordZip]
         return recordZips.filter({ $0.item.lowercased().contains(text.lowercased()) })
     }
 }

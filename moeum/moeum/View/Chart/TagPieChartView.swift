@@ -42,7 +42,7 @@ class TagPieChartView: UIView {
         
         let chartDataSet = PieChartDataSet(entries: dataEntries, label: "")
             .then {
-                $0.colors = colors
+                $0.colors = [.systemPink,  .systemYellow, .systemPurple, .systemGreen, .systemOrange, .systemBlue].reversed()
             }
         
         let format = NumberFormatter()

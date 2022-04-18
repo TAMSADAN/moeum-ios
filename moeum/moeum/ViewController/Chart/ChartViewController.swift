@@ -31,7 +31,7 @@ class ChartViewController: UIViewController {
     
     var itemPieChartLabel = UILabel()
         .then {
-            $0.text = "종목별 현재 매수 비율"
+            $0.text = "종목별 현재 보유 비율"
             $0.font = Const.Font.headline
         }
     

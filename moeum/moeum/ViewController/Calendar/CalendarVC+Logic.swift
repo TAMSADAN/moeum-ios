@@ -8,25 +8,26 @@
 import UIKit
 
 extension CalendarViewController {
-//    func showDatePicker() {
-//        datePickerHeightConstraint.constant = 216
-//        UIView.animate(withDuration: 0.25,delay: 0, options: .curveLinear,animations: {
-//            self.datePickerHeightConstraint.isActive = true
-//            self.view.layoutIfNeeded()
-//        })
-//    }
-//    
-//    func hideDatePicker() {
-//        datePickerHeightConstraint.constant = 0
-//        UIView.animate(withDuration: 0.25,delay: 0, options: .curveLinear,animations: {
-//            self.datePickerHeightConstraint.isActive = true
-//            self.view.layoutIfNeeded()
-//        })
-//    }
+    func showHeader() {
+        headerHeightConstraint.constant = 250
+        UIView.animate(withDuration: 0.25,delay: 0, options: .curveLinear,animations: {
+            self.headerHeightConstraint.isActive = true
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    func hideHeader() {
+        headerHeightConstraint.constant = 20
+        UIView.animate(withDuration: 0.25,delay: 0, options: .curveLinear,animations: {
+            self.headerHeightConstraint.isActive = true
+            self.view.layoutIfNeeded()
+        })
+    }
     
     func goToWritingVC() {
         let writingVC = WritingViewController()
         writingVC.modalPresentationStyle = .fullScreen
+        writingVC.writingView.datePicker.date = viewModel.output.cellDate.value
         self.present(writingVC, animated: true)
     }
     

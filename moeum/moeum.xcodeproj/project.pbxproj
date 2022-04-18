@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		4978DFCBD214C06E5E96E8FA /* Pods_moeum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0507833FD4AF2640E68E328E /* Pods_moeum.framework */; };
+		05767AE3B47F12F4E49A5D63 /* Pods_moeum.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 227E4B45E5BA4EB34CF75625 /* Pods_moeum.framework */; };
+		567C6174F2318D1308078F69 /* Pods_moeumTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0D738F90069CF4A0EF2D7EFC /* Pods_moeumTests.framework */; };
+		6EF50E5EB2FF20ABAE2E6CCF /* Pods_moeum_moeumUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 09FF3C9DE3C25BA02F07B283 /* Pods_moeum_moeumUITests.framework */; };
 		7000B11427E9AED70067E0B4 /* MemoBottomSheetView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7000B11327E9AED70067E0B4 /* MemoBottomSheetView.swift */; };
 		70102DC727E4DBF100472CC0 /* MemoCalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70102DC627E4DBF100472CC0 /* MemoCalendarCollectionViewCell.swift */; };
 		701A0A162805355F0070F310 /* BuyHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701A0A152805355F0070F310 /* BuyHistoryView.swift */; };
@@ -61,6 +63,8 @@
 		70AE0FCE27FF3F7800E880A0 /* WritingVM+Bind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AE0FCD27FF3F7800E880A0 /* WritingVM+Bind.swift */; };
 		70C05FBA27FBDF9D00093A2C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C05FB927FBDF9D00093A2C /* ListViewController.swift */; };
 		70C05FBD27FC0EA800093A2C /* WritingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C05FBC27FC0EA800093A2C /* WritingButton.swift */; };
+		70C5879C280D1C90005372D3 /* RecordListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5879B280D1C90005372D3 /* RecordListViewCell.swift */; };
+		70C5879E280D4A95005372D3 /* TrashButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5879D280D4A95005372D3 /* TrashButton.swift */; };
 		70CB745428006DE000DA4A8E /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CB745328006DE000DA4A8E /* Date+Ext.swift */; };
 		70CB74562800716C00DA4A8E /* CalendarVM+Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CB74552800716C00DA4A8E /* CalendarVM+Logic.swift */; };
 		70CB745828007CF000DA4A8E /* CalendarVM+Bind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CB745728007CF000DA4A8E /* CalendarVM+Bind.swift */; };
@@ -82,8 +86,6 @@
 		70F7493C27FB404C00B31791 /* WeekLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F7493B27FB404C00B31791 /* WeekLabelView.swift */; };
 		70F7493E27FB454E00B31791 /* CalendarViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F7493D27FB454E00B31791 /* CalendarViewCell.swift */; };
 		70FFCBA927FDB8E50040F30C /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70FFCBA827FDB8E50040F30C /* ViewModel.swift */; };
-		B4D9275861014F144C42B110 /* Pods_moeum_moeumUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BA9D1712A8845A431022352 /* Pods_moeum_moeumUITests.framework */; };
-		DFF8C6C2E09CEA69C5821C75 /* Pods_moeumTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1AEAE695D7DD1324F7E3AF04 /* Pods_moeumTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,10 +106,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		0507833FD4AF2640E68E328E /* Pods_moeum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_moeum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		1AEAE695D7DD1324F7E3AF04 /* Pods_moeumTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_moeumTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		34382A13DB87538CF9258760 /* Pods-moeum-moeumUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moeum-moeumUITests.release.xcconfig"; path = "Target Support Files/Pods-moeum-moeumUITests/Pods-moeum-moeumUITests.release.xcconfig"; sourceTree = "<group>"; };
-		62133CC2A280F78D1165B717 /* Pods-moeum-moeumUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moeum-moeumUITests.debug.xcconfig"; path = "Target Support Files/Pods-moeum-moeumUITests/Pods-moeum-moeumUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		09FF3C9DE3C25BA02F07B283 /* Pods_moeum_moeumUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_moeum_moeumUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		0D738F90069CF4A0EF2D7EFC /* Pods_moeumTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_moeumTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		227E4B45E5BA4EB34CF75625 /* Pods_moeum.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_moeum.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		27CAD27C04432BD9E808681F /* Pods-moeum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moeum.debug.xcconfig"; path = "Target Support Files/Pods-moeum/Pods-moeum.debug.xcconfig"; sourceTree = "<group>"; };
+		37ADE58F2A4A147AE755994F /* Pods-moeumTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moeumTests.debug.xcconfig"; path = "Target Support Files/Pods-moeumTests/Pods-moeumTests.debug.xcconfig"; sourceTree = "<group>"; };
 		7000B11327E9AED70067E0B4 /* MemoBottomSheetView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoBottomSheetView.swift; sourceTree = "<group>"; };
 		70102DC627E4DBF100472CC0 /* MemoCalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoCalendarCollectionViewCell.swift; sourceTree = "<group>"; };
 		701A0A152805355F0070F310 /* BuyHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyHistoryView.swift; sourceTree = "<group>"; };
@@ -166,6 +169,8 @@
 		70AE0FCD27FF3F7800E880A0 /* WritingVM+Bind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WritingVM+Bind.swift"; sourceTree = "<group>"; };
 		70C05FB927FBDF9D00093A2C /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
 		70C05FBC27FC0EA800093A2C /* WritingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingButton.swift; sourceTree = "<group>"; };
+		70C5879B280D1C90005372D3 /* RecordListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListViewCell.swift; sourceTree = "<group>"; };
+		70C5879D280D4A95005372D3 /* TrashButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashButton.swift; sourceTree = "<group>"; };
 		70CB745328006DE000DA4A8E /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		70CB74552800716C00DA4A8E /* CalendarVM+Logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarVM+Logic.swift"; sourceTree = "<group>"; };
 		70CB745728007CF000DA4A8E /* CalendarVM+Bind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarVM+Bind.swift"; sourceTree = "<group>"; };
@@ -188,11 +193,10 @@
 		70F7493B27FB404C00B31791 /* WeekLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekLabelView.swift; sourceTree = "<group>"; };
 		70F7493D27FB454E00B31791 /* CalendarViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewCell.swift; sourceTree = "<group>"; };
 		70FFCBA827FDB8E50040F30C /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		9BA9D1712A8845A431022352 /* Pods_moeum_moeumUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_moeum_moeumUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		A482E8906E014BA2018EAFE7 /* Pods-moeumTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moeumTests.debug.xcconfig"; path = "Target Support Files/Pods-moeumTests/Pods-moeumTests.debug.xcconfig"; sourceTree = "<group>"; };
-		CBE0288E25FF7586019FA416 /* Pods-moeum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moeum.release.xcconfig"; path = "Target Support Files/Pods-moeum/Pods-moeum.release.xcconfig"; sourceTree = "<group>"; };
-		F2236B31430E02B49B398B6E /* Pods-moeum.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moeum.debug.xcconfig"; path = "Target Support Files/Pods-moeum/Pods-moeum.debug.xcconfig"; sourceTree = "<group>"; };
-		F969D54C5214F9C368E5C201 /* Pods-moeumTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moeumTests.release.xcconfig"; path = "Target Support Files/Pods-moeumTests/Pods-moeumTests.release.xcconfig"; sourceTree = "<group>"; };
+		7B6AF32D072E6AFF0269B3AB /* Pods-moeum-moeumUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moeum-moeumUITests.release.xcconfig"; path = "Target Support Files/Pods-moeum-moeumUITests/Pods-moeum-moeumUITests.release.xcconfig"; sourceTree = "<group>"; };
+		C56E84AD276A836F51B1C998 /* Pods-moeum.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moeum.release.xcconfig"; path = "Target Support Files/Pods-moeum/Pods-moeum.release.xcconfig"; sourceTree = "<group>"; };
+		F21B8376C51B2D0A3C9809A1 /* Pods-moeum-moeumUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moeum-moeumUITests.debug.xcconfig"; path = "Target Support Files/Pods-moeum-moeumUITests/Pods-moeum-moeumUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		F8EEA056470BEE3E5F70DDA7 /* Pods-moeumTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-moeumTests.release.xcconfig"; path = "Target Support Files/Pods-moeumTests/Pods-moeumTests.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -200,7 +204,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4978DFCBD214C06E5E96E8FA /* Pods_moeum.framework in Frameworks */,
+				05767AE3B47F12F4E49A5D63 /* Pods_moeum.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -208,7 +212,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DFF8C6C2E09CEA69C5821C75 /* Pods_moeumTests.framework in Frameworks */,
+				567C6174F2318D1308078F69 /* Pods_moeumTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -216,7 +220,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B4D9275861014F144C42B110 /* Pods_moeum_moeumUITests.framework in Frameworks */,
+				6EF50E5EB2FF20ABAE2E6CCF /* Pods_moeum_moeumUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -361,6 +365,7 @@
 				70592BAE2803D30300106A34 /* CalendarBottomSheet.swift */,
 				70592BB028041D3700106A34 /* RecordFixedLabel.swift */,
 				70592BB42804289000106A34 /* RecordLabel.swift */,
+				70C5879B280D1C90005372D3 /* RecordListViewCell.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -389,7 +394,7 @@
 				70905DAC27E37D8F001CB7AF /* moeumUITests */,
 				70905D8A27E37D8E001CB7AF /* Products */,
 				ECA56B16C65228BD4DE5BDA5 /* Pods */,
-				C3BCA2BAD6883C605E6DA1E1 /* Frameworks */,
+				A3697B5ACBC4840A1374B2A4 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -482,6 +487,7 @@
 				70C05FBC27FC0EA800093A2C /* WritingButton.swift */,
 				701A0A152805355F0070F310 /* BuyHistoryView.swift */,
 				701A0A17280537D00070F310 /* BuyHistoryLabel.swift */,
+				70C5879D280D4A95005372D3 /* TrashButton.swift */,
 			);
 			path = Writing;
 			sourceTree = "<group>";
@@ -559,12 +565,12 @@
 			path = Chart;
 			sourceTree = "<group>";
 		};
-		C3BCA2BAD6883C605E6DA1E1 /* Frameworks */ = {
+		A3697B5ACBC4840A1374B2A4 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0507833FD4AF2640E68E328E /* Pods_moeum.framework */,
-				9BA9D1712A8845A431022352 /* Pods_moeum_moeumUITests.framework */,
-				1AEAE695D7DD1324F7E3AF04 /* Pods_moeumTests.framework */,
+				227E4B45E5BA4EB34CF75625 /* Pods_moeum.framework */,
+				09FF3C9DE3C25BA02F07B283 /* Pods_moeum_moeumUITests.framework */,
+				0D738F90069CF4A0EF2D7EFC /* Pods_moeumTests.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -572,12 +578,12 @@
 		ECA56B16C65228BD4DE5BDA5 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				F2236B31430E02B49B398B6E /* Pods-moeum.debug.xcconfig */,
-				CBE0288E25FF7586019FA416 /* Pods-moeum.release.xcconfig */,
-				62133CC2A280F78D1165B717 /* Pods-moeum-moeumUITests.debug.xcconfig */,
-				34382A13DB87538CF9258760 /* Pods-moeum-moeumUITests.release.xcconfig */,
-				A482E8906E014BA2018EAFE7 /* Pods-moeumTests.debug.xcconfig */,
-				F969D54C5214F9C368E5C201 /* Pods-moeumTests.release.xcconfig */,
+				27CAD27C04432BD9E808681F /* Pods-moeum.debug.xcconfig */,
+				C56E84AD276A836F51B1C998 /* Pods-moeum.release.xcconfig */,
+				F21B8376C51B2D0A3C9809A1 /* Pods-moeum-moeumUITests.debug.xcconfig */,
+				7B6AF32D072E6AFF0269B3AB /* Pods-moeum-moeumUITests.release.xcconfig */,
+				37ADE58F2A4A147AE755994F /* Pods-moeumTests.debug.xcconfig */,
+				F8EEA056470BEE3E5F70DDA7 /* Pods-moeumTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -589,11 +595,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 70905DB327E37D8F001CB7AF /* Build configuration list for PBXNativeTarget "moeum" */;
 			buildPhases = (
-				5AF8958A69152379701E9DBA /* [CP] Check Pods Manifest.lock */,
+				DB274E8F7D5FE213CB8D34B7 /* [CP] Check Pods Manifest.lock */,
 				70905D8527E37D8E001CB7AF /* Sources */,
 				70905D8627E37D8E001CB7AF /* Frameworks */,
 				70905D8727E37D8E001CB7AF /* Resources */,
-				3A97D943C0540459BD34D5B4 /* [CP] Embed Pods Frameworks */,
+				D287FF0F4954B3D694708D4C /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -608,7 +614,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 70905DB627E37D8F001CB7AF /* Build configuration list for PBXNativeTarget "moeumTests" */;
 			buildPhases = (
-				F737A7C9DCD2F59AAC99FD2A /* [CP] Check Pods Manifest.lock */,
+				680FB35ADCEE17572CA36AC9 /* [CP] Check Pods Manifest.lock */,
 				70905D9B27E37D8F001CB7AF /* Sources */,
 				70905D9C27E37D8F001CB7AF /* Frameworks */,
 				70905D9D27E37D8F001CB7AF /* Resources */,
@@ -627,11 +633,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 70905DB927E37D8F001CB7AF /* Build configuration list for PBXNativeTarget "moeumUITests" */;
 			buildPhases = (
-				937285C76A927C037ABC7B9B /* [CP] Check Pods Manifest.lock */,
+				4A10B8E3B5C031610C4D4B67 /* [CP] Check Pods Manifest.lock */,
 				70905DA527E37D8F001CB7AF /* Sources */,
 				70905DA627E37D8F001CB7AF /* Frameworks */,
 				70905DA727E37D8F001CB7AF /* Resources */,
-				678AB28C82FFA528494729A4 /* [CP] Embed Pods Frameworks */,
+				2B524564517C9C6ED57EBAEA /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -711,46 +717,7 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		3A97D943C0540459BD34D5B4 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-moeum/Pods-moeum-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-moeum/Pods-moeum-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-moeum/Pods-moeum-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		5AF8958A69152379701E9DBA /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-moeum-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		678AB28C82FFA528494729A4 /* [CP] Embed Pods Frameworks */ = {
+		2B524564517C9C6ED57EBAEA /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -767,7 +734,7 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-moeum-moeumUITests/Pods-moeum-moeumUITests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		937285C76A927C037ABC7B9B /* [CP] Check Pods Manifest.lock */ = {
+		4A10B8E3B5C031610C4D4B67 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -789,7 +756,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F737A7C9DCD2F59AAC99FD2A /* [CP] Check Pods Manifest.lock */ = {
+		680FB35ADCEE17572CA36AC9 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -811,6 +778,45 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
+		D287FF0F4954B3D694708D4C /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-moeum/Pods-moeum-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-moeum/Pods-moeum-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-moeum/Pods-moeum-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DB274E8F7D5FE213CB8D34B7 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-moeum-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -826,6 +832,7 @@
 				7048F8CF27F5968C00BDA52A /* MemoCalendarViewCellTagView.swift in Sources */,
 				7046CB9F27F4194E008ACE10 /* MemoCalendarBottomSheetViewController.swift in Sources */,
 				701A0A162805355F0070F310 /* BuyHistoryView.swift in Sources */,
+				70C5879E280D4A95005372D3 /* TrashButton.swift in Sources */,
 				70CB74562800716C00DA4A8E /* CalendarVM+Logic.swift in Sources */,
 				70F7493E27FB454E00B31791 /* CalendarViewCell.swift in Sources */,
 				70CF4DBF27EAEFC400046E92 /* TestViewController.swift in Sources */,
@@ -867,6 +874,7 @@
 				70DAF01327F2EF7500EBD946 /* MemoCalendarMonthPickerView.swift in Sources */,
 				70F7493A27FB3CA700B31791 /* ChartViewController.swift in Sources */,
 				70E185C528091A8800236BC2 /* ItemPieChartView.swift in Sources */,
+				70C5879C280D1C90005372D3 /* RecordListViewCell.swift in Sources */,
 				704431B727F9772F000C091E /* MemoCalendarBottomSheetLineLabelView.swift in Sources */,
 				70278B562806C47B0013FE9F /* ChartVC+Ext.swift in Sources */,
 				70CB745428006DE000DA4A8E /* Date+Ext.swift in Sources */,
@@ -1043,7 +1051,7 @@
 		};
 		70905DB427E37D8F001CB7AF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F2236B31430E02B49B398B6E /* Pods-moeum.debug.xcconfig */;
+			baseConfigurationReference = 27CAD27C04432BD9E808681F /* Pods-moeum.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1054,6 +1062,7 @@
 				INFOPLIST_FILE = moeum/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1062,7 +1071,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.moeum;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tamsadan.toolinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1072,7 +1081,7 @@
 		};
 		70905DB527E37D8F001CB7AF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CBE0288E25FF7586019FA416 /* Pods-moeum.release.xcconfig */;
+			baseConfigurationReference = C56E84AD276A836F51B1C998 /* Pods-moeum.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -1083,6 +1092,7 @@
 				INFOPLIST_FILE = moeum/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -1091,7 +1101,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.test.moeum;
+				PRODUCT_BUNDLE_IDENTIFIER = com.tamsadan.toolinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -1101,7 +1111,7 @@
 		};
 		70905DB727E37D8F001CB7AF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = A482E8906E014BA2018EAFE7 /* Pods-moeumTests.debug.xcconfig */;
+			baseConfigurationReference = 37ADE58F2A4A147AE755994F /* Pods-moeumTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1127,7 +1137,7 @@
 		};
 		70905DB827E37D8F001CB7AF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F969D54C5214F9C368E5C201 /* Pods-moeumTests.release.xcconfig */;
+			baseConfigurationReference = F8EEA056470BEE3E5F70DDA7 /* Pods-moeumTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -1153,7 +1163,7 @@
 		};
 		70905DBA27E37D8F001CB7AF /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 62133CC2A280F78D1165B717 /* Pods-moeum-moeumUITests.debug.xcconfig */;
+			baseConfigurationReference = F21B8376C51B2D0A3C9809A1 /* Pods-moeum-moeumUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -1177,7 +1187,7 @@
 		};
 		70905DBB27E37D8F001CB7AF /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 34382A13DB87538CF9258760 /* Pods-moeum-moeumUITests.release.xcconfig */;
+			baseConfigurationReference = 7B6AF32D072E6AFF0269B3AB /* Pods-moeum-moeumUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

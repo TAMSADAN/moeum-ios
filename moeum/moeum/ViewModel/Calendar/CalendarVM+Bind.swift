@@ -24,6 +24,15 @@ extension CalendarViewModel {
             })
             .disposed(by: disposeBag)
         
+        input.cellData
+            .withUnretained(self)
+            .bind {
+                owner, cellData in
+                owner.output.cellRecords.accept(cellData.1)
+                owner.output.cellDate.accept(cellData.0)
+            }
+            .disposed(by: disposeBag)
+        
         Observable.combineLatest(output.dates, output.records)
             .map { [weak self] dates, records in
                 var cellDatas: [(Date, [Record])] = []

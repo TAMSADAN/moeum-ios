@@ -65,8 +65,8 @@ class RecordService {
         
     }
     
-    func deleteRecord() {
-        
+    func deleteRecord(recordId: Int) {
+        recordRepository.deleteRecordEntity(recordId: recordId)
     }
     
     private func parseToRecord(recordEntity: RecordEntity) -> Record {

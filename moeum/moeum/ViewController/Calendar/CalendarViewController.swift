@@ -29,6 +29,14 @@ class CalendarViewController: UIViewController, UICollectionViewDelegateFlowLayo
             $0.register(CalendarViewCell.self, forCellWithReuseIdentifier: CalendarViewCell.identifier)
         }
     
+    var recordListView = UITableView()
+        .then {
+            $0.register(RecordListViewCell.self, forCellReuseIdentifier: RecordListViewCell.identifier)
+            $0.rowHeight = 25
+            $0.backgroundColor = .systemGray6
+            $0.separatorStyle = .none
+        }
+    
     var writingButton = WritingButton()
     
     var weekLabelView = WeekLabelView()
@@ -36,6 +44,7 @@ class CalendarViewController: UIViewController, UICollectionViewDelegateFlowLayo
     var bottomSheet = CalendarBottomSheet()
     
     var calendarViewBottomConstraint = NSLayoutConstraint()
+    var headerHeightConstraint = NSLayoutConstraint()
     
     override func viewDidLoad() {
         super.viewDidLoad()

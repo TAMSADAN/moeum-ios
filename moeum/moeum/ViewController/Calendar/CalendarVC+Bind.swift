@@ -19,7 +19,12 @@ extension CalendarViewController {
             .map { [weak self] in
                 !(try! self?.viewModel.input.isClickedDatePickerButton.value() ?? false)
             }
-            .bind(to: viewModel.input.isClickedDatePickerButton)
+            .bind {
+                bool in
+                self.viewModel.input.isClickedDatePickerButton.onNext(bool)
+                self.view.layoutIfNeeded()
+            }
+//            .bind(to: viewModel.input.isClickedDatePickerButton)
             .disposed(by: disposeBag)
         
         headerView.datePicker.rx.date
@@ -49,6 +54,31 @@ extension CalendarViewController {
             })
             .disposed(by: disposeBag)
         
+        recordListView.rx.itemSelected
+            .withUnretained(self)
+            .bind { owner, indexPath in
+                let cell = owner.recordListView.cellForRow(at: indexPath) as! RecordListViewCell
+                let writingVC = WritingViewController()
+                writingVC.modalPresentationStyle = .fullScreen
+                writingVC.update(record: cell.record)
+                self.present(writingVC, animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        viewModel.output.cellRecords
+            .bind(to: recordListView.rx.items) {
+                (tableView: UITableView,
+                 index: Int,
+                 element: Record)
+                -> UITableViewCell in
+                guard let cell = tableView.dequeueReusableCell(withIdentifier: RecordListViewCell.identifier) as? RecordListViewCell else { fatalError() }
+                cell.update(record: element)
+                cell.selectionStyle = .none
+                return cell
+            }
+            .disposed(by: disposeBag)
+        
+        
         viewModel.input.cellData
             .subscribe(onNext: { [weak self] cellData in
                 self?.bottomSheet.update(date: cellData.0, records: cellData.1)
@@ -59,8 +89,10 @@ extension CalendarViewController {
             .subscribe(onNext: { [weak self] in
                 if $0 {
                     self?.headerView.showDatePicker()
+                    self?.showHeader()
                 } else {
                     self?.headerView.hideDatePicker()
+                    self?.hideHeader()
                 }
             })
             .disposed(by: disposeBag)

@@ -29,36 +29,49 @@ class ImageTextField: UIView {
             $0.isMultipleTouchEnabled = false
         }
     
+    var captionLabel = UILabel()
+        .then {
+            $0.textColor = .black
+            $0.font = .systemFont(ofSize: 9, weight: .semibold)
+        }
+    
     required init?(coder: NSCoder) {
         super.init(coder: coder)
-        self.setup()
+        setup()
     }
     
     init(image: String, text: String) {
         super.init(frame: .zero)
         self.imageString = image
         self.textString = text
-        self.setup()
+        setup()
     }
     
     func setup() {
-        self.addSubview(self.imageView)
-        self.imageView.image = UIImage(systemName: self.imageString)
-        self.imageView.translatesAutoresizingMaskIntoConstraints = false
-        NSLayoutConstraint.activate([
-            self.imageView.topAnchor.constraint(equalTo: self.topAnchor),
-            self.imageView.leadingAnchor.constraint(equalTo: self.leadingAnchor),
-            self.imageView.widthAnchor.constraint(equalToConstant: 20),
-            self.imageView.heightAnchor.constraint(equalToConstant: 20),
-        ])
+        addSubview(imageView)
+        addSubview(textField)
+        addSubview(captionLabel)
         
-        self.addSubview(self.textField)
-        self.textField.attributedPlaceholder = NSAttributedString(string: self.textString, attributes: [.foregroundColor: UIColor.black])
-        self.textField.translatesAutoresizingMaskIntoConstraints = false
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        captionLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        imageView.image = UIImage(systemName: imageString)
+        textField.attributedPlaceholder = NSAttributedString(string: textString, attributes: [.foregroundColor: UIColor.black])
+        
         NSLayoutConstraint.activate([
-            self.textField.leadingAnchor.constraint(equalTo: self.imageView.trailingAnchor, constant: 5),
-            self.textField.trailingAnchor.constraint(equalTo: self.trailingAnchor),
-            self.textField.centerYAnchor.constraint(equalTo: self.imageView.centerYAnchor),
+            imageView.topAnchor.constraint(equalTo: topAnchor),
+            imageView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            imageView.widthAnchor.constraint(equalToConstant: 20),
+            imageView.heightAnchor.constraint(equalToConstant: 20),
+            
+            textField.leadingAnchor.constraint(equalTo: imageView.trailingAnchor, constant: 5),
+            textField.trailingAnchor.constraint(equalTo: trailingAnchor),
+            textField.centerYAnchor.constraint(equalTo: imageView.centerYAnchor),
+            
+            captionLabel.topAnchor.constraint(equalTo: textField.bottomAnchor, constant: 2),
+            captionLabel.leadingAnchor.constraint(equalTo: textField.leadingAnchor),
+            captionLabel.trailingAnchor.constraint(equalTo: textField.trailingAnchor),
         ])
     }
 }

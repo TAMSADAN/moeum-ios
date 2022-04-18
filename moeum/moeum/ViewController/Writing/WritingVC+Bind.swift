@@ -47,6 +47,14 @@ extension WritingViewController {
             .bind(to: viewModel.input.memo)
             .disposed(by: disposeBag)
         
+        writingView.deleteButton.rx.tap
+            .withUnretained(self)
+            .bind { owner, _ in
+                owner.viewModel.recordService.deleteRecord(recordId: owner.viewModel.record.id)
+                owner.goToBackVC()
+            }
+            .disposed(by: disposeBag)
+        
         headerView.noButton.rx.tap
             .subscribe(onNext: { [weak self] _ in self?.viewModel.input.noBtnFlag.onNext(true) })
             .disposed(by: disposeBag)
@@ -55,25 +63,49 @@ extension WritingViewController {
             .subscribe(onNext: { [weak self] _ in self?.viewModel.input.yesBtnFlag.onNext(true) })
             .disposed(by: disposeBag)
         
-        viewModel.output.itemHistoryOpen
-            .withUnretained(self)
-            .bind { owner, bool in
-                bool ? owner.writingView.showItemHistoryView() : owner.writingView.hideItemHistoryView()
-            }
-            .disposed(by: disposeBag)
+//        viewModel.output.itemHistoryOpen
+//            .withUnretained(self)
+//            .bind { owner, bool in
+//                bool ? owner.writingView.showItemHistoryView() : owner.writingView.hideItemHistoryView()
+//            }
+//            .disposed(by: disposeBag)
         
-        viewModel.output.itemHistoryRecordZips
-            .withUnretained(self)
-            .subscribe(onNext: {
-                [weak self] owner, recordZips in
-                owner.writingView.itemHistoryView.update(recordZips: recordZips)
-            })
-            .disposed(by: disposeBag)
+//        viewModel.output.itemHistoryRecordZips
+//            .withUnretained(self)
+//            .subscribe(onNext: {
+//                [weak self] owner, recordZips in
+//                owner.writingView.itemHistoryView.update(recordZips: recordZips)
+//            })
+//            .disposed(by: disposeBag)
         
         viewModel.output.datePickerOpen
             .withUnretained(self)
             .bind { [weak self] owner, bool in
                 bool ? owner.writingView.showDatePicker(date: self?.viewModel.output.date.value ?? Date()) : owner.writingView.hideDatePicker()
+            }
+            .disposed(by: disposeBag)
+        
+        viewModel.output.itemCaption
+            .withUnretained(self)
+            .bind { owner, data in
+                owner.writingView.itemTextField.captionLabel.text = data.0
+                if data.1 == 1 {
+                    owner.writingView.itemTextField.captionLabel.textColor = .systemGreen
+                } else if data.1 == 2 {
+                    owner.writingView.itemTextField.captionLabel.textColor = .systemRed
+                }
+            }
+            .disposed(by: disposeBag)
+        
+        viewModel.output.countCaption
+            .withUnretained(self)
+            .bind { owner, data in
+                owner.writingView.countTextField.captionLabel.text = data.0
+                if data.1 == 1 {
+                    owner.writingView.countTextField.captionLabel.textColor = .systemGreen
+                } else if data.1 == 2 {
+                    owner.writingView.countTextField.captionLabel.textColor = .systemRed
+                }
             }
             .disposed(by: disposeBag)
         

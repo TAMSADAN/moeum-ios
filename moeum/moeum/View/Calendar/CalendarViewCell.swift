@@ -69,7 +69,7 @@ class CalendarViewCell: UICollectionViewCell {
         dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
         dateLabel.text = dateFormatter.string(from: date)
         
-        if isToday(date: date) {
+        if isToday(date: self.date) {
             dateLabel.layer.cornerRadius = 10
             dateLabel.layer.masksToBounds = true
             dateLabel.backgroundColor = .black

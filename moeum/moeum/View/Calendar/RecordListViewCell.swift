@@ -1,0 +1,146 @@
+//
+//  RecordListViewCell.swift
+//  moeum
+//
+//  Created by 송영모 on 2022/04/18.
+//
+
+import UIKit
+
+class RecordListViewCell: UITableViewCell {
+    
+    static let identifier = "RecordListViewCell"
+    
+    var contextView = UIView()
+        .then {
+            $0.backgroundColor = .systemGray6
+        }
+    
+    var typeLabel = UILabel()
+        .then {
+            $0.font = Const.Font.footnote
+            $0.textAlignment = .center
+            $0.adjustsFontSizeToFitWidth = true
+        }
+    
+    var tagLabel = UILabel()
+        .then {
+            $0.font = Const.Font.footnote
+            $0.textAlignment = .center
+            $0.adjustsFontSizeToFitWidth = true
+        }
+    
+    var itemLabel = UILabel()
+        .then {
+            $0.font = Const.Font.footnote
+            $0.textAlignment = .center
+            $0.adjustsFontSizeToFitWidth = true
+        }
+    
+    var priceLabel = UILabel()
+        .then {
+            $0.font = Const.Font.footnote
+            $0.textAlignment = .right
+            $0.adjustsFontSizeToFitWidth = true
+        }
+    
+    var countLabel = UILabel()
+        .then {
+            $0.font = Const.Font.footnote
+            $0.textAlignment = .right
+            $0.adjustsFontSizeToFitWidth = true
+        }
+    
+    var incomeLabel = UILabel()
+        .then {
+            $0.font = Const.Font.footnote
+            $0.textAlignment = .right
+            $0.adjustsFontSizeToFitWidth = true
+        }
+    
+    var record: Record!
+    
+    required init?(coder: NSCoder) {
+        super.init(coder: coder)
+        setView()
+    }
+    
+    override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        setView()
+    }
+    
+    func update(record: Record) {
+        self.record = record
+        if record.type == "매수" {
+            typeLabel.textColor = .systemRed
+        } else if record.type == "매도" {
+            typeLabel.textColor = .systemBlue
+        } else {
+            typeLabel.textColor = .black
+        }
+        
+        typeLabel.text = record.type
+        tagLabel.text = record.tag
+        itemLabel.text = record.item
+        priceLabel.text = String(record.price)
+        countLabel.text = String(record.count)
+    }
+    
+    func setView() {
+        addSubview(contextView)
+        contextView.addSubview(typeLabel)
+        contextView.addSubview(tagLabel)
+        contextView.addSubview(itemLabel)
+        contextView.addSubview(priceLabel)
+        contextView.addSubview(countLabel)
+        contextView.addSubview(incomeLabel)
+        
+        contextView.translatesAutoresizingMaskIntoConstraints = false
+        typeLabel.translatesAutoresizingMaskIntoConstraints = false
+        tagLabel.translatesAutoresizingMaskIntoConstraints = false
+        itemLabel.translatesAutoresizingMaskIntoConstraints = false
+        priceLabel.translatesAutoresizingMaskIntoConstraints = false
+        countLabel.translatesAutoresizingMaskIntoConstraints = false
+        incomeLabel.translatesAutoresizingMaskIntoConstraints = false
+        
+        backgroundColor = .systemGray6
+        
+        NSLayoutConstraint.activate([
+            contextView.topAnchor.constraint(equalTo: topAnchor),
+            contextView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            contextView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            contextView.heightAnchor.constraint(equalToConstant: 20),
+            
+            typeLabel.topAnchor.constraint(equalTo: contextView.topAnchor),
+            typeLabel.leadingAnchor.constraint(equalTo: contextView.leadingAnchor),
+            typeLabel.bottomAnchor.constraint(equalTo: contextView.bottomAnchor),
+            typeLabel.widthAnchor.constraint(equalTo: contextView.widthAnchor, multiplier: 0.1),
+            
+            tagLabel.topAnchor.constraint(equalTo: contextView.topAnchor),
+            tagLabel.leadingAnchor.constraint(equalTo: typeLabel.trailingAnchor),
+            tagLabel.bottomAnchor.constraint(equalTo: contextView.bottomAnchor),
+            tagLabel.widthAnchor.constraint(equalTo: contextView.widthAnchor, multiplier: 0.15),
+            
+            itemLabel.topAnchor.constraint(equalTo: contextView.topAnchor),
+            itemLabel.leadingAnchor.constraint(equalTo: tagLabel.trailingAnchor),
+            itemLabel.bottomAnchor.constraint(equalTo: contextView.bottomAnchor),
+            itemLabel.widthAnchor.constraint(equalTo: contextView.widthAnchor, multiplier: 0.15),
+            
+            priceLabel.topAnchor.constraint(equalTo: contextView.topAnchor),
+            priceLabel.leadingAnchor.constraint(equalTo: itemLabel.trailingAnchor),
+            priceLabel.bottomAnchor.constraint(equalTo: contextView.bottomAnchor),
+            priceLabel.widthAnchor.constraint(equalTo: contextView.widthAnchor, multiplier: 0.2),
+            
+            countLabel.topAnchor.constraint(equalTo: contextView.topAnchor),
+            countLabel.leadingAnchor.constraint(equalTo: priceLabel.trailingAnchor),
+            countLabel.bottomAnchor.constraint(equalTo: contextView.bottomAnchor),
+            countLabel.widthAnchor.constraint(equalTo: contextView.widthAnchor, multiplier: 0.2),
+            
+            incomeLabel.topAnchor.constraint(equalTo: contextView.topAnchor),
+            incomeLabel.leadingAnchor.constraint(equalTo: countLabel.trailingAnchor, constant: -5),
+            incomeLabel.bottomAnchor.constraint(equalTo: contextView.bottomAnchor),
+            incomeLabel.widthAnchor.constraint(equalTo: contextView.widthAnchor, multiplier: 0.2),
+        ])
+    }
+}

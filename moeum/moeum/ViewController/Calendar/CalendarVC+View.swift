@@ -24,37 +24,12 @@ extension CalendarViewController {
             return .zero
         }
     
-    
-//        func collectionView(_ collectionView: UICollectionView, shouldSelectItemAt indexPath: IndexPath) -> Bool {
-//            print("click")
-//            if collectionView.indexPathsForSelectedItems?.contains(indexPath) ?? false {
-//                collectionView.deselectItem(at: indexPath, animated: true)
-//                print("hide bottom sheet")
-//                showCalendarView()
-//                
-//                for collectionViewcell in collectionView.visibleCells {
-//                    let cell = collectionViewcell as! CalendarViewCell
-//    //                cell.showMemoList()
-//                }
-//            } else {
-//                collectionView.selectItem(at: indexPath, animated: true, scrollPosition: [])
-//                print("show bottom sheet")
-//                let cell = collectionView.cellForItem(at: indexPath) as! CalendarViewCell
-//                print(cell.date)
-//                hideCalendarView()
-//                for collectionViewcell in collectionView.visibleCells {
-//                    let cell = collectionViewcell as! CalendarViewCell
-//    //                cell.hideMemoList()
-//                }
-//            }
-//            return false
-//        }
-    
     func setView() {
         view.addSubview(weekLabelView)
         view.addSubview(calendarView)
         view.addSubview(headerView)
         view.addSubview(bottomSheet)
+        view.addSubview(recordListView)
         view.addSubview(writingButton)
         
         headerView.translatesAutoresizingMaskIntoConstraints = false
@@ -62,6 +37,7 @@ extension CalendarViewController {
         calendarView.translatesAutoresizingMaskIntoConstraints = false
         writingButton.translatesAutoresizingMaskIntoConstraints = false
         bottomSheet.translatesAutoresizingMaskIntoConstraints = false
+        recordListView.translatesAutoresizingMaskIntoConstraints = false
         
         view.backgroundColor = .white
 //        calendarView.backgroundColor = .green
@@ -69,12 +45,13 @@ extension CalendarViewController {
 //        headerView.backgroundColor = .brown
         bottomSheet.alpha = 0
         calendarViewBottomConstraint =  calendarView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
+        headerHeightConstraint = headerView.heightAnchor.constraint(equalToConstant: 20)
         
         NSLayoutConstraint.activate([
             headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             headerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             headerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-            headerView.heightAnchor.constraint(equalToConstant: 20),
+            headerHeightConstraint,
             
             weekLabelView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 30),
             weekLabelView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
@@ -92,6 +69,11 @@ extension CalendarViewController {
             
             writingButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
             writingButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
+            
+            recordListView.topAnchor.constraint(lessThanOrEqualTo: bottomSheet.recordFixedLabel.bottomAnchor),
+            recordListView.leadingAnchor.constraint(equalTo: bottomSheet.leadingAnchor),
+            recordListView.trailingAnchor.constraint(equalTo: bottomSheet.trailingAnchor),
+            recordListView.bottomAnchor.constraint(equalTo: bottomSheet.bottomAnchor),
         ])
     }
 }

@@ -36,15 +36,16 @@ class IncomeBarChartView: UIView {
         var days:[String] = []
         var colors: [UIColor] = []
         for i in 0..<dataPoints.count {
-            let dataEntry = BarChartDataEntry(x: Double(i), y: values[i])
-            dataEntries.append(dataEntry)
-            
-            days.append(String(i + 1))
             if values[i] >= 0 {
                 colors.append(.systemRed)
             } else {
                 colors.append(.systemBlue)
             }
+            
+            let dataEntry = BarChartDataEntry(x: Double(i), y: values[i])
+            dataEntries.append(dataEntry)
+            
+            days.append(String(i + 1))
         }
 
         let chartDataSet = BarChartDataSet(entries: dataEntries, label: "판매량")

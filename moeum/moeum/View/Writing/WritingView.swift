@@ -25,18 +25,19 @@ class WritingView: UIView {
         }
     
     var dateButton = DateButtonView(image: "cart.badge.plus", label: "매수일")
-    var itemHistoryView = BuyHistoryView()
+//    var itemHistoryView = BuyHistoryView()
     
     var datePicker = UIDatePicker()
         .then {
             $0.timeZone = TimeZone(abbreviation: "KST")
             $0.locale = Locale(identifier: "ko_KR")
             $0.minuteInterval = 10
-            $0.maximumDate = Date()
             if #available(iOS 13.4, *) {
                 $0.preferredDatePickerStyle = .wheels
             }
         }
+    
+    var deleteButton = TrashButton()
     
     var datePickerHeightConstraint = NSLayoutConstraint()
     var itemHistoryViewHeightConstraint = NSLayoutConstraint()
@@ -71,21 +72,21 @@ extension WritingView {
         })
     }
     
-    func showItemHistoryView() {
-//        itemHistoryViewHeightConstraint.constant = 100
-        UIView.animate(withDuration: 0.25, animations: {
-//            self.itemHistoryViewHeightConstraint.isActive = true
-            self.layoutIfNeeded()
-        })
-    }
+//    func showItemHistoryView() {
+////        itemHistoryViewHeightConstraint.constant = 100
+//        UIView.animate(withDuration: 0.25, animations: {
+////            self.itemHistoryViewHeightConstraint.isActive = true
+//            self.layoutIfNeeded()
+//        })
+//    }
     
-    func hideItemHistoryView() {
-//        itemHistoryViewHeightConstraint.constant = 0
-        UIView.animate(withDuration: 0.25, animations: {
-//            self.itemHistoryViewHeightConstraint.isActive = true
-            self.layoutIfNeeded()
-        })
-    }
+//    func hideItemHistoryView() {
+////        itemHistoryViewHeightConstraint.constant = 0
+//        UIView.animate(withDuration: 0.25, animations: {
+////            self.itemHistoryViewHeightConstraint.isActive = true
+//            self.layoutIfNeeded()
+//        })
+//    }
 }
 
 extension WritingView {
@@ -98,11 +99,10 @@ extension WritingView {
         addSubview(priceTextField)
         addSubview(countTextField)
         addSubview(sumLabel)
-//        addSubview(incomeLabel)
-//        addSubview(percentLabel)
         addSubview(memoTextView)
+        addSubview(deleteButton)
         
-        addSubview(itemHistoryView)
+//        addSubview(itemHistoryView)
 
         tagTextField.translatesAutoresizingMaskIntoConstraints = false
         itemTextField.translatesAutoresizingMaskIntoConstraints = false
@@ -112,42 +112,41 @@ extension WritingView {
         priceTextField.translatesAutoresizingMaskIntoConstraints = false
         countTextField.translatesAutoresizingMaskIntoConstraints = false
         sumLabel.translatesAutoresizingMaskIntoConstraints = false
-//        incomeLabel.translatesAutoresizingMaskIntoConstraints = false
-//        percentLabel.translatesAutoresizingMaskIntoConstraints = false
         memoTextView.translatesAutoresizingMaskIntoConstraints = false
-        itemHistoryView.translatesAutoresizingMaskIntoConstraints = false
+        deleteButton.translatesAutoresizingMaskIntoConstraints = false
+//        itemHistoryView.translatesAutoresizingMaskIntoConstraints = false
         
         datePickerHeightConstraint = datePicker.heightAnchor.constraint(equalToConstant: 216)
-        itemHistoryViewHeightConstraint = itemHistoryView.heightAnchor.constraint(equalToConstant: 0)
+//        itemHistoryViewHeightConstraint = itemHistoryView.heightAnchor.constraint(equalToConstant: 0)
         hideDatePicker()
         
 //        itemHistoryView.backgroundColor = .systemGray5
         
         NSLayoutConstraint.activate([
-            tagTextField.topAnchor.constraint(equalTo: topAnchor, constant: 15),
+            tagTextField.topAnchor.constraint(equalTo: topAnchor, constant: 20),
             tagTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             tagTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             tagTextField.heightAnchor.constraint(equalToConstant: 20),
             
-            itemTextField.topAnchor.constraint(equalTo: self.tagTextField.bottomAnchor, constant: 15),
+            itemTextField.topAnchor.constraint(equalTo: self.tagTextField.bottomAnchor, constant: 20),
             itemTextField.leadingAnchor.constraint(equalTo: self.leadingAnchor, constant: 10),
             itemTextField.trailingAnchor.constraint(equalTo: self.trailingAnchor, constant: -10),
             itemTextField.heightAnchor.constraint(equalToConstant: 20),
             
-            itemHistoryView.topAnchor.constraint(equalTo: itemTextField.bottomAnchor),
-            itemHistoryView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            itemHistoryView.trailingAnchor.constraint(equalTo: trailingAnchor),
+//            itemHistoryView.topAnchor.constraint(equalTo: itemTextField.bottomAnchor),
+//            itemHistoryView.leadingAnchor.constraint(equalTo: leadingAnchor),
+//            itemHistoryView.trailingAnchor.constraint(equalTo: trailingAnchor),
             
-            typeSegment.topAnchor.constraint(equalTo: itemTextField.bottomAnchor, constant: 15),
+            typeSegment.topAnchor.constraint(equalTo: itemTextField.bottomAnchor, constant: 20),
             typeSegment.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             typeSegment.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             
-            dateButton.topAnchor.constraint(equalTo: typeSegment.bottomAnchor, constant: 15),
+            dateButton.topAnchor.constraint(equalTo: typeSegment.bottomAnchor, constant: 20),
             dateButton.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             dateButton.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5, constant: -10),
             dateButton.bottomAnchor.constraint(equalTo: dateButton.timeLabel.bottomAnchor),
             
-            datePicker.topAnchor.constraint(equalTo: dateButton.bottomAnchor, constant: 15),
+            datePicker.topAnchor.constraint(equalTo: dateButton.bottomAnchor, constant: 20),
             datePicker.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 0),
             datePicker.trailingAnchor.constraint(equalTo: trailingAnchor, constant: 0),
             datePickerHeightConstraint,
@@ -157,30 +156,23 @@ extension WritingView {
             priceTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             priceTextField.heightAnchor.constraint(equalToConstant: 20),
             
-            countTextField.topAnchor.constraint(equalTo: priceTextField.bottomAnchor, constant: 15),
+            countTextField.topAnchor.constraint(equalTo: priceTextField.bottomAnchor, constant: 20),
             countTextField.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             countTextField.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
             countTextField.heightAnchor.constraint(equalToConstant: 20),
             
-            sumLabel.topAnchor.constraint(equalTo: countTextField.bottomAnchor, constant: 15),
+            sumLabel.topAnchor.constraint(equalTo: countTextField.bottomAnchor, constant: 20),
             sumLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             sumLabel.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.5, constant: -10),
             sumLabel.heightAnchor.constraint(equalToConstant: 20),
-//
-//            incomeLabel.topAnchor.constraint(equalTo: sumLabel.bottomAnchor, constant: 15),
-//            incomeLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-//            incomeLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-//            incomeLabel.heightAnchor.constraint(equalToConstant: 20),
-//
-//            percentLabel.topAnchor.constraint(equalTo: incomeLabel.bottomAnchor, constant: 15),
-//            percentLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-//            percentLabel.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-//            percentLabel.heightAnchor.constraint(equalToConstant: 20),
             
-            memoTextView.topAnchor.constraint(equalTo: sumLabel.bottomAnchor, constant: 15),
+            memoTextView.topAnchor.constraint(equalTo: sumLabel.bottomAnchor, constant: 20),
             memoTextView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
             memoTextView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            memoTextView.bottomAnchor.constraint(equalTo: bottomAnchor),
+            
+            deleteButton.topAnchor.constraint(equalTo: memoTextView.bottomAnchor),
+            deleteButton.centerXAnchor.constraint(equalTo: centerXAnchor),
+            deleteButton.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -20),
         ])
     }
 }

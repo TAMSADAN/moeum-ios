@@ -22,6 +22,22 @@ class RecordRepository {
     }
     
     func postRecordEntity(recordEntity: RecordEntity) {
+        print(recordEntity)
+        if let object = instance.objects(RecordEntity.self).first(where: {$0.id == recordEntity.id}) {
+            if recordEntity.id != -1 {
+                try? instance.write {
+                    object.tag = recordEntity.tag
+                    object.item = recordEntity.item
+                    object.type = recordEntity.type
+                    object.date = recordEntity.date
+                    object.price = recordEntity.price
+                    object.count = recordEntity.count
+                    object.memo = recordEntity.memo
+                }
+                return
+            }
+        }
+        
         var id = 0
         if let lastRecord = instance.objects(RecordEntity.self).last {
             id = lastRecord.id + 1
@@ -40,6 +56,14 @@ class RecordRepository {
     }
     
     func deleteRecordEntity(recordId: Int) {
+        if let object = instance.objects(RecordEntity.self).first(where: {$0.id == recordId}) {
+            if recordId != -1 {
+                try? instance.write {
+                    instance.delete(object)
+                }
+                return
+            }
+        }
         
     }
 }

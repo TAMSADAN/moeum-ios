@@ -30,6 +30,8 @@ class CalendarViewModel: ViewModel {
         let datePickerOpen = PublishRelay<Bool>()
         let dateLabel = BehaviorRelay(value: "")
         let cellDatas = BehaviorRelay(value: [(Date(), [Record()])])
+        let cellRecords = BehaviorRelay(value: [Record()])
+        let cellDate = BehaviorRelay(value: Date())
     }
     
     init() {
