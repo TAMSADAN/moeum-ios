@@ -11,11 +11,10 @@ import Then
 class CalendarHeaderView: UIView {
     var monthLabel = UILabel()
         .then {
-            $0.text = "2022.3"
-            $0.font = .systemFont(ofSize: 20, weight: .bold)
+            $0.font = .systemFont(ofSize: 25, weight: .bold)
         }
     
-    var pickerButton = UIButton()
+    var pickerBtn = UIButton()
         .then {
             $0.setBackgroundImage(UIImage(systemName: "chevron.down"), for: .normal)
             $0.tintColor = .black
@@ -41,6 +40,8 @@ class CalendarHeaderView: UIView {
         }
     
     var datePickerHeightConstraint = NSLayoutConstraint()
+    var datePickerTopConstraint = NSLayoutConstraint()
+    var datePickerBottomConstraint = NSLayoutConstraint()
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
@@ -53,7 +54,53 @@ class CalendarHeaderView: UIView {
     }
 }
 
-// animation
+extension CalendarHeaderView {
+    func setView() {
+        addSubview(monthLabel)
+        addSubview(pickerBtn)
+        addSubview(datePickerBackgroundView)
+        addSubview(datePicker)
+        
+        datePicker.backgroundColor = .red
+        
+        monthLabel.translatesAutoresizingMaskIntoConstraints = false
+        pickerBtn.translatesAutoresizingMaskIntoConstraints = false
+        datePickerBackgroundView.translatesAutoresizingMaskIntoConstraints = false
+        datePicker.translatesAutoresizingMaskIntoConstraints = false
+
+        datePickerHeightConstraint = datePicker.bottomAnchor.constraint(equalTo: monthLabel.bottomAnchor, constant: 0)
+        datePickerTopConstraint = datePicker.topAnchor.constraint(equalTo: monthLabel.bottomAnchor)
+        datePickerBottomConstraint = datePicker.bottomAnchor.constraint(equalTo: monthLabel.bottomAnchor, constant: 400)
+        
+        NSLayoutConstraint.activate([
+            monthLabel.topAnchor.constraint(equalTo: topAnchor),
+            monthLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            
+            pickerBtn.leadingAnchor.constraint(equalTo: monthLabel.trailingAnchor, constant: 5),
+            pickerBtn.centerYAnchor.constraint(equalTo: monthLabel.centerYAnchor),
+            pickerBtn.widthAnchor.constraint(equalToConstant: 20),
+            pickerBtn.heightAnchor.constraint(equalToConstant: 20),
+            
+            datePickerBackgroundView.topAnchor.constraint(equalTo: datePicker.topAnchor),
+            datePickerBackgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
+            datePickerBackgroundView.trailingAnchor.constraint(equalTo: trailingAnchor),
+            datePickerBackgroundView.bottomAnchor.constraint(equalTo: datePicker.bottomAnchor),
+            
+            datePickerTopConstraint,
+            datePicker.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+            datePicker.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+            datePickerBottomConstraint,
+            
+            
+//            datePicker.topAnchor.constraint(equalTo: monthLabel.bottomAnchor),
+//            datePicker.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
+//            datePicker.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
+//            datePickerHeightConstraint,
+        ])
+    }
+}
+
+
 extension CalendarHeaderView {
     func showDatePicker() {
         datePickerHeightConstraint.constant = 216
@@ -69,42 +116,5 @@ extension CalendarHeaderView {
             self.datePickerHeightConstraint.isActive = true
             self.layoutIfNeeded()
         })
-    }
-}
-
-// setView
-extension CalendarHeaderView {
-    func setView() {
-        addSubview(monthLabel)
-        addSubview(pickerButton)
-        addSubview(datePickerBackgroundView)
-        addSubview(datePicker)
-        
-        monthLabel.translatesAutoresizingMaskIntoConstraints = false
-        pickerButton.translatesAutoresizingMaskIntoConstraints = false
-        datePickerBackgroundView.translatesAutoresizingMaskIntoConstraints = false
-        datePicker.translatesAutoresizingMaskIntoConstraints = false
-
-        datePickerHeightConstraint = datePicker.bottomAnchor.constraint(equalTo: monthLabel.bottomAnchor, constant: 0)
-        
-        NSLayoutConstraint.activate([
-            monthLabel.topAnchor.constraint(equalTo: topAnchor),
-            monthLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            
-            pickerButton.leadingAnchor.constraint(equalTo: monthLabel.trailingAnchor, constant: 5),
-            pickerButton.centerYAnchor.constraint(equalTo: monthLabel.centerYAnchor),
-            pickerButton.widthAnchor.constraint(equalToConstant: 20),
-            pickerButton.heightAnchor.constraint(equalToConstant: 20),
-            
-            datePickerBackgroundView.topAnchor.constraint(equalTo: datePicker.topAnchor),
-            datePickerBackgroundView.leadingAnchor.constraint(equalTo: leadingAnchor),
-            datePickerBackgroundView.trailingAnchor.constraint(equalTo: trailingAnchor),
-            datePickerBackgroundView.bottomAnchor.constraint(equalTo: datePicker.bottomAnchor),
-            
-            datePicker.topAnchor.constraint(equalTo: monthLabel.bottomAnchor),
-            datePicker.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 10),
-            datePicker.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -10),
-            datePickerHeightConstraint,
-        ])
     }
 }

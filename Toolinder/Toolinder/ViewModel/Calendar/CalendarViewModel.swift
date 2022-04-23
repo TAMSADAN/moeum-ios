@@ -18,25 +18,26 @@ class CalendarViewModel: ViewModel {
     var output = Output()
     
     struct Input {
-        let nowDate = BehaviorSubject<Date>(value: Date())
-        let isClickedDatePickerButton = BehaviorSubject(value: false)
-        let cellData = PublishSubject<(Date, [Record])>()
-        let indexPath = BehaviorRelay(value: IndexPath())
+        let records = BehaviorSubject(value: [Record()])
+        let isMonthLabelClicked = BehaviorSubject(value: false)
+        let datePickerDate = BehaviorSubject(value: Date())
+        let selectedCellIndexPath = BehaviorSubject(value: IndexPath())
+        let calendarSelectedCellData = BehaviorSubject(value: (IndexPath(), Date(), [Record()]))
     }
     
     struct Output {
         let records = PublishRelay<[Record]>()
-        let dates = PublishRelay<[Date]>()
+        let monthLabelText = BehaviorRelay(value: "")
         let datePickerOpen = PublishRelay<Bool>()
-        let dateLabel = BehaviorRelay(value: "")
-        let cellDatas = BehaviorRelay(value: [(Date(), [Record()])])
-        let cellRecords = BehaviorRelay(value: [Record()])
-        let cellDate = BehaviorRelay(value: Date())
+        let calendarDates = PublishRelay<[Date]>()
+        let calendarCellDatas = BehaviorRelay(value: [(Date(), [Record()])])
+        let bottomSheetRecords = BehaviorRelay(value: [Record()])
+        let bottomSheetDate = BehaviorRelay(value: Date())
     }
     
     init() {
         setBind()
-        output.records.accept(recordService.getRecords())
-        output.dates.accept(getDatesOfMonth(date: try! input.nowDate.value()))
+        input.records.onNext(recordService.getRecords())
+        output.calendarDates.accept(getDatesOfMonth(date: try! input.datePickerDate.value()))
     }
 }

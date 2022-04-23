@@ -14,12 +14,6 @@ class CalendarBottomSheet: UIView {
     var titleLabel = UILabel()
     var hideButton = UIButton()
     
-    var recordListView = UITableView()
-        .then {
-            $0.register(RecordListViewCell.self, forCellReuseIdentifier: RecordListViewCell.identifier)
-            $0.rowHeight = 300
-        }
-    
     var recordFixedLabel = RecordFixedLabel()
     
     var date = Date()
@@ -37,9 +31,8 @@ class CalendarBottomSheet: UIView {
         self.setView()
     }
     
-    func update(date: Date, records: [Record]) {
+    func update(date: Date) {
         self.date = date
-        self.records = records
         
         dateFormatter.dateFormat = "M.d"
         dateFormatter.locale = Locale(identifier: "ko_kr")

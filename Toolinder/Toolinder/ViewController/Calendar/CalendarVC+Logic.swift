@@ -27,7 +27,7 @@ extension CalendarViewController {
     func goToWritingVC() {
         let writingVC = WritingViewController()
         writingVC.modalPresentationStyle = .fullScreen
-        writingVC.writingView.datePicker.date = viewModel.output.cellDate.value
+        writingVC.writingView.datePicker.date = viewModel.output.bottomSheetDate.value
         self.present(writingVC, animated: true)
     }
     

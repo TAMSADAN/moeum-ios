@@ -11,43 +11,64 @@ import RxCocoa
 
 extension CalendarViewModel {
     func setBind() {
-        input.isClickedDatePickerButton
+        input.records
+            .bind(to: output.records)
+            .disposed(by: disposeBag)
+        
+        input.isMonthLabelClicked
             .bind(to: output.datePickerOpen)
             .disposed(by: disposeBag)
         
-        input.nowDate
-            .subscribe(onNext: {[weak self] date in
-                let dateComponents = Calendar.current.dateComponents([.year, .month], from: date)
-                let dateStr = String(dateComponents.year!) + "." + String(dateComponents.month!)
-                self?.output.dateLabel.accept(dateStr)
-                self?.output.dates.accept(self?.getDatesOfMonth(date: date) ?? [])
-            })
-            .disposed(by: disposeBag)
-        
-        input.cellData
+        input.datePickerDate
             .withUnretained(self)
-            .bind {
-                owner, cellData in
-                owner.output.cellRecords.accept(cellData.1)
-                owner.output.cellDate.accept(cellData.0)
+            .bind { owner, date in
+                let dateComponents = Calendar.current.dateComponents([.year, .month], from: date)
+                let monthLabeltext = String(dateComponents.year!) + "." + String(dateComponents.month!)
+                owner.output.monthLabelText.accept(monthLabeltext)
+                owner.output.calendarDates.accept(owner.getDatesOfMonth(date: date))
             }
             .disposed(by: disposeBag)
         
-        Observable.combineLatest(output.dates, output.records)
-            .map { [weak self] dates, records in
+        input.calendarSelectedCellData
+            .withUnretained(self)
+            .bind { owner, data in
+                owner.output.bottomSheetRecords.accept(data.2)
+                owner.output.bottomSheetDate.accept(data.1)
+            }
+            .disposed(by: disposeBag)
+        
+        Observable.combineLatest(output.calendarDates, output.records)
+            .withUnretained(self)
+            .bind { owner, data in
                 var cellDatas: [(Date, [Record])] = []
-                for date in dates {
+                for date in data.0 {
                     var newRecords: [Record] = []
-                    for record in records {
-                        if self?.isEqualDate(date1: date, date2: record.date) ?? false {
+                    for record in data.1 {
+                        if record.date.isEqualDate(date: date) {
                             newRecords.append(record)
                         }
                     }
                     cellDatas.append((date, newRecords))
                 }
-                return cellDatas
+                owner.output.calendarCellDatas.accept(cellDatas)
             }
-            .bind(to: output.cellDatas)
             .disposed(by: disposeBag)
+        
+//        Observable.combineLatest(output.calendarDates, output.records)
+//            .map { [weak self] dates, records in
+//                var cellDatas: [(Date, [Record])] = []
+//                for date in dates {
+//                    var newRecords: [Record] = []
+//                    for record in records {
+//                        if self?.isEqualDate(date1: date, date2: record.date) ?? false {
+//                            newRecords.append(record)
+//                        }
+//                    }
+//                    cellDatas.append((date, newRecords))
+//                }
+//                return cellDatas
+//            }
+//            .bind(to: output.cellDatas)
+//            .disposed(by: disposeBag)
     }
 }

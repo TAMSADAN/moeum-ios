@@ -24,6 +24,30 @@ class CalendarViewController: UIViewController, UICollectionViewDelegateFlowLayo
     
     var headerView = CalendarHeaderView()
     
+    var monthLabel = UILabel()
+        .then {
+            $0.font = .systemFont(ofSize: 25, weight: .bold)
+            $0.textColor = .black
+            $0.text = "2022.3"
+        }
+    
+    var datePickerBackView = UIView()
+        .then {
+            $0.backgroundColor = .white
+        }
+    
+    var datePicker = UIDatePicker()
+        .then {
+            $0.timeZone = NSTimeZone.local
+            $0.locale = Locale(identifier: "ko_KR")
+            $0.minuteInterval = 10
+            $0.datePickerMode = .date
+            $0.backgroundColor = .white
+            if #available(iOS 13.4, *) {
+                $0.preferredDatePickerStyle = .wheels
+            }
+        }
+    
     var calendarView = UICollectionView(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
         .then {
             $0.register(CalendarViewCell.self, forCellWithReuseIdentifier: CalendarViewCell.identifier)
@@ -46,10 +70,12 @@ class CalendarViewController: UIViewController, UICollectionViewDelegateFlowLayo
     var calendarViewBottomConstraint = NSLayoutConstraint()
     var headerHeightConstraint = NSLayoutConstraint()
     
+    var datePickerBackViewBottomConstraint = NSLayoutConstraint()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setBind()
         self.setView()
+        self.setBind()
 //        calendarView.delegate = self
 //        self.calendarView.dataSource = self
 //        self.calendarView.delegate = self
