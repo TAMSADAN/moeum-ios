@@ -44,9 +44,9 @@ class CalendarBottomSheet: UIView {
     func setView() {
         addSubview(contentView)
         contentView.addSubview(topDividerView)
-        contentView.addSubview(hideButton)
         contentView.addSubview(titleLabel)
         contentView.addSubview(recordFixedLabel)
+        addSubview(hideButton)
         
         contentView.translatesAutoresizingMaskIntoConstraints = false
         topDividerView.translatesAutoresizingMaskIntoConstraints = false
@@ -58,6 +58,7 @@ class CalendarBottomSheet: UIView {
         backgroundColor = .systemGray6
         topDividerView.backgroundColor = .systemGray
         hideButton.tintColor = .systemGray3
+//        hideButton.setImage(UIImage(systemName: "chevron.compact.down"), for: .normal)
         hideButton.setBackgroundImage(UIImage(systemName: "chevron.compact.down"), for: .normal)
         titleLabel.font = .systemFont(ofSize: 18, weight: .semibold)
         

@@ -115,6 +115,15 @@ extension CalendarViewController {
             .bind(to: viewModel.input.datePickerDate)
             .disposed(by: disposeBag)
         
+        bottomSheet.hideButton.rx.tapGesture()
+            .withUnretained(self)
+            .subscribe { owner, event in
+                owner.showCalendarView()
+                owner.viewModel.input.calendarSelectedCellData.onNext((IndexPath(), Date(), []))
+                
+            }
+            .disposed(by: disposeBag)
+        
         writingButton.rx.tap
             .bind { [weak self] in self?.goToWritingVC() }
             .disposed(by: disposeBag)
