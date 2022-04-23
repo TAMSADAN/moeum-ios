@@ -5,6 +5,12 @@
 ## Toolinder
 투린더는 투자 매매 일지 캘린더 서비스입니다.
 
+다운로드는 아래에서 하실 수 있습니다.
+
+<p align="center">
+<a href="https://apps.apple.com/app/id1619745259" style="display: inline-block; overflow: hidden; border-radius: 13px; width: 250px; height: 83px;"><img src="https://tools.applemediaservices.com/api/badges/download-on-the-app-store/black/en-us?size=250x83&amp;releaseDate=1641254400&h=ddfff0c3bd61d9f88f53494b401881d3" alt="Download on the App Store" style="border-radius: 13px; width: 250px; height: 83px;"></a>
+</p>
+
 ## Index
 
 - [UI](#ui)
