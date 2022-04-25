@@ -7,6 +7,7 @@
 
 import UIKit
 import Then
+import SwiftUI
 
 class TagLabel: UIView {
     
@@ -24,7 +25,8 @@ class TagLabel: UIView {
     
     var label = UILabel()
         .then {
-            $0.font = .systemFont(ofSize: 8)
+            $0.font = .systemFont(ofSize: 8, weight: .bold)
+            $0.textColor = .white
         }
     
     var ContentViewHeightConstraint = NSLayoutConstraint()
@@ -66,11 +68,11 @@ class TagLabel: UIView {
         label.translatesAutoresizingMaskIntoConstraints = false
         
         if record.type == "매수" {
-            contentView.backgroundColor = .systemYellow
-            tagView.backgroundColor = .systemRed
+            contentView.backgroundColor = Const.Color.pink
+            tagView.backgroundColor = Const.Color.pink
         } else if record.type == "매도" {
-            contentView.backgroundColor = .systemYellow
-            tagView.backgroundColor = .systemBlue
+            contentView.backgroundColor = Const.Color.mint
+            tagView.backgroundColor = Const.Color.mint
         }
         
         label.text = record.item

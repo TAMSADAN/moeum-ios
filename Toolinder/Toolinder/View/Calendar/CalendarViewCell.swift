@@ -13,6 +13,31 @@ class CalendarViewCell: UICollectionViewCell {
     
     static let identifier = "CalendarCollectionViewCell"
     
+    var circleStackView = UIStackView()
+        .then {
+            $0.axis = .horizontal
+            $0.spacing = 2
+            $0.alignment = .center
+        }
+    
+    var buyCircleView = UIView()
+        .then {
+            $0.backgroundColor = Const.Color.pink
+            $0.layer.cornerRadius = 3
+        }
+    
+    var sellCircleView = UIView()
+        .then {
+            $0.backgroundColor = Const.Color.mint
+            $0.layer.cornerRadius = 3
+        }
+    
+    var memoCirlceView = UIView()
+        .then {
+            $0.backgroundColor = .black
+            $0.layer.cornerRadius = 3
+        }
+    
     var tagViews: [TagLabel] = []
     
     var tagStackView = UIStackView()
@@ -76,12 +101,39 @@ class CalendarViewCell: UICollectionViewCell {
             dateLabel.textColor = .white
             dateLabel.font = .systemFont(ofSize: 10, weight: .bold)
         }
+        
+        if records.contains(where: { $0.type == "매수"}) {
+            circleStackView.addArrangedSubview(buyCircleView)
+            NSLayoutConstraint.activate([
+                buyCircleView.widthAnchor.constraint(equalToConstant: 6),
+                buyCircleView.heightAnchor.constraint(equalToConstant: 6),
+                
+            ])
+        }
+        
+        if records.contains(where: { $0.type == "매도"}) {
+            circleStackView.addArrangedSubview(sellCircleView)
+            NSLayoutConstraint.activate([
+                sellCircleView.widthAnchor.constraint(equalToConstant: 6),
+                sellCircleView.heightAnchor.constraint(equalToConstant: 6),
+            ])
+        }
+        
+        if records.contains(where: { $0.type == "메모" }) {
+            circleStackView.addArrangedSubview(memoCirlceView)
+            NSLayoutConstraint.activate([
+                memoCirlceView.widthAnchor.constraint(equalToConstant: 6),
+                memoCirlceView.heightAnchor.constraint(equalToConstant: 6),
+            ])
+        }
+        
     }
     
     func show() {
         tagViews.forEach { $0.show() }
         UIView.animate(withDuration: 0.25, animations: {
             self.divider.alpha = 1
+            self.circleStackView.alpha = 0
             self.layoutIfNeeded()
         })
     }
@@ -90,6 +142,7 @@ class CalendarViewCell: UICollectionViewCell {
         tagViews.forEach { $0.hide() }
         UIView.animate(withDuration: 0.25, animations: {
             self.divider.alpha = 0
+            self.circleStackView.alpha = 1
             self.layoutIfNeeded()
         })
     }
@@ -116,10 +169,16 @@ class CalendarViewCell: UICollectionViewCell {
     func setView() {
         addSubview(divider)
         addSubview(dateLabel)
+        addSubview(circleStackView)
+//        addSubview(buyCircleView)
+//        addSubview(sellCircleView)
         addSubview(tagStackView)
         
         divider.translatesAutoresizingMaskIntoConstraints = false
         dateLabel.translatesAutoresizingMaskIntoConstraints = false
+        circleStackView.translatesAutoresizingMaskIntoConstraints = false
+        buyCircleView.translatesAutoresizingMaskIntoConstraints = false
+        sellCircleView.translatesAutoresizingMaskIntoConstraints = false
         tagStackView.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
@@ -132,6 +191,20 @@ class CalendarViewCell: UICollectionViewCell {
             dateLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
             dateLabel.widthAnchor.constraint(equalToConstant: 20),
             dateLabel.heightAnchor.constraint(equalToConstant: 20),
+            
+            circleStackView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor),
+            circleStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            circleStackView.heightAnchor.constraint(equalToConstant: 10),
+            
+//            buyCircleView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor),
+//            buyCircleView.leadingAnchor.constraint(equalTo: dateLabel.leadingAnchor),
+//            buyCircleView.widthAnchor.constraint(equalToConstant: 6),
+//            buyCircleView.heightAnchor.constraint(equalToConstant: 6),
+//
+//            sellCircleView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor),
+//            sellCircleView.leadingAnchor.constraint(equalTo: buyCircleView.trailingAnchor, constant: 2),
+//            sellCircleView.widthAnchor.constraint(equalToConstant: 6),
+//            sellCircleView.heightAnchor.constraint(equalToConstant: 6),
 
             tagStackView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor),
             tagStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),

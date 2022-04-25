@@ -50,6 +50,7 @@
 		70A68F652816664700E12772 /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A68F642816664700E12772 /* ChartData.swift */; };
 		70A68F672816870B00E12772 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A68F662816870B00E12772 /* String+Ext.swift */; };
 		70A68F6928168E6500E12772 /* RecordListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A68F6828168E6500E12772 /* RecordListTableViewCell.swift */; };
+		70A68F6B2816920300E12772 /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A68F6A2816920300E12772 /* CircleImageView.swift */; };
 		70A788D027FCA7C900576034 /* ImageTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A788CF27FCA7C900576034 /* ImageTextField.swift */; };
 		70AE0FCC27FF3F6300E880A0 /* WritingVM+Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AE0FCB27FF3F6300E880A0 /* WritingVM+Logic.swift */; };
 		70AE0FCE27FF3F7800E880A0 /* WritingVM+Bind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AE0FCD27FF3F7800E880A0 /* WritingVM+Bind.swift */; };
@@ -147,6 +148,7 @@
 		70A68F642816664700E12772 /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
 		70A68F662816870B00E12772 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		70A68F6828168E6500E12772 /* RecordListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListTableViewCell.swift; sourceTree = "<group>"; };
+		70A68F6A2816920300E12772 /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
 		70A788CF27FCA7C900576034 /* ImageTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextField.swift; sourceTree = "<group>"; };
 		70AE0FCB27FF3F6300E880A0 /* WritingVM+Logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WritingVM+Logic.swift"; sourceTree = "<group>"; };
 		70AE0FCD27FF3F7800E880A0 /* WritingVM+Bind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WritingVM+Bind.swift"; sourceTree = "<group>"; };
@@ -423,6 +425,7 @@
 				70A788CF27FCA7C900576034 /* ImageTextField.swift */,
 				702FA6EA27FD45EB004417D9 /* ImageTextView.swift */,
 				702FA6E827FD454B004417D9 /* ImageLabel.swift */,
+				70A68F6A2816920300E12772 /* CircleImageView.swift */,
 			);
 			path = Reusable;
 			sourceTree = "<group>";
@@ -823,6 +826,7 @@
 				70E185C528091A8800236BC2 /* ItemPieChartView.swift in Sources */,
 				70C5879C280D1C90005372D3 /* RecordListViewCell.swift in Sources */,
 				70278B562806C47B0013FE9F /* ChartVC+Ext.swift in Sources */,
+				70A68F6B2816920300E12772 /* CircleImageView.swift in Sources */,
 				70A68F632816663200E12772 /* ChartDataService.swift in Sources */,
 				70CB745428006DE000DA4A8E /* Date+Ext.swift in Sources */,
 				702FA6E927FD454B004417D9 /* ImageLabel.swift in Sources */,
