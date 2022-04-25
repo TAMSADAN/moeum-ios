@@ -49,9 +49,9 @@ class CalendarViewController: UIViewController, UICollectionViewDelegateFlowLayo
     
     var recordListView = UITableView()
         .then {
-            $0.register(RecordListViewCell.self, forCellReuseIdentifier: RecordListViewCell.identifier)
-            $0.rowHeight = 25
-            $0.backgroundColor = .systemGray6
+            $0.register(RecordListTableViewCell.self, forCellReuseIdentifier: RecordListTableViewCell.identifier)
+            $0.rowHeight = 70
+            $0.backgroundColor = .white
             $0.separatorStyle = .none
         }
     

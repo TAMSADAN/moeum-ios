@@ -71,7 +71,7 @@ extension Date {
     
     func getString() -> String {
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yy-M-dd HH:mm"
+        dateFormatter.dateFormat = "yy-MM-dd HH:mm"
         
         return dateFormatter.string(from: self)
     }

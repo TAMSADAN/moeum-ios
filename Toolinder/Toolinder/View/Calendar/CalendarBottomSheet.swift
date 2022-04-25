@@ -45,17 +45,17 @@ class CalendarBottomSheet: UIView {
         addSubview(contentView)
         contentView.addSubview(topDividerView)
         contentView.addSubview(titleLabel)
-        contentView.addSubview(recordFixedLabel)
+//        contentView.addSubview(recordFixedLabel)
         addSubview(hideButton)
         
         contentView.translatesAutoresizingMaskIntoConstraints = false
         topDividerView.translatesAutoresizingMaskIntoConstraints = false
         hideButton.translatesAutoresizingMaskIntoConstraints = false
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
-        recordFixedLabel.translatesAutoresizingMaskIntoConstraints = false
+//        recordFixedLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        contentView.backgroundColor = .systemGray6
-        backgroundColor = .systemGray6
+        contentView.backgroundColor = .white
+        backgroundColor = .white
         topDividerView.backgroundColor = .systemGray
         hideButton.tintColor = .systemGray3
 //        hideButton.setImage(UIImage(systemName: "chevron.compact.down"), for: .normal)
@@ -81,10 +81,10 @@ class CalendarBottomSheet: UIView {
             titleLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: 10),
             titleLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
             
-            recordFixedLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
-            recordFixedLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
-            recordFixedLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
-            recordFixedLabel.heightAnchor.constraint(equalToConstant: 20),
+//            recordFixedLabel.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 10),
+//            recordFixedLabel.leadingAnchor.constraint(equalTo: contentView.leadingAnchor),
+//            recordFixedLabel.trailingAnchor.constraint(equalTo: contentView.trailingAnchor),
+//            recordFixedLabel.heightAnchor.constraint(equalToConstant: 20),
         ])
     }
 }

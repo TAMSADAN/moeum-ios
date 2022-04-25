@@ -80,7 +80,7 @@ extension CalendarViewController {
             writingButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -10),
             writingButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -10),
             
-            recordListView.topAnchor.constraint(lessThanOrEqualTo: bottomSheet.recordFixedLabel.bottomAnchor),
+            recordListView.topAnchor.constraint(lessThanOrEqualTo: bottomSheet.titleLabel.bottomAnchor),
             recordListView.leadingAnchor.constraint(equalTo: bottomSheet.leadingAnchor),
             recordListView.trailingAnchor.constraint(equalTo: bottomSheet.trailingAnchor),
             recordListView.bottomAnchor.constraint(equalTo: bottomSheet.bottomAnchor),
@@ -145,7 +145,7 @@ extension CalendarViewController {
         recordListView.rx.itemSelected
             .withUnretained(self)
             .bind { owner, indexPath in
-                let cell = owner.recordListView.cellForRow(at: indexPath) as! RecordListViewCell
+                let cell = owner.recordListView.cellForRow(at: indexPath) as! RecordListTableViewCell
                 let writingVC = WritingViewController()
                 writingVC.modalPresentationStyle = .fullScreen
                 writingVC.update(record: cell.record)
@@ -176,7 +176,7 @@ extension CalendarViewController {
             .disposed(by: disposeBag)
         
         viewModel.output.bottomSheetRecords
-            .bind(to: recordListView.rx.items(cellIdentifier: RecordListViewCell.identifier, cellType: RecordListViewCell.self)) {
+            .bind(to: recordListView.rx.items(cellIdentifier: RecordListTableViewCell.identifier, cellType: RecordListTableViewCell.self)) {
                 index, record, cell in
                 cell.update(record: record)
             }
@@ -228,7 +228,7 @@ extension CalendarViewController {
     }
     
     func hideCalendarView() {
-        calendarViewBottomConstraint.constant = -500
+        calendarViewBottomConstraint.constant = -400
         UIView.animate(withDuration: 0.25, animations: {
             self.calendarViewBottomConstraint.isActive = true
             self.bottomSheet.alpha = 1

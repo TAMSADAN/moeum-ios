@@ -49,6 +49,7 @@
 		70A68F632816663200E12772 /* ChartDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A68F622816663200E12772 /* ChartDataService.swift */; };
 		70A68F652816664700E12772 /* ChartData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A68F642816664700E12772 /* ChartData.swift */; };
 		70A68F672816870B00E12772 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A68F662816870B00E12772 /* String+Ext.swift */; };
+		70A68F6928168E6500E12772 /* RecordListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A68F6828168E6500E12772 /* RecordListTableViewCell.swift */; };
 		70A788D027FCA7C900576034 /* ImageTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A788CF27FCA7C900576034 /* ImageTextField.swift */; };
 		70AE0FCC27FF3F6300E880A0 /* WritingVM+Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AE0FCB27FF3F6300E880A0 /* WritingVM+Logic.swift */; };
 		70AE0FCE27FF3F7800E880A0 /* WritingVM+Bind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AE0FCD27FF3F7800E880A0 /* WritingVM+Bind.swift */; };
@@ -145,6 +146,7 @@
 		70A68F622816663200E12772 /* ChartDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartDataService.swift; sourceTree = "<group>"; };
 		70A68F642816664700E12772 /* ChartData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartData.swift; sourceTree = "<group>"; };
 		70A68F662816870B00E12772 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
+		70A68F6828168E6500E12772 /* RecordListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListTableViewCell.swift; sourceTree = "<group>"; };
 		70A788CF27FCA7C900576034 /* ImageTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextField.swift; sourceTree = "<group>"; };
 		70AE0FCB27FF3F6300E880A0 /* WritingVM+Logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WritingVM+Logic.swift"; sourceTree = "<group>"; };
 		70AE0FCD27FF3F7800E880A0 /* WritingVM+Bind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WritingVM+Bind.swift"; sourceTree = "<group>"; };
@@ -320,6 +322,7 @@
 				70592BB028041D3700106A34 /* RecordFixedLabel.swift */,
 				70592BB42804289000106A34 /* RecordLabel.swift */,
 				70C5879B280D1C90005372D3 /* RecordListViewCell.swift */,
+				70A68F6828168E6500E12772 /* RecordListTableViewCell.swift */,
 			);
 			path = Calendar;
 			sourceTree = "<group>";
@@ -808,6 +811,7 @@
 				70A788D027FCA7C900576034 /* ImageTextField.swift in Sources */,
 				70AE0FCE27FF3F7800E880A0 /* WritingVM+Bind.swift in Sources */,
 				70F3B80028014820007F891A /* Buy.swift in Sources */,
+				70A68F6928168E6500E12772 /* RecordListTableViewCell.swift in Sources */,
 				70592BB32804210E00106A34 /* Const.swift in Sources */,
 				70E8B19F27FAB7BF0095B30E /* WritingVC+Ext.swift in Sources */,
 				70CB745828007CF000DA4A8E /* CalendarVM+Ext.swift in Sources */,
