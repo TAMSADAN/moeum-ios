@@ -68,4 +68,11 @@ extension Date {
             return false
         }
     }
+    
+    func getString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yy-M-dd HH:mm"
+        
+        return dateFormatter.string(from: self)
+    }
 }

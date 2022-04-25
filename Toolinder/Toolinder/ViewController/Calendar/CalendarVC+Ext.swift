@@ -27,7 +27,6 @@ extension CalendarViewController {
     
     func setView() {
         view.addSubview(monthLabel)
-        
         view.addSubview(weekLabelView)
         view.addSubview(calendarView)
         view.addSubview(bottomSheet)
@@ -39,7 +38,6 @@ extension CalendarViewController {
         monthLabel.translatesAutoresizingMaskIntoConstraints = false
         datePicker.translatesAutoresizingMaskIntoConstraints = false
         datePickerBackView.translatesAutoresizingMaskIntoConstraints = false
-//        headerView.translatesAutoresizingMaskIntoConstraints = false
         weekLabelView.translatesAutoresizingMaskIntoConstraints = false
         calendarView.translatesAutoresizingMaskIntoConstraints = false
         writingButton.translatesAutoresizingMaskIntoConstraints = false
@@ -49,15 +47,9 @@ extension CalendarViewController {
         view.backgroundColor = .white
         bottomSheet.alpha = 0
         calendarViewBottomConstraint =  calendarView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: 0)
-//        headerHeightConstraint = headerView.heightAnchor.constraint(equalToConstant: 20)
         datePickerBackViewBottomConstraint = datePickerBackView.bottomAnchor.constraint(equalTo: monthLabel.bottomAnchor, constant: 0)
         
         NSLayoutConstraint.activate([
-//            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
-//            headerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
-//            headerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
-//            headerHeightConstraint,
-            
             monthLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             monthLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
             
@@ -199,7 +191,6 @@ extension CalendarViewController {
     }
 }
 
-
 extension CalendarViewController {
     func showDatePicker() {
         datePickerBackViewBottomConstraint.constant = 216
@@ -260,5 +251,12 @@ extension CalendarViewController {
         
         let cell = calendarView.cellForItem(at: indexPath) as! CalendarViewCell
         cell.showHighlight()
+    }
+    
+    func goToWritingVC() {
+        let writingVC = WritingViewController()
+        writingVC.modalPresentationStyle = .fullScreen
+        writingVC.writingView.datePicker.date = viewModel.output.bottomSheetDate.value
+        self.present(writingVC, animated: true)
     }
 }

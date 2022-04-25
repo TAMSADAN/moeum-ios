@@ -42,7 +42,7 @@ class ItemPieChartView: UIView {
         
         let chartDataSet = PieChartDataSet(entries: dataEntries, label: "")
             .then {
-                $0.colors = [.systemPink,  .systemYellow, .systemPurple, .systemGreen, .systemOrange, .systemBlue]
+                $0.colors = [Const.Color.blue, Const.Color.orange, Const.Color.purple, Const.Color.indigo, Const.Color.green, Const.Color.pink, Const.Color.mint,]
             }
         
         let format = NumberFormatter()

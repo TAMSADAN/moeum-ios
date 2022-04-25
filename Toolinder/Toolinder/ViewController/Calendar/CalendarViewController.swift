@@ -17,12 +17,6 @@ class CalendarViewController: UIViewController, UICollectionViewDelegateFlowLayo
     var disposeBag = DisposeBag()
     
     let calendar = Calendar.current
-    let dateFormatter = DateFormatter()
-    var calendarDate = Date()
-    var days = [String]()
-    var dates = [Date()]
-    
-    var headerView = CalendarHeaderView()
     
     var monthLabel = UILabel()
         .then {
@@ -68,7 +62,6 @@ class CalendarViewController: UIViewController, UICollectionViewDelegateFlowLayo
     var bottomSheet = CalendarBottomSheet()
     
     var calendarViewBottomConstraint = NSLayoutConstraint()
-    var headerHeightConstraint = NSLayoutConstraint()
     
     var datePickerBackViewBottomConstraint = NSLayoutConstraint()
     
@@ -76,8 +69,5 @@ class CalendarViewController: UIViewController, UICollectionViewDelegateFlowLayo
         super.viewDidLoad()
         self.setView()
         self.setBind()
-//        calendarView.delegate = self
-//        self.calendarView.dataSource = self
-//        self.calendarView.delegate = self
     }
 }

@@ -13,7 +13,6 @@ extension ChartViewController {
     func setView() {
         view.addSubview(scrollView)
         scrollView.addSubview(stackView)
-        
         stackView.addArrangedSubview(itemPieChartLabel)
         stackView.addArrangedSubview(itemPieChartView)
         stackView.addArrangedSubview(tagPieChartLabel)
@@ -51,7 +50,9 @@ extension ChartViewController {
             incomeBarChartView.heightAnchor.constraint(equalToConstant: 200),
         ])
     }
-    
+}
+
+extension ChartViewController {
     func setBind() {
         viewModel.output.incomeChartData
             .withUnretained(self)

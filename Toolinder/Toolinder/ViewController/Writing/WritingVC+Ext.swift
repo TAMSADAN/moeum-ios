@@ -1,11 +1,36 @@
 //
-//  WritingVC+Bind.swift
+//  WritingVC+UI.swift
 //  moeum
 //
-//  Created by 송영모 on 2022/04/07.
+//  Created by 송영모 on 2022/04/04.
 //
 
-import Foundation
+import UIKit
+import RxSwift
+import RxCocoa
+
+extension WritingViewController {
+    func setView() {
+        view.addSubview(headerView)
+        view.addSubview(writingView)
+        
+        headerView.translatesAutoresizingMaskIntoConstraints = false
+        writingView.translatesAutoresizingMaskIntoConstraints = false
+        
+        view.backgroundColor = .white
+        
+        NSLayoutConstraint.activate([
+            headerView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
+            headerView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            headerView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            
+            writingView.topAnchor.constraint(equalTo: headerView.bottomAnchor),
+            writingView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            writingView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            writingView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+        ])
+    }
+}
 
 extension WritingViewController {
     func setBind() {
@@ -154,5 +179,23 @@ extension WritingViewController {
                 }
             })
             .disposed(by: self.disposeBag)
+    }
+}
+
+extension WritingViewController {
+    func update(record: Record) {
+        self.viewModel.record = record
+        print(record.id)
+        self.writingView.tagTextField.textField.text = record.tag
+        self.writingView.itemTextField.textField.text = record.item
+        self.writingView.typeSegment.selectedSegmentIndex = types.firstIndex(of: record.type) ?? 0
+        self.writingView.datePicker.date = record.date
+        self.writingView.priceTextField.textField.text = String(record.price)
+        self.writingView.countTextField.textField.text = String(record.count)
+        self.writingView.memoTextView.textView.text = record.memo
+    }
+    
+    func goToBackVC() {
+        self.dismiss(animated: true, completion: nil)
     }
 }
