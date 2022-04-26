@@ -11,6 +11,7 @@
 		41A6BF7187EFA9BD75BD3D76 /* Pods_Toolinder.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7C043E3AE97E289CC4A19734 /* Pods_Toolinder.framework */; };
 		701A0A162805355F0070F310 /* BuyHistoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701A0A152805355F0070F310 /* BuyHistoryView.swift */; };
 		701A0A18280537D00070F310 /* BuyHistoryLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 701A0A17280537D00070F310 /* BuyHistoryLabel.swift */; };
+		70207F4F2816D6580064D299 /* Charts+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70207F4E2816D6580064D299 /* Charts+Ext.swift */; };
 		7024251027F17197007A914D /* Memo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7024250F27F17197007A914D /* Memo.swift */; };
 		70278B542806773D0013FE9F /* ChartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70278B532806773D0013FE9F /* ChartViewModel.swift */; };
 		70278B562806C47B0013FE9F /* ChartVC+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70278B552806C47B0013FE9F /* ChartVC+Ext.swift */; };
@@ -70,6 +71,7 @@
 		70E8B19F27FAB7BF0095B30E /* WritingVC+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E8B19E27FAB7BF0095B30E /* WritingVC+Ext.swift */; };
 		70E8B1A127FAC1D40095B30E /* WritingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E8B1A027FAC1D40095B30E /* WritingView.swift */; };
 		70F3B80028014820007F891A /* Buy.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F3B7FF28014820007F891A /* Buy.swift */; };
+		70F3BFFF28178707006DBFFD /* ListItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F3BFFE28178707006DBFFD /* ListItem.swift */; };
 		70F7493727FB3B7800B31791 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F7493627FB3B7800B31791 /* MainViewController.swift */; };
 		70F7493A27FB3CA700B31791 /* ChartViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F7493927FB3CA700B31791 /* ChartViewController.swift */; };
 		70F7493C27FB404C00B31791 /* WeekLabelView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70F7493B27FB404C00B31791 /* WeekLabelView.swift */; };
@@ -107,6 +109,7 @@
 		6057C188E6AEB2A273ABD429 /* Pods-Toolinder-moeumUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Toolinder-moeumUITests.release.xcconfig"; path = "Target Support Files/Pods-Toolinder-moeumUITests/Pods-Toolinder-moeumUITests.release.xcconfig"; sourceTree = "<group>"; };
 		701A0A152805355F0070F310 /* BuyHistoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyHistoryView.swift; sourceTree = "<group>"; };
 		701A0A17280537D00070F310 /* BuyHistoryLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuyHistoryLabel.swift; sourceTree = "<group>"; };
+		70207F4E2816D6580064D299 /* Charts+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Charts+Ext.swift"; sourceTree = "<group>"; };
 		7024250F27F17197007A914D /* Memo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Memo.swift; sourceTree = "<group>"; };
 		70278B532806773D0013FE9F /* ChartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewModel.swift; sourceTree = "<group>"; };
 		70278B552806C47B0013FE9F /* ChartVC+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ChartVC+Ext.swift"; sourceTree = "<group>"; };
@@ -169,6 +172,7 @@
 		70E8B19E27FAB7BF0095B30E /* WritingVC+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WritingVC+Ext.swift"; sourceTree = "<group>"; };
 		70E8B1A027FAC1D40095B30E /* WritingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingView.swift; sourceTree = "<group>"; };
 		70F3B7FF28014820007F891A /* Buy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Buy.swift; sourceTree = "<group>"; };
+		70F3BFFE28178707006DBFFD /* ListItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListItem.swift; sourceTree = "<group>"; };
 		70F7493627FB3B7800B31791 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		70F7493927FB3CA700B31791 /* ChartViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartViewController.swift; sourceTree = "<group>"; };
 		70F7493B27FB404C00B31791 /* WeekLabelView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeekLabelView.swift; sourceTree = "<group>"; };
@@ -219,6 +223,7 @@
 				702FA6EE27FD68E5004417D9 /* Record.swift */,
 				70F3B7FF28014820007F891A /* Buy.swift */,
 				70A68F642816664700E12772 /* ChartData.swift */,
+				70F3BFFE28178707006DBFFD /* ListItem.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -458,6 +463,7 @@
 				70CB745328006DE000DA4A8E /* Date+Ext.swift */,
 				70E185CA28096C9600236BC2 /* UIColor+Ext.swift */,
 				70A68F662816870B00E12772 /* String+Ext.swift */,
+				70207F4E2816D6580064D299 /* Charts+Ext.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -796,6 +802,7 @@
 				70A68F5A2815A6B700E12772 /* ListTableViewCell.swift in Sources */,
 				702FA6FD27FD74B8004417D9 /* WritingViewModel.swift in Sources */,
 				702FA6F727FD741D004417D9 /* RecordRepository.swift in Sources */,
+				70F3BFFF28178707006DBFFD /* ListItem.swift in Sources */,
 				70E491F428081755006DB3D3 /* ChartVM+Ext.swift in Sources */,
 				70CF4DC127EB000600046E92 /* lib.swift in Sources */,
 				706D9B3A27FAE66700E0DD5F /* CalendarVC+Ext.swift in Sources */,
@@ -824,6 +831,7 @@
 				70905D8D27E37D8E001CB7AF /* AppDelegate.swift in Sources */,
 				70F7493A27FB3CA700B31791 /* ChartViewController.swift in Sources */,
 				70E185C528091A8800236BC2 /* ItemPieChartView.swift in Sources */,
+				70207F4F2816D6580064D299 /* Charts+Ext.swift in Sources */,
 				70C5879C280D1C90005372D3 /* RecordListViewCell.swift in Sources */,
 				70278B562806C47B0013FE9F /* ChartVC+Ext.swift in Sources */,
 				70A68F6B2816920300E12772 /* CircleImageView.swift in Sources */,
@@ -1003,7 +1011,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = X64MATB2CC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Toolinder/Info.plist;
@@ -1019,7 +1027,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tamsadan.toolinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1036,7 +1044,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = X64MATB2CC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Toolinder/Info.plist;
@@ -1052,7 +1060,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
+				MARKETING_VERSION = 1.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tamsadan.toolinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

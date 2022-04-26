@@ -19,7 +19,6 @@ class ChartDataService {
             points.append(point)
             datas.append(buyPriceAvg * buyCount)
         }
-        
         return ChartData(points: points, values: datas)
     }
 }

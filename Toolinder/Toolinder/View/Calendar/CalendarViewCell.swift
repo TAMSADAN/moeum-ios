@@ -55,6 +55,8 @@ class CalendarViewCell: UICollectionViewCell {
         .then {
             $0.font = .systemFont(ofSize: 10)
             $0.textAlignment = .center
+            $0.layer.cornerRadius = 10
+            $0.layer.masksToBounds = true
         }
     
     var date: Date!
@@ -73,6 +75,8 @@ class CalendarViewCell: UICollectionViewCell {
     
     override func prepareForReuse() {
         tagStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        circleStackView.arrangedSubviews.forEach { $0.removeFromSuperview() }
+        markClear()
     }
     
     func update(date: Date, records: [Record]) {
@@ -94,20 +98,11 @@ class CalendarViewCell: UICollectionViewCell {
         dateFormatter.timeZone = TimeZone(abbreviation: "UTC")
         dateLabel.text = dateFormatter.string(from: date)
         
-        if isToday(date: self.date) {
-            dateLabel.layer.cornerRadius = 10
-            dateLabel.layer.masksToBounds = true
-            dateLabel.backgroundColor = .black
-            dateLabel.textColor = .white
-            dateLabel.font = .systemFont(ofSize: 10, weight: .bold)
-        }
-        
         if records.contains(where: { $0.type == "매수"}) {
             circleStackView.addArrangedSubview(buyCircleView)
             NSLayoutConstraint.activate([
                 buyCircleView.widthAnchor.constraint(equalToConstant: 6),
                 buyCircleView.heightAnchor.constraint(equalToConstant: 6),
-                
             ])
         }
         
@@ -145,6 +140,24 @@ class CalendarViewCell: UICollectionViewCell {
             self.circleStackView.alpha = 1
             self.layoutIfNeeded()
         })
+    }
+    
+    func markClear() {
+        dateLabel.backgroundColor = .white
+        dateLabel.textColor = .black
+        dateLabel.font = .systemFont(ofSize: 10)
+    }
+    
+    func markBlack() {
+        dateLabel.backgroundColor = .black
+        dateLabel.textColor = .white
+        dateLabel.font = .systemFont(ofSize: 10, weight: .bold)
+    }
+    
+    func markGray() {
+        dateLabel.backgroundColor = .lightGray
+        dateLabel.textColor = .white
+        dateLabel.font = .systemFont(ofSize: 10)
     }
     
     func showHighlight() {
@@ -195,16 +208,6 @@ class CalendarViewCell: UICollectionViewCell {
             circleStackView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor),
             circleStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
             circleStackView.heightAnchor.constraint(equalToConstant: 10),
-            
-//            buyCircleView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor),
-//            buyCircleView.leadingAnchor.constraint(equalTo: dateLabel.leadingAnchor),
-//            buyCircleView.widthAnchor.constraint(equalToConstant: 6),
-//            buyCircleView.heightAnchor.constraint(equalToConstant: 6),
-//
-//            sellCircleView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor),
-//            sellCircleView.leadingAnchor.constraint(equalTo: buyCircleView.trailingAnchor, constant: 2),
-//            sellCircleView.widthAnchor.constraint(equalToConstant: 6),
-//            sellCircleView.heightAnchor.constraint(equalToConstant: 6),
 
             tagStackView.topAnchor.constraint(equalTo: dateLabel.bottomAnchor),
             tagStackView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 5),

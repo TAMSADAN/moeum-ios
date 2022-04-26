@@ -35,7 +35,7 @@ class TagPieChartView: UIView {
         var colors: [UIColor] = []
         
         for i in 0..<dataPoints.count {
-            let dataEntry = PieChartDataEntry(value: values[i], label: dataPoints[i])
+            let dataEntry = PieChartDataEntry(value: ceil(values[i]), label: dataPoints[i])
             dataEntries.append(dataEntry)
             colors.append(UIColor.random)
         }

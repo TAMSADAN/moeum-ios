@@ -67,7 +67,15 @@ class CalendarViewController: UIViewController, UICollectionViewDelegateFlowLayo
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.setView()
-        self.setBind()
+        print("CalendarVC viewDidLoad")
+        view.backgroundColor = .white
+        setView()
+        setBind()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        print("CalendarVC viewWillAppear")
+        viewModel.input.refresh.onNext(true)
     }
 }

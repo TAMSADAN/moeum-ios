@@ -69,6 +69,17 @@ extension Date {
         }
     }
     
+    func isFastDate(date: Date, compareDate: Date) -> Int {
+        let c1 = Calendar.current.dateComponents(in: TimeZone(abbreviation: "KST")!, from: date)
+        let c2 = Calendar.current.dateComponents(in: TimeZone(abbreviation: "KST")!, from: compareDate)
+        
+        if c1.date! < c2.date! {
+            return 1
+        } else {
+            return 0
+        }
+    }
+    
     func getString() -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "yy-MM-dd HH:mm"

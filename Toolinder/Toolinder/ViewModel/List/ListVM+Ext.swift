@@ -11,20 +11,46 @@ import RxCocoa
 
 extension ListViewModel {
     func setBind() {
-        input.records
-            .map { records in
-                return records.reversed()   
+        input.refresh
+            .withUnretained(self)
+            .bind { owner, _ in
+                owner.input.records.onNext(owner.recordService.getRecords())
+                owner.input.itemRecordZips.onNext(owner.recordService.getRecordZips(tag: false, item: true))
             }
-            .bind(to: output.records)
-//            .bind { _ in
-//                self.output.records.accept([Record(),Record(),Record(),Record(),Record(),Record(),Record(),Record(),Record(),Record(),Record(),Record(),Record(),Record(),Record(),Record(),])
-//            }
+            .disposed(by: disposeBag)
+        
+        input.records
+            .withUnretained(self)
+            .bind { owner, records in
+                owner.output.records.accept(records.reversed())
+                owner.output.tradeHistoryCount.accept(records.count)
+                print(owner.recordService.getRecordZips(tag: false, item: true))
+            }
             .disposed(by: disposeBag)
         
         input.itemRecordZips
             .withUnretained(self)
             .bind { owner, recordZips in
-                owner.output.holdingAmountChartData.accept(owner.chartDataService.getHoldingAmountChartData(date: Date(), recordZips: recordZips))
+                let holdingAmountChartData = owner.chartDataService.getHoldingAmountChartData(date: Date(), recordZips: recordZips)
+                owner.output.holdingAmountChartData.accept(holdingAmountChartData)
+                owner.output.holdingCount.accept(holdingAmountChartData.points.count)
+            }
+            .disposed(by: disposeBag)
+        
+        Observable.combineLatest(input.records, input.itemRecordZips)
+            .withUnretained(self)
+            .bind { owner, data in
+                let records = data.0.sorted(by: {$0.date > $1.date})
+                let recordZips = data.1
+                var listItemModels: [ListItemModel] = []
+                
+                for record in records {
+                    let recordZip = recordZips.first(where: { $0.item == record.item }) ?? RecordZip()
+                    let listItemModel = owner.recordService.parseToListItemModel(record: record, recordZip: recordZip)
+                    
+                    listItemModels.append(listItemModel)
+                }
+                owner.output.listItemModels.accept(listItemModels)
             }
             .disposed(by: disposeBag)
     }

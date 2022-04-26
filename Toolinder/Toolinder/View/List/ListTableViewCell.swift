@@ -10,7 +10,7 @@ import Then
 
 class ListTableViewCell: UITableViewCell {
     static let identifier = "ListTableViewCell"
-    var record: Record!
+    var listItemModel: ListItemModel!
     
     var typeView = UIView()
         .then {
@@ -75,24 +75,74 @@ class ListTableViewCell: UITableViewCell {
         setView()
     }
     
-    func update(record: Record) {
-        self.record = record
+    func update(listItemModel: ListItemModel) {
+        self.listItemModel = listItemModel
+        itemLabel.text = listItemModel.item
+        tagLabel.text = listItemModel.tag + " "
+        dateLabel.text = listItemModel.date
         
-        itemLabel.text = record.item
-        tagLabel.text = record.tag
-        dateLabel.text = record.date.getString()
+        var sumLabelText = ""
+        let sumDefaultLabelText = "\(listItemModel.sum.insertComma)원"
+        var sumGapLabelText = ""
+        var hightlightColor = Const.Color.orange
+        if !listItemModel.sumGap.contains("-") {
+            sumGapLabelText = "(+\(listItemModel.sumGap.insertComma)원)"
+        } else {
+            sumGapLabelText = "(\(listItemModel.sumGap.insertComma)원)"
+            hightlightColor = Const.Color.indigo
+        }
         
-        sumLabel.text = String(record.price * record.count).insertComma + "원"
-        priceLabel.text = String(record.price).insertComma + "원"
-        countLabel.text = String(record.count).insertComma + "개"
+        if listItemModel.type == "매수" {
+            sumLabelText = sumDefaultLabelText
+        } else if listItemModel.type == "매도" {
+            sumLabelText = sumDefaultLabelText + " " + sumGapLabelText
+        }
         
-        if record.type == "매수" {
+        let sumLabelAttriHighlightRange = (sumLabelText as NSString).range(of: sumGapLabelText)
+        let sumLabelAttriDefaultRange = (sumLabelText as NSString).range(of: sumDefaultLabelText)
+        let sumLabelAttriString = NSMutableAttributedString(string: sumLabelText)
+        
+        sumLabelAttriString.addAttributes([.foregroundColor: hightlightColor, .font: Const.Font.itemHeadline], range: sumLabelAttriHighlightRange)
+        sumLabelAttriString.addAttributes([.foregroundColor: UIColor.black, .font: Const.Font.itemHeadline], range: sumLabelAttriDefaultRange)
+//        let sumLabelAttriString = NSMutableAttributedString(string: sumLabelText, attributes: [NSMutableAttributedString.Key.font: Const.Font.itemHeadline, NSMutableAttributedString.Key.foregroundColor: Const.Color.mint])
+        
+//        sumLabelAttriString.addAttribute(NSAttributedString.Key.font, value: Const.Font.title1, range: sumLabelAttriRange)
+        
+//        sumLabel.text = "\(listItemModel.sum.insertComma)원 (\(listItemModel.sumGap.insertComma)원)"
+        sumLabel.attributedText = sumLabelAttriString
+        priceLabel.text = listItemModel.price.insertComma + "원"
+        countLabel.text = listItemModel.count.insertComma + "개"
+        
+        let attributedStr = NSMutableAttributedString(string: sumLabel.text!)
+        
+        if listItemModel.type == "매수" {
             typeImageView.image = UIImage(systemName: "airplane.departure")
+//            attributedStr.addAttribute(.font, value: font, range: (text as String).range(of: "Zedd"))
             typeView.backgroundColor = Const.Color.pink
-        } else if record.type == "매도" {
+        } else if listItemModel.type == "매도" {
             typeImageView.image = UIImage(systemName: "airplane.arrival")
             typeView.backgroundColor = Const.Color.mint
+        } else {
+            typeImageView.image = UIImage(systemName: "paperclip")
+            typeView.backgroundColor = Const.Color.purple
         }
+//        self.record = record
+//
+//        itemLabel.text = record.item
+//        tagLabel.text = record.tag
+//        dateLabel.text = record.date.getString()
+//
+//        sumLabel.text = String(record.price * record.count).insertComma + "원"
+//        priceLabel.text = String(record.price).insertComma + "원"
+//        countLabel.text = String(record.count).insertComma + "개"
+//
+//        if record.type == "매수" {
+//            typeImageView.image = UIImage(systemName: "airplane.departure")
+//            typeView.backgroundColor = Const.Color.pink
+//        } else if record.type == "매도" {
+//            typeImageView.image = UIImage(systemName: "airplane.arrival")
+//            typeView.backgroundColor = Const.Color.mint
+//        }
     }
     
     

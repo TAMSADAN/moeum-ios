@@ -35,7 +35,7 @@ class ItemPieChartView: UIView {
         var dataEntries: [ChartDataEntry] = []
         var colors: [UIColor] = []
         for i in 0..<dataPoints.count {
-            let dataEntry = PieChartDataEntry(value: values[i], label: dataPoints[i])
+            let dataEntry = PieChartDataEntry(value: ceil(values[i]), label: dataPoints[i])
             dataEntries.append(dataEntry)
             colors.append(UIColor.random)
         }
@@ -47,7 +47,8 @@ class ItemPieChartView: UIView {
         
         let format = NumberFormatter()
             .then {
-                $0.numberStyle = .none
+                $0.numberStyle = .currency
+                $0.roundingMode = .ceiling
             }
         
         let formatter = DefaultValueFormatter(formatter: format)

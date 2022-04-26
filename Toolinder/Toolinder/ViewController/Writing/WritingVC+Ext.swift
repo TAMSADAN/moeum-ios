@@ -185,7 +185,6 @@ extension WritingViewController {
 extension WritingViewController {
     func update(record: Record) {
         self.viewModel.record = record
-        print(record.id)
         self.writingView.tagTextField.textField.text = record.tag
         self.writingView.itemTextField.textField.text = record.item
         self.writingView.typeSegment.selectedSegmentIndex = types.firstIndex(of: record.type) ?? 0

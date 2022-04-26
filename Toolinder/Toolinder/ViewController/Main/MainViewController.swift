@@ -7,16 +7,14 @@
 
 import UIKit
 
-class MainViewController: UITabBarController, UITabBarControllerDelegate {
+class MainViewController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
+        super.viewWillAppear(false)
         
         let tabOne = CalendarViewController()
         let tabOneBarItem = UITabBarItem(title: "캘린더", image: UIImage(systemName: "calendar"), selectedImage: UIImage(named: "selectedImage.png"))

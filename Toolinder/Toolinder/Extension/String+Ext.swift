@@ -9,7 +9,10 @@ import Foundation
 
 extension String {
     
-    var insertComma: String { let numberFormatter = NumberFormatter(); numberFormatter.numberStyle = .decimal
+    var insertComma: String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.roundingMode = .ceiling
         if let _ = self.range(of: ".") {
             var numberArray = self.components(separatedBy: ".")
             if numberArray.count == 1 {

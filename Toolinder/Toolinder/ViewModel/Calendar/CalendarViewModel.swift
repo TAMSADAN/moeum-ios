@@ -18,6 +18,7 @@ class CalendarViewModel: ViewModel {
     var output = Output()
     
     struct Input {
+        let refresh = BehaviorSubject(value: false)
         let records = BehaviorSubject(value: [Record()])
         let isMonthLabelClicked = BehaviorSubject(value: false)
         let datePickerDate = BehaviorSubject(value: Date())

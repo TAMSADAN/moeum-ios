@@ -14,6 +14,9 @@ class ListViewController: UIViewController {
     var disposeBag = DisposeBag()
     
     var scrollView = UIScrollView()
+        .then {
+            $0.showsVerticalScrollIndicator = false
+        }
     
     var chartLabel = UILabel()
         .then {
@@ -58,6 +61,7 @@ class ListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("ListVC viewDidLoad")
         self.view.backgroundColor = .white
         navigationItem.title = "리스트"
         setView()
@@ -65,6 +69,7 @@ class ListViewController: UIViewController {
     }
     
     override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
         listTableViewHeightConstraint.constant = listTableView.contentSize.height
     }
 }

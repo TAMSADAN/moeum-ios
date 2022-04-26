@@ -112,7 +112,7 @@ struct RecordZip {
     }
     
     func getPriceSum(date: Date) -> Double {
-        let records = records.filter({ $0.date < date})
+        let records = records.filter({ $0.date < date })
         var priceSum = 0.0
         
         for record in records {
@@ -127,6 +127,7 @@ struct RecordZip {
     
     func getCountSum(date: Date) -> Double {
         let records = records.filter({ $0.date < date })
+//        print("getCountSum", records)
         var countSum = 0.0
         
         for record in records {

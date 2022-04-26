@@ -14,16 +14,16 @@ extension CalendarViewController {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = calendarView.frame.width / 7
         let height = calendarView.frame.height / 5
-            return CGSize(width: width, height: height)
-        }
+        return CGSize(width: width, height: height)
+    }
     
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-            return .zero
-        }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
+        return .zero
+    }
     
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-            return .zero
-        }
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return .zero
+    }
     
     func setView() {
         view.addSubview(monthLabel)
@@ -132,6 +132,13 @@ extension CalendarViewController {
                 let prevIndexPath = try! owner.viewModel.input.calendarSelectedCellData.value().0
                 var nowIndexPath = indexPath
                 
+                if cell.date.isEqualDate(date: Date()) {
+                    owner.markCell()
+                } else {
+                    owner.markCell()
+                    cell.markGray()
+                }
+                
                 if indexPath == prevIndexPath {
                     nowIndexPath = IndexPath()
                     owner.showCalendarView()
@@ -171,6 +178,9 @@ extension CalendarViewController {
         viewModel.output.calendarCellDatas
             .bind(to : calendarView.rx.items(cellIdentifier: CalendarViewCell.identifier, cellType: CalendarViewCell.self)) {
                 index, cellData, cell in
+                if cellData.0.isEqualDate(date: Date()) {
+                    cell.markBlack()
+                }
                 cell.update(date: cellData.0, records: cellData.1)
             }
             .disposed(by: disposeBag)
@@ -192,6 +202,17 @@ extension CalendarViewController {
 }
 
 extension CalendarViewController {
+    func markCell() {
+        for CalendarViewCell in calendarView.visibleCells {
+            let cell = CalendarViewCell as! CalendarViewCell
+            if cell.date.isEqualDate(date: Date()) {
+                cell.markBlack()
+            } else {
+                cell.markClear()
+            }
+        }
+    }
+    
     func showDatePicker() {
         datePickerBackViewBottomConstraint.constant = 216
         

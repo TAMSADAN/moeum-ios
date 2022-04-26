@@ -62,19 +62,52 @@ extension ListViewController {
     }
     
     func setBind() {
-        viewModel.output.records
+        listTableView.rx.itemSelected
+            .withUnretained(self)
+            .bind { owner, indexPath in
+                let cell = owner.listTableView.cellForRow(at: indexPath) as! ListTableViewCell
+                let writingVC = WritingViewController()
+                writingVC.modalPresentationStyle = .formSheet
+                writingVC.update(record: cell.listItemModel.record)
+                self.present(writingVC, animated: true)
+            }
+            .disposed(by: disposeBag)
+        
+        viewModel.output.listItemModels
             .bind(to: listTableView.rx.items(cellIdentifier: ListTableViewCell.identifier, cellType: ListTableViewCell.self)) {
-                index, record, cell in
-                cell.update(record: record)
+                index, listItemModel, cell in
+                cell.update(listItemModel: listItemModel)
                 cell.selectionStyle = .none
             }
             .disposed(by: disposeBag)
+//
+//        viewModel.output.records
+//            .bind(to: listTableView.rx.items(cellIdentifier: ListTableViewCell.identifier, cellType: ListTableViewCell.self)) {
+//                index, record, cell in
+//                cell.update(record: record)
+//                cell.selectionStyle = .none
+//            }
+//            .disposed(by: disposeBag)
         
         viewModel.output.holdingAmountChartData
             .withUnretained(self)
             .bind { owner, charData in
                 owner.pieChartView.update(items: charData.points, values: charData.values)
                 print(charData)
+            }
+            .disposed(by: disposeBag)
+        
+        viewModel.output.holdingCount
+            .withUnretained(self)
+            .bind { owner, count in
+                owner.chartLabel.text = "보유종목 \(String(count))개"
+            }
+            .disposed(by: disposeBag)
+        
+        viewModel.output.tradeHistoryCount
+            .withUnretained(self)
+            .bind { owner, count in
+                owner.tradeCountLabel.text = "투자내역 \(String(count))개"
             }
             .disposed(by: disposeBag)
     }

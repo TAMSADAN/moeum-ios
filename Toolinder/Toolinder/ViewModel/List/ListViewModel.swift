@@ -19,13 +19,17 @@ class ListViewModel: ViewModel {
     var output = Output()
     
     struct Input {
+        let refresh = BehaviorSubject(value: false)
         let records = BehaviorSubject(value: [Record()])
         let itemRecordZips = BehaviorSubject(value: [RecordZip()])
     }
     
     struct Output {
         let records = BehaviorRelay(value: [Record()])
+        let listItemModels = BehaviorRelay(value: [ListItemModel()])
         let holdingAmountChartData = BehaviorRelay(value: ChartData())
+        let holdingCount = BehaviorRelay(value: Int())
+        let tradeHistoryCount = BehaviorRelay(value: Int())
     }
     
     init() {

@@ -11,6 +11,14 @@ import RxCocoa
 
 extension CalendarViewModel {
     func setBind() {
+        input.refresh
+            .withUnretained(self)
+            .bind { owner, _ in
+                owner.input.records.onNext(owner.recordService.getRecords())
+                owner.output.calendarDates.accept(owner.getDatesOfMonth(date: try! owner.input.datePickerDate.value()))
+            }
+            .disposed(by: disposeBag)
+        
         input.records
             .bind(to: output.records)
             .disposed(by: disposeBag)

@@ -78,7 +78,7 @@ class RecordListTableViewCell: UITableViewCell {
         self.record = record
         
         itemLabel.text = record.item
-        tagLabel.text = record.tag
+        tagLabel.text = record.tag + " "
         dateLabel.text = record.date.getString()
         
         sumLabel.text = String(record.price * record.count).insertComma + "원"

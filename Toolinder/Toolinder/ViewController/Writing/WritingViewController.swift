@@ -20,7 +20,10 @@ class WritingViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        print("WritingVC viewDidLoad")
+        view.backgroundColor = .white
         self.setView()
         self.setBind()
+        print(viewModel.record)
     }
 }
