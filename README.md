@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/77970826/163961868-519c84f0-007a-4d0b-8211-040e320c27cc.png">
+  <img src="https://user-images.githubusercontent.com/77970826/165248051-c1f79642-1a8c-44db-8db0-fde082f28316.png">
 </p>
 
 ## Toolinder
@@ -25,22 +25,24 @@
 
 
 <p align="left">
-  <img width="30%" src="https://user-images.githubusercontent.com/77970826/163963061-26646d33-21ae-47bb-912d-2ecd2d7a1831.png">
-  <img width="30%" src="https://user-images.githubusercontent.com/77970826/163963066-550d6811-5a28-4d0a-b13d-b1bdb6838615.png">
-  <img width="30%" src="https://user-images.githubusercontent.com/77970826/163963075-2cbf8ce9-5ee1-4fb9-99ab-4f9725171199.png">
+  <img width="30%" src="https://user-images.githubusercontent.com/77970826/165248722-6bc3f63a-f511-4b5f-8ff8-9c6008aa99c1.png">
+  <img width="30%" src="https://user-images.githubusercontent.com/77970826/165248247-578118b7-728b-44d6-8e54-68822a15b815.png">
+  <img width="30%" src="https://user-images.githubusercontent.com/77970826/165248253-770df2ef-cf8a-43c8-88ea-172dd9ece54a.png">
+  
+  
 </p>
 
 <p align="left">
-  <img width="30%" src="https://user-images.githubusercontent.com/77970826/163963070-acd39fd9-c155-445b-a085-a3b4e9b4d483.png">
-  <img width="30%" src="https://user-images.githubusercontent.com/77970826/163963072-80494a09-0556-491e-bea7-304bafb25955.png">
-  <img width="30%" src="https://user-images.githubusercontent.com/77970826/163969362-b391481b-7698-4c4d-8cf2-12c0f0aea37e.gif">
+  <img width="30%" src="https://user-images.githubusercontent.com/77970826/165248262-0f26923c-6cdd-4f91-9a3e-de49485acfae.png">
+  <img width="30%" src="https://user-images.githubusercontent.com/77970826/165248266-69146840-c866-4a31-bd5e-20485cb853c2.png">
 </p>
 
 ## Library
 |라이브러리명|목적|
 |---|---|
 |RxSwift|비동기 처리|
-|Rxcocoa|MVVM 패턴|
+|Rxcocoa|UIKit 이벤트 처리|
+|RxGesture|UIKit 제스쳐 처리
 |Charts|차트 뷰|
 |Then|코드 간결성|
 |Realm|내장 메모리|
@@ -49,4 +51,5 @@
 |분류|기능|설명|
 |---|---|---|
 |calendar|캘린더 뷰|매매 일지 캘린더|
+|list|리스트 뷰|매매 리스트|
 |chart|차트 뷰|매매 차트|
