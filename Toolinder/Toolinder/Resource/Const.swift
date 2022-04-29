@@ -30,7 +30,9 @@ struct Const {
         static let itemBody = UIFont.systemFont(ofSize: 13)
         static let itemFootnote = UIFont.systemFont(ofSize: 11)
     }
+    
     struct Color {
+        static let white = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1)
         static let red = UIColor(red: 255/255, green: 69/255, blue: 58/255, alpha: 1)
         static let orange = UIColor(red: 255/255, green: 159/255, blue: 10/255, alpha: 1)
         static let yellow = UIColor(red: 255/255, green: 214/255, blue: 10/255, alpha: 1)
@@ -43,5 +45,13 @@ struct Const {
         static let purple = UIColor(red: 191/255, green: 90/255, blue: 242/255, alpha: 1)
         static let pink = UIColor(red: 255/255, green: 55/255, blue: 95/255, alpha: 1)
         static let brown = UIColor(red: 172/255, green: 142/255, blue: 104/255, alpha: 1)
+        static let black = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1)
+    }
+    
+    struct Size {
+        static let chartBarMaxHeight = 50.0
+        static let chartBarMinHeight = 0.0
+        
+        static let chartBarWidth = 50.0
     }
 }

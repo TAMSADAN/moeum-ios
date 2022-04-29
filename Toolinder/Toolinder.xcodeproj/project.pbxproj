@@ -25,10 +25,13 @@
 		702FA6F927FD7428004417D9 /* RecordService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702FA6F827FD7428004417D9 /* RecordService.swift */; };
 		702FA6FD27FD74B8004417D9 /* WritingViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 702FA6FC27FD74B8004417D9 /* WritingViewModel.swift */; };
 		703052DD28001D8900ED9C90 /* CalendarViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 703052DC28001D8900ED9C90 /* CalendarViewModel.swift */; };
+		70318EEE281A52C00035F4C0 /* Chart.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70318EED281A52C00035F4C0 /* Chart.swift */; };
 		70369936280E9B030087BBE9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 70369935280E9B030087BBE9 /* Assets.xcassets */; };
 		7037B46427FAB048004F3828 /* WritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7037B46327FAB048004F3828 /* WritingViewController.swift */; };
 		7037B46727FAB0C3004F3828 /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7037B46627FAB0C3004F3828 /* CalendarHeaderView.swift */; };
 		7037B46927FAB0E0004F3828 /* WritingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7037B46827FAB0E0004F3828 /* WritingHeaderView.swift */; };
+		7052FD1B281BA7690090F229 /* TradeBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7052FD1A281BA7690090F229 /* TradeBarChartView.swift */; };
+		7052FD1D281BAA110090F229 /* TradeBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7052FD1C281BAA110090F229 /* TradeBarView.swift */; };
 		70592BAF2803D30300106A34 /* CalendarBottomSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70592BAE2803D30300106A34 /* CalendarBottomSheet.swift */; };
 		70592BB128041D3700106A34 /* RecordFixedLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70592BB028041D3700106A34 /* RecordFixedLabel.swift */; };
 		70592BB32804210E00106A34 /* Const.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70592BB22804210E00106A34 /* Const.swift */; };
@@ -38,6 +41,9 @@
 		7063E821280E9B90008048ED /* ToolinderUITests.xctest in Resources */ = {isa = PBXBuildFile; fileRef = 70905DA927E37D8F001CB7AF /* ToolinderUITests.xctest */; };
 		706D9B3827FAE3A400E0DD5F /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706D9B3727FAE3A400E0DD5F /* CalendarViewController.swift */; };
 		706D9B3A27FAE66700E0DD5F /* CalendarVC+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706D9B3927FAE66700E0DD5F /* CalendarVC+Ext.swift */; };
+		7076B38B281AE26200848AF9 /* TwoBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7076B38A281AE26200848AF9 /* TwoBarView.swift */; };
+		7076B38D281AE27000848AF9 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7076B38C281AE27000848AF9 /* BarView.swift */; };
+		7076B38F281AF85600848AF9 /* TwoBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7076B38E281AF85600848AF9 /* TwoBarChartView.swift */; };
 		70905D8D27E37D8E001CB7AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70905D8C27E37D8E001CB7AF /* AppDelegate.swift */; };
 		70905D8F27E37D8E001CB7AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70905D8E27E37D8E001CB7AF /* SceneDelegate.swift */; };
 		70905DA427E37D8F001CB7AF /* ToolinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70905DA327E37D8F001CB7AF /* ToolinderTests.swift */; };
@@ -63,6 +69,12 @@
 		70CB745428006DE000DA4A8E /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CB745328006DE000DA4A8E /* Date+Ext.swift */; };
 		70CB745828007CF000DA4A8E /* CalendarVM+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CB745728007CF000DA4A8E /* CalendarVM+Ext.swift */; };
 		70CF4DC127EB000600046E92 /* lib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CF4DC027EB000600046E92 /* lib.swift */; };
+		70D0B0772819852C001581AA /* AnalysisViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D0B0762819852C001581AA /* AnalysisViewController.swift */; };
+		70D0B07A2819865F001581AA /* BarChartTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D0B0792819865F001581AA /* BarChartTableViewCell.swift */; };
+		70D0B07D28199074001581AA /* AnalysisViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D0B07C28199074001581AA /* AnalysisViewModel.swift */; };
+		70D0B07F28199994001581AA /* BarChartCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D0B07E28199994001581AA /* BarChartCollectionViewCell.swift */; };
+		70D0B081281A41FC001581AA /* BarChartViewd.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D0B080281A41FC001581AA /* BarChartViewd.swift */; };
+		70D0B083281A425E001581AA /* OneBarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70D0B082281A425E001581AA /* OneBarView.swift */; };
 		70E185C528091A8800236BC2 /* ItemPieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E185C428091A8800236BC2 /* ItemPieChartView.swift */; };
 		70E185C728091FAF00236BC2 /* IncomeBarChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E185C628091FAF00236BC2 /* IncomeBarChartView.swift */; };
 		70E185C928093F5F00236BC2 /* TagPieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70E185C828093F5F00236BC2 /* TagPieChartView.swift */; };
@@ -123,10 +135,13 @@
 		702FA6F827FD7428004417D9 /* RecordService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordService.swift; sourceTree = "<group>"; };
 		702FA6FC27FD74B8004417D9 /* WritingViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewModel.swift; sourceTree = "<group>"; };
 		703052DC28001D8900ED9C90 /* CalendarViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewModel.swift; sourceTree = "<group>"; };
+		70318EED281A52C00035F4C0 /* Chart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Chart.swift; sourceTree = "<group>"; };
 		70369935280E9B030087BBE9 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7037B46327FAB048004F3828 /* WritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewController.swift; sourceTree = "<group>"; };
 		7037B46627FAB0C3004F3828 /* CalendarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
 		7037B46827FAB0E0004F3828 /* WritingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingHeaderView.swift; sourceTree = "<group>"; };
+		7052FD1A281BA7690090F229 /* TradeBarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeBarChartView.swift; sourceTree = "<group>"; };
+		7052FD1C281BAA110090F229 /* TradeBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TradeBarView.swift; sourceTree = "<group>"; };
 		70592BAE2803D30300106A34 /* CalendarBottomSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarBottomSheet.swift; sourceTree = "<group>"; };
 		70592BB028041D3700106A34 /* RecordFixedLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordFixedLabel.swift; sourceTree = "<group>"; };
 		70592BB22804210E00106A34 /* Const.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Const.swift; sourceTree = "<group>"; };
@@ -134,6 +149,9 @@
 		70608D5F27FC6B4F005E9F01 /* DateButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateButtonView.swift; sourceTree = "<group>"; };
 		706D9B3727FAE3A400E0DD5F /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		706D9B3927FAE66700E0DD5F /* CalendarVC+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarVC+Ext.swift"; sourceTree = "<group>"; };
+		7076B38A281AE26200848AF9 /* TwoBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoBarView.swift; sourceTree = "<group>"; };
+		7076B38C281AE27000848AF9 /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
+		7076B38E281AF85600848AF9 /* TwoBarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TwoBarChartView.swift; sourceTree = "<group>"; };
 		70905D8927E37D8E001CB7AF /* Toolinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toolinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70905D8C27E37D8E001CB7AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70905D8E27E37D8E001CB7AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -164,6 +182,12 @@
 		70CB745328006DE000DA4A8E /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		70CB745728007CF000DA4A8E /* CalendarVM+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarVM+Ext.swift"; sourceTree = "<group>"; };
 		70CF4DC027EB000600046E92 /* lib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lib.swift; sourceTree = "<group>"; };
+		70D0B0762819852C001581AA /* AnalysisViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisViewController.swift; sourceTree = "<group>"; };
+		70D0B0792819865F001581AA /* BarChartTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartTableViewCell.swift; sourceTree = "<group>"; };
+		70D0B07C28199074001581AA /* AnalysisViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnalysisViewModel.swift; sourceTree = "<group>"; };
+		70D0B07E28199994001581AA /* BarChartCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartCollectionViewCell.swift; sourceTree = "<group>"; };
+		70D0B080281A41FC001581AA /* BarChartViewd.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarChartViewd.swift; sourceTree = "<group>"; };
+		70D0B082281A425E001581AA /* OneBarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OneBarView.swift; sourceTree = "<group>"; };
 		70E185C428091A8800236BC2 /* ItemPieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItemPieChartView.swift; sourceTree = "<group>"; };
 		70E185C628091FAF00236BC2 /* IncomeBarChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeBarChartView.swift; sourceTree = "<group>"; };
 		70E185C828093F5F00236BC2 /* TagPieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagPieChartView.swift; sourceTree = "<group>"; };
@@ -223,6 +247,7 @@
 				702FA6EE27FD68E5004417D9 /* Record.swift */,
 				70F3B7FF28014820007F891A /* Buy.swift */,
 				70A68F642816664700E12772 /* ChartData.swift */,
+				70318EED281A52C00035F4C0 /* Chart.swift */,
 				70F3BFFE28178707006DBFFD /* ListItem.swift */,
 			);
 			path = Model;
@@ -307,6 +332,7 @@
 				70C05FBE27FC1D9D00093A2C /* Writing */,
 				70C05FB827FBDF8B00093A2C /* List */,
 				70F7493827FB3C6E00B31791 /* Chart */,
+				70D0B075281984F8001581AA /* Analysis */,
 			);
 			path = ViewController;
 			sourceTree = "<group>";
@@ -468,6 +494,38 @@
 			path = Extension;
 			sourceTree = "<group>";
 		};
+		70D0B075281984F8001581AA /* Analysis */ = {
+			isa = PBXGroup;
+			children = (
+				70D0B0762819852C001581AA /* AnalysisViewController.swift */,
+			);
+			path = Analysis;
+			sourceTree = "<group>";
+		};
+		70D0B07828198547001581AA /* Analysis */ = {
+			isa = PBXGroup;
+			children = (
+				70D0B0792819865F001581AA /* BarChartTableViewCell.swift */,
+				70D0B07E28199994001581AA /* BarChartCollectionViewCell.swift */,
+				70D0B080281A41FC001581AA /* BarChartViewd.swift */,
+				70D0B082281A425E001581AA /* OneBarView.swift */,
+				7076B38A281AE26200848AF9 /* TwoBarView.swift */,
+				7076B38C281AE27000848AF9 /* BarView.swift */,
+				7052FD1C281BAA110090F229 /* TradeBarView.swift */,
+				7076B38E281AF85600848AF9 /* TwoBarChartView.swift */,
+				7052FD1A281BA7690090F229 /* TradeBarChartView.swift */,
+			);
+			path = Analysis;
+			sourceTree = "<group>";
+		};
+		70D0B07B2819904E001581AA /* Analysis */ = {
+			isa = PBXGroup;
+			children = (
+				70D0B07C28199074001581AA /* AnalysisViewModel.swift */,
+			);
+			path = Analysis;
+			sourceTree = "<group>";
+		};
 		70DAF00A27F2E37E00EBD946 /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -475,6 +533,7 @@
 				70C05FC127FC378100093A2C /* Writing */,
 				70A68F572815A05000E12772 /* List */,
 				70E185C328091A5C00236BC2 /* Chart */,
+				70D0B07828198547001581AA /* Analysis */,
 				70C05FBB27FC0E7B00093A2C /* Reusable */,
 			);
 			path = View;
@@ -483,6 +542,7 @@
 		70DAF00B27F2E38800EBD946 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				70D0B07B2819904E001581AA /* Analysis */,
 				70A68F5D28163AD100E12772 /* List */,
 				702FA6FB27FD7478004417D9 /* Calendar */,
 				702FA6FA27FD7470004417D9 /* Writing */,
@@ -792,6 +852,8 @@
 			files = (
 				70C05FBA27FBDF9D00093A2C /* ListViewController.swift in Sources */,
 				702FA6ED27FD5EF9004417D9 /* TagLabel.swift in Sources */,
+				70D0B07D28199074001581AA /* AnalysisViewModel.swift in Sources */,
+				70D0B07A2819865F001581AA /* BarChartTableViewCell.swift in Sources */,
 				70A68F5F28163ADB00E12772 /* ListViewModel.swift in Sources */,
 				70AE0FCC27FF3F6300E880A0 /* WritingVM+Logic.swift in Sources */,
 				701A0A162805355F0070F310 /* BuyHistoryView.swift in Sources */,
@@ -802,18 +864,22 @@
 				70A68F5A2815A6B700E12772 /* ListTableViewCell.swift in Sources */,
 				702FA6FD27FD74B8004417D9 /* WritingViewModel.swift in Sources */,
 				702FA6F727FD741D004417D9 /* RecordRepository.swift in Sources */,
+				7076B38D281AE27000848AF9 /* BarView.swift in Sources */,
 				70F3BFFF28178707006DBFFD /* ListItem.swift in Sources */,
 				70E491F428081755006DB3D3 /* ChartVM+Ext.swift in Sources */,
 				70CF4DC127EB000600046E92 /* lib.swift in Sources */,
 				706D9B3A27FAE66700E0DD5F /* CalendarVC+Ext.swift in Sources */,
 				7037B46927FAB0E0004F3828 /* WritingHeaderView.swift in Sources */,
+				7052FD1B281BA7690090F229 /* TradeBarChartView.swift in Sources */,
 				702FA6EF27FD68E5004417D9 /* Record.swift in Sources */,
 				70592BB52804289000106A34 /* RecordLabel.swift in Sources */,
 				70F7493727FB3B7800B31791 /* MainViewController.swift in Sources */,
 				702FA6F927FD7428004417D9 /* RecordService.swift in Sources */,
 				706D9B3827FAE3A400E0DD5F /* CalendarViewController.swift in Sources */,
+				7076B38F281AF85600848AF9 /* TwoBarChartView.swift in Sources */,
 				70A68F6128163B4200E12772 /* ListVM+Ext.swift in Sources */,
 				70278B542806773D0013FE9F /* ChartViewModel.swift in Sources */,
+				70D0B083281A425E001581AA /* OneBarView.swift in Sources */,
 				70A68F5C2815AA0600E12772 /* ListVC+Ext.swift in Sources */,
 				70E185CB28096C9600236BC2 /* UIColor+Ext.swift in Sources */,
 				702FA6F527FD7402004417D9 /* RecordEntity.swift in Sources */,
@@ -825,10 +891,12 @@
 				70592BB32804210E00106A34 /* Const.swift in Sources */,
 				70E8B19F27FAB7BF0095B30E /* WritingVC+Ext.swift in Sources */,
 				70CB745828007CF000DA4A8E /* CalendarVM+Ext.swift in Sources */,
+				70D0B07F28199994001581AA /* BarChartCollectionViewCell.swift in Sources */,
 				702E907D27FEC1CD00FF237B /* Enum.swift in Sources */,
 				70FFCBA927FDB8E50040F30C /* ViewModel.swift in Sources */,
 				70E185C928093F5F00236BC2 /* TagPieChartView.swift in Sources */,
 				70905D8D27E37D8E001CB7AF /* AppDelegate.swift in Sources */,
+				7076B38B281AE26200848AF9 /* TwoBarView.swift in Sources */,
 				70F7493A27FB3CA700B31791 /* ChartViewController.swift in Sources */,
 				70E185C528091A8800236BC2 /* ItemPieChartView.swift in Sources */,
 				70207F4F2816D6580064D299 /* Charts+Ext.swift in Sources */,
@@ -836,6 +904,7 @@
 				70278B562806C47B0013FE9F /* ChartVC+Ext.swift in Sources */,
 				70A68F6B2816920300E12772 /* CircleImageView.swift in Sources */,
 				70A68F632816663200E12772 /* ChartDataService.swift in Sources */,
+				70D0B0772819852C001581AA /* AnalysisViewController.swift in Sources */,
 				70CB745428006DE000DA4A8E /* Date+Ext.swift in Sources */,
 				702FA6E927FD454B004417D9 /* ImageLabel.swift in Sources */,
 				70608D6027FC6B4F005E9F01 /* DateButtonView.swift in Sources */,
@@ -849,8 +918,11 @@
 				70F7493C27FB404C00B31791 /* WeekLabelView.swift in Sources */,
 				70C05FBD27FC0EA800093A2C /* WritingButton.swift in Sources */,
 				70592BAF2803D30300106A34 /* CalendarBottomSheet.swift in Sources */,
+				70318EEE281A52C00035F4C0 /* Chart.swift in Sources */,
+				7052FD1D281BAA110090F229 /* TradeBarView.swift in Sources */,
 				7037B46427FAB048004F3828 /* WritingViewController.swift in Sources */,
 				701A0A18280537D00070F310 /* BuyHistoryLabel.swift in Sources */,
+				70D0B081281A41FC001581AA /* BarChartViewd.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
