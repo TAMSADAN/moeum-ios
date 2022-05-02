@@ -55,6 +55,6 @@ class WritingViewModel: ViewModel {
     
     init() {
         self.bind()
-        self.input.recordZips.onNext(recordService.getRecordZips(tag: false, item: true))
+        self.input.recordZips.onNext(recordService.getRecordZipsISOLDCODE(tag: false, item: true))
     }
 }

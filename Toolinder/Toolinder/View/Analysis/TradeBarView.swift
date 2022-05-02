@@ -9,53 +9,61 @@ import UIKit
 import Then
 
 class TradeBarView: UIView {
-    
     var topLabel = UILabel().then {
-        $0.text = "탑"
         $0.font = Const.Font.footnote
         $0.textColor = Const.Color.black
         $0.textAlignment = .center
     }
-    
+    var bottomLabelBackgroundView = UIView().then {
+        $0.backgroundColor = .systemGray6
+    }
     var bottomLabel = UILabel().then {
-        $0.text = "바텀"
-        $0.font = Const.Font.footnote
+        $0.font = Const.Font.itemFootnote
         $0.textColor = Const.Color.black
         $0.textAlignment = .center
     }
+    var barStackView = UIStackView().then {
+        $0.alignment = .center
+        $0.distribution = .fillEqually
+        $0.spacing = 2
+    }
     
-    var buyBarView: BarView!
-    var sellBarView: BarView!
+    var buyBarViews: [BarView] = []
+    var sellBarViews: [BarView] = []
+    var buyBarViewWidthConstraints: [NSLayoutConstraint] = []
+    var sellBarViewWidthConstraints: [NSLayoutConstraint] = []
     
-    var buyBarViewWidthConstraint = NSLayoutConstraint()
-    var sellBarViewWidthConstraint = NSLayoutConstraint()
-    var barContainer = UILayoutGuide()
+    var tradeChartZip: TradeChartZip!
+    var maxValue: Double!
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
     }
     
-    init(tradeChart: TradeChart) {
+    init(tradeChartZip: TradeChartZip, maxValue: Double) {
         super.init(frame: .zero)
-        buyBarView = BarView(chart: tradeChart.buyChart)
-        sellBarView = BarView(chart: tradeChart.sellChart)
+        self.tradeChartZip = tradeChartZip
+        self.maxValue = maxValue
         setView()
     }
     
     func setView() {
-        addLayoutGuide(barContainer)
         addSubview(topLabel)
-        addSubview(buyBarView)
-        addSubview(sellBarView)
+        addSubview(barStackView)
+        addSubview(bottomLabelBackgroundView)
         addSubview(bottomLabel)
         
         topLabel.translatesAutoresizingMaskIntoConstraints = false
-        buyBarView.translatesAutoresizingMaskIntoConstraints = false
-        sellBarView.translatesAutoresizingMaskIntoConstraints = false
+        barStackView.translatesAutoresizingMaskIntoConstraints = false
+        bottomLabelBackgroundView.translatesAutoresizingMaskIntoConstraints = false
         bottomLabel.translatesAutoresizingMaskIntoConstraints = false
         
-        buyBarViewWidthConstraint = buyBarView.widthAnchor.constraint(equalTo: barContainer.widthAnchor, multiplier: 0.45)
-        sellBarViewWidthConstraint = sellBarView.widthAnchor.constraint(equalTo: barContainer.widthAnchor, multiplier: 0.45)
+        bottomLabel.text = tradeChartZip.label
+        
+        for tradeChart in tradeChartZip.tradeCharts {
+            buyBarViews.append(BarView(chart: tradeChart.buyChart, maxValue: maxValue))
+            sellBarViews.append(BarView(chart: tradeChart.sellChart, maxValue: maxValue))
+        }
         
         NSLayoutConstraint.activate([
             topLabel.topAnchor.constraint(equalTo: topAnchor),
@@ -63,57 +71,62 @@ class TradeBarView: UIView {
             topLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             topLabel.heightAnchor.constraint(equalToConstant: 30),
             
-            barContainer.topAnchor.constraint(equalTo: topLabel.bottomAnchor),
-            barContainer.centerXAnchor.constraint(equalTo: centerXAnchor),
-            barContainer.bottomAnchor.constraint(equalTo: bottomLabel.topAnchor),
-            barContainer.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7),
+            barStackView.topAnchor.constraint(equalTo: topLabel.bottomAnchor),
+            barStackView.centerXAnchor.constraint(equalTo: centerXAnchor),
+            barStackView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: 0.7),
             
-            buyBarView.topAnchor.constraint(equalTo: barContainer.topAnchor),
-            buyBarView.leadingAnchor.constraint(equalTo: barContainer.leadingAnchor),
-            buyBarView.bottomAnchor.constraint(equalTo: barContainer.bottomAnchor),
-            buyBarViewWidthConstraint,
-            
-            sellBarView.topAnchor.constraint(equalTo: barContainer.topAnchor),
-            sellBarView.trailingAnchor.constraint(equalTo: barContainer.trailingAnchor, constant: 2),
-            sellBarView.bottomAnchor.constraint(equalTo: barContainer.bottomAnchor),
-            sellBarViewWidthConstraint,
-            
+            bottomLabel.topAnchor.constraint(equalTo: barStackView.bottomAnchor, constant: 2),
             bottomLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
             bottomLabel.trailingAnchor.constraint(equalTo: trailingAnchor),
             bottomLabel.bottomAnchor.constraint(equalTo: bottomAnchor),
             bottomLabel.heightAnchor.constraint(equalToConstant: 20),
         ])
+        
+        for i in 0..<tradeChartZip.tradeCharts.count {
+            barStackView.addArrangedSubview(buyBarViews[i])
+            barStackView.addArrangedSubview(sellBarViews[i])
+            
+            buyBarViews[i].translatesAutoresizingMaskIntoConstraints = false
+            sellBarViews[i].translatesAutoresizingMaskIntoConstraints = false
+            
+            NSLayoutConstraint.activate([
+                buyBarViews[i].topAnchor.constraint(equalTo: barStackView.topAnchor),
+                buyBarViews[i].bottomAnchor.constraint(equalTo: barStackView.bottomAnchor),
+                
+                sellBarViews[i].topAnchor.constraint(equalTo: barStackView.topAnchor),
+                sellBarViews[i].bottomAnchor.constraint(equalTo: barStackView.bottomAnchor),
+            ])
+        }
     }
 }
 
 extension TradeBarView {
     func showAllBarView() {
-        buyBarViewWidthConstraint.constant = 0
-        sellBarViewWidthConstraint.constant = 0
-        
+        for i in 0..<tradeChartZip.tradeCharts.count {
+            buyBarViews[i].isHidden = false
+            sellBarViews[i].isHidden = false
+        }
         UIView.animate(withDuration: 0.25, animations: {
-            self.buyBarViewWidthConstraint.isActive = true
-            self.sellBarViewWidthConstraint.isActive = true
             self.layoutIfNeeded()
         })
     }
     
     func showBuyBarView() {
-        buyBarViewWidthConstraint.constant = barContainer.layoutFrame.width * 0.45
-        sellBarViewWidthConstraint.constant = -1 * barContainer.layoutFrame.width * 0.45
+        for i in 0..<tradeChartZip.tradeCharts.count {
+            buyBarViews[i].isHidden = true
+            sellBarViews[i].isHidden = false
+        }
         UIView.animate(withDuration: 0.25, animations: {
-            self.buyBarViewWidthConstraint.isActive = true
-            self.sellBarViewWidthConstraint.isActive = true
             self.layoutIfNeeded()
         })
     }
     
     func showSellBarView() {
-        buyBarViewWidthConstraint.constant = -1 * barContainer.layoutFrame.width * 0.45
-        sellBarViewWidthConstraint.constant = barContainer.layoutFrame.width * 0.45
+        for i in 0..<tradeChartZip.tradeCharts.count {
+            buyBarViews[i].isHidden = false
+            sellBarViews[i].isHidden = true
+        }
         UIView.animate(withDuration: 0.25, animations: {
-            self.buyBarViewWidthConstraint.isActive = true
-            self.sellBarViewWidthConstraint.isActive = true
             self.layoutIfNeeded()
         })
     }

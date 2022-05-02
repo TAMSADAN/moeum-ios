@@ -8,10 +8,12 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import Algorithms
 
 class AnalysisViewModel: ViewModel {
     let recordService = RecordService()
     let chartDataService = ChartDataService()
+    let chartService = ChartService()
     
     var disposeBag = DisposeBag()
     
@@ -38,22 +40,46 @@ class AnalysisViewModel: ViewModel {
         //            Chart(label: "6", value: 0.85),
         //            Chart(label: "7", value: 1),]))
         //
-        let tradeChartZip = BehaviorRelay(value: TradeChartZip(TradeCharts: [
-            TradeChart(buyChart: Chart(label: "1", value: 0.1, color: Const.Color.pink, valueOrigin: 123),
-                       sellChart: Chart(label: "1", value: 0.2, color: Const.Color.mint, valueOrigin: 245)),
-            TradeChart(buyChart: Chart(label: "2", value: 0.3, color: Const.Color.pink, valueOrigin: 123),
-                       sellChart: Chart(label: "2", value: 0.7, color: Const.Color.mint, valueOrigin: 245)),
-            TradeChart(buyChart: Chart(label: "3", value: 0.8, color: Const.Color.pink, valueOrigin: 123),
-                       sellChart: Chart(label: "3", value: 0.5, color: Const.Color.mint, valueOrigin: 245)),
-            TradeChart(buyChart: Chart(label: "4", value: 0.5, color: Const.Color.pink, valueOrigin: 123),
-                       sellChart: Chart(label: "4", value: 0.2, color: Const.Color.mint, valueOrigin: 245)),
-            TradeChart(buyChart: Chart(label: "5", value: 0.2, color: Const.Color.pink, valueOrigin: 123),
-                       sellChart: Chart(label: "5", value: 0.7, color: Const.Color.mint, valueOrigin: 245)),
-            TradeChart(buyChart: Chart(label: "6", value: 0.4, color: Const.Color.pink, valueOrigin: 123),
-                       sellChart: Chart(label: "6", value: 0.6, color: Const.Color.mint, valueOrigin: 245)),
-            TradeChart(buyChart: Chart(label: "7", value: 0.2, color: Const.Color.pink, valueOrigin: 123),
-                       sellChart: Chart(label: "7", value: 0.9, color: Const.Color.mint, valueOrigin: 245)),
+        let tradeChartZip = BehaviorRelay(value: TradeChartZip(tradeCharts: [
+            TradeChart(buyChart: Chart(value: 0.1, color: Const.Color.pink),
+                       sellChart: Chart(value: 0.2, color: Const.Color.mint)),
+            TradeChart(buyChart: Chart(value: 0.3, color: Const.Color.pink),
+                       sellChart: Chart(value: 0.7, color: Const.Color.mint)),
+            TradeChart(buyChart: Chart(value: 0.8, color: Const.Color.pink),
+                       sellChart: Chart(value: 0.5, color: Const.Color.mint)),
+            TradeChart(buyChart: Chart(value: 0.5, color: Const.Color.pink),
+                       sellChart: Chart(value: 0.2, color: Const.Color.mint)),
+            TradeChart(buyChart: Chart(value: 0.2, color: Const.Color.pink),
+                       sellChart: Chart(value: 0.7, color: Const.Color.mint)),
+            TradeChart(buyChart: Chart(value: 0.4, color: Const.Color.pink),
+                       sellChart: Chart(value: 0.6, color: Const.Color.mint)),
+            TradeChart(buyChart: Chart(value: 0.2, color: Const.Color.pink),
+                       sellChart: Chart(value: 0.9, color: Const.Color.mint)),
         ]))
+        
+        let tradeChartZips = BehaviorRelay(value: [
+            TradeChartZip(tradeCharts: [
+                Const.Test.tradeChart1,
+            ], label: "1"),
+            TradeChartZip(tradeCharts: [
+                Const.Test.tradeChart2,
+            ], label: "2"),
+            TradeChartZip(tradeCharts: [
+                Const.Test.tradeChart3,
+            ], label: "3"),
+            TradeChartZip(tradeCharts: [
+                Const.Test.tradeChart4,
+            ], label: "4"),
+            TradeChartZip(tradeCharts: [
+                Const.Test.tradeChart5,
+            ], label: "5"),
+            TradeChartZip(tradeCharts: [
+                Const.Test.tradeChart6,
+            ], label: "6"),
+            TradeChartZip(tradeCharts: [
+                Const.Test.tradeChart7,
+            ], label: "7"),
+        ])
         
         let tradeBarChartViewTypeOption = BehaviorRelay(value: 0)
         let tradeBarChartViewPeriodOption = BehaviorRelay(value: 0)
@@ -61,6 +87,10 @@ class AnalysisViewModel: ViewModel {
     
     init() {
         setBind()
+        print(chartService.getTradeChartZips(period: Period.day))
+        print(chartService.getTradeChartZips(period: Period.week))
+        print(chartService.getTradeChartZips(period: Period.month))
+        print(chartService.getTradeChartZips(period: Period.year))
     }
 }
 
@@ -71,7 +101,17 @@ extension AnalysisViewModel {
             .disposed(by: disposeBag)
         
         input.tradeBarChartViewPeriodOption
-            .bind(to: output.tradeBarChartViewPeriodOption)
+            .withUnretained(self)
+            .bind { owner, option in
+                if option == 0 {
+                    owner.output.tradeChartZips.accept(owner.chartService.getTradeChartZips(period: Period.day))
+                } else if option == 1 {
+                    owner.output.tradeChartZips.accept(owner.chartService.getTradeChartZips(period: Period.week))
+                } else if option == 2 {
+                    owner.output.tradeChartZips.accept(owner.chartService.getTradeChartZips(period: Period.month))
+                }
+            }
             .disposed(by: disposeBag)
+        
     }
 }

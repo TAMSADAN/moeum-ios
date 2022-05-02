@@ -13,7 +13,12 @@ struct ChartZip {
 }
 
 struct TradeChartZip {
-    var TradeCharts: [TradeChart]
+    var tradeCharts: [TradeChart] = []
+    var label: String = ""
+    
+    func getMaxValue() -> Double {
+        return max(self.tradeCharts.map { $0.buyChart.value }.max() ?? 0.0, self.tradeCharts.map { $0.sellChart.value }.max() ?? 0.0)
+    }
 }
 
 struct TradeChart {
@@ -22,8 +27,6 @@ struct TradeChart {
 }
 
 struct Chart {
-    var label: String = ""
     var value: Double = 0.0
     var color: UIColor = Const.Color.orange
-    var valueOrigin: Double = 0.0
 }

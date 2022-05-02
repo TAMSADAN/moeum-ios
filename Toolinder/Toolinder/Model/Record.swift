@@ -27,6 +27,27 @@ struct Record {
         self.date = date
         self.memo = memo
     }
+    
+    func isEqaulUnit(_ record: Record, unit: Unit) -> Bool {
+        if unit == Unit.type {
+            return self.type == record.type
+        } else if unit == Unit.item {
+            return self.item == record.item
+        } else if unit == Unit.tag {
+            return self.tag == record.tag
+        } else if unit == Unit.day {
+            return self.date.isEqualPeriod(record.date, period: Period.day)
+        } else if unit == Unit.week {
+            return self.date.isEqualPeriod(record.date, period: Period.week)
+        } else if unit == Unit.month {
+            return self.date.isEqualPeriod(record.date, period: Period.month)
+        } else if unit == Unit.year {
+            return self.date.isEqualPeriod(record.date, period: Period.year)
+        } else {
+            return false
+        }
+        
+    }
 }
 
 struct RecordChartData {
@@ -38,8 +59,8 @@ struct RecordChartData {
 
 // Record Zip은 Record를 모아서 분석하는 모델입니다.
 struct RecordZip {
-    var tag: String = String()
-    var item: String = String()
+    var unit: Unit = Unit.item
+    var record: Record = Record()
     
     var records: [Record] = []
     

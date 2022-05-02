@@ -16,15 +16,17 @@ class BarView: UIView {
     }
     
     var chart: Chart!
+    var maxValue: Double!
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         setView()
     }
     
-    init(chart: Chart) {
+    init(chart: Chart, maxValue: Double) {
         super.init(frame: .zero)
         self.chart = chart
+        self.maxValue = maxValue
         setView()
     }
     
@@ -35,6 +37,11 @@ class BarView: UIView {
         contentBackgroundView.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
         
+        if chart.value == 0.0 {
+            contentView.backgroundColor = Const.Color.systemGray6
+            chart.value = 0.1
+            maxValue = 1
+        }
         contentView.backgroundColor = chart.color
 
         
@@ -47,7 +54,7 @@ class BarView: UIView {
             contentView.leadingAnchor.constraint(equalTo: contentBackgroundView.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: contentBackgroundView.trailingAnchor),
             contentView.bottomAnchor.constraint(equalTo: contentBackgroundView.bottomAnchor),
-            contentView.heightAnchor.constraint(equalTo: contentBackgroundView.heightAnchor, multiplier: chart.value)
+            contentView.heightAnchor.constraint(equalTo: contentBackgroundView.heightAnchor, multiplier: chart.value / maxValue)
         ])
     }
 }

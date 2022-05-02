@@ -9,9 +9,9 @@ import Foundation
 
 extension ChartViewModel {
     func setBind() {
-        input.recordZips.onNext(recordService.getRecordZips(tag: true, item: true))
-        input.tagRecordZips.onNext(recordService.getRecordZips(tag: true, item: false))
-        input.itemRecordZips.onNext(recordService.getRecordZips(tag: false, item: true))
+        input.recordZips.onNext(recordService.getRecordZipsISOLDCODE(tag: true, item: true))
+        input.tagRecordZips.onNext(recordService.getRecordZipsISOLDCODE(tag: true, item: false))
+        input.itemRecordZips.onNext(recordService.getRecordZipsISOLDCODE(tag: false, item: true))
         
         input.itemRecordZips
             .bind { [weak self] recordZips in
@@ -33,7 +33,7 @@ extension ChartViewModel {
         var priceSums: [Double] = []
         
         for recordZip in recordZips {
-            let item = recordZip.item
+            let item = recordZip.record.item
             let (buyPriceAvg, buyCount) = recordZip.getBuyPriceData(date: date)
             
             items.append(item)
@@ -48,7 +48,7 @@ extension ChartViewModel {
         var buyPriceSums: [Double] = []
         
         for recordZip in recordZips {
-            let tag = recordZip.tag
+            let tag = recordZip.record.tag
             var buyPriceSum = 0.0
             
             for record in recordZip.records.filter({ $0.type == "매수" }) {

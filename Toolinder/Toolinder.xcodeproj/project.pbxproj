@@ -61,6 +61,7 @@
 		70A788D027FCA7C900576034 /* ImageTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A788CF27FCA7C900576034 /* ImageTextField.swift */; };
 		70AE0FCC27FF3F6300E880A0 /* WritingVM+Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AE0FCB27FF3F6300E880A0 /* WritingVM+Logic.swift */; };
 		70AE0FCE27FF3F7800E880A0 /* WritingVM+Bind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AE0FCD27FF3F7800E880A0 /* WritingVM+Bind.swift */; };
+		70B22AB3281EB45D004EC88A /* ChartService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70B22AB2281EB45D004EC88A /* ChartService.swift */; };
 		70B8080C280E4B7A00387C42 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 70B8080B280E4B7A00387C42 /* LaunchScreen.storyboard */; };
 		70C05FBA27FBDF9D00093A2C /* ListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C05FB927FBDF9D00093A2C /* ListViewController.swift */; };
 		70C05FBD27FC0EA800093A2C /* WritingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C05FBC27FC0EA800093A2C /* WritingButton.swift */; };
@@ -173,6 +174,7 @@
 		70A788CF27FCA7C900576034 /* ImageTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextField.swift; sourceTree = "<group>"; };
 		70AE0FCB27FF3F6300E880A0 /* WritingVM+Logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WritingVM+Logic.swift"; sourceTree = "<group>"; };
 		70AE0FCD27FF3F7800E880A0 /* WritingVM+Bind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WritingVM+Bind.swift"; sourceTree = "<group>"; };
+		70B22AB2281EB45D004EC88A /* ChartService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChartService.swift; sourceTree = "<group>"; };
 		70B8080B280E4B7A00387C42 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		70B8080F280E50D000387C42 /* toolinder.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolinder.png; sourceTree = "<group>"; };
 		70C05FB927FBDF9D00093A2C /* ListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListViewController.swift; sourceTree = "<group>"; };
@@ -293,6 +295,7 @@
 			children = (
 				702FA6F827FD7428004417D9 /* RecordService.swift */,
 				70A68F622816663200E12772 /* ChartDataService.swift */,
+				70B22AB2281EB45D004EC88A /* ChartService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -916,6 +919,7 @@
 				7037B46727FAB0C3004F3828 /* CalendarHeaderView.swift in Sources */,
 				70A68F672816870B00E12772 /* String+Ext.swift in Sources */,
 				70F7493C27FB404C00B31791 /* WeekLabelView.swift in Sources */,
+				70B22AB3281EB45D004EC88A /* ChartService.swift in Sources */,
 				70C05FBD27FC0EA800093A2C /* WritingButton.swift in Sources */,
 				70592BAF2803D30300106A34 /* CalendarBottomSheet.swift in Sources */,
 				70318EEE281A52C00035F4C0 /* Chart.swift in Sources */,

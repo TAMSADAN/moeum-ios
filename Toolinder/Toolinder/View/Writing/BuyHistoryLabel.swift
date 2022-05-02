@@ -32,7 +32,7 @@ class BuyHistoryLabel: UIView {
     func update(recordZip: RecordZip) {
         self.recordZip = recordZip
         
-        itemLabel.text = self.recordZip.item
+        itemLabel.text = self.recordZip.record.item
     }
     
     func setView() {

@@ -55,10 +55,10 @@ extension AnalysisViewController {
             .bind(to: viewModel.input.tradeBarChartViewPeriodOption)
             .disposed(by: disposeBag)
         
-        viewModel.output.tradeChartZip
+        viewModel.output.tradeChartZips
             .withUnretained(self)
-            .bind { owner, tradeChartZip in
-                owner.tradeBarChartView.setTradeChartZip(tradeChartZip: tradeChartZip)
+            .bind { owner, tradeChartZips in
+                owner.tradeBarChartView.setTradeChartZips(tradeChartZips: tradeChartZips)
             }
             .disposed(by: disposeBag)
         

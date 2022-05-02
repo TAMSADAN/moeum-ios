@@ -11,5 +11,3 @@ struct ChartData {
     var points: [String] = []
     var values: [Double] = []
 }
-
-

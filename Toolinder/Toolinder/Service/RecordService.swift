@@ -1,7 +1,7 @@
 //
 //  RecordService.swift
 //  moeum
-//
+//  
 //  Created by 송영모 on 2022/04/06.
 //
 
@@ -9,7 +9,6 @@ import Foundation
 
 // Record
 class RecordService {
-    
     let recordRepository = RecordRepository()
     
     func getRecords() -> [Record] {
@@ -28,19 +27,30 @@ class RecordService {
         recordRepository.postRecordEntity(recordEntity: recordEntity)
     }
     
-    func updateRecord() {
-        
-    }
-    
     func deleteRecord(recordId: Int) {
         recordRepository.deleteRecordEntity(recordId: recordId)
+    }
+    
+    func getRecordZips(_ unit: Unit) -> [RecordZip] {
+        let records: [Record] = getRecords()
+        var oldRecords: [Record] = []
+        var recordZips: [RecordZip] = []
+
+        for record in records {
+            if oldRecords.contains(where: {$0.id == record.id }) { continue }
+            let equalUnitRecords: [Record] = records.filter({ $0.isEqaulUnit(record, unit: unit) })
+            let recordZip = RecordZip(unit: unit, record: record, records: equalUnitRecords)
+            oldRecords.append(contentsOf: equalUnitRecords)
+            recordZips.append(recordZip)
+        }
+        return recordZips
     }
 }
 
 
 // RecordZip
 extension RecordService {
-    func getRecordZips(tag: Bool, item: Bool) -> [RecordZip] {
+    func getRecordZipsISOLDCODE(tag: Bool, item: Bool) -> [RecordZip] {
         let records: [Record] = getRecords()
         var recordZips: [RecordZip] = []
         
@@ -48,17 +58,17 @@ extension RecordService {
             var recordZipIndex: Int?
             
             if tag && item {
-                recordZipIndex = recordZips.firstIndex(where: { $0.item == record.item && $0.tag == record.tag })
+                recordZipIndex = recordZips.firstIndex(where: { $0.record.item == record.item && $0.record.tag == record.tag })
             } else if tag && !item {
-                recordZipIndex = recordZips.firstIndex(where: { $0.tag == record.tag })
+                recordZipIndex = recordZips.firstIndex(where: { $0.record.tag == record.tag })
             } else if !tag && item {
-                recordZipIndex = recordZips.firstIndex(where: { $0.item == record.item })
+                recordZipIndex = recordZips.firstIndex(where: { $0.record.item == record.item })
             }
             
             if recordZipIndex != nil {
                 recordZips[recordZipIndex!].addRecord(record: record)
             } else {
-                let newRecordZip = RecordZip(tag: record.tag, item: record.item, records: [record])
+                let newRecordZip = RecordZip(unit: Unit.day, record: record, records: [record])
                 recordZips.append(newRecordZip)
             }
         }
@@ -120,7 +130,7 @@ extension RecordService {
         var datas: [Double] = []
         
         for recordZip in recordZips {
-            let point = recordZip.item
+            let point = recordZip.record.item
             let (buyPriceAvg, buyCount) = recordZip.getBuyPriceData(date: date)
             
             points.append(point)

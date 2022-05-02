@@ -45,7 +45,7 @@ extension WritingViewModel {
             .bind {
                 [weak self] item, recordZips, typeIndex in
                 let recordZips = recordZips as! [RecordZip]
-                let recordZip = recordZips.first(where: { $0.item == item })
+                let recordZip = recordZips.first(where: { $0.record.item == item })
                 
                 if typeIndex == 0 {
                     if recordZip != nil {

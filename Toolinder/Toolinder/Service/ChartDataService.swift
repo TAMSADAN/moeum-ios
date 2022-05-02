@@ -13,7 +13,7 @@ class ChartDataService {
         var datas: [Double] = []
         
         for recordZip in recordZips {
-            let point = recordZip.item
+            let point = recordZip.record.item
             let (buyPriceAvg, buyCount) = recordZip.getBuyPriceData(date: date)
             
             points.append(point)

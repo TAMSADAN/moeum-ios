@@ -46,6 +46,12 @@ struct Const {
         static let pink = UIColor(red: 255/255, green: 55/255, blue: 95/255, alpha: 1)
         static let brown = UIColor(red: 172/255, green: 142/255, blue: 104/255, alpha: 1)
         static let black = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1)
+        static let systemGray = UIColor(red: 142/255, green: 142/255, blue: 147/255, alpha: 1)
+        static let systemGray2 = UIColor(red: 174/255, green: 174/255, blue: 178/255, alpha: 1)
+        static let systemGray3 = UIColor(red: 199/255, green: 199/255, blue: 204/255, alpha: 1)
+        static let systemGray4 = UIColor(red: 209/255, green: 209/255, blue: 214/255, alpha: 1)
+        static let systemGray5 = UIColor(red: 229/255, green: 229/255, blue: 234/255, alpha: 1)
+        static let systemGray6 = UIColor(red: 242/255, green: 242/255, blue: 247/255, alpha: 1)
     }
     
     struct Size {
@@ -53,5 +59,23 @@ struct Const {
         static let chartBarMinHeight = 0.0
         
         static let chartBarWidth = 50.0
+    }
+    
+    struct Test {
+        static let tradeChart1 = TradeChart(buyChart: Chart(value: 0.1, color: Const.Color.pink),
+                                            sellChart: Chart(value: 0.2, color: Const.Color.mint))
+        static let tradeChart2 = TradeChart(buyChart: Chart(value: 0.3, color: Const.Color.pink),
+                                            sellChart: Chart(value: 0.5, color: Const.Color.mint))
+        static let tradeChart3 = TradeChart(buyChart: Chart(value: 0.8, color: Const.Color.pink),
+                                            sellChart: Chart(value: 0.1, color: Const.Color.mint))
+        static let tradeChart4 = TradeChart(buyChart: Chart(value: 0.5, color: Const.Color.pink),
+                                            sellChart: Chart(value: 0.6, color: Const.Color.mint))
+        static let tradeChart5 = TradeChart(buyChart: Chart(value: 0.8, color: Const.Color.pink),
+                                            sellChart: Chart(value: 0.9, color: Const.Color.mint))
+        static let tradeChart6 = TradeChart(buyChart: Chart(value: 0.5, color: Const.Color.pink),
+                                            sellChart: Chart(value: 0.4, color: Const.Color.mint))
+        static let tradeChart7 = TradeChart(buyChart: Chart(value: 0.2, color: Const.Color.pink),
+                                            sellChart: Chart(value: 0.4, color: Const.Color.mint))
+
     }
 }

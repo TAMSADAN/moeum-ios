@@ -15,7 +15,7 @@ extension ListViewModel {
             .withUnretained(self)
             .bind { owner, _ in
                 owner.input.records.onNext(owner.recordService.getRecords())
-                owner.input.itemRecordZips.onNext(owner.recordService.getRecordZips(tag: false, item: true))
+                owner.input.itemRecordZips.onNext(owner.recordService.getRecordZipsISOLDCODE(tag: false, item: true))
             }
             .disposed(by: disposeBag)
         
@@ -24,7 +24,7 @@ extension ListViewModel {
             .bind { owner, records in
                 owner.output.records.accept(records.reversed())
                 owner.output.tradeHistoryCount.accept(records.count)
-                print(owner.recordService.getRecordZips(tag: false, item: true))
+                print(owner.recordService.getRecordZipsISOLDCODE(tag: false, item: true))
             }
             .disposed(by: disposeBag)
         
@@ -45,7 +45,7 @@ extension ListViewModel {
                 var listItemModels: [ListItemModel] = []
                 
                 for record in records {
-                    let recordZip = recordZips.first(where: { $0.item == record.item }) ?? RecordZip()
+                    let recordZip = recordZips.first(where: { $0.record.item == record.item }) ?? RecordZip()
                     let listItemModel = owner.recordService.parseToListItemModel(record: record, recordZip: recordZip)
                     
                     listItemModels.append(listItemModel)

@@ -18,3 +18,20 @@ enum RecordType: String {
     case sell = "매도"
     case memo = "메모"
 }
+
+enum Period {
+    case day
+    case week
+    case month
+    case year
+}
+
+enum Unit {
+    case type
+    case tag
+    case item
+    case day
+    case week
+    case month
+    case year
+}

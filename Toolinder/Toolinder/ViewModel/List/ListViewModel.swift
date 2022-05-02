@@ -35,6 +35,6 @@ class ListViewModel: ViewModel {
     init() {
         setBind()
         input.records.onNext(recordService.getRecords())
-        input.itemRecordZips.onNext(recordService.getRecordZips(tag: false, item: true))
+        input.itemRecordZips.onNext(recordService.getRecordZipsISOLDCODE(tag: false, item: true))
     }
 }
