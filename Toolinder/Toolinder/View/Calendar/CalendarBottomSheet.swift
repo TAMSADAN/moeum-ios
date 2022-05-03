@@ -74,7 +74,7 @@ class CalendarBottomSheet: UIView {
             
             hideButton.topAnchor.constraint(equalTo: topDividerView.bottomAnchor),
             hideButton.widthAnchor.constraint(equalToConstant: 45),
-            hideButton.heightAnchor.constraint(equalToConstant: 25),
+            hideButton.heightAnchor.constraint(equalToConstant: 35),
             hideButton.centerXAnchor.constraint(equalTo: contentView.centerXAnchor),
             
             titleLabel.topAnchor.constraint(equalTo: topDividerView.bottomAnchor, constant: 10),

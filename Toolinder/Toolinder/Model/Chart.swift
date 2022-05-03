@@ -8,10 +8,6 @@
 import Foundation
 import UIKit
 
-struct ChartZip {
-    var charts: [Chart]
-}
-
 struct TradeChartZip {
     var tradeCharts: [TradeChart] = []
     var label: String = ""

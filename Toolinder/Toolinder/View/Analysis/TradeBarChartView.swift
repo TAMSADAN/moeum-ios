@@ -11,13 +11,18 @@ import Then
 class TradeBarChartView: UIView {
 
     var titleLabel = UILabel().then {
-        $0.text = "타이틀"
+        $0.text = "누적 투자 내역"
         $0.font = Const.Font.headline
         $0.textColor = Const.Color.black
     }
 
     var typeSegmentControl = UISegmentedControl(items: ["전체", "매수", "매도"])
     var periodSegmentControl = UISegmentedControl(items: ["일", "주", "월"])
+    var priceUnitLabel = UILabel().then {
+        $0.text = "단위: 만원"
+        $0.font = Const.Font.itemFootnote
+        $0.textColor = Const.Color.black
+    }
     var tradeBarViews: [TradeBarView] = []
     
     var tradeChartZips: [TradeChartZip]!
@@ -38,10 +43,12 @@ class TradeBarChartView: UIView {
         addSubview(titleLabel)
         addSubview(typeSegmentControl)
         addSubview(periodSegmentControl)
+        addSubview(priceUnitLabel)
         
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         typeSegmentControl.translatesAutoresizingMaskIntoConstraints = false
         periodSegmentControl.translatesAutoresizingMaskIntoConstraints = false
+        priceUnitLabel.translatesAutoresizingMaskIntoConstraints = false
         
         typeSegmentControl.selectedSegmentIndex = 0
         periodSegmentControl.selectedSegmentIndex = 0
@@ -57,6 +64,9 @@ class TradeBarChartView: UIView {
             periodSegmentControl.topAnchor.constraint(equalTo: typeSegmentControl.topAnchor),
             periodSegmentControl.trailingAnchor.constraint(equalTo: trailingAnchor),
             periodSegmentControl.widthAnchor.constraint(equalToConstant: 100),
+            
+            priceUnitLabel.topAnchor.constraint(equalTo: typeSegmentControl.bottomAnchor, constant: 10),
+            priceUnitLabel.leadingAnchor.constraint(equalTo: leadingAnchor),
         ])
     }
 }
@@ -92,7 +102,7 @@ extension TradeBarChartView {
             tradeBarView.translatesAutoresizingMaskIntoConstraints = false
             
             NSLayoutConstraint.activate([
-                tradeBarView.topAnchor.constraint(equalTo: typeSegmentControl.bottomAnchor, constant: 10),
+                tradeBarView.topAnchor.constraint(equalTo: priceUnitLabel.bottomAnchor, constant: 10),
                 tradeBarView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: CGFloat(1) / CGFloat(7)),
                 tradeBarView.bottomAnchor.constraint(equalTo: bottomAnchor),
             ])

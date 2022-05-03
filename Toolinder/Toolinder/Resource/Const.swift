@@ -11,9 +11,9 @@ import UIKit
 struct Const {
     struct Font {
         static let largeTitle = UIFont.systemFont(ofSize: 34)
-        static let title1 = UIFont.systemFont(ofSize: 28)
-        static let title2 = UIFont.systemFont(ofSize: 22)
-        static let title3 = UIFont.systemFont(ofSize: 20)
+        static let title1 = UIFont.systemFont(ofSize: 28, weight: .semibold)
+        static let title2 = UIFont.systemFont(ofSize: 22, weight: .semibold)
+        static let title3 = UIFont.systemFont(ofSize: 20, weight: .semibold)
         static let headline = UIFont.systemFont(ofSize: 17, weight: .semibold)
         static let callout = UIFont.systemFont(ofSize: 16)
         static let subheadline = UIFont.systemFont(ofSize: 15)
@@ -57,8 +57,10 @@ struct Const {
     struct Size {
         static let chartBarMaxHeight = 50.0
         static let chartBarMinHeight = 0.0
-        
         static let chartBarWidth = 50.0
+        static let calendarHeaderMinHeight = 100.0
+        static let calendarHeaderMaxHeight = 290.0
+        static let calendarBottomSheetMinHeight = 400.0
     }
     
     struct Test {

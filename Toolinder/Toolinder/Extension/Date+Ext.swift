@@ -35,25 +35,23 @@ extension Date {
     }
     
     func getDatesOfMonth() -> [Date] {
-        var calendar = Calendar.current
-        calendar.timeZone = TimeZone(abbreviation: "KST")!
-        
-        var dateComponents = calendar.dateComponents(in: TimeZone(abbreviation: "KST")!, from: self)
-        
-        dateComponents.timeZone = TimeZone(abbreviation: "KST")!
-        
-        dateComponents.day = 0
-        var date = dateComponents.date!
-        
-        dateComponents.month = dateComponents.month! + 1
-        dateComponents.day = 1
-        let endDate = calendar.date(byAdding: .day, value: -1, to: dateComponents.date!)!
-        
         var dates: [Date] = []
+        var date: Date = Date()
+        var dc = self.getKstDateComponents()
         
-        while date < endDate {
-            date = calendar.date(byAdding: .day, value: 1, to: date)!
+        dc.day = 1
+        date = dc.date!
+        while date.getKstDateComponents().weekday! != 1 {
+            date = date.plusPeriod(Period.day, interval: -1)
             dates.append(date)
+        }
+        
+        dates = dates.reversed()
+        dc.day = 1
+        date = dc.date!
+        while date.getKstDateComponents().month == dc.month || date.getKstDateComponents().weekday != 1{
+            dates.append(date)
+            date = date.plusPeriod(Period.day, interval: 1)
         }
         return dates
     }
@@ -92,14 +90,14 @@ extension Date {
         }
     }
     
-    func isEqualPeriod(_ date: Date, period: Period) -> Bool {
+    func isEqualPeriod(_ period: Period = Period.day, date: Date) -> Bool {
         let c1 = self.getKstDateComponents()
         let c2 = date.getKstDateComponents()
 
         if period == Period.day {
             return c1.year! == c2.year! && c1.month! == c2.month! && c1.day! == c2.day!
         } else if period == Period.week {
-            return c1.yearForWeekOfYear! == c2.yearForWeekOfYear!
+            return c1.weekOfYear! == c2.weekOfYear!
         } else if period == Period.month {
             return c1.month! == c2.month!
         } else if period == Period.year {
@@ -109,23 +107,7 @@ extension Date {
         }
     }
     
-    func plusDay(_ day: Int) -> Date {
-        return Calendar.current.date(byAdding: .day, value: day, to: self)!
-    }
-    
-    func plusWeek(_ week: Int) -> Date {
-        return Calendar.current.date(byAdding: .weekOfYear, value: week, to: self)!
-    }
-    
-    func plusMonth(_ month: Int) -> Date {
-        return Calendar.current.date(byAdding: .month, value: month, to: self)!
-    }
-    
-    func plusYear(_ year: Int) -> Date {
-        return Calendar.current.date(byAdding: .year, value: year, to: self)!
-    }
-    
-    func plusPeriod(_ interval: Int, period: Period) -> Date {
+    func plusPeriod(_ period: Period = Period.day, interval: Int) -> Date {
         if period == Period.day {
             return Calendar.current.date(byAdding: .day, value: interval, to: self)!
         } else if period == Period.week {
@@ -145,7 +127,7 @@ extension Date {
         if period == Period.day {
             return "\(String(dc.month!)).\(String(dc.day!))"
         } else if period == Period.week {
-            return "\(String(dc.month!))'\(String(dc.weekOfMonth!))"
+            return "\(String(dc.month!))\'\(String(dc.weekOfMonth!))"
         } else if period == Period.month {
             return "\(String(dc.month!))"
         } else if period == Period.year {
@@ -162,17 +144,21 @@ extension Date {
         return dateFormatter.string(from: self)
     }
     
-    func getDates(start: Date, end: Date) -> [Date] {
-        let startDate = start.getKstDateComponents().date!
-        let endDate = end.getKstDateComponents().date!
-        var date = startDate
-        var dates: [Date] = []
+    func getCalendarDateString() -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy.M"
         
-        while date < endDate {
-            dates.append(date)
-            date = date.plusDay(1)
-        }
-        return dates
+        return dateFormatter.string(from: getKstDateComponents().date!)
+    }
+    
+    func getCalendarBottomSheetDateString() -> String {
+        let weeks = ["","일","월", "화", "수", "목", "금", "토"]
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "M.d"
+        var string = dateFormatter.string(from: getKstDateComponents().date!)
+        string += "(\(weeks[getKstDateComponents().weekday!]))"
+        
+        return string
     }
     
     func getKstDateComponents() -> DateComponents {

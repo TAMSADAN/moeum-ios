@@ -36,13 +36,13 @@ struct Record {
         } else if unit == Unit.tag {
             return self.tag == record.tag
         } else if unit == Unit.day {
-            return self.date.isEqualPeriod(record.date, period: Period.day)
+            return self.date.isEqualPeriod(Period.day, date: record.date)
         } else if unit == Unit.week {
-            return self.date.isEqualPeriod(record.date, period: Period.week)
+            return self.date.isEqualPeriod(Period.week, date: record.date)
         } else if unit == Unit.month {
-            return self.date.isEqualPeriod(record.date, period: Period.month)
+            return self.date.isEqualPeriod(Period.month, date: record.date)
         } else if unit == Unit.year {
-            return self.date.isEqualPeriod(record.date, period: Period.year)
+            return self.date.isEqualPeriod(Period.year, date: record.date)
         } else {
             return false
         }
@@ -160,4 +160,9 @@ struct RecordZip {
         }
         return countSum
     }
+}
+
+struct ChartData {
+    var points: [String] = []
+    var values: [Double] = []
 }

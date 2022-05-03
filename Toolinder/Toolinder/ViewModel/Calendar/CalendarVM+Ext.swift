@@ -15,7 +15,7 @@ extension CalendarViewModel {
             .withUnretained(self)
             .bind { owner, _ in
                 owner.input.records.onNext(owner.recordService.getRecords())
-                owner.output.calendarDates.accept(owner.getDatesOfMonth(date: try! owner.input.datePickerDate.value()))
+                owner.output.calendarDates.accept(try! owner.input.datePickerDate.value().getDatesOfMonth())
             }
             .disposed(by: disposeBag)
         
@@ -33,7 +33,7 @@ extension CalendarViewModel {
                 let dateComponents = Calendar.current.dateComponents([.year, .month], from: date)
                 let monthLabeltext = String(dateComponents.year!) + "." + String(dateComponents.month!)
                 owner.output.monthLabelText.accept(monthLabeltext)
-                owner.output.calendarDates.accept(owner.getDatesOfMonth(date: date))
+                owner.output.calendarDates.accept(date.getDatesOfMonth())
             }
             .disposed(by: disposeBag)
         
@@ -61,23 +61,6 @@ extension CalendarViewModel {
                 owner.output.calendarCellDatas.accept(cellDatas)
             }
             .disposed(by: disposeBag)
-        
-//        Observable.combineLatest(output.calendarDates, output.records)
-//            .map { [weak self] dates, records in
-//                var cellDatas: [(Date, [Record])] = []
-//                for date in dates {
-//                    var newRecords: [Record] = []
-//                    for record in records {
-//                        if self?.isEqualDate(date1: date, date2: record.date) ?? false {
-//                            newRecords.append(record)
-//                        }
-//                    }
-//                    cellDatas.append((date, newRecords))
-//                }
-//                return cellDatas
-//            }
-//            .bind(to: output.cellDatas)
-//            .disposed(by: disposeBag)
     }
 }
 

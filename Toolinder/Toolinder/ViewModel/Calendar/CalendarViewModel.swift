@@ -39,6 +39,6 @@ class CalendarViewModel: ViewModel {
     init() {
         setBind()
         input.records.onNext(recordService.getRecords())
-        output.calendarDates.accept(getDatesOfMonth(date: try! input.datePickerDate.value()))
+        output.calendarDates.accept(try! input.datePickerDate.value().getDatesOfMonth())
     }
 }

@@ -10,7 +10,7 @@ import Then
 
 class TradeBarView: UIView {
     var topLabel = UILabel().then {
-        $0.font = Const.Font.footnote
+        $0.font = Const.Font.caption5
         $0.textColor = Const.Color.black
         $0.textAlignment = .center
     }
@@ -113,8 +113,8 @@ extension TradeBarView {
     
     func showBuyBarView() {
         for i in 0..<tradeChartZip.tradeCharts.count {
-            buyBarViews[i].isHidden = true
-            sellBarViews[i].isHidden = false
+            buyBarViews[i].isHidden = false
+            sellBarViews[i].isHidden = true
         }
         UIView.animate(withDuration: 0.25, animations: {
             self.layoutIfNeeded()
@@ -123,8 +123,8 @@ extension TradeBarView {
     
     func showSellBarView() {
         for i in 0..<tradeChartZip.tradeCharts.count {
-            buyBarViews[i].isHidden = false
-            sellBarViews[i].isHidden = true
+            buyBarViews[i].isHidden = true
+            sellBarViews[i].isHidden = false
         }
         UIView.animate(withDuration: 0.25, animations: {
             self.layoutIfNeeded()

@@ -18,7 +18,7 @@ class AnalysisViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        navigationItem.title = "분석"
         setView()
         setBind()
     }
@@ -36,7 +36,8 @@ extension AnalysisViewController {
             tradeBarChartView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor),
             tradeBarChartView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             tradeBarChartView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
-            tradeBarChartView.heightAnchor.constraint(equalToConstant: 250),
+            tradeBarChartView.heightAnchor.constraint(equalToConstant: 300),
+            
         ])
     }
 }

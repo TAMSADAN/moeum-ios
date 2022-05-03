@@ -10,36 +10,19 @@ import Foundation
 class ChartService {
     let recordService = RecordService()
     
-    //    struct TradeChartZip {
-    //        var TradeCharts: [TradeChart]
-    //        var label: String = ""
-    //    }
-    //
-    //    struct TradeChart {
-    //        var buyChart: Chart
-    //        var sellChart: Chart
-    //    }
-    //
-    //    struct Chart {
-    //        var value: Double = 0.0
-    //        var color: UIColor = Const.Color.orange
-    //        var valueOrigin: Double = 0.0
-    //    }
-    
     func getTradeChartZips(period: Period) -> [TradeChartZip] {
         var recordZips: [RecordZip] = []
-        var tradeCharts: [TradeChart] = []
         var tradeCharZips: [TradeChartZip] = []
         
         var dates: [Date] = []
         var date: Date = Date()
         for _ in 0...6 {
             dates.append(date)
-            date = date.plusPeriod(-1, period: period)
+            date = date.plusPeriod(period, interval: -1)
         }
         dates = dates.reversed()
         for date in dates {
-            tradeCharZips.append(TradeChartZip(tradeCharts: [], label: date.getStringPeriod(period: period)))
+            tradeCharZips.append(TradeChartZip(tradeCharts: [TradeChart(buyChart: Chart(), sellChart: Chart())], label: date.getStringPeriod(period: period)))
         }
         
         if period == Period.day {
@@ -60,26 +43,12 @@ class ChartService {
             let sellSumPrice = sellRecords.map { $0.price * $0.count }.reduce(0, +)
             
             let tradeChart = TradeChart(buyChart: Chart(value: buySumPrice, color: Const.Color.pink), sellChart: Chart(value: sellSumPrice, color: Const.Color.mint))
-            
-            tradeCharts.append(tradeChart)
             for (i, date) in dates.enumerated() {
-                if date.isEqualPeriod(recordZip.record.date, period: period) {
-                    tradeCharZips[i].tradeCharts = tradeCharts
+                if date.isEqualPeriod(period, date: recordZip.record.date) {
+                    tradeCharZips[i].tradeCharts = [tradeChart]
                 }
             }
         }
-        
         return tradeCharZips
-    }
-    
-    
-    func parseToChart(record: Record) -> Chart? {
-        if record.type == "매수" {
-            return Chart(value: record.price, color: Const.Color.pink)
-        } else if record.type == "매도" {
-            return Chart(value: record.price, color: Const.Color.mint)
-        } else {
-            return nil
-        }
     }
 }

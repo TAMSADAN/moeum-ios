@@ -9,6 +9,11 @@ import UIKit
 import Then
 
 class BarView: UIView {
+    var topLabel = UILabel().then {
+        $0.font = Const.Font.caption4
+        $0.textAlignment = .center
+    }
+    
     var contentBackgroundView = UIView()
     
     var contentView = UIView().then {
@@ -32,18 +37,23 @@ class BarView: UIView {
     
     func setView() {
         addSubview(contentBackgroundView)
+        addSubview(topLabel)
         addSubview(contentView)
         
         contentBackgroundView.translatesAutoresizingMaskIntoConstraints = false
+        topLabel.translatesAutoresizingMaskIntoConstraints = false
         contentView.translatesAutoresizingMaskIntoConstraints = false
         
+        
+        
         if chart.value == 0.0 {
-            contentView.backgroundColor = Const.Color.systemGray6
-            chart.value = 0.1
+            contentView.backgroundColor = Const.Color.systemGray4
+            chart.value = 0.05
             maxValue = 1
+        } else {
+            contentView.backgroundColor = chart.color
+            topLabel.text = String((ceil((chart.value / 10000.0) * Double(10))) / Double(10))
         }
-        contentView.backgroundColor = chart.color
-
         
         NSLayoutConstraint.activate([
             contentBackgroundView.topAnchor.constraint(equalTo: topAnchor),
@@ -54,7 +64,10 @@ class BarView: UIView {
             contentView.leadingAnchor.constraint(equalTo: contentBackgroundView.leadingAnchor),
             contentView.trailingAnchor.constraint(equalTo: contentBackgroundView.trailingAnchor),
             contentView.bottomAnchor.constraint(equalTo: contentBackgroundView.bottomAnchor),
-            contentView.heightAnchor.constraint(equalTo: contentBackgroundView.heightAnchor, multiplier: chart.value / maxValue)
+            contentView.heightAnchor.constraint(equalTo: contentBackgroundView.heightAnchor, multiplier: chart.value / maxValue),
+            
+            topLabel.centerXAnchor.constraint(equalTo: centerXAnchor),
+            topLabel.bottomAnchor.constraint(equalTo: contentView.topAnchor),
         ])
     }
 }
