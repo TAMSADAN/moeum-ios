@@ -16,15 +16,15 @@ class MainViewController: UITabBarController {
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
         let tabZero = NewCalendarViewController()
-        let tabZeroBarItem = UITabBarItem(title: "뉴 캘린더", image: UIImage(systemName: "calendar"), selectedImage: UIImage(named: "selectedImage.png"))
+        let tabZeroBarItem = UITabBarItem(title: "캘린더", image: UIImage(systemName: "calendar"), selectedImage: UIImage(named: "selectedImage.png"))
         
         tabZero.tabBarItem = tabZeroBarItem
         
         
-        let tabOne = CalendarViewController()
-        let tabOneBarItem = UITabBarItem(title: "캘린더", image: UIImage(systemName: "calendar"), selectedImage: UIImage(named: "selectedImage.png"))
-        
-        tabOne.tabBarItem = tabOneBarItem
+//        let tabOne = CalendarViewController()
+//        let tabOneBarItem = UITabBarItem(title: "캘린더", image: UIImage(systemName: "calendar"), selectedImage: UIImage(named: "selectedImage.png"))
+//
+//        tabOne.tabBarItem = tabOneBarItem
         
         let tabTwo = UINavigationController(rootViewController: ListViewController()) 
         let tabTwoBarItem = UITabBarItem(title: "리스트", image: UIImage(systemName: "list.bullet.rectangle.portrait"), selectedImage: UIImage(named: "selectedImage2.png"))
@@ -41,7 +41,7 @@ class MainViewController: UITabBarController {
         
         tabFour.tabBarItem = tabFourBarItem
         
-        self.viewControllers = [tabZero, tabOne, tabTwo, tabFour]
+        self.viewControllers = [tabZero, tabTwo, tabFour]
     }
 }
 

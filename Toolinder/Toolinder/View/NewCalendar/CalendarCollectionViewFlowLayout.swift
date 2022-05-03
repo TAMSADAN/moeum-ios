@@ -19,7 +19,6 @@ class CalendarCollectionViewFlowLayout: UICollectionViewFlowLayout, UICollection
     
     init(_ calendarCollectionView: CalendarCollectionView) {
         super.init()
-        print("초기화")
         self.calendarCollectionView = calendarCollectionView
         self.calendarItems = calendarCollectionView.calendarItems
     }
@@ -54,5 +53,6 @@ extension CalendarCollectionViewFlowLayout {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         calendarCollectionView.viewModel.input.isClickedCalendarCell.onNext(true)
         calendarCollectionView.viewModel.input.date.onNext(calendarItems[indexPath.row].date)
+        calendarCollectionView.update(calendarCollectionView.viewModel, calendarItems: calendarCollectionView.calendarItems)
     }
 }

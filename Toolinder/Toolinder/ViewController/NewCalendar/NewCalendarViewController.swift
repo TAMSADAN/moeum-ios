@@ -23,6 +23,8 @@ class NewCalendarViewController: UIViewController, UIScrollViewDelegate {
     var nowCalendarCollectionView: CalendarCollectionView!
     var nextCalendarCollectionView: CalendarCollectionView!
     var bottomSheet = NewCalendarBottomSheetView()
+    var writingButton = WritingButton()
+    var weekLabelView = WeekLabelView()
     
     var scrollViewHeightConstraint = NSLayoutConstraint()
     var scrollViewBottomConstraint = NSLayoutConstraint()
@@ -47,13 +49,17 @@ extension NewCalendarViewController {
         
         view.addSubview(scrollView)
         view.addSubview(headerView)
+        view.addSubview(weekLabelView)
         view.addSubview(bottomSheet)
+        view.addSubview(writingButton)
         
         scrollView.addSubview(prevCalendarCollectionView)
         scrollView.addSubview(nowCalendarCollectionView)
         scrollView.addSubview(nextCalendarCollectionView)
         
         headerView.translatesAutoresizingMaskIntoConstraints = false
+        weekLabelView.translatesAutoresizingMaskIntoConstraints = false
+        writingButton.translatesAutoresizingMaskIntoConstraints = false
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         prevCalendarCollectionView.translatesAutoresizingMaskIntoConstraints = false
         nowCalendarCollectionView.translatesAutoresizingMaskIntoConstraints = false
@@ -72,7 +78,11 @@ extension NewCalendarViewController {
             headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             
-            scrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: Const.Size.calendarHeaderMinHeight),
+            weekLabelView.topAnchor.constraint(equalTo: view.topAnchor, constant: Const.Size.calendarHeaderMinHeight),
+            weekLabelView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            weekLabelView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            
+            scrollView.topAnchor.constraint(equalTo: weekLabelView.bottomAnchor, constant: 10),
             scrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
             scrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             scrollViewBottomConstraint,
@@ -100,6 +110,9 @@ extension NewCalendarViewController {
             bottomSheet.trailingAnchor.constraint(equalTo: view.trailingAnchor),
             bottomSheet.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
             bottomSheetHeightConstraint,
+            
+            writingButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -20),
+            writingButton.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -20),
         ])
     }
 }
@@ -123,15 +136,14 @@ extension NewCalendarViewController {
                 }
             }
             .disposed(by: disposeBag)
-
-        nowCalendarCollectionView
-            .rx
-            .itemSelected
+        
+        writingButton.rx.tap
             .withUnretained(self)
-            .bind { owner, indexPath in
-                let cell = owner.nowCalendarCollectionView.cellForItem(at: indexPath) as! CalendarCollectionViewCell
-                owner.viewModel.input.isClickedCalendarCell.onNext(true)
-                owner.viewModel.input.isClickedCalendarItem.onNext(cell.calendarItem)
+            .bind { owner, _ in
+                let writingVC = WritingViewController()
+                writingVC.modalPresentationStyle = .fullScreen
+                writingVC.writingView.datePicker.date = owner.viewModel.output.date.value
+                self.present(writingVC, animated: true)
             }
             .disposed(by: disposeBag)
         
@@ -141,13 +153,6 @@ extension NewCalendarViewController {
                 owner.hideBottomSheetView()
             }
             .disposed(by: disposeBag)
-        
-//        bottomSheet.recordTableView.rx.tapGesture()
-//            .withUnretained(self)
-//            .bind { owner, tap in
-//                print(tap.state.rawValue)
-//            }
-//            .disposed(by: disposeBag)
         
         bottomSheet.recordTableView.rx.itemSelected
             .withUnretained(self)
@@ -170,7 +175,7 @@ extension NewCalendarViewController {
                 }
             }
             .disposed(by: disposeBag)
-        
+
         viewModel.output.isShowBottomSheetView
             .withUnretained(self)
             .bind { owner, bool in
@@ -196,10 +201,14 @@ extension NewCalendarViewController {
             }
             .disposed(by: disposeBag)
         
+//        nowCalendarCollectionView.backgroundColor = Const.Color.orange
+//        prevCalendarCollectionView.backgroundColor = Const.Color.indigo
+//        nextCalendarCollectionView.backgroundColor = Const.Color.yellow
         viewModel.output.nowCalendarItems
             .withUnretained(self)
             .bind { owner, calendarItems in
                 owner.nowCalendarCollectionView.update(owner.viewModel, calendarItems: calendarItems)
+                owner.nowCalendarCollectionView.reloadData()
             }
             .disposed(by: disposeBag)
         
@@ -250,17 +259,25 @@ extension NewCalendarViewController {
             self.scrollViewBottomConstraint.isActive = true
             self.bottomSheetHeightConstraint.isActive = true
             self.view.layoutIfNeeded()
+            self.nowCalendarCollectionView.performBatchUpdates(nil)
+            self.prevCalendarCollectionView.performBatchUpdates(nil)
+            self.nextCalendarCollectionView.performBatchUpdates(nil)
+        }, completion: { _ in
+            self.nowCalendarCollectionView.reloadData()
+            self.prevCalendarCollectionView.reloadData()
+            self.nextCalendarCollectionView.reloadData()
+            
+            UIView.animate(withDuration: 0.25, animations: {
+                self.nowCalendarCollectionView.performBatchUpdates(nil)
+                self.prevCalendarCollectionView.performBatchUpdates(nil)
+                self.nextCalendarCollectionView.performBatchUpdates(nil)
+            })
+            
+            for calendarCollectionViewCell in self.nowCalendarCollectionView.visibleCells {
+                let cell = calendarCollectionViewCell as! CalendarCollectionViewCell
+                cell.hide()
+            }
         })
-        
-        //        for calendarCollectionViewCell in prevCalendarCollectionView.visibleCells {
-//            let cell = calendarCollectionViewCell as! CalendarCollectionViewCell
-//            cell.hide()
-//        }
-//        for calendarCollectionViewCell in nextCalendarCollectionView.visibleCells {
-//            let cell = calendarCollectionViewCell as! CalendarCollectionViewCell
-//            cell.hide()
-//        }
-        
     }
     
     func hideBottomSheetView() {

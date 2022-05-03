@@ -18,18 +18,18 @@ class CalendarCollectionView: UICollectionView {
     
     init() {
         super.init(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
-        self.register(CalendarCollectionViewCell.self, forCellWithReuseIdentifier: CalendarCollectionViewCell.identifier)
     }
 }
 
 extension CalendarCollectionView {
     func update(_ viewModel: NewCalendarViewModel,calendarItems: [CalendarItem]) {
+        print("업데이트 되었습니다.")
         self.viewModel = viewModel
         self.calendarItems = calendarItems
+        self.register(CalendarCollectionViewCell.self, forCellWithReuseIdentifier: CalendarCollectionViewCell.identifier)
         self.calendarCollectionViewFlowLayout = CalendarCollectionViewFlowLayout(self)
         self.delegate = calendarCollectionViewFlowLayout
         self.dataSource = calendarCollectionViewFlowLayout
-        self.reloadData()
     }
     
     func setView() {

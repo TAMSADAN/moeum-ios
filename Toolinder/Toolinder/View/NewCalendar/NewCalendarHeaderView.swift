@@ -16,6 +16,7 @@ class NewCalendarHeaderView: UIView {
     var dateLabel = UILabel().then {
         $0.font = Const.Font.title1
         $0.text = "2022.4"
+//        $0.font = Const.Font.headline
     }
     
     var conatinerView = UIView()
@@ -75,7 +76,6 @@ class NewCalendarHeaderView: UIView {
             
             dateLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
             dateLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
-            
         ])
     }
 }
