@@ -73,7 +73,6 @@
 		70C05FBD27FC0EA800093A2C /* WritingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C05FBC27FC0EA800093A2C /* WritingButton.swift */; };
 		70C5879C280D1C90005372D3 /* RecordListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5879B280D1C90005372D3 /* RecordListViewCell.swift */; };
 		70C5879E280D4A95005372D3 /* TrashButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5879D280D4A95005372D3 /* TrashButton.swift */; };
-		70CB63AC2823B0CE003C5D8A /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CB63AB2823B0CE003C5D8A /* Secret.swift */; };
 		70CB745428006DE000DA4A8E /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CB745328006DE000DA4A8E /* Date+Ext.swift */; };
 		70CB745828007CF000DA4A8E /* CalendarVM+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CB745728007CF000DA4A8E /* CalendarVM+Ext.swift */; };
 		70CF4DC127EB000600046E92 /* lib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CF4DC027EB000600046E92 /* lib.swift */; };
@@ -191,7 +190,6 @@
 		70C05FBC27FC0EA800093A2C /* WritingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingButton.swift; sourceTree = "<group>"; };
 		70C5879B280D1C90005372D3 /* RecordListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListViewCell.swift; sourceTree = "<group>"; };
 		70C5879D280D4A95005372D3 /* TrashButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashButton.swift; sourceTree = "<group>"; };
-		70CB63AB2823B0CE003C5D8A /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
 		70CB745328006DE000DA4A8E /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		70CB745728007CF000DA4A8E /* CalendarVM+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarVM+Ext.swift"; sourceTree = "<group>"; };
 		70CF4DC027EB000600046E92 /* lib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lib.swift; sourceTree = "<group>"; };
@@ -284,7 +282,6 @@
 				70B8080F280E50D000387C42 /* toolinder.png */,
 				702E907A27FEC19600FF237B /* Type */,
 				70592BB22804210E00106A34 /* Const.swift */,
-				70CB63AB2823B0CE003C5D8A /* Secret.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -950,7 +947,6 @@
 				70D0B0772819852C001581AA /* AnalysisViewController.swift in Sources */,
 				70CB745428006DE000DA4A8E /* Date+Ext.swift in Sources */,
 				702FA6E927FD454B004417D9 /* ImageLabel.swift in Sources */,
-				70CB63AC2823B0CE003C5D8A /* Secret.swift in Sources */,
 				70608D6027FC6B4F005E9F01 /* DateButtonView.swift in Sources */,
 				70E185C728091FAF00236BC2 /* IncomeBarChartView.swift in Sources */,
 				70E8B1A127FAC1D40095B30E /* WritingView.swift in Sources */,
