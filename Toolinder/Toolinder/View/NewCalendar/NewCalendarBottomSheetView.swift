@@ -44,6 +44,8 @@ extension NewCalendarBottomSheetView {
     }
     
     func setView() {
+        backgroundColor = Const.Color.white
+        
         addSubview(divider)
         addSubview(titleLabel)
         addSubview(hideButton)
@@ -54,7 +56,6 @@ extension NewCalendarBottomSheetView {
         hideButton.translatesAutoresizingMaskIntoConstraints = false
         recordTableView.translatesAutoresizingMaskIntoConstraints = false
         hideButton.tintColor = Const.Color.systemGray3
-//        recordTableView.delegate = self
         
         NSLayoutConstraint.activate([
             divider.topAnchor.constraint(equalTo: topAnchor),

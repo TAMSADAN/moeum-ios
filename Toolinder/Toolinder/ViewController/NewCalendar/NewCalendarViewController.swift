@@ -19,6 +19,20 @@ class NewCalendarViewController: UIViewController, UIScrollViewDelegate {
         $0.showsHorizontalScrollIndicator = false
     }
     var headerView = NewCalendarHeaderView()
+    var monthLabel = UILabel().then {
+        $0.font = Const.Font.headline
+        $0.text = "2022.4"
+    }
+    var datePicker = UIDatePicker().then {
+            $0.timeZone = NSTimeZone.local
+            $0.locale = Locale(identifier: "ko_KR")
+            $0.minuteInterval = 10
+            $0.datePickerMode = .date
+            $0.backgroundColor = .white
+            if #available(iOS 13.4, *) {
+                $0.preferredDatePickerStyle = .wheels
+            }
+        }
     var prevCalendarCollectionView: CalendarCollectionView!
     var nowCalendarCollectionView: CalendarCollectionView!
     var nextCalendarCollectionView: CalendarCollectionView!
@@ -29,12 +43,31 @@ class NewCalendarViewController: UIViewController, UIScrollViewDelegate {
     var scrollViewHeightConstraint = NSLayoutConstraint()
     var scrollViewBottomConstraint = NSLayoutConstraint()
     var bottomSheetHeightConstraint = NSLayoutConstraint()
+    var datePickerHeightConstraint = NSLayoutConstraint()
     
     override func viewDidLoad() {
         view.backgroundColor = Const.Color.white
+//        navigationItem.title = "캘린더"
         setView()
         setBind()
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(false)
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(false)
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(false)
+    }
+    
     
     override func viewDidLayoutSubviews() {
         scrollView.contentOffset.x = scrollView.frame.width
@@ -43,21 +76,25 @@ class NewCalendarViewController: UIViewController, UIScrollViewDelegate {
 
 extension NewCalendarViewController {
     func setView() {
+        view.backgroundColor = Const.Color.white
+        
         prevCalendarCollectionView = CalendarCollectionView()
         nowCalendarCollectionView = CalendarCollectionView()
         nextCalendarCollectionView = CalendarCollectionView()
         
         view.addSubview(scrollView)
-        view.addSubview(headerView)
+        view.addSubview(monthLabel)
         view.addSubview(weekLabelView)
         view.addSubview(bottomSheet)
         view.addSubview(writingButton)
+        view.addSubview(datePicker)
         
         scrollView.addSubview(prevCalendarCollectionView)
         scrollView.addSubview(nowCalendarCollectionView)
         scrollView.addSubview(nextCalendarCollectionView)
         
-        headerView.translatesAutoresizingMaskIntoConstraints = false
+        monthLabel.translatesAutoresizingMaskIntoConstraints = false
+        datePicker.translatesAutoresizingMaskIntoConstraints = false
         weekLabelView.translatesAutoresizingMaskIntoConstraints = false
         writingButton.translatesAutoresizingMaskIntoConstraints = false
         scrollView.translatesAutoresizingMaskIntoConstraints = false
@@ -67,18 +104,24 @@ extension NewCalendarViewController {
         bottomSheet.translatesAutoresizingMaskIntoConstraints = false
         
         scrollView.delegate = self
+        datePicker.backgroundColor = Const.Color.white
         
         scrollViewBottomConstraint = scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor)
         bottomSheetHeightConstraint = bottomSheet.heightAnchor.constraint(equalToConstant: 0)
+        datePickerHeightConstraint = datePicker.heightAnchor.constraint(equalToConstant: 0)
         
         hideBottomSheetView()
         
         NSLayoutConstraint.activate([
-            headerView.topAnchor.constraint(equalTo: view.topAnchor),
-            headerView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            headerView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            monthLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
+            monthLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
             
-            weekLabelView.topAnchor.constraint(equalTo: view.topAnchor, constant: Const.Size.calendarHeaderMinHeight),
+            datePicker.topAnchor.constraint(equalTo: monthLabel.bottomAnchor),
+            datePicker.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+            datePicker.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+            datePickerHeightConstraint,
+
+            weekLabelView.topAnchor.constraint(equalTo: monthLabel.bottomAnchor, constant: 15),
             weekLabelView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
             weekLabelView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
             
@@ -119,7 +162,7 @@ extension NewCalendarViewController {
 
 extension NewCalendarViewController {
     func setBind() {
-        headerView.datePicker.rx.date
+        datePicker.rx.date
             .withUnretained(self)
             .bind { owner, date in
                 owner.viewModel.input.date.onNext(date)
@@ -127,7 +170,7 @@ extension NewCalendarViewController {
             }
             .disposed(by: disposeBag)
         
-        headerView.dateLabel.rx.tapGesture()
+        monthLabel.rx.tapGesture()
             .withUnretained(self)
             .bind { owner, tap in
                 if tap.state.rawValue == 3 {
@@ -169,9 +212,9 @@ extension NewCalendarViewController {
             .withUnretained(self)
             .bind { owner, bool in
                 if bool {
-                    owner.headerView.show()
+                    owner.showDatePicker()
                 } else {
-                    owner.headerView.hide()
+                    owner.hideDatePiecker()
                 }
             }
             .disposed(by: disposeBag)
@@ -190,7 +233,7 @@ extension NewCalendarViewController {
         viewModel.output.date
             .withUnretained(self)
             .bind { owner, date in
-                owner.headerView.dateLabel.text = date.getCalendarDateString()
+                owner.monthLabel.text = date.getCalendarDateString()
             }
             .disposed(by: disposeBag)
         
@@ -250,6 +293,22 @@ extension NewCalendarViewController {
 }
 
 extension NewCalendarViewController {
+    func showDatePicker() {
+        datePickerHeightConstraint.constant = 290
+        UIView.animate(withDuration: 0.25, animations: {
+            self.datePickerHeightConstraint.isActive = true
+            self.view.layoutIfNeeded()
+        })
+    }
+    
+    func hideDatePiecker() {
+        datePickerHeightConstraint.constant = 0
+        UIView.animate(withDuration: 0.25, animations: {
+            self.datePickerHeightConstraint.isActive = true
+            self.view.layoutIfNeeded()
+        })
+    }
+    
     func showBottomSheetView() {
         scrollViewBottomConstraint.constant = -Const.Size.calendarBottomSheetMinHeight
         bottomSheetHeightConstraint.constant = Const.Size.calendarBottomSheetMinHeight

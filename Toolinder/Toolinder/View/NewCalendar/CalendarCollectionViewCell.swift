@@ -66,6 +66,8 @@ class CalendarCollectionViewCell: UICollectionViewCell {
 
 extension CalendarCollectionViewCell {
     func setView() {
+        backgroundColor = Const.Color.white
+        
         addSubview(divider)
         addSubview(dateLabel)
         addSubview(circleStackView)

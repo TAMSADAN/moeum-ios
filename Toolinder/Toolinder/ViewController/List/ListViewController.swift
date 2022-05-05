@@ -13,6 +13,7 @@ class ListViewController: UIViewController {
     let viewModel = ListViewModel()
     var disposeBag = DisposeBag()
     
+    
     var scrollView = UIScrollView()
         .then {
             $0.showsVerticalScrollIndicator = false
@@ -61,9 +62,7 @@ class ListViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        print("ListVC viewDidLoad")
         self.view.backgroundColor = .white
-        navigationItem.title = "리스트"
         setView()
         setBind()
     }

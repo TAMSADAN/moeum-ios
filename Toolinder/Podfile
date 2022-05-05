@@ -10,6 +10,7 @@ target 'Toolinder' do
   pod 'RxGesture'
   pod 'RealmSwift'
   pod 'Charts'
+  pod 'Google-Mobile-Ads-SDK'
 
   # Pods for Toolinder
 

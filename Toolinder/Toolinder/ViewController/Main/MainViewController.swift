@@ -15,28 +15,19 @@ class MainViewController: UITabBarController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(false)
+//        let tabZero = UINavigationController(rootViewController: NewCalendarViewController())
         let tabZero = NewCalendarViewController()
         let tabZeroBarItem = UITabBarItem(title: "캘린더", image: UIImage(systemName: "calendar"), selectedImage: UIImage(named: "selectedImage.png"))
         
         tabZero.tabBarItem = tabZeroBarItem
-        
-        
-//        let tabOne = CalendarViewController()
-//        let tabOneBarItem = UITabBarItem(title: "캘린더", image: UIImage(systemName: "calendar"), selectedImage: UIImage(named: "selectedImage.png"))
-//
-//        tabOne.tabBarItem = tabOneBarItem
-        
-        let tabTwo = UINavigationController(rootViewController: ListViewController()) 
-        let tabTwoBarItem = UITabBarItem(title: "리스트", image: UIImage(systemName: "list.bullet.rectangle.portrait"), selectedImage: UIImage(named: "selectedImage2.png"))
+//        let tabTwo = UINavigationController(rootViewController: ListViewController())
+        let tabTwo = ListViewController()
+        let tabTwoBarItem = UITabBarItem(title: "리스트", image: UIImage(systemName: "list.bullet.rectangle.portrait"), selectedImage: UIImage(systemName: "list.bullet.rectangle.portrait"))
         
         tabTwo.tabBarItem = tabTwoBarItem
-//
-//        let tabThree = ChartViewController()
-//        let tabThreeBarItem = UITabBarItem(title: "통계", image: UIImage(systemName: "chart.pie"), selectedImage: UIImage(named: "selectedImage2.png"))
-//
-//        tabThree.tabBarItem = tabThreeBarItem
         
-        let tabFour = UINavigationController(rootViewController: AnalysisViewController())
+//        let tabFour = UINavigationController(rootViewController: AnalysisViewController())
+        let tabFour = AnalysisViewController()
         let tabFourBarItem = UITabBarItem(title: "분석", image: UIImage(systemName: "chart.bar.xaxis"), selectedImage: nil)
         
         tabFour.tabBarItem = tabFourBarItem

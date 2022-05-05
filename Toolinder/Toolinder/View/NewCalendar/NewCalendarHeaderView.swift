@@ -16,7 +16,6 @@ class NewCalendarHeaderView: UIView {
     var dateLabel = UILabel().then {
         $0.font = Const.Font.title1
         $0.text = "2022.4"
-//        $0.font = Const.Font.headline
     }
     
     var conatinerView = UIView()
@@ -46,9 +45,7 @@ class NewCalendarHeaderView: UIView {
     }
     
     func setView() {
-        
-//        addSubview(headerBackgroundView)
-        
+        backgroundColor = Const.Color.white
         addSubview(conatinerView)
         conatinerView.addSubview(headerBackgroundView)
         addSubview(datePicker)
@@ -74,7 +71,7 @@ class NewCalendarHeaderView: UIView {
             datePicker.trailingAnchor.constraint(equalTo: headerBackgroundView.trailingAnchor),
             datePicker.bottomAnchor.constraint(equalTo: headerBackgroundView.bottomAnchor),
             
-            dateLabel.topAnchor.constraint(equalTo: safeAreaLayoutGuide.topAnchor),
+            dateLabel.topAnchor.constraint(equalTo: topAnchor),
             dateLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 15),
         ])
     }

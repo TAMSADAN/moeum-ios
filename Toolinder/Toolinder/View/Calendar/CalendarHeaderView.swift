@@ -56,10 +56,10 @@ class CalendarHeaderView: UIView {
 
 extension CalendarHeaderView {
     func setView() {
-        addSubview(monthLabel)
         addSubview(pickerBtn)
         addSubview(datePickerBackgroundView)
         addSubview(datePicker)
+        addSubview(monthLabel)
         
         datePicker.backgroundColor = .red
         
@@ -70,7 +70,7 @@ extension CalendarHeaderView {
 
         datePickerHeightConstraint = datePicker.bottomAnchor.constraint(equalTo: monthLabel.bottomAnchor, constant: 0)
         datePickerTopConstraint = datePicker.topAnchor.constraint(equalTo: monthLabel.bottomAnchor)
-        datePickerBottomConstraint = datePicker.bottomAnchor.constraint(equalTo: monthLabel.bottomAnchor, constant: 400)
+        datePickerBottomConstraint = datePicker.bottomAnchor.constraint(equalTo: monthLabel.bottomAnchor, constant: 0)
         
         NSLayoutConstraint.activate([
             monthLabel.topAnchor.constraint(equalTo: topAnchor),
@@ -103,7 +103,7 @@ extension CalendarHeaderView {
 
 extension CalendarHeaderView {
     func showDatePicker() {
-        datePickerHeightConstraint.constant = 216
+        datePickerBottomConstraint.constant = 219
         UIView.animate(withDuration: 0.25,delay: 0, options: .curveLinear,animations: {
             self.datePickerHeightConstraint.isActive = true
             self.layoutIfNeeded()
@@ -111,7 +111,7 @@ extension CalendarHeaderView {
     }
 
     func hideDatePicker() {
-        datePickerHeightConstraint.constant = 0
+        datePickerBottomConstraint.constant = 0
         UIView.animate(withDuration: 0.25,delay: 0, options: .curveLinear,animations: {
             self.datePickerHeightConstraint.isActive = true
             self.layoutIfNeeded()

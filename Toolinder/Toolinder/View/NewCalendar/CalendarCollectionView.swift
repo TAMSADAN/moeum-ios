@@ -18,12 +18,12 @@ class CalendarCollectionView: UICollectionView {
     
     init() {
         super.init(frame: .zero, collectionViewLayout: UICollectionViewFlowLayout())
+        backgroundColor = Const.Color.white
     }
 }
 
 extension CalendarCollectionView {
     func update(_ viewModel: NewCalendarViewModel,calendarItems: [CalendarItem]) {
-        print("업데이트 되었습니다.")
         self.viewModel = viewModel
         self.calendarItems = calendarItems
         self.register(CalendarCollectionViewCell.self, forCellWithReuseIdentifier: CalendarCollectionViewCell.identifier)
