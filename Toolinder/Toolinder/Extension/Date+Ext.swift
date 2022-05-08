@@ -42,7 +42,6 @@ extension Date {
         dc.day = 1
         dc.hour = 12
         date = dc.date!
-        print(date.getKstDateComponents().weekday)
         while date.getKstDateComponents().weekday! != 1 {
             date = date.plusPeriod(Period.day, interval: -1)
             dates.append(date)

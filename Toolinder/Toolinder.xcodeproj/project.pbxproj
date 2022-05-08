@@ -29,7 +29,7 @@
 		7037B46427FAB048004F3828 /* WritingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7037B46327FAB048004F3828 /* WritingViewController.swift */; };
 		7037B46727FAB0C3004F3828 /* CalendarHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7037B46627FAB0C3004F3828 /* CalendarHeaderView.swift */; };
 		7037B46927FAB0E0004F3828 /* WritingHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7037B46827FAB0E0004F3828 /* WritingHeaderView.swift */; };
-		70491DFE282006380021FDDF /* PieChartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70491DFD282006380021FDDF /* PieChartView.swift */; };
+		70389FC928250429005948F7 /* RecordZip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70389FC828250429005948F7 /* RecordZip.swift */; };
 		70491E0028202C530021FDDF /* NewCalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70491DFF28202C530021FDDF /* NewCalendarViewController.swift */; };
 		70491E0428202D300021FDDF /* CalendarCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70491E0328202D300021FDDF /* CalendarCollectionView.swift */; };
 		70491E0628202D980021FDDF /* CalendarCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70491E0528202D980021FDDF /* CalendarCollectionViewCell.swift */; };
@@ -51,6 +51,9 @@
 		706D9B3827FAE3A400E0DD5F /* CalendarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706D9B3727FAE3A400E0DD5F /* CalendarViewController.swift */; };
 		706D9B3A27FAE66700E0DD5F /* CalendarVC+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 706D9B3927FAE66700E0DD5F /* CalendarVC+Ext.swift */; };
 		7076B38D281AE27000848AF9 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7076B38C281AE27000848AF9 /* BarView.swift */; };
+		70808D5128279AEA00923148 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70808D5028279AEA00923148 /* DetailViewController.swift */; };
+		70808D5328279E2F00923148 /* RecordTableViewAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70808D5228279E2F00923148 /* RecordTableViewAdaptor.swift */; };
+		70808D5628279FB200923148 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70808D5528279FB200923148 /* DetailViewModel.swift */; };
 		70905D8D27E37D8E001CB7AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70905D8C27E37D8E001CB7AF /* AppDelegate.swift */; };
 		70905D8F27E37D8E001CB7AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70905D8E27E37D8E001CB7AF /* SceneDelegate.swift */; };
 		70905DA427E37D8F001CB7AF /* ToolinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70905DA327E37D8F001CB7AF /* ToolinderTests.swift */; };
@@ -64,6 +67,11 @@
 		70A68F672816870B00E12772 /* String+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A68F662816870B00E12772 /* String+Ext.swift */; };
 		70A68F6928168E6500E12772 /* RecordListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A68F6828168E6500E12772 /* RecordListTableViewCell.swift */; };
 		70A68F6B2816920300E12772 /* CircleImageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A68F6A2816920300E12772 /* CircleImageView.swift */; };
+		70A6A88828240945003365FF /* RecordTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A6A88728240945003365FF /* RecordTableViewCell.swift */; };
+		70A6A88A2824095F003365FF /* RecordZipTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A6A8892824095F003365FF /* RecordZipTableView.swift */; };
+		70A6A89028241BAF003365FF /* RecordZipService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A6A88F28241BAF003365FF /* RecordZipService.swift */; };
+		70A6A89228241ED6003365FF /* RecordZipTableViewCellModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A6A89128241ED6003365FF /* RecordZipTableViewCellModel.swift */; };
+		70A6A89428241F14003365FF /* RecordZipTableViewCellModelService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A6A89328241F14003365FF /* RecordZipTableViewCellModelService.swift */; };
 		70A788D027FCA7C900576034 /* ImageTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70A788CF27FCA7C900576034 /* ImageTextField.swift */; };
 		70AE0FCC27FF3F6300E880A0 /* WritingVM+Logic.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AE0FCB27FF3F6300E880A0 /* WritingVM+Logic.swift */; };
 		70AE0FCE27FF3F7800E880A0 /* WritingVM+Bind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70AE0FCD27FF3F7800E880A0 /* WritingVM+Bind.swift */; };
@@ -73,6 +81,8 @@
 		70C05FBD27FC0EA800093A2C /* WritingButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C05FBC27FC0EA800093A2C /* WritingButton.swift */; };
 		70C5879C280D1C90005372D3 /* RecordListViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5879B280D1C90005372D3 /* RecordListViewCell.swift */; };
 		70C5879E280D4A95005372D3 /* TrashButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70C5879D280D4A95005372D3 /* TrashButton.swift */; };
+		70CB63B02823B2D6003C5D8A /* Secret.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CB63AF2823B2D6003C5D8A /* Secret.swift */; };
+		70CB63B82823BF93003C5D8A /* RecordZipTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CB63B72823BF93003C5D8A /* RecordZipTableViewCell.swift */; };
 		70CB745428006DE000DA4A8E /* Date+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CB745328006DE000DA4A8E /* Date+Ext.swift */; };
 		70CB745828007CF000DA4A8E /* CalendarVM+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CB745728007CF000DA4A8E /* CalendarVM+Ext.swift */; };
 		70CF4DC127EB000600046E92 /* lib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70CF4DC027EB000600046E92 /* lib.swift */; };
@@ -143,7 +153,7 @@
 		7037B46327FAB048004F3828 /* WritingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingViewController.swift; sourceTree = "<group>"; };
 		7037B46627FAB0C3004F3828 /* CalendarHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarHeaderView.swift; sourceTree = "<group>"; };
 		7037B46827FAB0E0004F3828 /* WritingHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingHeaderView.swift; sourceTree = "<group>"; };
-		70491DFD282006380021FDDF /* PieChartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PieChartView.swift; sourceTree = "<group>"; };
+		70389FC828250429005948F7 /* RecordZip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordZip.swift; sourceTree = "<group>"; };
 		70491DFF28202C530021FDDF /* NewCalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewCalendarViewController.swift; sourceTree = "<group>"; };
 		70491E0328202D300021FDDF /* CalendarCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionView.swift; sourceTree = "<group>"; };
 		70491E0528202D980021FDDF /* CalendarCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarCollectionViewCell.swift; sourceTree = "<group>"; };
@@ -163,6 +173,9 @@
 		706D9B3727FAE3A400E0DD5F /* CalendarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalendarViewController.swift; sourceTree = "<group>"; };
 		706D9B3927FAE66700E0DD5F /* CalendarVC+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarVC+Ext.swift"; sourceTree = "<group>"; };
 		7076B38C281AE27000848AF9 /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
+		70808D5028279AEA00923148 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		70808D5228279E2F00923148 /* RecordTableViewAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTableViewAdaptor.swift; sourceTree = "<group>"; };
+		70808D5528279FB200923148 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
 		70905D8927E37D8E001CB7AF /* Toolinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toolinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70905D8C27E37D8E001CB7AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70905D8E27E37D8E001CB7AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -180,6 +193,11 @@
 		70A68F662816870B00E12772 /* String+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Ext.swift"; sourceTree = "<group>"; };
 		70A68F6828168E6500E12772 /* RecordListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListTableViewCell.swift; sourceTree = "<group>"; };
 		70A68F6A2816920300E12772 /* CircleImageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CircleImageView.swift; sourceTree = "<group>"; };
+		70A6A88728240945003365FF /* RecordTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTableViewCell.swift; sourceTree = "<group>"; };
+		70A6A8892824095F003365FF /* RecordZipTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordZipTableView.swift; sourceTree = "<group>"; };
+		70A6A88F28241BAF003365FF /* RecordZipService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordZipService.swift; sourceTree = "<group>"; };
+		70A6A89128241ED6003365FF /* RecordZipTableViewCellModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordZipTableViewCellModel.swift; sourceTree = "<group>"; };
+		70A6A89328241F14003365FF /* RecordZipTableViewCellModelService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordZipTableViewCellModelService.swift; sourceTree = "<group>"; };
 		70A788CF27FCA7C900576034 /* ImageTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageTextField.swift; sourceTree = "<group>"; };
 		70AE0FCB27FF3F6300E880A0 /* WritingVM+Logic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WritingVM+Logic.swift"; sourceTree = "<group>"; };
 		70AE0FCD27FF3F7800E880A0 /* WritingVM+Bind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WritingVM+Bind.swift"; sourceTree = "<group>"; };
@@ -190,6 +208,8 @@
 		70C05FBC27FC0EA800093A2C /* WritingButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WritingButton.swift; sourceTree = "<group>"; };
 		70C5879B280D1C90005372D3 /* RecordListViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordListViewCell.swift; sourceTree = "<group>"; };
 		70C5879D280D4A95005372D3 /* TrashButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrashButton.swift; sourceTree = "<group>"; };
+		70CB63AF2823B2D6003C5D8A /* Secret.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Secret.swift; sourceTree = "<group>"; };
+		70CB63B72823BF93003C5D8A /* RecordZipTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordZipTableViewCell.swift; sourceTree = "<group>"; };
 		70CB745328006DE000DA4A8E /* Date+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Ext.swift"; sourceTree = "<group>"; };
 		70CB745728007CF000DA4A8E /* CalendarVM+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CalendarVM+Ext.swift"; sourceTree = "<group>"; };
 		70CF4DC027EB000600046E92 /* lib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = lib.swift; sourceTree = "<group>"; };
@@ -252,9 +272,11 @@
 			isa = PBXGroup;
 			children = (
 				702FA6EE27FD68E5004417D9 /* Record.swift */,
+				70389FC828250429005948F7 /* RecordZip.swift */,
 				70318EED281A52C00035F4C0 /* Chart.swift */,
 				70F3BFFE28178707006DBFFD /* ListItem.swift */,
 				70491E0728202FE70021FDDF /* CalendarItem.swift */,
+				70A6A89128241ED6003365FF /* RecordZipTableViewCellModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -282,6 +304,7 @@
 				70B8080F280E50D000387C42 /* toolinder.png */,
 				702E907A27FEC19600FF237B /* Type */,
 				70592BB22804210E00106A34 /* Const.swift */,
+				70CB63AF2823B2D6003C5D8A /* Secret.swift */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -298,9 +321,11 @@
 			isa = PBXGroup;
 			children = (
 				702FA6F827FD7428004417D9 /* RecordService.swift */,
+				70A6A88F28241BAF003365FF /* RecordZipService.swift */,
 				70491E0E2820400F0021FDDF /* CalendarService.swift */,
 				70B22AB2281EB45D004EC88A /* ChartService.swift */,
 				70A68F622816663200E12772 /* ChartDataService.swift */,
+				70A6A89328241F14003365FF /* RecordZipTableViewCellModelService.swift */,
 			);
 			path = Service;
 			sourceTree = "<group>";
@@ -335,6 +360,7 @@
 		7037B46127FAAFDC004F3828 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				70808D4F28279ACA00923148 /* Detail */,
 				70491E0228202CAA0021FDDF /* NewCalendar */,
 				70F7493527FB3B3F00B31791 /* Main */,
 				7037B46227FAAFFA004F3828 /* Calendar */,
@@ -395,6 +421,22 @@
 				70491E0A2820308E0021FDDF /* NewCalendarViewModel.swift */,
 			);
 			path = NewCalendar;
+			sourceTree = "<group>";
+		};
+		70808D4F28279ACA00923148 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				70808D5028279AEA00923148 /* DetailViewController.swift */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		70808D5428279FA300923148 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				70808D5528279FB200923148 /* DetailViewModel.swift */,
+			);
+			path = Detail;
 			sourceTree = "<group>";
 		};
 		70905D8027E37D8E001CB7AF = {
@@ -520,6 +562,29 @@
 			path = Writing;
 			sourceTree = "<group>";
 		};
+		70CB63B12823BECE003C5D8A /* Chart */ = {
+			isa = PBXGroup;
+			children = (
+				70D0B0792819865F001581AA /* BarChartTableViewCell.swift */,
+				70D0B07E28199994001581AA /* BarChartCollectionViewCell.swift */,
+				7076B38C281AE27000848AF9 /* BarView.swift */,
+				7052FD1C281BAA110090F229 /* TradeBarView.swift */,
+				7052FD1A281BA7690090F229 /* TradeBarChartView.swift */,
+			);
+			path = Chart;
+			sourceTree = "<group>";
+		};
+		70CB63B22823BED8003C5D8A /* List */ = {
+			isa = PBXGroup;
+			children = (
+				70CB63B72823BF93003C5D8A /* RecordZipTableViewCell.swift */,
+				70A6A88728240945003365FF /* RecordTableViewCell.swift */,
+				70A6A8892824095F003365FF /* RecordZipTableView.swift */,
+				70808D5228279E2F00923148 /* RecordTableViewAdaptor.swift */,
+			);
+			path = List;
+			sourceTree = "<group>";
+		};
 		70CB745228006DC500DA4A8E /* Extension */ = {
 			isa = PBXGroup;
 			children = (
@@ -542,12 +607,8 @@
 		70D0B07828198547001581AA /* Analysis */ = {
 			isa = PBXGroup;
 			children = (
-				70D0B0792819865F001581AA /* BarChartTableViewCell.swift */,
-				70D0B07E28199994001581AA /* BarChartCollectionViewCell.swift */,
-				7076B38C281AE27000848AF9 /* BarView.swift */,
-				7052FD1C281BAA110090F229 /* TradeBarView.swift */,
-				7052FD1A281BA7690090F229 /* TradeBarChartView.swift */,
-				70491DFD282006380021FDDF /* PieChartView.swift */,
+				70CB63B12823BECE003C5D8A /* Chart */,
+				70CB63B22823BED8003C5D8A /* List */,
 			);
 			path = Analysis;
 			sourceTree = "<group>";
@@ -577,6 +638,7 @@
 		70DAF00B27F2E38800EBD946 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				70808D5428279FA300923148 /* Detail */,
 				70491E092820307E0021FDDF /* NewCalendar */,
 				70D0B07B2819904E001581AA /* Analysis */,
 				70A68F5D28163AD100E12772 /* List */,
@@ -886,14 +948,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				70808D5328279E2F00923148 /* RecordTableViewAdaptor.swift in Sources */,
 				70491E0628202D980021FDDF /* CalendarCollectionViewCell.swift in Sources */,
 				70C05FBA27FBDF9D00093A2C /* ListViewController.swift in Sources */,
 				702FA6ED27FD5EF9004417D9 /* TagLabel.swift in Sources */,
 				70D0B07D28199074001581AA /* AnalysisViewModel.swift in Sources */,
 				70D0B07A2819865F001581AA /* BarChartTableViewCell.swift in Sources */,
-				70491DFE282006380021FDDF /* PieChartView.swift in Sources */,
 				70A68F5F28163ADB00E12772 /* ListViewModel.swift in Sources */,
 				70AE0FCC27FF3F6300E880A0 /* WritingVM+Logic.swift in Sources */,
+				70A6A89228241ED6003365FF /* RecordZipTableViewCellModel.swift in Sources */,
 				701A0A162805355F0070F310 /* BuyHistoryView.swift in Sources */,
 				70491E152821050C0021FDDF /* NewCalendarBottomSheetView.swift in Sources */,
 				70C5879E280D4A95005372D3 /* TrashButton.swift in Sources */,
@@ -912,9 +975,11 @@
 				7037B46927FAB0E0004F3828 /* WritingHeaderView.swift in Sources */,
 				7052FD1B281BA7690090F229 /* TradeBarChartView.swift in Sources */,
 				702FA6EF27FD68E5004417D9 /* Record.swift in Sources */,
+				70A6A89028241BAF003365FF /* RecordZipService.swift in Sources */,
 				70592BB52804289000106A34 /* RecordLabel.swift in Sources */,
 				70F7493727FB3B7800B31791 /* MainViewController.swift in Sources */,
 				702FA6F927FD7428004417D9 /* RecordService.swift in Sources */,
+				70808D5628279FB200923148 /* DetailViewModel.swift in Sources */,
 				70491E0F2820400F0021FDDF /* CalendarService.swift in Sources */,
 				706D9B3827FAE3A400E0DD5F /* CalendarViewController.swift in Sources */,
 				70A68F6128163B4200E12772 /* ListVM+Ext.swift in Sources */,
@@ -927,13 +992,17 @@
 				70A788D027FCA7C900576034 /* ImageTextField.swift in Sources */,
 				70AE0FCE27FF3F7800E880A0 /* WritingVM+Bind.swift in Sources */,
 				70A68F6928168E6500E12772 /* RecordListTableViewCell.swift in Sources */,
+				70A6A88A2824095F003365FF /* RecordZipTableView.swift in Sources */,
 				70592BB32804210E00106A34 /* Const.swift in Sources */,
 				70E8B19F27FAB7BF0095B30E /* WritingVC+Ext.swift in Sources */,
 				70491E132820F09F0021FDDF /* NewCalendarHeaderView.swift in Sources */,
 				70CB745828007CF000DA4A8E /* CalendarVM+Ext.swift in Sources */,
 				70D0B07F28199994001581AA /* BarChartCollectionViewCell.swift in Sources */,
+				70A6A88828240945003365FF /* RecordTableViewCell.swift in Sources */,
 				702E907D27FEC1CD00FF237B /* Enum.swift in Sources */,
 				70FFCBA927FDB8E50040F30C /* ViewModel.swift in Sources */,
+				70A6A89428241F14003365FF /* RecordZipTableViewCellModelService.swift in Sources */,
+				70808D5128279AEA00923148 /* DetailViewController.swift in Sources */,
 				70E185C928093F5F00236BC2 /* TagPieChartView.swift in Sources */,
 				70905D8D27E37D8E001CB7AF /* AppDelegate.swift in Sources */,
 				70491E0028202C530021FDDF /* NewCalendarViewController.swift in Sources */,
@@ -947,12 +1016,14 @@
 				70D0B0772819852C001581AA /* AnalysisViewController.swift in Sources */,
 				70CB745428006DE000DA4A8E /* Date+Ext.swift in Sources */,
 				702FA6E927FD454B004417D9 /* ImageLabel.swift in Sources */,
+				70CB63B02823B2D6003C5D8A /* Secret.swift in Sources */,
 				70608D6027FC6B4F005E9F01 /* DateButtonView.swift in Sources */,
 				70E185C728091FAF00236BC2 /* IncomeBarChartView.swift in Sources */,
 				70E8B1A127FAC1D40095B30E /* WritingView.swift in Sources */,
 				70905D8F27E37D8E001CB7AF /* SceneDelegate.swift in Sources */,
 				70592BB128041D3700106A34 /* RecordFixedLabel.swift in Sources */,
 				7037B46727FAB0C3004F3828 /* CalendarHeaderView.swift in Sources */,
+				70389FC928250429005948F7 /* RecordZip.swift in Sources */,
 				70A68F672816870B00E12772 /* String+Ext.swift in Sources */,
 				70F7493C27FB404C00B31791 /* WeekLabelView.swift in Sources */,
 				70B22AB3281EB45D004EC88A /* ChartService.swift in Sources */,
@@ -960,6 +1031,7 @@
 				70592BAF2803D30300106A34 /* CalendarBottomSheet.swift in Sources */,
 				70318EEE281A52C00035F4C0 /* Chart.swift in Sources */,
 				70491E0D282039850021FDDF /* CalendarCollectionViewFlowLayout.swift in Sources */,
+				70CB63B82823BF93003C5D8A /* RecordZipTableViewCell.swift in Sources */,
 				7052FD1D281BAA110090F229 /* TradeBarView.swift in Sources */,
 				7037B46427FAB048004F3828 /* WritingViewController.swift in Sources */,
 				701A0A18280537D00070F310 /* BuyHistoryLabel.swift in Sources */,
@@ -1123,7 +1195,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = X64MATB2CC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Toolinder/Info.plist;
@@ -1139,7 +1211,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tamsadan.toolinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -1156,7 +1228,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = X64MATB2CC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Toolinder/Info.plist;
@@ -1172,7 +1244,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.2;
+				MARKETING_VERSION = 1.3;
 				PRODUCT_BUNDLE_IDENTIFIER = com.tamsadan.toolinder;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;

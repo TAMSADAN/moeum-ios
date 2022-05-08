@@ -63,7 +63,7 @@ extension NewCalendarViewModel {
         output.date
             .withUnretained(self)
             .bind { owner, date in
-                print(date, "로 날짜가 바뀌었습니다.")
+//                print(date, "로 날짜가 바뀌었습니다.")
                 owner.output.prevCalendarItems.accept(owner.calendarService.getCalendarItems(date: date.plusPeriod(Period.month, interval: -1)))
                 owner.output.nowCalendarItems.accept(owner.calendarService.getCalendarItems(date: date))
                 owner.output.nextCalendarItems.accept(owner.calendarService.getCalendarItems(date: date.plusPeriod(Period.month, interval: 1)))

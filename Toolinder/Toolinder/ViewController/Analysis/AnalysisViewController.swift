@@ -15,16 +15,40 @@ class AnalysisViewController: UIViewController, GADFullScreenContentDelegate {
     let viewModel = AnalysisViewModel()
     let disposeBag = DisposeBag()
     
+    var scrollView = UIScrollView().then {
+        $0.showsVerticalScrollIndicator = false
+    }
     var tradeBarChartView = TradeBarChartView()
+    var divider = UIView().then {
+        $0.backgroundColor = Const.Color.systemGray6
+    }
+    var recordZipTableLabel = UILabel()
+        .then {
+            $0.font = Const.Font.headline
+            $0.textColor = .black
+            $0.text = "종목별 투자 내역"
+        }
+    var recordZipTableView = UITableView().then {
+        $0.register(RecordZipTableViewCell.self, forCellReuseIdentifier: RecordZipTableViewCell.identifier)
+        $0.register(RecordTableViewCell.self, forCellReuseIdentifier: RecordTableViewCell.identifier)
+        $0.backgroundColor = .white
+        $0.separatorStyle = .none
+        $0.estimatedRowHeight = 120
+        $0.rowHeight = UITableView.automaticDimension
+        $0.isScrollEnabled = false
+    }
+    var recordZipTableViewAdaptor = RecordZipTableViewAdaptor()
     
+    var recordZipListViewHeightConstraint = NSLayoutConstraint()
     private var interstitial: GADInterstitialAd?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        title = "분석"
         setView()
         setBind()
         let request = GADRequest()
-        GADInterstitialAd.load(withAdUnitID:"ca-app-pub-3940256099942544/4411468910",
+        GADInterstitialAd.load(withAdUnitID: Secret.Key.fullAdmobId,
                                request: request,
                                completionHandler: { [self] ad, error in
             if let error = error {
@@ -37,29 +61,70 @@ class AnalysisViewController: UIViewController, GADFullScreenContentDelegate {
         )
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        if interstitial != nil {
-            interstitial?.present(fromRootViewController: self)
-        } else {
-            print("Ad wasn't ready")
-        }
+    
+    
+    override func viewWillLayoutSubviews() {
+        super.viewWillLayoutSubviews()
+        recordZipListViewHeightConstraint.constant = recordZipTableView.contentSize.height
+        print(recordZipTableView.contentSize.height)
     }
+    
+//    override func viewDidAppear(_ animated: Bool) {
+//        if interstitial != nil {
+//            interstitial?.present(fromRootViewController: self)
+//        } else {
+//            print("Ad wasn't ready")
+//        }
+//    }
 }
 
 extension AnalysisViewController {
+    func updateRecordZipTableViewHeightConstraint() {
+        recordZipListViewHeightConstraint.constant = recordZipTableView.contentSize.height
+    }
+    
     func setView() {
-        view.addSubview(tradeBarChartView)
+        view.addSubview(scrollView)
+        scrollView.addSubview(tradeBarChartView)
+        scrollView.addSubview(divider)
+        scrollView.addSubview(recordZipTableLabel)
+        scrollView.addSubview(recordZipTableView)
         
+        scrollView.translatesAutoresizingMaskIntoConstraints = false
         tradeBarChartView.translatesAutoresizingMaskIntoConstraints = false
+        divider.translatesAutoresizingMaskIntoConstraints = false
+        recordZipTableLabel.translatesAutoresizingMaskIntoConstraints = false
+        recordZipTableView.translatesAutoresizingMaskIntoConstraints = false
         
         view.backgroundColor = .white
         
+        recordZipTableView.delegate = recordZipTableViewAdaptor
+        recordZipTableView.dataSource = recordZipTableViewAdaptor
+        
+        recordZipListViewHeightConstraint = recordZipTableView.heightAnchor.constraint(equalToConstant: 0)
+        
         NSLayoutConstraint.activate([
-            tradeBarChartView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
-            tradeBarChartView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
-            tradeBarChartView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+            scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
+            scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
+            scrollView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor),
+            scrollView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor),
+            
+            tradeBarChartView.topAnchor.constraint(equalTo: scrollView.topAnchor),
+            tradeBarChartView.centerXAnchor.constraint(equalTo: scrollView.centerXAnchor),
+            tradeBarChartView.widthAnchor.constraint(equalTo: scrollView.widthAnchor, constant: -40),
             tradeBarChartView.heightAnchor.constraint(equalToConstant: 300),
             
+            divider.topAnchor.constraint(equalTo: tradeBarChartView.bottomAnchor, constant: 15),
+            divider.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            divider.heightAnchor.constraint(equalToConstant: 30),
+            
+            recordZipTableLabel.topAnchor.constraint(equalTo: divider.bottomAnchor, constant: 15),
+            recordZipTableLabel.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 20),
+            
+            recordZipTableView.topAnchor.constraint(equalTo: recordZipTableLabel.bottomAnchor, constant: 5),
+            recordZipTableView.widthAnchor.constraint(equalTo: scrollView.widthAnchor),
+            recordZipTableView.bottomAnchor.constraint(equalTo: scrollView.bottomAnchor),
+            recordZipListViewHeightConstraint,
         ])
     }
 }
@@ -84,6 +149,45 @@ extension AnalysisViewController {
                 owner.tradeBarChartView.setTradeChartZips(tradeChartZips: tradeChartZips)
             }
             .disposed(by: disposeBag)
+        
+        viewModel.output.recordZips
+            .withUnretained(self)
+            .bind { owner, recordZips in
+                owner.recordZipTableViewAdaptor.update(self, recordZips: recordZips)
+                owner.recordZipTableView.reloadData()
+            }
+            .disposed(by: disposeBag)
+        
+//        viewModel.output.recordZipTableViewCellModels
+//            .withUnretained(self)
+//            .bind { owner, recordZipTableViewCellModels in
+//                owner.recordZipTableViewAdaptor.update(recordZips: <#T##[RecordZip]#>)
+//                owner.recordZipTableView.reloadData()
+//            }
+//            .disposed(by: disposeBag)
+        
+//        viewModel.output.recordZips
+//            .withUnretained(self)
+//            .bind { owner, recordZips in
+//                owner.recordZipTableViewAdaptor.recordZips = recordZips
+//                owner.recordZipTableView.reloadData()
+//            }
+//            .disposed(by: disposeBag)
+
+//        viewModel.output.recordZips
+//            .bind(to: recordZipTableView.rx.items(cellIdentifier: RecordZipTitleTableViewCell.identifier, cellType: RecordZipTitleTableViewCell.self)) {
+//                index, tmp, cell in
+//                cell.selectionStyle = .none
+//            }
+//            .disposed(by: disposeBag)
+        
+//        viewModel.output.listItemModels
+//            .bind(to: listTableView.rx.items(cellIdentifier: ListTableViewCell.identifier, cellType: ListTableViewCell.self)) {
+//                index, listItemModel, cell in
+//                cell.update(listItemModel: listItemModel)
+//                cell.selectionStyle = .none
+//            }
+//            .disposed(by: disposeBag)
         
         viewModel.output.tradeBarChartViewTypeOption
             .withUnretained(self)

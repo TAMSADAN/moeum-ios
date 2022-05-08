@@ -108,7 +108,7 @@ extension CalendarCollectionViewCell {
         }
         
         for (index, record) in calendarItem.records.enumerated() {
-            if index >= 2 {
+            if index >= 5 {
                 break
             }
             let tagLabel = TagLabel(record: record)

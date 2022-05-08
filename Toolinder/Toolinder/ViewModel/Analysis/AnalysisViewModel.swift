@@ -8,12 +8,13 @@
 import Foundation
 import RxSwift
 import RxCocoa
-import Algorithms
 
 class AnalysisViewModel: ViewModel {
     let recordService = RecordService()
     let chartDataService = ChartDataService()
     let chartService = ChartService()
+    let recordHelperService = RecordZipService()
+    let recordZipTableViewCellModelService = RecordZipTableViewCellModelService()
     
     var disposeBag = DisposeBag()
     
@@ -33,17 +34,24 @@ class AnalysisViewModel: ViewModel {
         let tradeChartZips = BehaviorRelay(value: [
             TradeChartZip(),
         ])
-        
+        let recordZips = BehaviorRelay(value: [RecordZip()])
+        let recordZipTableViewCellModels = BehaviorRelay(value: [RecordZipTableViewCellModel()])
         let tradeBarChartViewTypeOption = BehaviorRelay(value: 0)
         let tradeBarChartViewPeriodOption = BehaviorRelay(value: 0)
     }
     
     init() {
+        setBindInit()
         setBind()
     }
 }
 
 extension AnalysisViewModel {
+    func setBindInit() {
+        output.recordZips.accept(recordHelperService.getRecordZips(Unit.item))
+        output.recordZipTableViewCellModels.accept(recordZipTableViewCellModelService.getModels())
+    }
+    
     func setBind() {
         input.tradeBarChartViewTypeOption
             .bind(to: output.tradeBarChartViewTypeOption)
@@ -61,6 +69,9 @@ extension AnalysisViewModel {
                 }
             }
             .disposed(by: disposeBag)
-        
     }
+}
+
+extension AnalysisViewModel {
+    
 }

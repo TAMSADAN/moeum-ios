@@ -14,7 +14,7 @@ extension String {
         numberFormatter.numberStyle = .decimal
         numberFormatter.roundingMode = .ceiling
         if let _ = self.range(of: ".") {
-            var numberArray = self.components(separatedBy: ".")
+            let numberArray = self.components(separatedBy: ".")
             if numberArray.count == 1 {
                 var numberString = numberArray[0]
                 if numberString.isEmpty {

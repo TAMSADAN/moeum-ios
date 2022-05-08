@@ -26,7 +26,8 @@ struct Const {
         static let caption5 = UIFont.systemFont(ofSize: 8)
         
         static let itemHeadline = UIFont.systemFont(ofSize: 14, weight: .semibold)
-        static let itemTitle = UIFont.systemFont(ofSize: 14)
+        static let itemTitle1 = UIFont.systemFont(ofSize: 15, weight: .semibold)
+        static let itemTitle2 = UIFont.systemFont(ofSize: 14)
         static let itemBody = UIFont.systemFont(ofSize: 13)
         static let itemFootnote = UIFont.systemFont(ofSize: 11)
     }
@@ -46,12 +47,16 @@ struct Const {
         static let pink = UIColor(red: 255/255, green: 55/255, blue: 95/255, alpha: 1)
         static let brown = UIColor(red: 172/255, green: 142/255, blue: 104/255, alpha: 1)
         static let black = UIColor(red: 0/255, green: 0/255, blue: 0/255, alpha: 1)
+        static let darkGray = UIColor(white: 0.33, alpha: 1)
         static let systemGray = UIColor(red: 142/255, green: 142/255, blue: 147/255, alpha: 1)
         static let systemGray2 = UIColor(red: 174/255, green: 174/255, blue: 178/255, alpha: 1)
         static let systemGray3 = UIColor(red: 199/255, green: 199/255, blue: 204/255, alpha: 1)
         static let systemGray4 = UIColor(red: 209/255, green: 209/255, blue: 214/255, alpha: 1)
         static let systemGray5 = UIColor(red: 229/255, green: 229/255, blue: 234/255, alpha: 1)
         static let systemGray6 = UIColor(red: 242/255, green: 242/255, blue: 247/255, alpha: 1)
+        
+        static let buy = Const.Color.pink
+        static let sell = Const.Color.mint
     }
     
     struct Size {
@@ -80,4 +85,34 @@ struct Const {
                                             sellChart: Chart(value: 0.4, color: Const.Color.mint))
 
     }
+}
+
+enum AppConfiguration {
+  case Debug
+  case TestFlight
+  case AppStore
+}
+
+struct Config {
+  // This is private because the use of 'appConfiguration' is preferred.
+  private static let isTestFlight = Bundle.main.appStoreReceiptURL?.lastPathComponent == "sandboxReceipt"
+  
+  // This can be used to add debug statements.
+  static var isDebug: Bool {
+    #if DEBUG
+      return true
+    #else
+      return false
+    #endif
+  }
+
+  static var appConfiguration: AppConfiguration {
+    if isDebug {
+      return .Debug
+    } else if isTestFlight {
+      return .TestFlight
+    } else {
+      return .AppStore
+    }
+  }
 }

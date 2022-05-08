@@ -39,7 +39,6 @@ extension ChartViewModel {
             items.append(item)
             priceSums.append(buyPriceAvg * buyCount)
         }
-        print(items, priceSums)
         return (items, priceSums)
     }
     

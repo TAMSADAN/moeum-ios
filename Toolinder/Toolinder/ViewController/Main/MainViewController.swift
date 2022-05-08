@@ -26,8 +26,8 @@ class MainViewController: UITabBarController {
         
         tabTwo.tabBarItem = tabTwoBarItem
         
-//        let tabFour = UINavigationController(rootViewController: AnalysisViewController())
-        let tabFour = AnalysisViewController()
+        let tabFour = UINavigationController(rootViewController: AnalysisViewController())
+//        let tabFour = AnalysisViewController()
         let tabFourBarItem = UITabBarItem(title: "분석", image: UIImage(systemName: "chart.bar.xaxis"), selectedImage: nil)
         
         tabFour.tabBarItem = tabFourBarItem

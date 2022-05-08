@@ -24,6 +24,5 @@ class WritingViewController: UIViewController {
         view.backgroundColor = .white
         self.setView()
         self.setBind()
-        print(viewModel.record)
     }
 }

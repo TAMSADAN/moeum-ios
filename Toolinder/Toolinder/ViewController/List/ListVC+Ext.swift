@@ -93,7 +93,6 @@ extension ListViewController {
             .withUnretained(self)
             .bind { owner, charData in
                 owner.pieChartView.update(items: charData.points, values: charData.values)
-                print(charData)
             }
             .disposed(by: disposeBag)
         

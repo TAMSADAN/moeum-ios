@@ -30,21 +30,6 @@ class RecordService {
     func deleteRecord(recordId: Int) {
         recordRepository.deleteRecordEntity(recordId: recordId)
     }
-    
-    func getRecordZips(_ unit: Unit) -> [RecordZip] {
-        let records: [Record] = getRecords()
-        var oldRecords: [Record] = []
-        var recordZips: [RecordZip] = []
-
-        for record in records {
-            if oldRecords.contains(where: {$0.id == record.id }) { continue }
-            let equalUnitRecords: [Record] = records.filter({ $0.isEqaulUnit(record, unit: unit) })
-            let recordZip = RecordZip(unit: unit, record: record, records: equalUnitRecords)
-            oldRecords.append(contentsOf: equalUnitRecords)
-            recordZips.append(recordZip)
-        }
-        return recordZips
-    }
 }
 
 
@@ -105,7 +90,7 @@ extension RecordService {
     }
     
     func parseToListItemModel(record: Record, recordZip: RecordZip) -> ListItemModel {
-        let (buyPriceAvg, buyCount) = recordZip.getBuyPriceData(date: record.date)
+        let (buyPriceAvg, _) = recordZip.getBuyPriceData(date: record.date)
         let sum = Int(record.price * record.count)
         let sumGap = Int(record.price * record.count - buyPriceAvg * record.count)
         let price = Int(record.price)

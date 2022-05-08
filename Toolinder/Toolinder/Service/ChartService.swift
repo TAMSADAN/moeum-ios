@@ -8,7 +8,7 @@
 import Foundation
 
 class ChartService {
-    let recordService = RecordService()
+    let recordZipService = RecordZipService()
     
     func getTradeChartZips(period: Period) -> [TradeChartZip] {
         var recordZips: [RecordZip] = []
@@ -26,13 +26,13 @@ class ChartService {
         }
         
         if period == Period.day {
-            recordZips = recordService.getRecordZips(Unit.day)
+            recordZips = recordZipService.getRecordZips(Unit.day)
         } else if period == Period.week {
-            recordZips = recordService.getRecordZips(Unit.week)
+            recordZips = recordZipService.getRecordZips(Unit.week)
         } else if period == Period.month {
-            recordZips = recordService.getRecordZips(Unit.month)
+            recordZips = recordZipService.getRecordZips(Unit.month)
         } else if period == Period.year {
-            recordZips = recordService.getRecordZips(Unit.year)
+            recordZips = recordZipService.getRecordZips(Unit.year)
         }
         
         for recordZip in recordZips {

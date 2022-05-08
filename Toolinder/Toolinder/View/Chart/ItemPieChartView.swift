@@ -60,8 +60,7 @@ class ItemPieChartView: UIView {
                 $0.setValueTextColor(.black)
             }
         
-        pieChartView
-            .then {
+        pieChartView.then {
                 $0.data = chartData
                 $0.highlightPerTapEnabled = false
                 $0.rotationEnabled = false
