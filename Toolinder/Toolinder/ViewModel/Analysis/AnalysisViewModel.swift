@@ -41,18 +41,19 @@ class AnalysisViewModel: ViewModel {
     }
     
     init() {
-        setBindInit()
         setBind()
     }
 }
 
 extension AnalysisViewModel {
-    func setBindInit() {
-        output.recordZips.accept(recordHelperService.getRecordZips(Unit.item))
-        output.recordZipTableViewCellModels.accept(recordZipTableViewCellModelService.getModels())
+    func refresh() {
+        setBind()
     }
     
     func setBind() {
+        output.recordZips.accept(recordHelperService.getRecordZips(Unit.item))
+        output.recordZipTableViewCellModels.accept(recordZipTableViewCellModelService.getModels())
+        
         input.tradeBarChartViewTypeOption
             .bind(to: output.tradeBarChartViewTypeOption)
             .disposed(by: disposeBag)

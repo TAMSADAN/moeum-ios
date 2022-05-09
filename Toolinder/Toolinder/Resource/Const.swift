@@ -10,7 +10,9 @@ import UIKit
 
 struct Const {
     struct Font {
-        static let largeTitle = UIFont.systemFont(ofSize: 34)
+        static let largeTitle = UIFont.systemFont(ofSize: 34, weight: .semibold)
+        static let largeTitle2 = UIFont.systemFont(ofSize: 30, weight: .semibold)
+        
         static let title1 = UIFont.systemFont(ofSize: 28, weight: .semibold)
         static let title2 = UIFont.systemFont(ofSize: 22, weight: .semibold)
         static let title3 = UIFont.systemFont(ofSize: 20, weight: .semibold)
@@ -57,6 +59,8 @@ struct Const {
         
         static let buy = Const.Color.pink
         static let sell = Const.Color.mint
+        static let plus = Const.Color.orange
+        static let minus = Const.Color.indigo
     }
     
     struct Size {
@@ -67,23 +71,8 @@ struct Const {
         static let calendarHeaderMaxHeight = 290.0
         static let calendarBottomSheetMinHeight = 400.0
     }
-    
-    struct Test {
-        static let tradeChart1 = TradeChart(buyChart: Chart(value: 0.1, color: Const.Color.pink),
-                                            sellChart: Chart(value: 0.2, color: Const.Color.mint))
-        static let tradeChart2 = TradeChart(buyChart: Chart(value: 0.3, color: Const.Color.pink),
-                                            sellChart: Chart(value: 0.5, color: Const.Color.mint))
-        static let tradeChart3 = TradeChart(buyChart: Chart(value: 0.8, color: Const.Color.pink),
-                                            sellChart: Chart(value: 0.1, color: Const.Color.mint))
-        static let tradeChart4 = TradeChart(buyChart: Chart(value: 0.5, color: Const.Color.pink),
-                                            sellChart: Chart(value: 0.6, color: Const.Color.mint))
-        static let tradeChart5 = TradeChart(buyChart: Chart(value: 0.8, color: Const.Color.pink),
-                                            sellChart: Chart(value: 0.9, color: Const.Color.mint))
-        static let tradeChart6 = TradeChart(buyChart: Chart(value: 0.5, color: Const.Color.pink),
-                                            sellChart: Chart(value: 0.4, color: Const.Color.mint))
-        static let tradeChart7 = TradeChart(buyChart: Chart(value: 0.2, color: Const.Color.pink),
-                                            sellChart: Chart(value: 0.4, color: Const.Color.mint))
-
+    struct Ad {
+        static var adCount = 0
     }
 }
 

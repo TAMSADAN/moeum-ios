@@ -8,10 +8,11 @@
 import UIKit
 
 class RecordTableViewAdaptor: NSObject, UITableViewDelegate, UITableViewDataSource {
-    var updateRecordZipTableViewHeightConstraint : (()->())!
+    var viewController: UIViewController!
     var recordZip: RecordZip!
     
-    func update(recordZip: RecordZip) {
+    func update(_ viewController: UIViewController, recordZip: RecordZip) {
+        self.viewController = viewController
         self.recordZip = recordZip
     }
     
@@ -32,6 +33,10 @@ class RecordTableViewAdaptor: NSObject, UITableViewDelegate, UITableViewDataSour
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-       print(indexPath)
+        let cell = tableView.cellForRow(at: indexPath) as! RecordTableViewCell
+        let writingVC = WritingViewController()
+        writingVC.modalPresentationStyle = .formSheet
+        writingVC.update(record: cell.record)
+        viewController.present(writingVC, animated: true)
     }
 }

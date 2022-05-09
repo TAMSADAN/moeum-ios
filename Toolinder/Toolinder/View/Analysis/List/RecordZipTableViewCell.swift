@@ -67,7 +67,39 @@ class RecordZipTableViewCell: UITableViewCell {
 extension RecordZipTableViewCell {
     func update(recordZip: RecordZip) {
         self.recordZip = recordZip
+        
+        let (buyPriceAvg, buyCount) = recordZip.getBuyDataAt(record: recordZip.records.first ?? Record())
+        
         itemLabel.text = recordZip.record.item
+        tagLabel.text = recordZip.record.tag
+        priceLabel.text = "평균 단가 " + String(Int(buyPriceAvg)).insertComma + "원"
+        countLabel.text = "보유 수량 " + String(Int(buyCount)).insertComma + "개"
+        dateLabel.text = (recordZip.records.first ?? Record()).date.getString()
+        
+        let profitPriceSum = recordZip.getProfitPriceSum()
+        var sumLabelText = String(Int(profitPriceSum)).insertComma + "원 "
+        
+        if !recordZip.records.contains(where: { $0.type == "매도" }) {
+            typeView.backgroundColor = Const.Color.pink
+            sumLabel.text = "매수만 했습니다"
+        } else if !recordZip.records.contains(where: { $0.type == "매수" }) {
+            typeView.backgroundColor = Const.Color.black
+            sumLabel.text = "매수 기록이 없는데 매도 기록이 있습니다"
+        } else if profitPriceSum >= 0 {
+            typeView.backgroundColor = Const.Color.orange
+            sumLabelText += "이득"
+            let sumLabelAttriRange = (sumLabelText as NSString).range(of: "이득")
+            let sumLabelAttriString = NSMutableAttributedString(string: sumLabelText)
+            sumLabelAttriString.addAttributes([.foregroundColor: Const.Color.orange, .font: Const.Font.itemHeadline], range: sumLabelAttriRange)
+            sumLabel.attributedText = sumLabelAttriString
+        } else if profitPriceSum < 0 {
+            typeView.backgroundColor = Const.Color.indigo
+            sumLabelText += "손해"
+            let sumLabelAttriRange = (sumLabelText as NSString).range(of: "손해")
+            let sumLabelAttriString = NSMutableAttributedString(string: sumLabelText)
+            sumLabelAttriString.addAttributes([.foregroundColor: Const.Color.indigo, .font: Const.Font.itemHeadline], range: sumLabelAttriRange)
+            sumLabel.attributedText = sumLabelAttriString
+        }
     }
     func setView() {
         backgroundColor = Const.Color.white
@@ -99,7 +131,6 @@ extension RecordZipTableViewCell {
         nextImageView.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            typeView.topAnchor.constraint(equalTo: topAnchor, constant: 10),
             typeView.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             typeView.centerYAnchor.constraint(equalTo: centerYAnchor),
             typeView.heightAnchor.constraint(equalToConstant: 30),

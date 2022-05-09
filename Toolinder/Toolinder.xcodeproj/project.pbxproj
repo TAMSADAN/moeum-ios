@@ -53,7 +53,8 @@
 		7076B38D281AE27000848AF9 /* BarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7076B38C281AE27000848AF9 /* BarView.swift */; };
 		70808D5128279AEA00923148 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70808D5028279AEA00923148 /* DetailViewController.swift */; };
 		70808D5328279E2F00923148 /* RecordTableViewAdaptor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70808D5228279E2F00923148 /* RecordTableViewAdaptor.swift */; };
-		70808D5628279FB200923148 /* DetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70808D5528279FB200923148 /* DetailViewModel.swift */; };
+		70808D592827EE9C00923148 /* CalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70808D582827EE9C00923148 /* CalculatorViewController.swift */; };
+		70808D5C2828033C00923148 /* CalculatorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70808D5B2828033C00923148 /* CalculatorViewModel.swift */; };
 		70905D8D27E37D8E001CB7AF /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70905D8C27E37D8E001CB7AF /* AppDelegate.swift */; };
 		70905D8F27E37D8E001CB7AF /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70905D8E27E37D8E001CB7AF /* SceneDelegate.swift */; };
 		70905DA427E37D8F001CB7AF /* ToolinderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 70905DA327E37D8F001CB7AF /* ToolinderTests.swift */; };
@@ -175,7 +176,8 @@
 		7076B38C281AE27000848AF9 /* BarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BarView.swift; sourceTree = "<group>"; };
 		70808D5028279AEA00923148 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		70808D5228279E2F00923148 /* RecordTableViewAdaptor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecordTableViewAdaptor.swift; sourceTree = "<group>"; };
-		70808D5528279FB200923148 /* DetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewModel.swift; sourceTree = "<group>"; };
+		70808D582827EE9C00923148 /* CalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewController.swift; sourceTree = "<group>"; };
+		70808D5B2828033C00923148 /* CalculatorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorViewModel.swift; sourceTree = "<group>"; };
 		70905D8927E37D8E001CB7AF /* Toolinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Toolinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		70905D8C27E37D8E001CB7AF /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		70905D8E27E37D8E001CB7AF /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -360,6 +362,7 @@
 		7037B46127FAAFDC004F3828 /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
+				70808D572827EE7E00923148 /* Calculator */,
 				70808D4F28279ACA00923148 /* Detail */,
 				70491E0228202CAA0021FDDF /* NewCalendar */,
 				70F7493527FB3B3F00B31791 /* Main */,
@@ -431,12 +434,20 @@
 			path = Detail;
 			sourceTree = "<group>";
 		};
-		70808D5428279FA300923148 /* Detail */ = {
+		70808D572827EE7E00923148 /* Calculator */ = {
 			isa = PBXGroup;
 			children = (
-				70808D5528279FB200923148 /* DetailViewModel.swift */,
+				70808D582827EE9C00923148 /* CalculatorViewController.swift */,
 			);
-			path = Detail;
+			path = Calculator;
+			sourceTree = "<group>";
+		};
+		70808D5A2828032B00923148 /* Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				70808D5B2828033C00923148 /* CalculatorViewModel.swift */,
+			);
+			path = Calculator;
 			sourceTree = "<group>";
 		};
 		70905D8027E37D8E001CB7AF = {
@@ -638,7 +649,7 @@
 		70DAF00B27F2E38800EBD946 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				70808D5428279FA300923148 /* Detail */,
+				70808D5A2828032B00923148 /* Calculator */,
 				70491E092820307E0021FDDF /* NewCalendar */,
 				70D0B07B2819904E001581AA /* Analysis */,
 				70A68F5D28163AD100E12772 /* List */,
@@ -950,6 +961,7 @@
 			files = (
 				70808D5328279E2F00923148 /* RecordTableViewAdaptor.swift in Sources */,
 				70491E0628202D980021FDDF /* CalendarCollectionViewCell.swift in Sources */,
+				70808D592827EE9C00923148 /* CalculatorViewController.swift in Sources */,
 				70C05FBA27FBDF9D00093A2C /* ListViewController.swift in Sources */,
 				702FA6ED27FD5EF9004417D9 /* TagLabel.swift in Sources */,
 				70D0B07D28199074001581AA /* AnalysisViewModel.swift in Sources */,
@@ -966,6 +978,7 @@
 				702FA6FD27FD74B8004417D9 /* WritingViewModel.swift in Sources */,
 				702FA6F727FD741D004417D9 /* RecordRepository.swift in Sources */,
 				7076B38D281AE27000848AF9 /* BarView.swift in Sources */,
+				70808D5C2828033C00923148 /* CalculatorViewModel.swift in Sources */,
 				70F3BFFF28178707006DBFFD /* ListItem.swift in Sources */,
 				70491E0B2820308E0021FDDF /* NewCalendarViewModel.swift in Sources */,
 				70E491F428081755006DB3D3 /* ChartVM+Ext.swift in Sources */,
@@ -979,7 +992,6 @@
 				70592BB52804289000106A34 /* RecordLabel.swift in Sources */,
 				70F7493727FB3B7800B31791 /* MainViewController.swift in Sources */,
 				702FA6F927FD7428004417D9 /* RecordService.swift in Sources */,
-				70808D5628279FB200923148 /* DetailViewModel.swift in Sources */,
 				70491E0F2820400F0021FDDF /* CalendarService.swift in Sources */,
 				706D9B3827FAE3A400E0DD5F /* CalendarViewController.swift in Sources */,
 				70A68F6128163B4200E12772 /* ListVM+Ext.swift in Sources */,
@@ -1195,7 +1207,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = X64MATB2CC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Toolinder/Info.plist;
@@ -1228,7 +1240,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_INCLUDE_ALL_APPICON_ASSETS = YES;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 4;
 				DEVELOPMENT_TEAM = X64MATB2CC;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Toolinder/Info.plist;

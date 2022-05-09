@@ -32,7 +32,7 @@ class MainViewController: UITabBarController {
         
         tabFour.tabBarItem = tabFourBarItem
         
-        self.viewControllers = [tabZero, tabTwo, tabFour]
+        self.viewControllers = [tabZero, tabFour]
     }
 }
 

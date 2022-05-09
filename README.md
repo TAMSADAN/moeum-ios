@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://user-images.githubusercontent.com/77970826/165248051-c1f79642-1a8c-44db-8db0-fde082f28316.png">
+  <img src="https://user-images.githubusercontent.com/77970826/167359119-ba9974e9-bdbb-47fe-9c36-caf2e4a7bf78.png">
 </p>
 
 ## Toolinder
@@ -22,19 +22,16 @@
 
 
 ## UI
-
-
 <p align="left">
-  <img width="30%" src="https://user-images.githubusercontent.com/77970826/165248722-6bc3f63a-f511-4b5f-8ff8-9c6008aa99c1.png">
-  <img width="30%" src="https://user-images.githubusercontent.com/77970826/165248247-578118b7-728b-44d6-8e54-68822a15b815.png">
-  <img width="30%" src="https://user-images.githubusercontent.com/77970826/165248253-770df2ef-cf8a-43c8-88ea-172dd9ece54a.png">
-  
-  
+  <img width="30%" src="https://user-images.githubusercontent.com/77970826/167360001-5eeb7ecc-45ac-44a4-9c4d-9447af29f318.png">
+  <img width="30%" src="https://user-images.githubusercontent.com/77970826/167359996-3bc412f6-2c0f-4007-abe4-b66a8eef276a.png">
+  <img width="30%" src="https://user-images.githubusercontent.com/77970826/167359960-8f111380-e349-458c-9d82-0ecb5a93a6be.png">  
 </p>
 
 <p align="left">
-  <img width="30%" src="https://user-images.githubusercontent.com/77970826/165248262-0f26923c-6cdd-4f91-9a3e-de49485acfae.png">
-  <img width="30%" src="https://user-images.githubusercontent.com/77970826/165248266-69146840-c866-4a31-bd5e-20485cb853c2.png">
+  <img width="30%" src="https://user-images.githubusercontent.com/77970826/167359978-e89ca0eb-a50c-4bc7-b278-27242396056a.png">
+  <img width="30%" src="https://user-images.githubusercontent.com/77970826/167359991-01071a3b-ed82-4db2-9125-30660e39a2b7.png">
+  <img width="30%" src="https://user-images.githubusercontent.com/77970826/167360004-3715d4c1-662b-44f3-a574-a38f20b264d1.png">
 </p>
 
 ## Library
@@ -51,5 +48,4 @@
 |분류|기능|설명|
 |---|---|---|
 |calendar|캘린더 뷰|매매 일지 캘린더|
-|list|리스트 뷰|매매 리스트|
-|chart|차트 뷰|매매 차트|
+|Anlysis|분석 뷰|매매 통계 및  리스트|

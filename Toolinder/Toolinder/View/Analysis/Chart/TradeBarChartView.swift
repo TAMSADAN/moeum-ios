@@ -134,48 +134,7 @@ extension TradeBarChartView {
     }
     
     func updatePeriodOption(option: Int) {
-//        if option == 0 {
-//
-//        } else if option == 1 {
-//            refresh()
-//            for tradeChart in tradeChartZip.TradeCharts {
-//                tradeBarViews.append(TradeBarView(tradeChart: tradeChart))
-//            }
-//
-//            for tradeChart in tradeChartZip.TradeCharts {
-//                tradeBarViews.append(TradeBarView(tradeChart: tradeChart))
-//            }
-//
-//            print(tradeBarViews.count)
-//
-//            for (i, tradeBarView) in tradeBarViews.enumerated() {
-//                addSubview(tradeBarView)
-//
-//                tradeBarView.translatesAutoresizingMaskIntoConstraints = false
-//
-//                NSLayoutConstraint.activate([
-//                    tradeBarView.topAnchor.constraint(equalTo: typeSegmentControl.bottomAnchor, constant: 10),
-//                    tradeBarView.widthAnchor.constraint(equalTo: widthAnchor, multiplier: CGFloat(1) / CGFloat(14)),
-//                    tradeBarView.bottomAnchor.constraint(equalTo: bottomAnchor),
-//                ])
-//
-//                if tradeBarView == tradeBarViews.first {
-//                    NSLayoutConstraint.activate([
-//                        tradeBarView.leadingAnchor.constraint(equalTo: leadingAnchor),
-//                    ])
-//                } else if tradeBarView == tradeBarViews.last {
-//                    NSLayoutConstraint.activate([
-//                        tradeBarView.trailingAnchor.constraint(equalTo: trailingAnchor),
-//                    ])
-//                } else {
-//                    NSLayoutConstraint.activate([
-//                        tradeBarView.leadingAnchor.constraint(equalTo: tradeBarViews[i-1].trailingAnchor),
-//                    ])
-//                }
-//            }
-//        } else {
-//
-//        }
+
     }
     
     func refresh() {

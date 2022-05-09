@@ -30,11 +30,9 @@ class AnalysisViewController: UIViewController, GADFullScreenContentDelegate {
         }
     var recordZipTableView = UITableView().then {
         $0.register(RecordZipTableViewCell.self, forCellReuseIdentifier: RecordZipTableViewCell.identifier)
-        $0.register(RecordTableViewCell.self, forCellReuseIdentifier: RecordTableViewCell.identifier)
         $0.backgroundColor = .white
         $0.separatorStyle = .none
-        $0.estimatedRowHeight = 120
-        $0.rowHeight = UITableView.automaticDimension
+        $0.rowHeight = 65
         $0.isScrollEnabled = false
     }
     var recordZipTableViewAdaptor = RecordZipTableViewAdaptor()
@@ -47,26 +45,17 @@ class AnalysisViewController: UIViewController, GADFullScreenContentDelegate {
         title = "분석"
         setView()
         setBind()
-        let request = GADRequest()
-        GADInterstitialAd.load(withAdUnitID: Secret.Key.fullAdmobId,
-                               request: request,
-                               completionHandler: { [self] ad, error in
-            if let error = error {
-                print("Failed to load interstitial ad with error: \(error.localizedDescription)")
-                return
-            }
-            interstitial = ad
-            interstitial?.fullScreenContentDelegate = self
-        }
-        )
     }
-    
-    
     
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         recordZipListViewHeightConstraint.constant = recordZipTableView.contentSize.height
         print(recordZipTableView.contentSize.height)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        viewModel.refresh()
     }
     
 //    override func viewDidAppear(_ animated: Bool) {

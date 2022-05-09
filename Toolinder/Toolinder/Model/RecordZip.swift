@@ -17,6 +17,18 @@ struct RecordZip {
         records.append(record)
     }
     
+    func getProfitPriceSum() -> Double {
+        var records = records.sorted(by: { $0.date < $1.date})
+        records = records.filter({ $0.type == "매도" })
+        
+        var profitPriceSum = 0.0
+        for record in records {
+            profitPriceSum += getProfitPriceAt(record: record)
+        }
+        
+        return profitPriceSum
+    }
+    
     func getProfitPriceAt(record: Record) -> Double {
         let (buyAvgPrice, _) = getBuyDataAt(record: record)
         
