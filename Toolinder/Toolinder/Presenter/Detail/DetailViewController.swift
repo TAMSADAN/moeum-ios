@@ -56,7 +56,7 @@ class DetailViewController: UIViewController, GADFullScreenContentDelegate {
                                request: request,
                                completionHandler: { [self] ad, error in
             if let error = error {
-                print("Failed to load interstitial ad with error: \(error.localizedDescription)")
+                Log("광고 로드의 에러가 발생했습니다.")
                 return
             }
             interstitial = ad
@@ -67,6 +67,7 @@ class DetailViewController: UIViewController, GADFullScreenContentDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        Log("로드 되었습니다.")
         setNavigation()
         setView()
         setTableView()
@@ -75,8 +76,6 @@ class DetailViewController: UIViewController, GADFullScreenContentDelegate {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        print("DetailVC viewDidAppear")
-        
     }
     
 }
@@ -154,14 +153,14 @@ extension DetailViewController {
 extension DetailViewController {
     func tryAd() {
         if Const.Ad.adCount >= 1 {
-            print("이미 광고를 한번 시청했습니다.")
+            Log("이미 광고를 한번 시청했습니다.")
             return
         }
         if interstitial != nil {
             interstitial?.present(fromRootViewController: self)
             Const.Ad.adCount += 1
         } else {
-            print("광고가 로드되지 않았습니다.")
+            Log("광고가 로드되지 않았습니다.")
         }
     }
     

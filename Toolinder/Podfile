@@ -11,6 +11,7 @@ target 'Toolinder' do
   pod 'RealmSwift'
   pod 'Charts'
   pod 'Google-Mobile-Ads-SDK'
+  pod 'SnapKit'
 
   # Pods for Toolinder
 

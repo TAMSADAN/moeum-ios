@@ -24,7 +24,6 @@ extension ListViewModel {
             .bind { owner, records in
                 owner.output.records.accept(records.reversed())
                 owner.output.tradeHistoryCount.accept(records.count)
-                print(owner.recordService.getRecordZipsISOLDCODE(tag: false, item: true))
             }
             .disposed(by: disposeBag)
         

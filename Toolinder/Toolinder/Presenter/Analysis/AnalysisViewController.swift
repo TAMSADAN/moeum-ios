@@ -36,13 +36,13 @@ class AnalysisViewController: UIViewController, GADFullScreenContentDelegate {
         $0.isScrollEnabled = false
     }
     var recordZipTableViewAdaptor = RecordZipTableViewAdaptor()
-    
     var recordZipListViewHeightConstraint = NSLayoutConstraint()
+    
     private var interstitial: GADInterstitialAd?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "분석"
+        setNavigation()
         setView()
         setBind()
     }
@@ -50,21 +50,12 @@ class AnalysisViewController: UIViewController, GADFullScreenContentDelegate {
     override func viewWillLayoutSubviews() {
         super.viewWillLayoutSubviews()
         recordZipListViewHeightConstraint.constant = recordZipTableView.contentSize.height
-        print(recordZipTableView.contentSize.height)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         viewModel.refresh()
     }
-    
-//    override func viewDidAppear(_ animated: Bool) {
-//        if interstitial != nil {
-//            interstitial?.present(fromRootViewController: self)
-//        } else {
-//            print("Ad wasn't ready")
-//        }
-//    }
 }
 
 extension AnalysisViewController {
@@ -72,7 +63,15 @@ extension AnalysisViewController {
         recordZipListViewHeightConstraint.constant = recordZipTableView.contentSize.height
     }
     
+    func setNavigation() {
+        title = "분석"
+    }
+    
     func setView() {
+        view.backgroundColor = .white
+        recordZipTableView.delegate = recordZipTableViewAdaptor
+        recordZipTableView.dataSource = recordZipTableViewAdaptor
+        
         view.addSubview(scrollView)
         scrollView.addSubview(tradeBarChartView)
         scrollView.addSubview(divider)
@@ -85,13 +84,7 @@ extension AnalysisViewController {
         recordZipTableLabel.translatesAutoresizingMaskIntoConstraints = false
         recordZipTableView.translatesAutoresizingMaskIntoConstraints = false
         
-        view.backgroundColor = .white
-        
-        recordZipTableView.delegate = recordZipTableViewAdaptor
-        recordZipTableView.dataSource = recordZipTableViewAdaptor
-        
         recordZipListViewHeightConstraint = recordZipTableView.heightAnchor.constraint(equalToConstant: 0)
-        
         NSLayoutConstraint.activate([
             scrollView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 15),
             scrollView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor),
@@ -146,37 +139,6 @@ extension AnalysisViewController {
                 owner.recordZipTableView.reloadData()
             }
             .disposed(by: disposeBag)
-        
-//        viewModel.output.recordZipTableViewCellModels
-//            .withUnretained(self)
-//            .bind { owner, recordZipTableViewCellModels in
-//                owner.recordZipTableViewAdaptor.update(recordZips: <#T##[RecordZip]#>)
-//                owner.recordZipTableView.reloadData()
-//            }
-//            .disposed(by: disposeBag)
-        
-//        viewModel.output.recordZips
-//            .withUnretained(self)
-//            .bind { owner, recordZips in
-//                owner.recordZipTableViewAdaptor.recordZips = recordZips
-//                owner.recordZipTableView.reloadData()
-//            }
-//            .disposed(by: disposeBag)
-
-//        viewModel.output.recordZips
-//            .bind(to: recordZipTableView.rx.items(cellIdentifier: RecordZipTitleTableViewCell.identifier, cellType: RecordZipTitleTableViewCell.self)) {
-//                index, tmp, cell in
-//                cell.selectionStyle = .none
-//            }
-//            .disposed(by: disposeBag)
-        
-//        viewModel.output.listItemModels
-//            .bind(to: listTableView.rx.items(cellIdentifier: ListTableViewCell.identifier, cellType: ListTableViewCell.self)) {
-//                index, listItemModel, cell in
-//                cell.update(listItemModel: listItemModel)
-//                cell.selectionStyle = .none
-//            }
-//            .disposed(by: disposeBag)
         
         viewModel.output.tradeBarChartViewTypeOption
             .withUnretained(self)

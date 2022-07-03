@@ -45,7 +45,6 @@ extension NewCalendarBottomSheetView {
     
     func setView() {
         backgroundColor = Const.Color.white
-        
         addSubview(divider)
         addSubview(titleLabel)
         addSubview(hideButton)

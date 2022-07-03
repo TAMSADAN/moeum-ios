@@ -10,32 +10,22 @@ import RxSwift
 import RxCocoa
 
 class AnalysisViewModel: ViewModel {
-    let recordService = RecordService()
-    let chartDataService = ChartDataService()
     let chartService = ChartService()
     let recordHelperService = RecordZipService()
-    let recordZipTableViewCellModelService = RecordZipTableViewCellModelService()
-    
     var disposeBag = DisposeBag()
     
     var input = Input()
     var output = Output()
     
     struct Input {
-        let refresh = BehaviorSubject(value: false)
-        let records = BehaviorSubject(value: [Record()])
         let itemRecordZips = BehaviorSubject(value: [RecordZip()])
-        
         let tradeBarChartViewTypeOption = BehaviorSubject(value: 0)
         let tradeBarChartViewPeriodOption = BehaviorSubject(value: 0)
     }
     
     struct Output {
-        let tradeChartZips = BehaviorRelay(value: [
-            TradeChartZip(),
-        ])
+        let tradeChartZips = BehaviorRelay(value: [TradeChartZip()])
         let recordZips = BehaviorRelay(value: [RecordZip()])
-        let recordZipTableViewCellModels = BehaviorRelay(value: [RecordZipTableViewCellModel()])
         let tradeBarChartViewTypeOption = BehaviorRelay(value: 0)
         let tradeBarChartViewPeriodOption = BehaviorRelay(value: 0)
     }
@@ -52,7 +42,6 @@ extension AnalysisViewModel {
     
     func setBind() {
         output.recordZips.accept(recordHelperService.getRecordZips(Unit.item))
-        output.recordZipTableViewCellModels.accept(recordZipTableViewCellModelService.getModels())
         
         input.tradeBarChartViewTypeOption
             .bind(to: output.tradeBarChartViewTypeOption)

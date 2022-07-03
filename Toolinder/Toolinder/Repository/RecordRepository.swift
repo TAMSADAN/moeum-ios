@@ -21,7 +21,6 @@ class RecordRepository {
     }
     
     func postRecordEntity(recordEntity: RecordEntity) {
-//        print(recordEntity)
         if let object = instance.objects(RecordEntity.self).first(where: {$0.id == recordEntity.id}) {
             if recordEntity.id != -1 {
                 try? instance.write {

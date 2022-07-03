@@ -76,18 +76,9 @@ extension WritingViewModel {
             }
             .disposed(by: disposeBag)
         
-//        input.recordZips
-//            .bind { s in
-//                print(s)
-//            }
-//            .disposed(by: disposeBag)
-        
         Observable.combineLatest(input.count, input.typeIndex)
             .bind { [weak self] count, typeIndex in
                 let countSum = self?.output.recordZip.value.getCountSum(date: self?.record.date ?? Date()) ?? -1
-//                print("---------------")
-//                print(self?.record)
-//                print(self?.output.recordZip.value)
                 if typeIndex == 1 {
                     if countSum >= count {
                         self?.output.countCaption.accept(("입력 가능한 숫자입니다.", 1))
